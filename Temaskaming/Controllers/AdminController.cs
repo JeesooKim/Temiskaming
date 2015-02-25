@@ -14,10 +14,12 @@ namespace Temiskaming.Controllers
 
         public ActionResult Index(bool? logout)
         {
+            //Check to see if Session has been created and no LOGOUT
             if (Session["ID"] != null && logout != true)
             {
                 return View("Welcome");
             } 
+            //If logout = true, then abandon session, effectively logging user out
             else if(logout == true)
             {
                 Session.Abandon();
