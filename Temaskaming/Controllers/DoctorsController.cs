@@ -14,13 +14,6 @@ namespace FindADoctor.Controllers
         // GET: /Doctors/
         doctorClass objDoc = new doctorClass();
 
-
-        public ActionResult Index()
-        {
-            var doc = objDoc.getDoctors();
-            return View(doc);
-        }
-
         public ActionResult Details(int id)
         {
             var doc = objDoc.getDoctorByID(id);
@@ -35,94 +28,9 @@ namespace FindADoctor.Controllers
         }
 
 
-        public ActionResult Insert()
-        {
-            return View();
-        }
 
-
-        [HttpPost]
-        public ActionResult Insert(doctor doc)
-        {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    objDoc.commitInsert(doc);
-                    return RedirectToAction("Index");
-                }
-                catch
-                {
-                    return View();
-                }
-
-            }
-
-            return View();
-        }
-
-        public ActionResult Update(int id)
-        {
-            var doc = objDoc.getDoctorByID(id);
-            if (doc == null)
-            {
-                return HttpNotFound();
-            }
-            else
-            {
-                return View(doc);
-            }
-        }
-
-        [HttpPost]
-        public ActionResult Update(int id, doctor doc)
-        {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    objDoc.commitUpdate(id, doc.fname, doc.lname, doc.title, doc.department, doc.role, doc.program, doc.status, doc.email, doc.extension, doc.phone, doc.office, doc.office_hr, doc.bio);
-                    return RedirectToAction("Details/" + id);
-                }
-                catch
-                {
-                    return View();
-                }
-            }
-            return View();
-        }
-
-
-        public ActionResult Delete(int id)
-        {
-
-            var doc = objDoc.getDoctorByID(id);
-            if (doc == null)
-            {
-                return HttpNotFound();
-            }
-            else
-            {
-                return View(doc);
-            }
-        }
-
-        [HttpPost]
-        public ActionResult Delete(int id, doctor doc)
-        {
-            try
-            {
-                objDoc.commitDelete(id);
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-
-        public ActionResult SearchIndex(string medicalDepartment, string searchString)
+        // public ActionResult SearchIndex(string searchString)
+        public ActionResult Index(string medicalDepartment, string searchString)
         {
 
             var DepartLst = new List<string>();
@@ -158,22 +66,9 @@ namespace FindADoctor.Controllers
                 return View(doctors.Where(x => x.department == medicalDepartment));
             }
         }
-
-        //public ActionResult SearchIndex(string searchString)
-        //{
-        //    //string searchString =id;
-        //    var doctors = from d in objDoc.getDoctors()
-        //                  select d;
-        //    if(!String.IsNullOrEmpty(searchString))
-        //    {
-        //        doctors = doctors.Where(s => s.lname.Contains(searchString));
-        //    }
-
-        //    return View(doctors);
-        //}
-
     }
 }
+
 
 //[Team2]Temiskaming-Hospital website Dedesign Project @ Humber college
 //Feature: Find a doctor
