@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace FindADoctor.Models
-{//FindADoctor: name of the project
+namespace Temiskaming.Models
+{//FindADoctor: name of the project  ---> Team Project name: Temiskaming
+
     public class doctorClass
-    {
-
-        //class name: doctorClass
-
-        doctorLinqDataContext objDoc = new doctorLinqDataContext();
+    {    //class name: doctorClass  
+        
+        databaseDataContext objDoc = new databaseDataContext();
+        
         //creating an instance of LINQ object: objDoc
 
 
