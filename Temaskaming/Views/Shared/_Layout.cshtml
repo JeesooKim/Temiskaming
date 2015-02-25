@@ -14,6 +14,7 @@
         <div id="logo">
 
         </div>
+        @Html.Partial("_LoginPartial");
         <nav>
             <ul>
                 @{Html.RenderAction("Nav", "Home", new { group = "Home" });}
