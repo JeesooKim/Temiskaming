@@ -26,5 +26,11 @@
         <elementListCompartment Id="a9020ca3-0ed3-444a-a9da-8f6caf0a00a0" absoluteBounds="6.8900000000000006, 0.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="99976909-5af7-4123-9d34-a19403dbc6fb" absoluteBounds="0.5, 2.375, 2, 3.5016097005208326">
+      <DataClassMoniker Name="/databaseDataContext/doctor" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4124af99-c5c4-4300-8a38-ccdea89e6aaa" absoluteBounds="0.51500000000000012, 2.835, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>
