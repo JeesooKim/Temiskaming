@@ -150,6 +150,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>database.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\doctorClass.cs" />
     <Compile Include="Models\jobapplicationValidation.cs" />
     <Compile Include="Models\linqjobsClass.cs" />
     <Compile Include="Models\navClass.cs" />
