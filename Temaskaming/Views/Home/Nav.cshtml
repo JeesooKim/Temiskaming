@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Temiskaming.Models.navigation>
+<ul>
+    @foreach (var x in Model)
+    {
+        if (x.viewpath != null && x.controller != "Editable")
+        {
+            <li>@Html.ActionLink(x.name, x.viewpath, x.controller)</li>
+        } else if(x.viewpath != null && x.controller == "Editable")
+        {
+            <li>@Html.ActionLink(x.name, "Index", x.controller, new { id = x.id }, null)</li>
+        }
+        else if (x.viewpath == null)
+        {
+            <li><a href="#">@x.name</a></li>
+        }
+    }
+</ul>

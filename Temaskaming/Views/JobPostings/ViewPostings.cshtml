@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Temiskaming.Models.job>
+
+@{
+    ViewBag.Title = "Temaskaming - View Postings";
+}
+
+<h2>View Postings</h2>
+
+@Scripts.Render("~/bundles/jqueryui")
+
+<script>
+      $(function () {
+          $("#accordion").accordion();
+      });
+</script>
+
+<div id="accordion">
+    @foreach (var x in Model)
+    {
+        <h3>@Html.DisplayFor(model => x.jobtitle)</h3>
+        <div>
+            <p>
+                @Html.DisplayFor(model => x.jobdescr)
+            </p>
+            @Html.ActionLink("Apply for this job", "ApplytoJob", "JobPostings")
+        </div>
+    }
+</div>

@@ -1,0 +1,26 @@
+﻿@model Temiskaming.Models.admin
+@{
+    ViewBag.Title = "Temiskaming - ADMIN";
+    @Styles.Render("~/Content/Admin.css")
+}
+
+<h2>ADMIN</h2>
+<div id="loginErrors">
+    <p>@ViewBag.Error</p>
+    <p>@ViewBag.Message</p>
+    
+</div>
+
+@using (Html.BeginForm("Welcome", "Admin", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.login)
+    @Html.TextBoxFor(x => x.login)
+    @Html.ValidationMessageFor(x => x.login, "* Username is required")
+    <br />
+    @Html.LabelFor(x => x.pass)
+    @Html.PasswordFor(x => x.pass)
+    @Html.ValidationMessageFor(x => x.pass, "* Password is required")
+    <br />
+    <input type="submit" value="Login" />
+    <br />
+}

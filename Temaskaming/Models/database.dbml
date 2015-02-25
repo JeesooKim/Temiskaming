@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Temiskaming" Class="databaseDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=www.sumeetb.com;Initial Catalog=Temiskaming;Persist Security Info=True;User ID=temismain" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="TemiskamingConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.navigation" Member="navigations">
+    <Type Name="navigation">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="viewpath" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="controller" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[group]" Member="group" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.jobapplications" Member="jobapplications">
+    <Type Name="jobapplication">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="jobtitle" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="aname" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="aphone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="aemail" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="aresume" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="acoverletter" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="anotes" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.jobs" Member="jobs">
+    <Type Name="job">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="jobtitle" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="jobdescr" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="posteddate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="qualifications" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="duration" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.admin" Member="admins">
+    <Type Name="admin">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="login" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="pass" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

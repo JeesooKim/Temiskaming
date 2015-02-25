@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/Site.css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <header>
+        <div id="logo">
+
+        </div>
+        <nav>
+            <ul>
+                @{Html.RenderAction("Nav", "Home", new { group = "Home" });}
+                @*Uses partial views to render dynamic menu*@
+            </ul>
+        </nav>
+    </header>
+    <div id="container">
+        <div id="content">
+            @RenderBody()
+        </div>
+        <aside>
+            <div id="alertBox">
+                <h2>Alert</h2>
+                <div id="alert">
+
+                </div>
+            </div>
+            <div id="chatBox">
+                <h2>Live Chat</h2>
+                <div id="chat">
+
+                </div>
+            </div>
+            <div id="giftBox">
+                <h2>Gift Shop</h2>
+            </div>
+            <div id="donateBox">
+                <h2>@Html.ActionLink("Donate", "Index", "Donation")</h2>
+            </div>
+            <div id="appointBox">
+                <h2>Book an Appointment</h2>
+            </div>
+        </aside>
+    </div>
+    <footer>
+      
+
+        <nav>
+            <ul>
+                <li><a href="#">Newsletter Signup</a></li>
+                <li><a href="#">Survey</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Site Map</a></li>
+                <li>@Html.ActionLink("Admin", "Index", "Admin")</li>
+            </ul>
+        </nav>
+    </footer>
+    
+    @RenderSection("scripts", required: false)
+</body>
+</html>

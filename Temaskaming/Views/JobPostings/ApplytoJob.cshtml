@@ -1,0 +1,80 @@
+﻿@model Temiskaming.Models.jobapplicationValidation
+
+@{
+    ViewBag.Title = "Apply";
+}
+
+<h2>ApplytoJob</h2>
+@* form with controls and validation for them which adds records to review database *@
+@using (Html.BeginForm())
+{
+    <table>
+        <tr>
+            @*label, textbox and validation message for sender *@
+            <td>
+                @Html.LabelFor(model => model.jobtitle)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.jobtitle)
+                @Html.ValidationMessageFor(model => model.jobtitle, "*")
+            </td>
+        </tr>
+        <tr>
+            @*label, textbox and validation message for receiver *@
+            <td>
+                @Html.LabelFor(model => model.aname)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.aname)
+                @Html.ValidationMessageFor(model => model.aname, "*")
+            </td>
+        </tr>
+        <tr>
+            @*label, textbox and validation message for number of days stayed *@
+            <td>
+                @Html.LabelFor(model => model.aphone)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.aphone)
+                @Html.ValidationMessageFor(model => model.aphone, "*")
+            </td>
+        </tr>
+        <tr>
+            @*label, textbox and validation message for number of days stayed *@
+            <td>
+                @Html.LabelFor(model => model.aemail)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.aemail)
+                @Html.ValidationMessageFor(model => model.aemail, "*")
+            </td>
+        </tr>
+        <tr>
+            @*label, textbox and validation message for number of days stayed *@
+            <td>
+                @Html.LabelFor(model => model.acoverletter)
+            </td>
+            <td>
+                @Html.TextAreaFor(model => model.acoverletter)
+                @Html.ValidationMessageFor(model => model.acoverletter, "*")
+            </td>
+        </tr>
+        <tr>
+            @*label, textbox and validation message for number of days stayed *@
+            <td>
+                @Html.LabelFor(model => model.aresume)
+            </td>
+            <td>
+                @Html.TextAreaFor(model => model.aresume)
+                @Html.ValidationMessageFor(model => model.aresume, "*")
+            </td>
+        </tr>
+    </table>
+    @* submit button for inserting new review *@
+    <input type="submit" value="Apply" />
+    <br /> <br />
+    @Html.ValidationSummary()
+}
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
