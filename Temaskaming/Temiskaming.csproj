@@ -135,7 +135,6 @@
     <Compile Include="Controllers\CMSController.cs" />
     <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\EditableController.cs" />
-    <Compile Include="Controllers\FindadocController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobPostingsController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
