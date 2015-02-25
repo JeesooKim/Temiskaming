@@ -1,0 +1,47 @@
+﻿@model FindADoctor.Models.doctor
+
+@{
+    ViewBag.Title = "Doctor Details: " + @Model.lname;
+}
+
+
+@{
+    ViewBag.Heading = "Admin-Doctor in Detail";
+}
+
+<h3>Dr. @Html.DisplayFor(x => x.fname) &nbsp; @Html.DisplayFor(x => x.lname)</h3>
+<fieldset>
+    <legend>About Doctor</legend>
+    <table>
+        <tr><td>@Html.DisplayNameFor(x => x.status) : </td><td>@Html.DisplayFor(x => x.status)  </td></tr>
+        <tr><td>@Html.DisplayNameFor(x => x.title):</td> <td>@Html.DisplayFor(x => x.title) </td> </tr>
+        <tr><td>@Html.DisplayNameFor(x => x.department):</td><td> @Html.DisplayFor(x => x.department)</td></tr>
+        <tr><td>Special role:</td><td>@Html.DisplayFor(x => x.role)</td></tr>
+        <tr><td>Program involved:</td> <td>@Html.DisplayFor(x => x.program)</td></tr>
+
+        <tr><td>@Html.DisplayNameFor(x => x.bio): </td><td>@Html.DisplayFor(x => x.bio)</td></tr>
+    </table>
+</fieldset>
+<fieldset>
+    <legend>Contact Info</legend>
+    <table>
+        <tr><td>@Html.DisplayNameFor(x => x.email): </td><td>@Html.DisplayFor(x => x.email)</td></tr>
+        <tr><td>@Html.DisplayNameFor(x => x.extension): </td><td>@Html.DisplayFor(x => x.extension)</td></tr>
+        <tr><td>@Html.DisplayNameFor(x => x.phone): </td><td>@Html.DisplayFor(x => x.phone)</td></tr>
+        <tr><td>@Html.DisplayNameFor(x => x.office): </td><td>@Html.DisplayFor(x => x.office)</td></tr>
+        <tr><td>@Html.DisplayNameFor(x => x.office_hr): </td><td>@Html.DisplayFor(x => x.office_hr)</td></tr>
+    </table>
+</fieldset>
+
+
+<p>
+    @Html.ActionLink("Back to List", "Index", "Doctors") |
+    @Html.ActionLink("Update", "Update", new { id = Model.Id }) |
+    @Html.ActionLink("Delete", "Delete", new { id = Model.Id })
+</p>
+
+
+@*[Team2]Temiskaming-Hospital website Dedesign Project @ Humber college
+    Feature: Find a doctor
+    Author: Jeesoo Kim
+     Feb 17, 2015*@

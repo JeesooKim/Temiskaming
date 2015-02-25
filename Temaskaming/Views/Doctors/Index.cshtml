@@ -1,0 +1,26 @@
+﻿@model IEnumerable<FindADoctor.Models.doctor>
+
+@{
+    ViewBag.Title = "Index";
+}
+@{
+    ViewBag.Heading = "Admin- Find a Doctor";
+}
+<h2>Doctors</h2>
+
+<p>@Html.ActionLink("Register a New Doctor", "Insert", "Doctors")</p>
+
+<p>@Html.ActionLink("Search for a Doctor", "SearchIndex", "Doctors")</p>
+
+<ul>
+    @foreach (var x in Model)
+    {
+        <li>Dr. @Html.ActionLink(x.lname, "Details", new { id = x.Id })</li>
+    }
+</ul>
+
+
+@*[Team2]Temiskaming-Hospital website Dedesign Project @ Humber college
+    Feature: Find a doctor
+    Author: Jeesoo Kim
+     Feb 17, 2015*@

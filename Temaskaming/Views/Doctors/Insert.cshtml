@@ -1,0 +1,101 @@
+﻿@model FindADoctor.Models.doctor
+@{
+    ViewBag.Title = "Register a New Doctor";
+}
+
+@{
+    ViewBag.Heading = "Admin-Register Doctors";
+}
+
+<div class="sub_heading">
+    <h2>Register a New Doctor</h2>
+</div>
+
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    <table>
+        <tr>
+            <td>@Html.LabelFor(model => model.fname)*</td>
+            <td>@Html.TextBoxFor(model => model.fname)</td>
+            <td>@Html.ValidationMessageFor(model => model.fname, "*")</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.lname)*</td>
+            <td>@Html.TextBoxFor(model => model.lname)</td>
+            <td>@Html.ValidationMessageFor(model => model.lname, "*")</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.status)</td>
+            <td>@Html.TextBoxFor(model => model.status)</td>
+            <td>@Html.ValidationMessageFor(model => model.status, "*")</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.title)* </td>
+            <td>@Html.TextBoxFor(model => model.title, new { @Value = "Physician" })</td>
+            <td>@Html.ValidationMessageFor(model => model.title, "*")</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.department)*</td>
+            <td>@Html.TextBoxFor(model => model.department, new { @Value = "General" })</td>
+            <td>@Html.ValidationMessageFor(model => model.department, "*")</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.role)</td>
+            <td>@Html.TextBoxFor(model => model.role)</td>
+            <td>@Html.ValidationMessageFor(model => model.role, "*")</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.program)</td>
+            <td>@Html.TextBoxFor(model => model.program)</td>
+            <td>@Html.ValidationMessageFor(model => model.program, "*")</td>
+        </tr>
+
+        <tr>
+            <td>@Html.LabelFor(model => model.email)*</td>
+            <td>@Html.TextBoxFor(model => model.email, new { @Value = "*@temiskaming-hospital.com" })</td>     @*new { @Value = "12",@type="hidden" }*@
+            <td>@Html.ValidationMessageFor(model => model.email, "*")</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.extension)*</td>
+            <td>@Html.TextBoxFor(model => model.extension)</td>
+            <td>@Html.ValidationMessageFor(model => model.extension, "*")</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.phone)</td>
+            <td>@Html.TextBoxFor(model => model.phone)</td>
+            <td>@Html.ValidationMessageFor(model => model.phone, "*")</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.office)</td>
+            <td>@Html.TextBoxFor(model => model.office)</td>
+            <td>@Html.ValidationMessageFor(model => model.office, "*")</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.office_hr)</td>
+            <td>@Html.TextBoxFor(model => model.office_hr)</td>
+            <td>@Html.ValidationMessageFor(model => model.office_hr, "*")</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.bio)</td>
+            <td>@Html.TextAreaFor(model => model.bio)</td>
+            <td>@Html.ValidationMessageFor(model => model.bio, "*")</td>
+        </tr>
+    </table>
+
+    <br />
+    <input type="submit" value="Register" />
+}
+
+<p>@Html.ActionLink("Back to List", "Index")</p>
+
+@section Scripts{
+
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@*[Team2]Temiskaming-Hospital website Dedesign Project @ Humber college
+    Feature: Find a doctor
+    Author: Jeesoo Kim
+    Feb 17, 2015*@
