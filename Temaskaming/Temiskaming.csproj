@@ -270,10 +270,6 @@
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Doctors\Index.cshtml" />
     <Content Include="Views\Doctors\Details.cshtml" />
-    <Content Include="Views\Doctors\Insert.cshtml" />
-    <Content Include="Views\Doctors\Update.cshtml" />
-    <Content Include="Views\Doctors\Delete.cshtml" />
-    <Content Include="Views\Doctors\SearchIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

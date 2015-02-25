@@ -7,10 +7,11 @@ namespace Temiskaming.Models
 {//FindADoctor: name of the project  ---> Team Project name: Temiskaming
 
     public class doctorClass
-    {    //class name: doctorClass  
-        
+    {
+
+        //class name: doctorClass
+
         databaseDataContext objDoc = new databaseDataContext();
-        
         //creating an instance of LINQ object: objDoc
 
 
