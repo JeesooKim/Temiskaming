@@ -1,0 +1,28 @@
+﻿@model Temiskaming.Models.doctor
+
+@{
+    ViewBag.Title = "Delete Doctor: " + @Model.lname;
+}
+
+@{
+    ViewBag.Heading = "Admin-Delete Doctors";
+}
+
+
+<div class="sub_heading">
+    <h2>Are you sure you want to delete Dr.<em> @Model.fname  @Model.lname</em>?</h2>
+</div>
+
+@using (Html.BeginForm())
+{
+    <div>
+        <input type="submit" value="Delete" />
+        <br /><br />
+        @Html.ActionLink("Back to details", "Details", new { id = Model.Id })
+    </div>
+}
+
+@*[Team2]Temiskaming-Hospital website Dedesign Project @ Humber college
+    Feature: Find a doctor
+    Author: Jeesoo Kim
+     Feb 17, 2015*@s
