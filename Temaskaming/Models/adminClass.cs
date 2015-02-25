@@ -20,5 +20,6 @@ namespace Temiskaming.Models
             var admin = objAdmin.admins.SingleOrDefault(x => x.login == _login && x.pass == _pass);
             return admin.id;
         }
+        ///WHOOOOA
     }
 }
