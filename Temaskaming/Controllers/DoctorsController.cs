@@ -32,6 +32,8 @@ namespace FindADoctor.Controllers
         // public ActionResult SearchIndex(string searchString)
         public ActionResult Index(string medicalDepartment, string searchString)
         {
+            //ViewBag.CurrentFilter = searchString;
+             //http://forums.asp.net/t/2026344.aspx?How+to+keep+the+search+term+in+textbox+after+postback+when+implemented+with+jquery+Watermark+MVC4+Razorview
 
             var DepartLst = new List<string>();
             //this creates a List object to hold medical departments from the database.
@@ -70,7 +72,7 @@ namespace FindADoctor.Controllers
 }
 
 
-//[Team2]Temiskaming-Hospital website Dedesign Project @ Humber college
+//[Team2]Temiskaming-Hospital website Redesign Project @ Humber college
 //Feature: Find a doctor
 //Author: Jeesoo Kim
 // Feb 17, 2015

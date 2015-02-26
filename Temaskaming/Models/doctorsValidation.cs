@@ -38,11 +38,11 @@ namespace FindADoctor.Models
         public string department { get; set; }
 
         [DisplayName("Special Role")]
-        //[Required(ErrorMessage = "Please enter department")]
+        //[Required(ErrorMessage = "Please enter Special Role")]
         public string role { get; set; }
 
         [DisplayName("Program")]
-        //[Required(ErrorMessage = "Please enter department")]
+        //[Required(ErrorMessage = "Please enter Program involved")]
         public string program { get; set; }
 
         [DisplayName("Email")]
@@ -57,24 +57,24 @@ namespace FindADoctor.Models
 
         [DisplayName("Phone")]
         //[Required(ErrorMessage = "Please enter phone number")]
-        //[RegularExpression("\d{4}", ErrorMessage = "Please enter a four digit extension")]
+        //[RegularExpression("\d{4}", ErrorMessage = "Please enter a phone number")]
         public string phone { get; set; }
 
         [DisplayName("Office")]
-        //[Required(ErrorMessage = "Please enter department")]
+        //[Required(ErrorMessage = "Please enter the office")]
         public string office { get; set; }
 
         [DisplayName("Office Hour")]
-        //[Required(ErrorMessage = "Please enter department")]
+        //[Required(ErrorMessage = "Please enter office hour")]
         public string office_hr { get; set; }
 
         [DisplayName("Brief Bio")]
-        //[Required(ErrorMessage = "Please enter department")]
+        //[Required(ErrorMessage = "Please enter biography")]
         public string bio { get; set; }
     }
 }
 
-//[Team2]Temiskaming-Hospital website Dedesign Project @ Humber college
+//[Team2]Temiskaming-Hospital website Redesign Project @ Humber college
 //Feature: Find a doctor
 //Author: Jeesoo Kim
 // Feb 17, 2015
