@@ -37,7 +37,6 @@ header #logo {
     width: 59px;
     float: left;
     margin-left: 30px;
-    border: 1px #60cef7 solid;
     background: #60cef7;
     background: url('Images/logo.png') no-repeat;
     background-size: 59px 59px;
