@@ -193,6 +193,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\logo.png" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\Admin.css" />
     <Content Include="userPages\directions.html" />
