@@ -10,58 +10,70 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
-    <header>
-        <div id="logo">
-           
-        </div>
-        <nav>
-            <ul>
-                @{Html.RenderAction("Nav", "Home", new { group = "Home" });}
-                @*Uses partial views to render dynamic menu*@
-            </ul>
-        </nav>
-    </header>
-    <div id="container">
-        <div id="content">
-            @RenderBody()
-        </div>
-        <aside>
-            <div id="alertBox">
-                <h2>Alert</h2>
-                <div id="alert">
+    
+        <header>
+            <div id="hwrapper">
+                <div id="logo">
 
                 </div>
+                <nav>
+                    <ul>
+                        @{Html.RenderAction("Nav", "Home", new { group = "Home" });}
+                        @*Uses partial views to render dynamic menu*@
+                    </ul>
+                </nav>
             </div>
-            <div id="chatBox">
-                <h2>Live Chat</h2>
-                <div id="chat">
+        </header>
+    <div id="wrapper">
+        <div class="menu">
+            @if (ViewBag.Group != "") { 
+            <nav>
+                @{Html.RenderAction("Nav", "Home", new { group = ViewBag.Group });}
+            </nav>
+            }
+        </div>
+        <div id="container">
+            <div id="content">
+                @RenderBody()
+            </div>
+            <aside>
+                <div id="alertBox">
+                    <h2>Alert</h2>
+                    <div id="alert">
 
+                    </div>
                 </div>
-            </div>
-            <div id="giftBox">
-                <h2>Gift Shop</h2>
-            </div>
-            <div id="donateBox">
-                <h2>@Html.ActionLink("Donate", "Index", "Donation")</h2>
-            </div>
-            <div id="appointBox">
-                <h2>Book an Appointment</h2>
-            </div>
-        </aside>
+                <div id="chatBox">
+                    <h2>Live Chat</h2>
+                    <div id="chat">
+
+                    </div>
+                </div>
+                <div id="giftBox">
+                    <h2>Gift Shop</h2>
+                </div>
+                <div id="donateBox">
+                    <h2>@Html.ActionLink("Donate", "Index", "Donation")</h2>
+                </div>
+                <div id="appointBox">
+                    <h2>Book an Appointment</h2>
+                </div>
+            </aside>
+        </div>
     </div>
-    <footer>
-      
-
-        <nav>
-            <ul>
-                <li><a href="#">Newsletter Signup</a></li>
-                <li><a href="#">Survey</a></li>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">Site Map</a></li>
-                <li>@Html.ActionLink("Admin", "Index", "Admin")</li>
-            </ul>
-        </nav>
-    </footer>
+        <footer>
+            <div id="fwrapper">
+                <nav>
+                    <ul>
+                        <li><a href="#">Newsletter Signup</a></li>
+                        <li><a href="#">Survey</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Site Map</a></li>
+                        <li>@Html.ActionLink("Admin", "Index", "Admin")</li>
+                    </ul>
+                </nav>
+            </div>
+        </footer>
     
     @RenderSection("scripts", required: false)
 </body>

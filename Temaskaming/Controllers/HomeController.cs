@@ -25,27 +25,32 @@ namespace Temiskaming.Controllers
 
         public ActionResult Patients()
         {
+            ViewBag.Group = "Patients";
             return View();
         }
 
         public ActionResult ProgramsServices()
         {
+            ViewBag.Group = "ProgramsServices";
             return View();
         }
 
         public ActionResult AboutUs()
         {
+            ViewBag.Group = "AboutUs";
             return View();
         }
 
         public ActionResult JoinOurTeam()
         {
+            ViewBag.Group = "JoinOurTeam";
             return View();
         }
 
 
         public ActionResult ContactUs()
         {
+            ViewBag.Group = "ContactUs";
             return View();
         }
 
