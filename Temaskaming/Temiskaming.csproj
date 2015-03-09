@@ -260,6 +260,8 @@
       <LastGenOutput>database.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <None Include="Properties\PublishProfiles\temis.sumeetb.com - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\Temiskaming.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\chat.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
