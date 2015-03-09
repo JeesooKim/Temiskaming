@@ -10,6 +10,12 @@ body {
     padding: 0;
 }
 
+h1, h2, h3 {
+    font-family: Roboto, "Segoe UI", Verdana, Helvetica, Sans-Serif;
+    margin: 0;
+    padding: 0;
+}
+
 header, footer, nav, section {
     display: block;
 }
@@ -23,6 +29,10 @@ ul{
     width: 1010px;
     margin: 0 auto;
     height: 100%;
+}
+.menu {
+    position: relative;
+    top: 20px;
 }
 
 
@@ -219,6 +229,9 @@ textarea {
         margin: 0 auto;
         height: auto;
     }
+    .menu {
+        text-align: center;
+    }
     
     /*HEADER*/
     header {
@@ -297,6 +310,21 @@ textarea {
 @media only screen and (max-width: 770px) {
     /*SECONDARY NAV*/
     .menu {
+        position: static;
+        text-align: left;
+    }
+    #menuIcon {
+        color: white;
+        width: 100%;
+        height: 45px;
+        background: url('Images/hamburger.png') no-repeat center;
+        background-size: 40px 40px;
+        background-color: black;
+        margin: 0;
+        padding: 0;
+    }
+    #menuIcon:active {
+        background-color: #1c3152;
     }
     .menu a {
         display: block;
@@ -305,12 +333,16 @@ textarea {
         text-decoration: none;
         background: black;
         padding: 10px;
-        border-bottom: 1px dashed white;
+        border-top: 1px dashed white;
+    }
+    .menu nav {
+        display: none;
     }
     .menu a:active {
         background: #1c3152;
     }
     .menu li {
+        margin: 0;
         font-size: 1.2em;
         display: list-item;
         background: #1c3152;

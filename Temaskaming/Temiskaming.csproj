@@ -193,9 +193,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\hamburger.png" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\Admin.css" />
+    <Content Include="Scripts\menu.js" />
     <Content Include="userPages\directions.html" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />

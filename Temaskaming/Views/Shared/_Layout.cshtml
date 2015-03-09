@@ -26,7 +26,12 @@
         </header>
     <div id="wrapper">
         <div class="menu">
-            @if (ViewBag.Group != "") { 
+            
+            @if (ViewBag.Group != null)
+            {
+                <div id="menuIcon">
+                    
+                </div>
             <nav>
                 @{Html.RenderAction("Nav", "Home", new { group = ViewBag.Group });}
             </nav>

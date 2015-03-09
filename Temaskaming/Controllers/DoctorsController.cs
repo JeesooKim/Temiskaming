@@ -13,7 +13,7 @@ namespace FindADoctor.Controllers
         //
         // GET: /Doctors/
         doctorClass objDoc = new doctorClass();
-
+        
         public ActionResult Details(int id)
         {
             var doc = objDoc.getDoctorByID(id);
@@ -32,7 +32,7 @@ namespace FindADoctor.Controllers
         // public ActionResult SearchIndex(string searchString)
         public ActionResult Index(string medicalDepartment, string searchString)
         {
-
+            ViewBag.Group = "ContactUs";
             var DepartLst = new List<string>();
             //this creates a List object to hold medical departments from the database.
             //the following code is a LINQ query that retrieves all the medical departmentsfrom the db.
