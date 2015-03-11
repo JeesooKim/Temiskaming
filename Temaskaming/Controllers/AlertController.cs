@@ -11,9 +11,9 @@ namespace Temiskaming.Controllers
         //
         // GET: /Alert/
 
-        public ActionResult Index()
+        public PartialViewResult Index()
         {
-            return View();
+            return PartialView();
         }
 
     }

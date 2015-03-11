@@ -179,6 +179,8 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\adminClass.cs" />
     <Compile Include="Models\adminValidation.cs" />
+    <Compile Include="Models\alertClass.cs" />
+    <Compile Include="Models\alertValidation.cs" />
     <Compile Include="Models\cmsClass.cs" />
     <Compile Include="Models\database.designer.cs">
       <AutoGen>True</AutoGen>
@@ -319,6 +321,7 @@
     <Content Include="Views\Account\_RemoveExternalLoginsPartial.cshtml" />
     <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Alert\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
