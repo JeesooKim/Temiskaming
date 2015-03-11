@@ -162,7 +162,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AlertController.cs" />
     <Compile Include="Controllers\CMSController.cs" />
     <Compile Include="Controllers\DoctorsController.cs" />
@@ -196,7 +195,6 @@
     <Content Include="Content\Images\hamburger.png" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\jquery-ui.css" />
-    <Content Include="Content\Admin.css" />
     <Content Include="Scripts\menu.js" />
     <Content Include="userPages\directions.html" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -301,8 +299,6 @@
     <Content Include="Views\JobPostings\ApplytoJob.cshtml" />
     <Content Include="Views\Editable\Index.cshtml" />
     <Content Include="Views\Home\Nav.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Admin\Welcome.cshtml" />
     <Content Include="Views\CMS\CMS.cshtml" />
     <Content Include="Views\CMS\Error.cshtml" />
     <Content Include="Views\CMS\Insert.cshtml" />
@@ -320,6 +316,7 @@
     <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Alert\Index.cshtml" />
+    <Content Include="Views\Home\Admin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

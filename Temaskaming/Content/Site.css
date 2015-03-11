@@ -10,11 +10,6 @@ body {
     padding: 0;
 }
 
-h1, h2, h3 {
-    font-family: Roboto, "Segoe UI", Verdana, Helvetica, Sans-Serif;
-    margin: 0;
-    padding: 0;
-}
 
 header, footer, nav, section {
     display: block;
@@ -271,7 +266,7 @@ textarea {
         margin: 0;
         margin-top: 20px;
     }
-    #content {
+    #content, #adminContent {
         width: auto;
         margin: 0 15px;
         float: none;

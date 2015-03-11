@@ -11,6 +11,7 @@ namespace Temiskaming.Controllers
     public class JobPostingsController : Controller
     {
         linqjobsClass objJob = new linqjobsClass();
+
         public ActionResult ViewPostings()
         {
             var jobpostings = objJob.getJobs();
