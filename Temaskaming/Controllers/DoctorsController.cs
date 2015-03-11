@@ -16,6 +16,7 @@ namespace FindADoctor.Controllers
         
         public ActionResult Details(int id)
         {
+            ViewBag.Group = "ContactUs";
             var doc = objDoc.getDoctorByID(id);
             if (doc == null)
             {

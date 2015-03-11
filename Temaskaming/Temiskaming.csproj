@@ -177,8 +177,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\adminClass.cs" />
-    <Compile Include="Models\adminValidation.cs" />
     <Compile Include="Models\alertClass.cs" />
     <Compile Include="Models\alertValidation.cs" />
     <Compile Include="Models\cmsClass.cs" />
