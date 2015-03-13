@@ -66,4 +66,11 @@
       <Column Name="alertStatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.FAQ" Member="FAQs">
+    <Type Name="FAQ">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Question" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Answer" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>

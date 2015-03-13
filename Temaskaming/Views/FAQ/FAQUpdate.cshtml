@@ -1,0 +1,33 @@
+﻿@model Temiskaming.Models.FAQ
+
+@{
+    ViewBag.Title = "FAQUpdate";
+}
+
+<h2>FAQUpdate</h2>
+
+@using(Html.BeginForm())
+{
+    <div>
+    @Html.HiddenFor(x=>x.Id)
+    @Html.LabelFor(x=>x.Id)
+    </div>
+    <div>
+    @Html.TextBoxFor(x=>x.Question)
+    @Html.ValidationMessageFor(x=>x.Question)
+    </div>
+    <div>
+        @Html.TextBoxFor(x=>x.Answer)
+        @Html.ValidationMessageFor(x=>x.Answer)
+    </div>
+    <div>
+        <input type="submit" value="Update"/>
+    </div>
+}
+    <div>
+        @Html.ActionLink("Back", "FAQAdmin", new object { id =Model.Id})
+    </div>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

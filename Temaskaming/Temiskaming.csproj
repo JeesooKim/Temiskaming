@@ -167,6 +167,7 @@
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\EditableController.cs" />
+    <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobPostingsController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
@@ -186,6 +187,8 @@
     </Compile>
     <Compile Include="Models\doctorClass.cs" />
     <Compile Include="Models\doctorsValidation.cs" />
+    <Compile Include="Models\FAQClass.cs" />
+    <Compile Include="Models\FAQValidation.cs" />
     <Compile Include="Models\jobapplicationValidation.cs" />
     <Compile Include="Models\linqjobsClass.cs" />
     <Compile Include="Models\navClass.cs" />
@@ -317,6 +320,10 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Alert\Index.cshtml" />
     <Content Include="Views\Home\Admin.cshtml" />
+    <Content Include="Views\FAQ\FAQInsert.cshtml" />
+    <Content Include="Views\FAQ\index.cshtml" />
+    <Content Include="Views\FAQ\FAQAdmin.cshtml" />
+    <Content Include="Views\FAQ\FAQUpdate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

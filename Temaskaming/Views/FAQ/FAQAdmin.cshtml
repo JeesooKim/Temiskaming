@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Temiskaming.Models.FAQ>
+
+@{
+    ViewBag.Title = "FAQAdmin";
+}
+
+<h2>FAQ Admin</h2>
+<div>
+<h2>@Html.ActionLink("Add New Question and Answer", "FAQInsert", "FAQ")</h2>
+</div>
+<div>
+    @foreach(var x in Model)
+    {
+        @Html.DisplayFor(x.Question);
+        @Html.DisplayFor(x.Answer);
+    }
+</div>
+
