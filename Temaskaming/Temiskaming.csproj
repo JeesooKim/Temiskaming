@@ -185,6 +185,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>database.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\database1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>database.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Models\doctorClass.cs" />
     <Compile Include="Models\doctorsValidation.cs" />
     <Compile Include="Models\FAQClass.cs" />
@@ -192,6 +197,7 @@
     <Compile Include="Models\jobapplicationValidation.cs" />
     <Compile Include="Models\linqjobsClass.cs" />
     <Compile Include="Models\navClass.cs" />
+    <Compile Include="Models\NewsClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -258,8 +264,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Models\database.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>database.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>database1.designer.cs</LastGenOutput>
     </Content>
     <None Include="Properties\PublishProfiles\temis.sumeetb.com - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\Temiskaming.pubxml" />
@@ -305,7 +311,6 @@
     <Content Include="Views\CMS\CMS.cshtml" />
     <Content Include="Views\CMS\Error.cshtml" />
     <Content Include="Views\CMS\Insert.cshtml" />
-    <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Doctors\Index.cshtml" />
     <Content Include="Views\Doctors\Details.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -324,6 +329,11 @@
     <Content Include="Views\FAQ\index.cshtml" />
     <Content Include="Views\FAQ\FAQAdmin.cshtml" />
     <Content Include="Views\FAQ\FAQUpdate.cshtml" />
+    <Content Include="Views\News\newsadmin.cshtml" />
+    <Content Include="Views\News\newsupdate.cshtml" />
+    <Content Include="Views\News\newsdelete.cshtml" />
+    <Content Include="Views\News\newsinsert.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
