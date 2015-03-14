@@ -48,9 +48,9 @@ namespace Temiskaming.Models
     partial void InsertFAQ(FAQ instance);
     partial void UpdateFAQ(FAQ instance);
     partial void DeleteFAQ(FAQ instance);
-    partial void Insertnews(news instance);
-    partial void Updatenews(news instance);
-    partial void Deletenews(news instance);
+    partial void Insertnew(@new instance);
+    partial void Updatenew(@new instance);
+    partial void Deletenew(@new instance);
     #endregion
 		
 		public databaseDataContext() : 
@@ -139,11 +139,11 @@ namespace Temiskaming.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<news> news
+		public System.Data.Linq.Table<@new> news
 		{
 			get
 			{
-				return this.GetTable<news>();
+				return this.GetTable<@new>();
 			}
 		}
 	}
@@ -1429,13 +1429,13 @@ namespace Temiskaming.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.news")]
-	public partial class news : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="temismain.news")]
+	public partial class @new : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _article_id;
+		private int _id;
 		
 		private string _title;
 		
@@ -1445,40 +1445,40 @@ namespace Temiskaming.Models
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void Onarticle_idChanging(int value);
-    partial void Onarticle_idChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
     partial void OntitleChanging(string value);
     partial void OntitleChanged();
     partial void OncontentChanging(string value);
     partial void OncontentChanged();
     #endregion
 		
-		public news()
+		public @new()
 		{
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_article_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int article_id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
 		{
 			get
 			{
-				return this._article_id;
+				return this._id;
 			}
 			set
 			{
-				if ((this._article_id != value))
+				if ((this._id != value))
 				{
-					this.Onarticle_idChanging(value);
+					this.OnidChanging(value);
 					this.SendPropertyChanging();
-					this._article_id = value;
-					this.SendPropertyChanged("article_id");
-					this.Onarticle_idChanged();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_title", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_title", DbType="Text", UpdateCheck=UpdateCheck.Never)]
 		public string title
 		{
 			get
