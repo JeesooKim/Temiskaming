@@ -12,7 +12,7 @@ namespace Temiskaming.Models
     public class UsersContext : DbContext
     {
         public UsersContext()
-            : base("TemiskamingConnectionString1")
+            : base("TemiskamingConnectionString")
         {
         }
 
