@@ -165,12 +165,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AlertController.cs" />
     <Compile Include="Controllers\CMSController.cs" />
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\EditableController.cs" />
+    <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobPostingsController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
@@ -180,8 +180,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\adminClass.cs" />
-    <Compile Include="Models\adminValidation.cs" />
     <Compile Include="Models\alertClass.cs" />
     <Compile Include="Models\alertValidation.cs" />
     <Compile Include="Models\cmsClass.cs" />
@@ -192,6 +190,8 @@
     </Compile>
     <Compile Include="Models\doctorClass.cs" />
     <Compile Include="Models\doctorsValidation.cs" />
+    <Compile Include="Models\FAQClass.cs" />
+    <Compile Include="Models\FAQValidation.cs" />
     <Compile Include="Models\jobapplicationValidation.cs" />
     <Compile Include="Models\linqjobsClass.cs" />
     <Compile Include="Models\navClass.cs" />
@@ -201,7 +201,6 @@
     <Content Include="Content\Images\hamburger.png" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\jquery-ui.css" />
-    <Content Include="Content\Admin.css" />
     <Content Include="Scripts\menu.js" />
     <Content Include="userPages\directions.html" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -308,8 +307,6 @@
     <Content Include="Views\JobPostings\ApplytoJob.cshtml" />
     <Content Include="Views\Editable\Index.cshtml" />
     <Content Include="Views\Home\Nav.cshtml" />
-    <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Admin\Welcome.cshtml" />
     <Content Include="Views\CMS\CMS.cshtml" />
     <Content Include="Views\CMS\Error.cshtml" />
     <Content Include="Views\CMS\Insert.cshtml" />
@@ -327,6 +324,11 @@
     <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Alert\Index.cshtml" />
+    <Content Include="Views\Home\Admin.cshtml" />
+    <Content Include="Views\FAQ\FAQInsert.cshtml" />
+    <Content Include="Views\FAQ\index.cshtml" />
+    <Content Include="Views\FAQ\FAQAdmin.cshtml" />
+    <Content Include="Views\FAQ\FAQUpdate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

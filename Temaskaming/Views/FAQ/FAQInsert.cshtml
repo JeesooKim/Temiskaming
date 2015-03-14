@@ -1,0 +1,28 @@
+﻿@model Temiskaming.Models.FAQ
+
+@{
+    ViewBag.Title = "InsertFAQ";
+}
+
+<h2>InsertFAQ</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+
+    <div>
+        @Html.LabelFor(model => model.Question)
+        @Html.TextAreaFor(model => model.Question)
+        @Html.ValidationMessage(model => model.Question, "*")
+
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Answer)
+        @Html.TextAreaFor(model => model.Answer)
+        @Html.ValidationMessage(model => model.Answer, "*")
+    </div>
+    <div>
+        <input type="submit" value="insert" />
+    </div>
+
+}

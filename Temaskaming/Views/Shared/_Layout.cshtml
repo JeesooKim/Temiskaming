@@ -38,9 +38,21 @@
             }
         </div>
         <div id="container">
+            @if (ViewBag.Group == "Admin")
+            {
+                
+                <div id="adminContent">
+                    @Html.Partial("_LoginPartial")
+                    @RenderBody()
+                </div>
+            }
+            else { 
             <div id="content">
                 @RenderBody()
             </div>
+            }
+            @if (ViewBag.Group != "Admin")
+            {
             <aside>
                 <div id="alertBox">
                     <h2>Alert</h2>
@@ -63,7 +75,8 @@
                 <div id="appointBox">
                     <h2>Book an Appointment</h2>
                 </div>
-            </aside>
+            </aside>   
+            }
         </div>
     </div>
         <footer>
@@ -74,7 +87,7 @@
                         <li><a href="#">Survey</a></li>
                         <li><a href="#">FAQ</a></li>
                         <li><a href="#">Site Map</a></li>
-                        <li>@Html.ActionLink("Admin", "Index", "Admin")</li>
+                        <li>@Html.ActionLink("Admin", "Admin", "Home")</li>
                     </ul>
                 </nav>
             </div>

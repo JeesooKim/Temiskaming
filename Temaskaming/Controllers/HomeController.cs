@@ -17,6 +17,13 @@ namespace Temiskaming.Controllers
             return View();
         }
 
+        [Authorize]
+        public ActionResult Admin()
+        {
+            ViewBag.Group = "Admin";
+            return View();
+        }
+
         public PartialViewResult Nav(string group)
         {
             var nav = objNav.getNav(group);
