@@ -13,16 +13,14 @@
     <div>
         @Html.LabelFor(model => model.Question)
         @Html.TextAreaFor(model => model.Question)
-        @Html.ValidationMessage(model => model.Question, "*")
-
+    
     </div>
     <div>
         @Html.LabelFor(model => model.Answer)
         @Html.TextAreaFor(model => model.Answer)
-        @Html.ValidationMessage(model => model.Answer, "*")
     </div>
     <div>
-        <input type="submit" value="insert" />
+        <input type="submit" value="Enter" /> @Html.ActionLink("Back", "FAQAdmin", "FAQ")
     </div>
 
 }

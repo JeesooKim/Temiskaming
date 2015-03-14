@@ -188,7 +188,7 @@
     <Compile Include="Models\doctorClass.cs" />
     <Compile Include="Models\doctorsValidation.cs" />
     <Compile Include="Models\FAQClass.cs" />
-    <Compile Include="Models\FAQValidation.cs" />
+    <Compile Include="Models\FAQsValidation.cs" />
     <Compile Include="Models\jobapplicationValidation.cs" />
     <Compile Include="Models\linqjobsClass.cs" />
     <Compile Include="Models\navClass.cs" />
@@ -321,9 +321,10 @@
     <Content Include="Views\Alert\Index.cshtml" />
     <Content Include="Views\Home\Admin.cshtml" />
     <Content Include="Views\FAQ\FAQInsert.cshtml" />
-    <Content Include="Views\FAQ\index.cshtml" />
+    <Content Include="Views\FAQ\FAQ.cshtml" />
     <Content Include="Views\FAQ\FAQAdmin.cshtml" />
     <Content Include="Views\FAQ\FAQUpdate.cshtml" />
+    <Content Include="Views\FAQ\FAQDelete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
