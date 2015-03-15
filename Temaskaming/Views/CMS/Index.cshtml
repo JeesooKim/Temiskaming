@@ -1,13 +1,12 @@
 ﻿@model IEnumerable<Temiskaming.Models.navigation>
 
+@{
+    ViewBag.Title = "Temiskaming Admin - CMS";
+}
+
 <h2>Content Management System</h2>
 <div>
-    @Ajax.ActionLink("Create new page", "Insert", "CMS", new AjaxOptions
-                {
-                    HttpMethod = "Post",
-                    UpdateTargetId = "adminWin",
-                    InsertionMode = InsertionMode.Replace
-                })
+    @Html.ActionLink("Create a new page", "Insert", "CMS");
     <table>
         <tr>
             <th>Name</th>
@@ -24,16 +23,19 @@
                     <td>@x.name</td>
                     <td>@x.viewpath</td>
                     <td>@x.group</td>
-                    <td>@Ajax.ActionLink("Edit", "Edit", "CMS", new { id = x.id }, new AjaxOptions
-                   {
-
-                   })</td>
                     <td>
-                        @Ajax.ActionLink("Delete", "Edit", "CMS", new { id = x.id }, new AjaxOptions
+                        @Ajax.ActionLink("Edit", "Edit", "CMS", new { id = x.id }, new AjaxOptions
                    {
 
-                   })</td>
-                </tr>
+                   })
+                </td>
+                <td>
+                    @Ajax.ActionLink("Delete", "Delete", "CMS", new { id = x.id }, new AjaxOptions
+                   {
+
+                   })
+                </td>
+            </tr>
             }
         }
     </table>

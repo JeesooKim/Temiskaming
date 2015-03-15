@@ -303,9 +303,6 @@
     <Content Include="Views\JobPostings\ApplytoJob.cshtml" />
     <Content Include="Views\Editable\Index.cshtml" />
     <Content Include="Views\Home\Nav.cshtml" />
-    <Content Include="Views\CMS\CMS.cshtml" />
-    <Content Include="Views\CMS\Error.cshtml" />
-    <Content Include="Views\CMS\Insert.cshtml" />
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\Doctors\Index.cshtml" />
     <Content Include="Views\Doctors\Details.cshtml" />
@@ -319,12 +316,18 @@
     <Content Include="Views\Account\_RemoveExternalLoginsPartial.cshtml" />
     <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Alert\Index.cshtml" />
     <Content Include="Views\Home\Admin.cshtml" />
     <Content Include="Views\FAQ\FAQInsert.cshtml" />
     <Content Include="Views\FAQ\index.cshtml" />
     <Content Include="Views\FAQ\FAQAdmin.cshtml" />
     <Content Include="Views\FAQ\FAQUpdate.cshtml" />
-    <Content Include="Views\Alert\Index.cshtml" />
+    <Content Include="Views\CMS\Index.cshtml" />
+    <Content Include="Views\CMS\Insert.cshtml" />
+    <Content Include="Views\News\newsadmin.cshtml" />
+    <Content Include="Views\News\newsupdate.cshtml" />
+    <Content Include="Views\News\newsdelete.cshtml" />
+    <Content Include="Views\News\newsinsert.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
