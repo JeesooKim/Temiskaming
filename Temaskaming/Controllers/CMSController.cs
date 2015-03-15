@@ -17,18 +17,11 @@ namespace Temiskaming.Controllers
             return PartialView();
         }
 
-        public PartialViewResult CMS()
+        public ActionResult Index()
         {
-            if (Session["ID"] != null)
-            {
-                var nav = objCMS.getPages();
-                return PartialView(nav);
-            }
-            else
-            {
-                return PartialView("Error");
-            }
-
+            ViewBag.Group = "Admin";
+            var nav = objCMS.getPages();
+            return View(nav);
         }
 
         public PartialViewResult Insert()
