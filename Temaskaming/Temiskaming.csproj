@@ -323,6 +323,7 @@
     <Content Include="Views\FAQ\FAQAdmin.cshtml" />
     <Content Include="Views\FAQ\FAQUpdate.cshtml" />
     <Content Include="Views\CMS\Index.cshtml" />
+    <Content Include="Views\CMS\Insert.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

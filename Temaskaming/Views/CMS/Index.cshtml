@@ -6,12 +6,7 @@
 
 <h2>Content Management System</h2>
 <div>
-    @Ajax.ActionLink("Create new page", "Insert", "CMS", new AjaxOptions
-                {
-                    HttpMethod = "Post",
-                    UpdateTargetId = "adminWin",
-                    InsertionMode = InsertionMode.Replace
-                })
+    @Html.ActionLink("Create a new page", "Insert", "CMS");
     <table>
         <tr>
             <th>Name</th>

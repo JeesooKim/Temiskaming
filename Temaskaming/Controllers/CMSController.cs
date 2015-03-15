@@ -24,20 +24,22 @@ namespace Temiskaming.Controllers
             return View(nav);
         }
 
-        public PartialViewResult Insert()
+        public ActionResult Insert()
         {
-            return PartialView();
+            ViewBag.Group = "Admin";
+            return View();
         }
 
         [HttpPost]
-        public PartialViewResult Insert(navigation nav)
+        public ActionResult Insert(navigation nav)
         {
-            return PartialView();
+            ViewBag.Group = "Admin";
+            return View();
         }
 
-        public PartialViewResult Edit()
+        public ActionResult Edit()
         {
-            return PartialView();
+            return View();
         }
 
     }
