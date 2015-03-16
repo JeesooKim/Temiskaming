@@ -12,15 +12,17 @@ namespace Temiskaming.Controllers
     {
         //
         // GET: /News/
-
+        NewsClass objNews = new NewsClass();
         public ActionResult Index()
         {
-            return View();
+            var news = objNews.getNews();
+            return View(news);
         }
 
         public ActionResult newsadmin()
         {
-            return View();
+            var news = objNews.getNews();
+            return View(news);
         }
 
         public ActionResult newsupdate()

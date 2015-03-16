@@ -1,5 +1,12 @@
-﻿@{
+﻿@model IEnumerable<Temiskaming.Models.news>
+
+@{
     ViewBag.Title = "newsadmin";
 }
 
 <h2>newsadmin</h2>
+
+@foreach (var x in Model)
+{
+    @Html.ActionLink(x.title, "newsupdate", new {id = x.id})
+}
