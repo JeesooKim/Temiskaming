@@ -325,6 +325,10 @@
     <Content Include="Views\FAQ\FAQUpdate.cshtml" />
     <Content Include="Views\CMS\Index.cshtml" />
     <Content Include="Views\CMS\Insert.cshtml" />
+    <Content Include="Views\News\newsadmin.cshtml" />
+    <Content Include="Views\News\newsupdate.cshtml" />
+    <Content Include="Views\News\newsdelete.cshtml" />
+    <Content Include="Views\News\newsinsert.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -4,16 +4,30 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+using Temiskaming.Models;
+
 namespace Temiskaming.Controllers
 {
     public class AlertController : Controller
     {
+        // properties
+        alertClass alertObj = new alertClass();
+
         //
         // GET: /Alert/
 
-        public PartialViewResult Index()
+        public ActionResult Index()
         {
-            return PartialView();
+            var allAlerts = alertObj.getAllAlerts();
+            if (allAlerts == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                return View(allAlerts);
+            }
+
         }
 
     }
