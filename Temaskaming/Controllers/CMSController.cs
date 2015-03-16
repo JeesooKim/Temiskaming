@@ -67,10 +67,9 @@ namespace Temiskaming.Controllers
             }
         }
 
-        public ActionResult Delete(int _id)
+        public ActionResult Delete()
         {
-            var page = objCMS.getPage(_id);
-            return View(page);
+            return View();
         }
 
         [HttpPost]
