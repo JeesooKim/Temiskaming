@@ -38,7 +38,7 @@ namespace Temiskaming.Controllers
             
         }
 
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult newsupdate(int id, news news)
         {
             if (ModelState.IsValid)
@@ -88,7 +88,7 @@ namespace Temiskaming.Controllers
             return View();
         }
 
-        [HttpPost]
+        [HttpPost, ValidateInput(false)]
         public ActionResult newsinsert(news news)
         {
             if (ModelState.IsValid)
