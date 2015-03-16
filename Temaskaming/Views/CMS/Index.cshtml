@@ -23,18 +23,8 @@
                     <td>@x.name</td>
                     <td>@x.viewpath</td>
                     <td>@x.group</td>
-                    <td>
-                        @Ajax.ActionLink("Edit", "Edit", "CMS", new { id = x.id }, new AjaxOptions
-                   {
-
-                   })
-                </td>
-                <td>
-                    @Ajax.ActionLink("Delete", "Delete", "CMS", new { id = x.id }, new AjaxOptions
-                   {
-
-                   })
-                </td>
+                    <td>@Html.ActionLink("Edit", "Edit", "CMS", new { id = x.id })</td>
+                    <td>@Html.ActionLink("Delete", "Delete", "CMS", new { id = x.id })</td>
             </tr>
             }
         }

@@ -34,12 +34,50 @@ namespace Temiskaming.Controllers
         public ActionResult Insert(navigation nav)
         {
             ViewBag.Group = "Admin";
-            return View();
+            if (ModelState.IsValid)
+            {
+                nav.viewpath = "~/userPages/" + nav.name + ".html";
+                nav.controller = "Editable";
+                objCMS.createPage(nav);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View("Insert");
+            }
         }
 
-        public ActionResult Edit()
+        public ActionResult Edit(int id)
         {
-            return View();
+            var page = objCMS.getPage(id);
+            return View(page);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(int _id, navigation page)
+        {
+            if (ModelState.IsValid)
+            {
+                objCMS.updatePage(page.id, page.name, page.group);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return Edit(_id);
+            }
+        }
+
+        public ActionResult Delete(int _id)
+        {
+            var page = objCMS.getPage(_id);
+            return View(page);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(navigation page)
+        {
+            objCMS.deletePage(page);
+            return RedirectToAction("Index");
         }
 
     }

@@ -20,5 +20,38 @@ namespace Temiskaming.Models
             var page = objCMS.navigations.SingleOrDefault(x => x.id == _id);
             return page;
         }
+
+        public bool createPage(navigation nav)
+        {
+            using (objCMS)
+            {
+                objCMS.navigations.InsertOnSubmit(nav);
+                objCMS.SubmitChanges();
+                return true;
+            }
+        }
+
+        public bool deletePage(navigation page)
+        {
+            using (objCMS)
+            {
+                objCMS.navigations.DeleteOnSubmit(page);
+                objCMS.SubmitChanges();
+                return true;
+            }
+        }
+
+        public bool updatePage(int _id, string _name, string _group)
+        {
+            using (objCMS)
+            {
+                var page = objCMS.navigations.SingleOrDefault(x => x.id == _id);
+                page.name = _name;
+                page.group = _group;
+                page.viewpath = _name;
+                objCMS.SubmitChanges();
+                return true;
+            }
+        }
     }
 }
