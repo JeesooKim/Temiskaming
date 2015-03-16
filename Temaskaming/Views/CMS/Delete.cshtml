@@ -1,7 +1,13 @@
 ﻿@model Temiskaming.Models.navigation
-
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Temiskaming Admin - CMS Delete Page";
 }
 
-<h2>Delete</h2>
+<h2>Delete Page</h2>
+
+<p>Are you sure you wish to delete the page "@Model.name"?</p>
+
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Yes" />
+}
