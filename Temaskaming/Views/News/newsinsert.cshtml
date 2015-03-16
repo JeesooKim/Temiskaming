@@ -1,5 +1,39 @@
-﻿@{
+﻿@model Temiskaming.Models.news
+
+@{
     ViewBag.Title = "newsinsert";
 }
 
-<h2>newsinsert</h2>
+<script type="text/javascript" src="@Url.Content("~/content/ckeditor/ckeditor.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/content/ckeditor/adapters/jquery.js")"></script>
+<h2>Publish News Article</h2>
+
+
+@using (Html.BeginForm())
+{
+    
+    @Html.ValidationSummary()
+    
+    @Html.LabelFor(x=>x.title)
+    <br/>
+    @Html.TextBoxFor(x => x.title)
+    @Html.ValidationMessageFor(x=>x.title)
+    <br/><br/>
+    
+    @Html.LabelFor(x=>x.content)
+    <br/>
+    @Html.TextAreaFor(x => x.content, new { @class = "adminRichText" })
+    @Html.ValidationMessageFor(x=>x.content)
+
+    <br/><br/>
+    
+    <input type="submit" value="Publish"/>
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script language="javascript" type="text/javascript">
+    jQuery(".adminRichText").ckeditor();
+</script>
