@@ -180,6 +180,7 @@
     <Compile Include="Models\alertClass.cs" />
     <Compile Include="Models\alertValidation.cs" />
     <Compile Include="Models\cmsClass.cs" />
+    <Compile Include="Models\cmsValidation.cs" />
     <Compile Include="Models\database.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -328,6 +329,7 @@
     <Content Include="Views\News\newsupdate.cshtml" />
     <Content Include="Views\News\newsdelete.cshtml" />
     <Content Include="Views\News\newsinsert.cshtml" />
+    <Content Include="Views\CMS\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
