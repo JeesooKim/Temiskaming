@@ -4,6 +4,9 @@
     ViewBag.Title = "newsupdate";
 }
 
+<script type="text/javascript" src="@Url.Content("~/content/ckeditor/ckeditor.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/content/ckeditor/adapters/jquery.js")"></script>
+
 <h2>newsupdate</h2>
 
 @using (Html.BeginForm())
@@ -20,7 +23,7 @@
     
     @Html.LabelFor(x=>x.content)
     <br/>
-    @Html.TextAreaFor(x=>x.content)
+    @Html.TextAreaFor(x => x.content, new { @class = "adminRichText" })
     @Html.ValidationMessageFor(x=>x.content)
 
     <br/><br/>
@@ -37,3 +40,7 @@
 
 @section scripts
 {@Scripts.Render("~/bundles/jqueryval")}
+
+<script language="javascript" type="text/javascript">
+    jQuery(".adminRichText").ckeditor();
+</script>
