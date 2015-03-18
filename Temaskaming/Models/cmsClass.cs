@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -29,7 +28,7 @@ namespace Temiskaming.Models
             return pageId;
         }
 
-        public bool createPage(string path,string content, navigation nav)
+        public bool createPage(string path, string content, navigation nav)
         {
             File.WriteAllText(path, content);
             using (objCMS)
@@ -41,8 +40,9 @@ namespace Temiskaming.Models
             
         }
 
-        public bool deletePage(int _id)
+        public bool deletePage(string path, int _id)
         {
+            File.Delete(path);
             using (objCMS)
             {
                 var page = objCMS.navigations.SingleOrDefault(x => x.id == _id);
@@ -52,8 +52,9 @@ namespace Temiskaming.Models
             }
         }
 
-        public bool updatePage(int _id, string _name, string _group)
+        public bool updatePage(string path, string content, int _id, string _name, string _group)
         {
+            File.WriteAllText(path, content);
             using (objCMS)
             {
                 var page = objCMS.navigations.SingleOrDefault(x => x.id == _id);

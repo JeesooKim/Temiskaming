@@ -801,6 +801,7 @@
     <Content Include="Views\Doctors\FindADocUpdate.cshtml" />
     <Content Include="Views\Doctors\FindADocDelete.cshtml" />
     <Content Include="Views\Doctors\FindADocDetails.cshtml" />
+    <Content Include="Views\CMS\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
