@@ -15,7 +15,7 @@
     string content = "";
     if (File.Exists(Server.MapPath("~/userPages/" + Model.name + ".html")) == true)
     {
-        content = Server.MapPath("~/userPages/" + Model.name + ".html");
+        content = File.ReadAllText(Server.MapPath("~/userPages/" + Model.name + ".html"));
     }
 
 }
@@ -48,7 +48,6 @@
 }
 <p>If not specifying link location, this is the link for the current page:<b> http://temis.sumeetb.com/Editable/Index/@ViewBag.CurrId </b></p>
 
-<p>@Server.MapPath("~/userPages/"+Model.name+".html")</p>
 
 @section scripts {
     @Scripts.Render("~/bundles/jqueryval")
