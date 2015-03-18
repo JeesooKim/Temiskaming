@@ -33,25 +33,20 @@
                 @Html.ActionLink("Medical Department", "Index", new { sortOrder = ViewBag.DepartSortParm, currentFilter = ViewBag.currentFilter })
             </th>
             <th>Ext.</th>
-            <th>Email</th>
-            <th>Option</th>
+            <th>Email</th>            
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.fname) &nbsp;
-                    @Html.DisplayFor(modelItem => item.lname)
+                <td>                    
+                    @Html.ActionLink(item.fname + item.lname, "Details", new { id = item.Id })
                 </td>
                 <td>@Html.DisplayFor(modelItem => item.title)</td>
                 <td>@Html.DisplayFor(modelItem => item.department)</td>
                 <td>@Html.DisplayFor(modelItem => item.extension)</td>
-                <td>@Html.DisplayFor(modelItem => item.email)</td>
-                <td>
-                    @Html.ActionLink("Details", "Details", new { id = item.Id })
-                </td>
+                <td>@Html.DisplayFor(modelItem => item.email)</td>                
             </tr>
         }
     </tbody>    

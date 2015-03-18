@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Temiskaming.Models.doctor>
+
+@{
+    ViewBag.Title = "FindADocAdmin";
+}
+
+<h2>Find A Doctor - Admin</h2>
+
+<p>@Html.ActionLink("Register a New Doctor", "FindADocInsert", "Doctors")</p>
+
+
+@**@
+@using (Html.BeginForm("FindADocAdmin", "Doctors", FormMethod.Get))
+{
+    /*Note:"the default BeginForm submits form data with a POST: parameters are passed in the HTTP message body and not in the URL as query strings."
+     *"HTTP Get: the form data is passed in the URL as query strings -> emabling users to bookmart the URL"
+     *"The W3C guidlines for the use of HTTP GET recommend to use GET when the action does not result in an update.
+      */
+    <p>
+        Medical Department: @Html.DropDownList("medicalDepartment", "All")
+        &nbsp;&nbsp;
+        Last Name: @Html.TextBox("SearchString", ViewBag.currentFilter as string)
+        <input type="submit" value="Search" />
+    </p>
+}
+
+<table id="doctorTable" class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.ActionLink("Name", "FindADocAdmin", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.currentFilter })
+            </th>
+            <th>Title</th>
+            <th>
+                @Html.ActionLink("Medical Department", "FindADocAdmin", new { sortOrder = ViewBag.DepartSortParm, currentFilter = ViewBag.currentFilter })
+            </th>
+            <th>Ext.</th>
+            <th>Email</th>
+            <th>Option</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.fname + item.lname, "FindADocDetails", new { id = item.Id })      
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.title)</td>
+                <td>@Html.DisplayFor(modelItem => item.department)</td>
+                <td>@Html.DisplayFor(modelItem => item.extension)</td>
+                <td>@Html.DisplayFor(modelItem => item.email)</td>
+                <td>                    
+                    @Html.ActionLink("Update", "FindADocUpdate", new { id = item.Id })  |
+                    @Html.ActionLink("Delete", "FindADocDelete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>   
+</table>
+<br />
+
+<script>
+    $(document).ready(function () {
+        $('#doctorTable').dataTable();
+    });
+</script>
+
+@*updated on March 17, 2015
+    Ref1:http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
+    Ref2:http://www.codeproject.com/Tips/823490/Bootstrap-Table-With-Sorting-Searching-and-Paging*@
+
+@*[Team2]Temiskaming-Hospital website Dedesign Project @ Humber college
+    Feature: Find a doctor
+    Author: Jeesoo Kim
+     Feb 17, 2015*@
