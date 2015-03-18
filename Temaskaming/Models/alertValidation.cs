@@ -16,7 +16,7 @@ namespace Temiskaming.Models
     }
 
 
-    [Bind(Exclude = "alertId, alertStatus")]    
+    [Bind(Exclude = "alertId")]    
     public class alertValidation
     {
 
