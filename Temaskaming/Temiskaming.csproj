@@ -795,7 +795,6 @@
     <Content Include="Views\News\newsdelete.cshtml" />
     <Content Include="Views\News\newsinsert.cshtml" />
     <Content Include="Views\CMS\Delete.cshtml" />
-    <Content Include="Views\News\NotFound.cshtml" />
     <Content Include="Views\Doctors\FindADocAdmin.cshtml" />
     <Content Include="Views\Doctors\FindADocInsert.cshtml" />
     <Content Include="Views\Doctors\FindADocUpdate.cshtml" />
