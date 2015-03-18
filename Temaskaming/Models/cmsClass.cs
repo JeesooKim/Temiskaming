@@ -23,12 +23,17 @@ namespace Temiskaming.Models
             return page;
         }
 
+        public int getLastId()
+        {
+            var pageId = objCMS.navigations.Max(x => x.id);
+            return pageId;
+        }
+
         public bool createPage(string path,string content, navigation nav)
         {
-            
+            File.WriteAllText(path, content);
             using (objCMS)
             {
-                File.WriteAllText(path, content);
                 objCMS.navigations.InsertOnSubmit(nav);
                 objCMS.SubmitChanges();
                 return true;

@@ -27,18 +27,23 @@ namespace Temiskaming.Controllers
         public ActionResult Insert()
         {
             ViewBag.Group = "Admin";
+            ViewBag.LastId = objCMS.getLastId() + 1;
             return View();
             
         }
         
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Insert(string content, navigation nav)
+        public ActionResult Insert(string content, string group, navigation nav)
         {
             ViewBag.Group = "Admin";
             if (ModelState.IsValid)
             {
                 nav.viewpath = nav.name;
+                if (group != "None")
+                {
+                    nav.group = group;
+                }
                 nav.controller = "Editable";
                 string path = Server.MapPath("~/userPages/" + nav.name + ".html");
                 objCMS.createPage(path, content, nav);
