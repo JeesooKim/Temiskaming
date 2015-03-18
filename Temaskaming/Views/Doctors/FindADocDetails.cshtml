@@ -1,0 +1,73 @@
+﻿@model Temiskaming.Models.doctor
+
+@{
+    ViewBag.Title = @Model.lname;
+}
+
+<h2>FindADocDetails -ADMIN </h2>
+<h2>Details for Dr. @Html.DisplayFor(x => x.lname) , @Html.DisplayFor(x => x.fname) </h2>
+<hr />
+<h3>@Html.DisplayFor(x => x.title)</h3>
+
+
+
+<table>
+    <tr>
+        <td>@Html.DisplayNameFor(x => x.status) :</td>
+        <td> @Html.DisplayFor(x => x.status)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(x => x.department):</td>
+        <td> @Html.DisplayFor(x => x.department)</td>
+    </tr>
+    <tr>
+        <td>Special role:</td>
+        <td> @Html.DisplayFor(x => x.role)</td>
+    </tr>
+    <tr>
+        <td>Program involved: </td>
+        <td>@Html.DisplayFor(x => x.program)</td>
+    </tr>
+
+    <tr>
+        <td>@Html.DisplayNameFor(x => x.office): </td>
+        <td>@Html.DisplayFor(x => x.office)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(x => x.office_hr): </td>
+        <td>@Html.DisplayFor(x => x.office_hr)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(x => x.phone): </td>
+        <td>@Html.DisplayFor(x => x.phone)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(x => x.extension): </td>
+        <td>@Html.DisplayFor(x => x.extension)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(x => x.email): </td>
+        <td>@Html.DisplayFor(x => x.email)</td>
+    </tr>
+</table>
+
+
+<fieldset>
+    <legend> Brief Bio ...</legend>
+    @Html.DisplayFor(x => x.bio)
+</fieldset>
+
+<br />
+<p>
+    @Html.ActionLink("Back to List", "FindADocAdmin", "Doctors")
+</p><br />
+<p>
+    @Html.ActionLink("Delete", "FindADocDelete", new { id = @Model.Id })
+</p>
+
+
+@*added/updated on March 18, 2015*@
+@*[Team2]Temiskaming-Hospital website Dedesign Project @ Humber college
+    Feature: Find a doctor
+    Author: Jeesoo Kim
+     Feb 17, 2015*@
