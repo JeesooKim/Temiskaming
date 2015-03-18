@@ -1,28 +1,34 @@
 ﻿@model Temiskaming.Models.navigation
 
 @{
-    ViewBag.Title = "Temiskaming Adming - CMS Create";
+    ViewBag.Title = "Temiskaming Admin - CMS Create";
 }
 
+<script type="text/javascript" src="@Url.Content("~/content/ckeditor/ckeditor.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/content/ckeditor/adapters/jquery.js")"></script>
+
 <h2>Create new page</h2>
-<table>
+
     @using (Html.BeginForm("Insert", "CMS", FormMethod.Post))
     {
-        <tr>
-            <td>@Html.Label("Page Title: ")</td>
-            <td>@Html.TextBoxFor(x => x.name)</td>
-        </tr>
-        <tr>
-            <td>@Html.Label("Content: ")</td>
-            <td>@Html.TextArea("Content")</td>
-        </tr>
-        <tr>
-            <td><input type="submit" value="Create Page" /></td>
-            <td>&nbsp;</td>
-        </tr>
+        <table>
+            <tr>
+                <td>@Html.Label("Page Title: ")</td>
+                <td>@Html.TextBoxFor(x => x.name)</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Content: ")</td>
+                <td>@Html.TextArea("content", new { @class = "cmsRichText" })</td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Create Page" /></td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
     }
-</table>
+
 
 @section scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/cms.js")
 }

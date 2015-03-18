@@ -28,17 +28,20 @@ namespace Temiskaming.Controllers
         {
             ViewBag.Group = "Admin";
             return View();
+            
         }
-
+        
         [HttpPost]
-        public ActionResult Insert(navigation nav)
+        [ValidateInput(false)]
+        public ActionResult Insert(string content, navigation nav)
         {
             ViewBag.Group = "Admin";
             if (ModelState.IsValid)
             {
-                nav.viewpath = "~/userPages/" + nav.name + ".html";
+                nav.viewpath = nav.name;
                 nav.controller = "Editable";
-                objCMS.createPage(nav);
+                string path = Server.MapPath("~/userPages/" + nav.name + ".html");
+                objCMS.createPage(path, content, nav);
                 return RedirectToAction("Index");
             }
             else
@@ -67,16 +70,24 @@ namespace Temiskaming.Controllers
             }
         }
 
-        public ActionResult Delete()
+        public ActionResult Delete(int Id)
         {
-            return View();
+                var page = objCMS.getPage(Id);
+                return View(page);
         }
 
         [HttpPost]
-        public ActionResult Delete(navigation page)
+        public ActionResult Delete(string action, int id)
         {
-            objCMS.deletePage(page);
-            return RedirectToAction("Index");
+            if (action == "Yes")
+            {
+                objCMS.deletePage(id);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
         }
 
     }

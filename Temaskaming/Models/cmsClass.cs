@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -21,20 +23,24 @@ namespace Temiskaming.Models
             return page;
         }
 
-        public bool createPage(navigation nav)
+        public bool createPage(string path,string content, navigation nav)
         {
+            
             using (objCMS)
             {
+                File.WriteAllText(path, content);
                 objCMS.navigations.InsertOnSubmit(nav);
                 objCMS.SubmitChanges();
                 return true;
             }
+            
         }
 
-        public bool deletePage(navigation page)
+        public bool deletePage(int _id)
         {
             using (objCMS)
             {
+                var page = objCMS.navigations.SingleOrDefault(x => x.id == _id);
                 objCMS.navigations.DeleteOnSubmit(page);
                 objCMS.SubmitChanges();
                 return true;

@@ -1,5 +1,46 @@
-﻿@{
+﻿@model Temiskaming.Models.news
+
+@{
     ViewBag.Title = "newsupdate";
 }
 
+<script type="text/javascript" src="@Url.Content("~/content/ckeditor/ckeditor.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/content/ckeditor/adapters/jquery.js")"></script>
+
 <h2>newsupdate</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    
+    @Html.HiddenFor(x => x.id)
+    
+    @Html.LabelFor(x=>x.title)
+    <br/>
+    @Html.TextBoxFor(x=>x.title)
+    @Html.ValidationMessageFor(x=>x.title)
+    <br/><br/>
+    
+    @Html.LabelFor(x=>x.content)
+    <br/>
+    @Html.TextAreaFor(x => x.content, new { @class = "adminRichText" })
+    @Html.ValidationMessageFor(x=>x.content)
+
+    <br/><br/>
+    <input type="submit" value="Update"/> 
+}
+
+<label>
+    @Html.ActionLink("Delete this article", "newsdelete", new {id = Model.id})
+</label>
+
+<p>
+    @Html.ActionLink("Back", "newsadmin")
+</p>
+
+@section scripts
+{@Scripts.Render("~/bundles/jqueryval")}
+
+<script language="javascript" type="text/javascript">
+    jQuery(".adminRichText").ckeditor();
+</script>

@@ -10,5 +10,6 @@
 @foreach (var x in Model)
 {
     <h3>@x.title</h3>
-    <p>@x.content</p>
+    @Html.Raw(@x.content)
+    
 }

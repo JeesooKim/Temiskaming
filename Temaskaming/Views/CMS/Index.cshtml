@@ -6,7 +6,7 @@
 
 <h2>Content Management System</h2>
 <div>
-    @Html.ActionLink("Create a new page", "Insert", "CMS");
+    @Html.ActionLink("Create a new page", "Insert", "CMS")
     <table>
         <tr>
             <th>Name</th>
@@ -23,8 +23,8 @@
                     <td>@x.name</td>
                     <td>@x.viewpath</td>
                     <td>@x.group</td>
-                    <td>@Html.ActionLink("Edit", "Edit", "CMS", null, new { id = x.id })</td>
-                    <td>@Html.ActionLink("Delete", "Delete", "CMS", null, new { x})</td>
+                    <td>@Html.ActionLink("Edit", "Edit", "CMS", new { Id = x.id }, null)</td>
+                    <td>@Html.ActionLink("Delete", "Delete", "CMS", new { Id = x.id}, null)</td>
             </tr>
             }
         }

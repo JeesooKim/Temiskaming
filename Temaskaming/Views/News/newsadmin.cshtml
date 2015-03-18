@@ -4,9 +4,13 @@
     ViewBag.Title = "newsadmin";
 }
 
-<h2>newsadmin</h2>
+<h2>News Feed Admin Page</h2>
+
+@Html.ActionLink("Create New Article", "newsinsert")
+<br/>
 
 @foreach (var x in Model)
 {
     @Html.ActionLink(x.title, "newsupdate", new {id = x.id})
+    <br/>
 }

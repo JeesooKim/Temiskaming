@@ -40,6 +40,7 @@ namespace Temiskaming.Models
                 var newsUpd = objDB.news.Single(x => x.id == _id);
                 newsUpd.title = _title;
                 newsUpd.content = _content;
+                objDB.SubmitChanges();
                 return true;
             }
         }

@@ -1,5 +1,13 @@
-﻿@{
+﻿@model Temiskaming.Models.news
+
+@{
     ViewBag.Title = "newsdelete";
 }
 
-<h2>newsdelete</h2>
+<h2>Confirm to delete @Model.title?</h2>
+
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Yes"/>
+    @Html.ActionLink("Go back to Admin", "newsadmin")
+}
