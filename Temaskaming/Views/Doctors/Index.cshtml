@@ -1,51 +1,76 @@
 ﻿@model IEnumerable<Temiskaming.Models.doctor>
 
 @{
-    ViewBag.Title = "SearchIndex";
+    ViewBag.Title = "Find a Doctor";
 }
 
 <h2>Find a Doctor </h2>
 
 @using (Html.BeginForm("Index", "Doctors", FormMethod.Get))
 {
+    /*Note:"the default BeginForm submits form data with a POST: parameters are passed in the HTTP message body and not in the URL as query strings."
+    *"HTTP Get: the form data is passed in the URL as query strings -> emabling users to bookmart the URL"  
+    *"The W3C guidlines for the use of HTTP GET recommend to use GET when the action does not result in an update.
+     March 17, 2015 */
+    
     <p>
         Medical Department: @Html.DropDownList("medicalDepartment", "All")
         &nbsp;&nbsp;
-        Last Name: @Html.TextBox("SearchString")
+        Last Name: @Html.TextBox("SearchString", ViewBag.currentFilter as string)
         <input type="submit" value="Search" />
     </p>
 }
 @*Mar 17*@
 
-<table border="1">
-    <tr>
-        <th>Name </th>
-        <th>@Html.DisplayNameFor(model => model.title)</th>
-        <th>@Html.DisplayNameFor(model => model.department)</th>
-        <th>@Html.DisplayNameFor(model => model.extension)</th>
-        <th>@Html.DisplayNameFor(model => model.email)</th>
-        <th>Option</th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+<table id="doctorTable" class="table table-striped">
+    <thead>
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.fname) &nbsp;
-            @Html.DisplayFor(modelItem => item.lname)
-        </td>
-        <td>@Html.DisplayFor(modelItem => item.title)</td>
-        <td>@Html.DisplayFor(modelItem => item.department)</td>
-        <td>@Html.DisplayFor(modelItem => item.extension)</td>
-        <td>@Html.DisplayFor(modelItem => item.email)</td>
-        <td>
-            @Html.ActionLink("Details", "Details", new { id = item.Id })
-        </td>
-    </tr>
-
-    }
-    @*<tr>@Html.ActionLink("Back to list", "Index", new { id = item.Id }) </tr>*@
+            <th>
+                @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.currentFilter })
+            </th>
+            <th>Title</th>
+            <th>
+                @Html.ActionLink("Medical Department", "Index", new { sortOrder = ViewBag.DepartSortParm, currentFilter = ViewBag.currentFilter })
+            </th>
+            <th>Ext.</th>
+            <th>Email</th>
+            <th>Option</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fname) &nbsp;
+                    @Html.DisplayFor(modelItem => item.lname)
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.title)</td>
+                <td>@Html.DisplayFor(modelItem => item.department)</td>
+                <td>@Html.DisplayFor(modelItem => item.extension)</td>
+                <td>@Html.DisplayFor(modelItem => item.email)</td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    </tbody>    
 </table>
+<br />
+
+<script>
+    $(document).ready(function () {
+        $('#doctorTable').dataTable();
+    });
+</script>
+
+@*updated on March 17, 2015
+    Ref1:http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
+    Ref2:http://www.codeproject.com/Tips/823490/Bootstrap-Table-With-Sorting-Searching-and-Paging*@
+@*It was not intended to have two search functions. Before implementing jQuery dataTables plugin (responsive, sorting, and pagination functionality), the main functionality, "Searching", for this feature has already been built in. In order to set this feature to be responsive, jQuery is plugged in now. Decide to keep two search functions because of each one's pros.
+   * With the programmed search function in the Controller, we can search for doctors with two parameters, last name and department, while the results are displayed only after the search button is clicked.
+    This gives a user more option to use more search keywords, which would narrow down the way to find a doctor in question.
+    The jQuery search function is faster,and convenient because it gives the result simutaneously while the search key is entered. It just gives the result matching with any word at that moment.*@
 
 
 @*[Team2]Temiskaming-Hospital website Dedesign Project @ Humber college

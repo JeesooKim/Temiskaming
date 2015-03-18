@@ -18,7 +18,7 @@ namespace Temiskaming.Controllers
             ViewBag.Title = "Temiskaming - " + page.name;
             ViewBag.Header = page.name;
             ViewBag.Group = page.group;
-            ViewBag.Content = page.viewpath.ToString();
+            ViewBag.Content = "~/userPages/" + page.viewpath.ToString() + ".html";
             return View();
         }
 

@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Temiskaming.Models.alert>
+
+@{
+    ViewBag.Title = "Alerts List";
+}
+
+<h2>All alerts</h2>
+
+@foreach (var record in Model)
+{
+  <h3>@Html.DisplayFor(m => record.alertTitle)</h3>
+  <p>@Html.DisplayFor(m => record.alertDescription) <strong>@Html.DisplayFor(m => record.alertTimeline)</strong></p>  
+  <p>@Html.DisplayFor(m => record.alertLevel) </p> 
+    @Html.DisplayFor(m => record.alertStatus)
+}

@@ -1,8 +1,4 @@
-﻿<div class="menu">
-    <nav>
-        @{Html.RenderAction("Nav", "Home", new { group = ViewBag.Group });}
-    </nav>
-</div>
+﻿
 <h2>@ViewBag.Header</h2>
 
 @Html.Raw(File.ReadAllText(Server.MapPath(ViewBag.Content)))

@@ -10,6 +10,7 @@ body {
     padding: 0;
 }
 
+
 header, footer, nav, section {
     display: block;
 }
@@ -19,6 +20,15 @@ ul{
     padding: 0;
 }
 
+#wrapper, #hwrapper, #fwrapper {
+    width: 1050px;
+    margin: 0 auto;
+    height: 100%;
+}
+.menu {
+    position: relative;
+    top: 20px;
+}
 
 
 /*HEADER MASTER BEGINS*/
@@ -35,8 +45,9 @@ header #logo {
     width: 59px;
     float: left;
     margin-left: 30px;
-    border: 1px #60cef7 solid;
     background: #60cef7;
+    background: url('Images/logo.png') no-repeat;
+    background-size: 59px 59px;
 }
 
 header nav {
@@ -87,7 +98,7 @@ nav li {
     /*ASIDE SIDEBAR MASTER BEGINS*/
     aside {
         text-align: center;
-        width: 25%;
+        width: 28%;
         float: right;
     }
     
@@ -207,6 +218,16 @@ textarea {
 
 /*MEDIA MASTER QUERIES*/
 @media only screen and (max-width: 1100px) {
+    
+    #wrapper, #hwrapper, #fwrapper {
+        width: 100%;
+        margin: 0 auto;
+        height: auto;
+    }
+    .menu {
+        text-align: center;
+    }
+    
     /*HEADER*/
     header {
         text-align: center;
@@ -245,8 +266,9 @@ textarea {
         margin: 0;
         margin-top: 20px;
     }
-    #content {
+    #content, #adminContent {
         width: auto;
+        margin: 0 15px;
         float: none;
     }
     aside{
@@ -259,6 +281,7 @@ textarea {
     /*FOOTER*/
     footer {
         padding: 0;
+        width: 100%;
     }
     footer nav {
         float: none;
@@ -280,6 +303,47 @@ textarea {
 }
 
 @media only screen and (max-width: 770px) {
+    /*SECONDARY NAV*/
+    .menu {
+        position: static;
+        text-align: left;
+    }
+    #menuIcon {
+        color: white;
+        width: 100%;
+        height: 45px;
+        background: url('Images/hamburger.png') no-repeat center;
+        background-size: 40px 40px;
+        background-color: black;
+        margin: 0;
+        padding: 0;
+    }
+    #menuIcon:active {
+        background-color: #1c3152;
+    }
+    .menu a {
+        display: block;
+        width: 100%;
+        color: white;
+        text-decoration: none;
+        background: black;
+        padding: 10px;
+        border-top: 1px dashed white;
+    }
+    .menu nav {
+        display: none;
+    }
+    .menu a:active {
+        background: #1c3152;
+    }
+    .menu li {
+        margin: 0;
+        font-size: 1.2em;
+        display: list-item;
+        background: #1c3152;
+        overflow: hidden;
+    }
+
     header nav li {
         display: list-item;
         margin-bottom: 10px;
@@ -291,6 +355,9 @@ textarea {
     }
     header a:hover {
         color: white;
+    }
+    header a:active {
+        background: #35758e;
     }
     footer nav li {
         display: list-item;
@@ -307,14 +374,24 @@ textarea {
 
 /*FEATURE SPECIFIC MEDIA QUERIES*/
 @media only screen and (max-width: 1100px) {
-    /*INDEX*/
+
+    /*SECONDARY NAV*/
+    
+   
+    /*HOME*/
     #banner {
         display: none;
     }
-    #content {
-        margin: 0 10px;
-    }
+    
     h2 {
         text-align: center;
     }
+    
+}
+
+/*for News Feed only*/
+
+.adminRichText
+{
+width:450px;
 }

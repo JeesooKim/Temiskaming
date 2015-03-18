@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Temiskaming.Models.navigation>
+
+@{
+    ViewBag.Title = "Temiskaming Admin - CMS";
+}
+
+<h2>Content Management System</h2>
+<div>
+    @Html.ActionLink("Create a new page", "Insert", "CMS")
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Path</th>
+            <th>Group</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+        </tr>
+        @foreach (var x in Model)
+        {
+            if (x.controller == "Editable")
+            {
+                <tr>
+                    <td>@x.name</td>
+                    <td>@x.viewpath</td>
+                    <td>@x.group</td>
+                    <td>@Html.ActionLink("Edit", "Edit", "CMS", new { Id = x.id }, null)</td>
+                    <td>@Html.ActionLink("Delete", "Delete", "CMS", new { Id = x.id}, null)</td>
+            </tr>
+            }
+        }
+    </table>
+</div>
