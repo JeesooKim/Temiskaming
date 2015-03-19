@@ -9,14 +9,14 @@ using System.Web.Mvc;
 
 namespace Temiskaming.Models
 {
-    [MetadataType(typeof(FAQValidation))]
+    [MetadataType(typeof(FAQsValidation))]
     public partial class FAQ
     {
 
     }
 
     [Bind(Exclude = "Id")]
-    public class FAQValidation
+    public class FAQsValidation
     {
         //parameters for question + validation for empty field
         [DisplayName("Question")]
