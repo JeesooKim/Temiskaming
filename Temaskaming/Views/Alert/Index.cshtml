@@ -1,1 +1,20 @@
-﻿ 
+﻿@model IEnumerable<Temiskaming.Models.alert>
+
+@{
+    ViewBag.Title = "Alerts List";
+}
+
+<h2>All alerts</h2>
+
+@foreach (var record in Model)
+{
+  <h3>@record.alertTitle</h3>
+  <p>@Html.DisplayFor(m => record.alertDescription) <strong>@Html.DisplayFor(m => record.alertTimeline)</strong></p>  
+  <p>@Html.DisplayFor(m => record.alertLevel) </p> 
+   
+    if (record.alertStatus.Value == true)
+    {<p>Its active</p> }
+    else
+    {<p>Its de-active</p>  }
+                           
+}

@@ -83,7 +83,7 @@ namespace Temiskaming.Models
 }
 
 
-//[Team2]Temiskaming-Hospital website Dedesign Project @ Humber college
+//[Team2]Temiskaming-Hospital website Redesign Project @ Humber college
 //Feature: Find a doctor
 //Author: Jeesoo Kim
 // Feb 17, 2015

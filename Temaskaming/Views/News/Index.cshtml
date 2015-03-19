@@ -1,5 +1,15 @@
-﻿@{
+﻿//declaring the datatype of the model
+@model IEnumerable<Temiskaming.Models.news>
+
+@{
     ViewBag.Title = "Index";
 }
 
 <h2>News Feed</h2>
+
+@foreach (var x in Model)
+{
+    <h3>@x.title</h3>
+    @Html.Raw(@x.content)
+    
+}

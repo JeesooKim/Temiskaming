@@ -17,34 +17,91 @@ namespace Temiskaming.Controllers
             return PartialView();
         }
 
-        public PartialViewResult CMS()
+        public ActionResult Index()
         {
-            if (Session["ID"] != null)
+            ViewBag.Group = "Admin";
+            var nav = objCMS.getPages();
+            return View(nav);
+        }
+
+        public ActionResult Insert()
+        {
+            ViewBag.Group = "Admin";
+            ViewBag.LastId = objCMS.getLastId() + 1;
+            return View();
+            
+        }
+        
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult Insert(string content, string group, navigation nav)
+        {
+            ViewBag.Group = "Admin";
+            if (ModelState.IsValid)
             {
-                var nav = objCMS.getPages();
-                return PartialView(nav);
+                nav.viewpath = nav.name;
+                if (group != "None")
+                {
+                    nav.group = group;
+                }
+                nav.controller = "Editable";
+                string path = Server.MapPath("~/userPages/" + nav.name + ".html");
+                
+                objCMS.createPage(path, content, nav);
+                return RedirectToAction("Index");
             }
             else
             {
-                return PartialView("Error");
+                return View("Insert");
             }
-
         }
 
-        public PartialViewResult Insert()
+        public ActionResult Edit(int Id)
         {
-            return PartialView();
+            ViewBag.Group = "Admin";
+            var page = objCMS.getPage(Id);
+            ViewBag.CurrId = page.id;
+            return View(page);
         }
 
         [HttpPost]
-        public PartialViewResult Insert(navigation nav)
+        [ValidateInput(false)]
+        public ActionResult Edit(int id, string content, string name, string group)
         {
-            return PartialView();
+            ViewBag.Group = "Admin";
+            if (ModelState.IsValid)
+            {
+                string path = Server.MapPath("~/userPages/" + name + ".html");
+                objCMS.updatePage(path, content, id, name, group);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return Edit(id);
+            }
         }
 
-        public PartialViewResult Edit()
+        public ActionResult Delete(int Id)
         {
-            return PartialView();
+            ViewBag.Group = "Admin";
+            var page = objCMS.getPage(Id);
+            return View(page);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(string action, int id, string name)
+        {
+            ViewBag.Group = "Admin";
+            if (action == "Yes")
+            {
+                string path = Server.MapPath("~/userPages/" + name + ".html");
+                objCMS.deletePage(path, id);
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
         }
 
     }

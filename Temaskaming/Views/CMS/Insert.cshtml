@@ -1,1 +1,48 @@
-﻿<h2>Create a new page</h2>
+﻿@model Temiskaming.Models.navigation
+
+@{
+    ViewBag.Title = "Temiskaming Admin - CMS Create";
+    IDictionary<string, string> groupsDict = new Dictionary<string, string>();
+    string[] groups = {"None", "Patients and Visitors", "Programs and Services","About Us", "Join Our Team", "Contact Us"};
+    string[] keys = { "None", "Patients", "ProgramsServices", "AboutUs", "JoinOurTeam", "ContactUs" };
+    
+    foreach (var x in groups)
+    {
+        string y = keys[Array.IndexOf(groups, x)];
+        groupsDict[y] = x;
+    }
+    
+}
+
+<script type="text/javascript" src="@Url.Content("~/content/ckeditor/ckeditor.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/content/ckeditor/adapters/jquery.js")"></script>
+
+<h2>Create new page</h2>
+    
+    @using (Html.BeginForm("Insert", "CMS", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td>@Html.Label("Page Title: ")</td>
+                <td>@Html.TextBoxFor(x => x.name)</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Content: ")</td>
+                <td>@Html.TextArea("content", new { @class = "cmsRichText" })</td>
+            </tr>
+            <tr>
+                <td>@Html.Label("Choose Link Location:")</td>
+                <td>@Html.DropDownList("group", new SelectList(groupsDict, "Key", "Value"))</td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Create Page" /></td>
+                <td>&nbsp;</td>
+            </tr>
+        </table>
+    }
+<p>If not specifying link location, this is the link for your new page:<b> http://temis.sumeetb.com/Editable/Index/@ViewBag.LastId </b></p>
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/cms.js")
+}
