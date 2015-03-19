@@ -2,16 +2,10 @@
 
 @{
     ViewBag.Title = "Temiskaming Admin - CMS Edit Page";
-    IDictionary<string, string> groupsDict = new Dictionary<string, string>();
-    string[] groups = { "None", "Patients and Visitors", "Programs and Services", "About Us", "Join Our Team", "Contact Us" };
-    string[] keys = { "None", "Patients", "ProgramsServices", "AboutUs", "JoinOurTeam", "ContactUs" };
-
-    foreach (var x in groups)
-    {
-        string y = keys[Array.IndexOf(groups, x)];
-        groupsDict[y] = x;
-    }
-
+    @section css{
+        @Styles.Render("~/Content/cms.css")
+        }
+    
     string content = "";
     if (File.Exists(Server.MapPath("~/userPages/" + Model.name + ".html")) == true)
     {
@@ -38,7 +32,7 @@
         </tr>
         <tr>
             <td>@Html.Label("Choose Link Location:")</td>
-            <td>@Html.DropDownList("group", new SelectList(groupsDict, "Key", "Value"))</td>
+            <td>@Html.DropDownList("grouping", new SelectList(ViewBag.GroupList, "Value", "Text", ViewBag.SelGroup),"None",null)</td>
         </tr>
         <tr>
             <td><input type="submit" value="Edit Page" /></td>
@@ -48,6 +42,7 @@
 }
 <p>If not specifying link location, this is the link for the current page:<b> http://temis.sumeetb.com/Editable/Index/@ViewBag.CurrId </b></p>
 
+@Html.ActionLink("Back", "Index", "CMS")
 
 @section scripts {
     @Scripts.Render("~/bundles/jqueryval")

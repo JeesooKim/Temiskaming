@@ -28,6 +28,7 @@ namespace Temiskaming.Controllers
         {
             ViewBag.Group = "Admin";
             ViewBag.LastId = objCMS.getLastId() + 1;
+            ViewBag.GroupList = objCMS.allGroups();
             return View();
             
         }
@@ -40,7 +41,7 @@ namespace Temiskaming.Controllers
             if (ModelState.IsValid)
             {
                 nav.viewpath = nav.name;
-                if (group != "None")
+                if (group != "")
                 {
                     nav.group = group;
                 }
@@ -61,18 +62,20 @@ namespace Temiskaming.Controllers
             ViewBag.Group = "Admin";
             var page = objCMS.getPage(Id);
             ViewBag.CurrId = page.id;
+            ViewBag.GroupList = objCMS.allGroups();
+            ViewBag.SelGroup = page.group;
             return View(page);
         }
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Edit(int id, string content, string name, string group)
+        public ActionResult Edit(int id, string content, string name, string grouping)
         {
             ViewBag.Group = "Admin";
             if (ModelState.IsValid)
             {
                 string path = Server.MapPath("~/userPages/" + name + ".html");
-                objCMS.updatePage(path, content, id, name, group);
+                objCMS.updatePage(path, content, id, name, grouping);
                 return RedirectToAction("Index");
             }
             else

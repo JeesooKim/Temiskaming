@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace Temiskaming.Models
 {
@@ -55,6 +56,10 @@ namespace Temiskaming.Models
         public bool updatePage(string path, string content, int _id, string _name, string _group)
         {
             File.WriteAllText(path, content);
+            if (_group == "")
+            {
+                _group = null;
+            }
             using (objCMS)
             {
                 var page = objCMS.navigations.SingleOrDefault(x => x.id == _id);
@@ -63,6 +68,51 @@ namespace Temiskaming.Models
                 page.viewpath = _name;
                 objCMS.SubmitChanges();
                 return true;
+            }
+        }
+
+        public IEnumerable<SelectListItem> allGroups()
+        {
+            using (objCMS)
+            {
+                var group = objCMS.navigations.Select(x => x.group).Distinct().ToArray();
+                List<SelectListItem> something = new List<SelectListItem>();
+                foreach (var g in group)
+                {
+                    if (g != "Home" && g != "Admin") {
+                        if (g == "AboutUs")
+                        {
+                            var keyval = new SelectListItem { Value = g, Text = "About Us" };
+                            something.Add(keyval);
+                        }
+                        else if (g == "JoinOurTeam")
+                        {
+                            var keyval = new SelectListItem { Value = g, Text = "Join Our Team" };
+                            something.Add(keyval);
+                        }
+                        else if (g == "Patients")
+                        {
+                            var keyval = new SelectListItem { Value = g, Text = "Patients and Visitors" };
+                            something.Add(keyval);
+                        }
+                        else if (g == "ProgramsServices")
+                        {
+                            var keyval = new SelectListItem { Value = g, Text = "Programs and Services" };
+                            something.Add(keyval);
+                        }
+                        else if (g == "ContactUs")
+                        {
+                            var keyval = new SelectListItem { Value = g, Text = "Contact Us" };
+                            something.Add(keyval);
+                        }
+                        else
+                        {
+                            var keyval = new SelectListItem { Value = g, Text = g };
+                            something.Add(keyval);
+                        }
+                    }
+                }
+                return something;
             }
         }
     }
