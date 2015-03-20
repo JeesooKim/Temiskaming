@@ -195,7 +195,6 @@
     <Compile Include="Models\doctorClass.cs" />
     <Compile Include="Models\doctorsValidation.cs" />
     <Compile Include="Models\FAQClass.cs" />
-    <Compile Include="Models\FAQValidation.cs" />
     <Compile Include="Models\jobapplicationValidation.cs" />
     <Compile Include="Models\linqjobsClass.cs" />
     <Compile Include="Models\navClass.cs" />

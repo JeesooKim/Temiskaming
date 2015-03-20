@@ -186,7 +186,7 @@ namespace FindADoctor.Controllers
 
         public ActionResult FindADocDetails(int id)
         {
-            
+            ViewBag.Group = "Admin";   
             var doc = objDoc.getDoctorByID(id);
             if (doc == null)
             {
