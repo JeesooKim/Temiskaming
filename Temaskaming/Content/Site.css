@@ -134,10 +134,18 @@ nav li {
         margin: 0;
     }
 
+    #chatbox{
+        width: 450px;
+    }
+
     #chat {
+        position: relative;
+        text-align: left;
         display: none;
-        height: 500px;
+        height: 450px;
+        padding: 10px;
         background: #a0e2fa;
+        z-index: 1000;
     }
     /*SIDEBAR MASTER ENDS*/
 
