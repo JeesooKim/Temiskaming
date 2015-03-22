@@ -805,9 +805,13 @@
     <Content Include="Views\CMS\Edit.cshtml" />
     <Content Include="Views\FAQ\FAQ.cshtml" />
     <Content Include="Views\FAQ\FAQDelete.cshtml" />
+    <Content Include="Views\Chat\Index.cshtml" />
+    <Content Include="Views\Chat\Chat.cshtml" />
+    <Content Include="Views\Chat\Send.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="chatLogs\" />
     <Folder Include="Content\editable\" />
   </ItemGroup>
   <ItemGroup>

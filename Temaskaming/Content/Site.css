@@ -30,6 +30,12 @@ ul{
     top: 20px;
 }
 
+input[type="submit"]{
+    background: #bbecff;
+    padding: 5px;
+    border: 1px solid black;
+}
+
 
 /*HEADER MASTER BEGINS*/
 
@@ -143,10 +149,25 @@ nav li {
         text-align: left;
         display: none;
         height: 450px;
-        padding: 10px;
+        padding: 20px;
         background: #a0e2fa;
         z-index: 1000;
     }
+
+    #chatLog, #fMessage {
+        width: 100%;
+    }
+
+    #chatLog {
+        height: 300px;
+        margin: 10px 0;
+        background: white;
+    }
+
+    #send {
+        
+    }
+
     /*SIDEBAR MASTER ENDS*/
 
 /*BODY MASTER ENDS*/

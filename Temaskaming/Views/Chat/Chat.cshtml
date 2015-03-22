@@ -1,0 +1,15 @@
+﻿@Html.ActionLink("Exit Chat", "Exit", "Chat")
+
+@using(Ajax.BeginForm(new AjaxOptions
+{
+
+}))
+{ 
+    <div id="chatLog">
+
+    </div>
+}
+
+@Html.Partial("Send")
+
+@Scripts.Render("~/bundles/jqueryval")

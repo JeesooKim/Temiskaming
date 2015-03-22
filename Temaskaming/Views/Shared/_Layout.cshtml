@@ -76,19 +76,7 @@
                 <div id="chatBox">
 
                     <h2><a>Live Chat</a></h2>
-                    <div id="chat">
-                        @using (Ajax.BeginForm("Index", "Chat", FormMethod.Post, new AjaxOptions{
-                            HttpMethod = "Post",
-                            UpdateTargetId = "chat",
-                            InsertionMode = InsertionMode.Replace,
-                            LoadingElementDuration = 3000
-                        
-                        }))
-                        {
-                            @Html.Label("Please enter valid email to chat: ")
-                            @Html.TextBox("email");
-                        }
-                    </div>
+                    @Html.Action("Index","Chat")
 
                 </div>
             </aside>   
