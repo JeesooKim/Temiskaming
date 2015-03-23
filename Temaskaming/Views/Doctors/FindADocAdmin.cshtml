@@ -7,10 +7,8 @@
     @*Jeesoo added the following on March 18,2015*@
     @*<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">*@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <link rel="stylesheet"
-          href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css" />
-    <script type="text/javascript"
-            src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="~/Content/css/jquery.dataTables.css" />
+    <script type="text/javascript" src="~/Scripts/jquery.dataTables.min.js"></script>
     @*<script type="text/javascript"
         src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>*@
     @*up to here -Jeesoo on March 18*@
@@ -21,8 +19,6 @@
 
 <p>@Html.ActionLink("Register a New Doctor", "FindADocInsert", "Doctors")</p>
 
-
-@**@
 @using (Html.BeginForm("FindADocAdmin", "Doctors", FormMethod.Get))
 {
     /*Note:"the default BeginForm submits form data with a POST: parameters are passed in the HTTP message body and not in the URL as query strings."
