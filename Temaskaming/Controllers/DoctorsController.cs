@@ -20,7 +20,7 @@ namespace FindADoctor.Controllers
 
         //Public Index->SEARCH FOR DOCTORS (FIND A DOCTOR)
         //Ref: http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
-        //http://forums.asp.net/t/2026344.aspx?How+to+keep+the+search+term+in+textbox+after+postback+when+implemented+with+jquery+Watermark+MVC4+Razorview
+        //Ref:http://forums.asp.net/t/2026344.aspx?How+to+keep+the+search+term+in+textbox+after+postback+when+implemented+with+jquery+Watermark+MVC4+Razorview
 
         public ActionResult Index(string sortOrder, string currentFilter, string medicalDepartment, string searchString, int? page)
         {
@@ -30,7 +30,7 @@ namespace FindADoctor.Controllers
 
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DepartSortParm = sortOrder == "Department" ? "departmt_desc" : "Department";
-
+            //"if the sortOrder parameter is null or empty, ViewBag.NameSortParm should be set to "name_desc"; otherwise, it should be set to an empty string."
 
             ViewBag.currentFitler = searchString;
             //"ViewBag.currentFilter : to maintain the filter setting during paging, with the textbox restoring the searchString Value when the page is redisplayed"
@@ -117,7 +117,7 @@ namespace FindADoctor.Controllers
             //but three more options added, update and delete for each row (doctor), and insert
             ViewBag.Group = "Admin";
             ViewBag.currentSort = sortOrder;
-            //"ViewBag.CurrentSort: keep the current sortorder the same while paging"
+            //"ViewBag.currentSort: keep the current sortorder the same while paging"
 
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DepartSortParm = sortOrder == "Department" ? "departmt_desc" : "Department";
