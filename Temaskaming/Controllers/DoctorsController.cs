@@ -243,7 +243,7 @@ namespace FindADoctor.Controllers
                 try
                 {
                     objDoc.commitUpdate(id, doc.fname, doc.lname, doc.title, doc.department, doc.role, doc.program, doc.status, doc.email, doc.extension, doc.phone, doc.office, doc.office_hr, doc.bio);
-                    return RedirectToAction("Details/" + id);
+                    return RedirectToAction("FindADocDetails/" + id);
                 }
                 catch
                 {

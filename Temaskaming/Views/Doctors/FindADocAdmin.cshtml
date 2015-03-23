@@ -3,6 +3,19 @@
 @{
     ViewBag.Title = "FindADocAdmin";
 }
+@section Scripts{
+    @*Jeesoo added the following on March 18,2015*@
+    @*<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">*@
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <link rel="stylesheet"
+          href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css" />
+    <script type="text/javascript"
+            src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+    @*<script type="text/javascript"
+        src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>*@
+    @*up to here -Jeesoo on March 18*@
+}
+
 
 <h2>Find A Doctor - Admin</h2>
 
@@ -44,7 +57,7 @@
         {
             <tr>
                 <td>
-                    @Html.ActionLink(item.fname + item.lname, "FindADocDetails", new { id = item.Id })      
+                    @Html.ActionLink(item.fname + " " + item.lname, "FindADocDetails", new { id = item.Id })      
                 </td>
                 <td>@Html.DisplayFor(modelItem => item.title)</td>
                 <td>@Html.DisplayFor(modelItem => item.department)</td>
