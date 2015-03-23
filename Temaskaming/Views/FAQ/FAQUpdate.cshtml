@@ -4,28 +4,30 @@
     ViewBag.Title = "FAQUpdate";
 }
 
-<h2>FAQUpdate</h2>
+<h2>FAQ Update</h2>
 
 @using(Html.BeginForm())
 {
     <div>
-    @Html.HiddenFor(x=>x.Id)
-    @Html.LabelFor(x=>x.Id)
+    @Html.HiddenFor(x=>x.Id)<!-- Hide ID-->
+    
     </div>
     <div>
-    @Html.TextBoxFor(x=>x.Question)
-    @Html.ValidationMessageFor(x=>x.Question)
+        <p>Question: </p>
+    @Html.TextBoxFor(x=>x.Question)<!--Question TextBox -->
+    @Html.ValidationMessageFor(x=>x.Question) <!---Valdiation message if -->
     </div>
     <div>
-        @Html.TextBoxFor(x=>x.Answer)
-        @Html.ValidationMessageFor(x=>x.Answer)
+        <p>Answer: </p>
+        @Html.TextBoxFor(x=>x.Answer)<!-- Answer Textbox-->
+        @Html.ValidationMessageFor(x=>x.Answer)<!-- Validation Message -->
     </div>
     <div>
         <input type="submit" value="Update"/>
     </div>
 }
     <div>
-        @Html.ActionLink("Back", "FAQAdmin", new object { id =Model.Id})
+        @Html.ActionLink("Back", "FAQAdmin", "FAQ")
     </div>
 
 @section Scripts{

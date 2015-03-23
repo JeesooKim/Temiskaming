@@ -24,6 +24,7 @@ namespace FindADoctor.Controllers
 
         public ActionResult Index(string sortOrder, string currentFilter, string medicalDepartment, string searchString, int? page)
         {
+            ViewBag.Group = "ContactUs";
             ViewBag.currentSort = sortOrder;
             //"ViewBag.CurrentSort: keep the current sortorder the same while paging"
 
@@ -95,6 +96,7 @@ namespace FindADoctor.Controllers
         
         public ActionResult Details(int id)
         {
+            ViewBag.Group = "ContactUs";
             var doc = objDoc.getDoctorByID(id);
             if (doc == null)
             {
@@ -113,7 +115,7 @@ namespace FindADoctor.Controllers
         public ActionResult FindADocAdmin(string sortOrder, string currentFilter, string medicalDepartment, string searchString, int? page)
         {//Admin Index page:this action method is basically the same as the public index page 
             //but three more options added, update and delete for each row (doctor), and insert
-
+            ViewBag.Group = "Admin";
             ViewBag.currentSort = sortOrder;
             //"ViewBag.CurrentSort: keep the current sortorder the same while paging"
 
@@ -184,6 +186,7 @@ namespace FindADoctor.Controllers
 
         public ActionResult FindADocDetails(int id)
         {
+            ViewBag.Group = "Admin";   
             var doc = objDoc.getDoctorByID(id);
             if (doc == null)
             {
@@ -197,6 +200,7 @@ namespace FindADoctor.Controllers
 
         public ActionResult FindADocInsert()
         {//when firstly Insert page is loaded...this action method is for Admin
+            ViewBag.Group = "Admin";
             return View();  
         }
 
@@ -204,6 +208,7 @@ namespace FindADoctor.Controllers
         [HttpPost]
         public ActionResult FindADocInsert(doctor doc)
         {//when Insert page is working with doc...this action method is for Admin
+            ViewBag.Group = "Admin";
             if (ModelState.IsValid)
             {//when model is valid, try to insert the parameter info into db thru the objDoc object 
                 //Then, return to Index page.
@@ -224,6 +229,7 @@ namespace FindADoctor.Controllers
 
         public ActionResult FindADocUpdate(int id)
         {
+            ViewBag.Group = "Admin";
             var doc = objDoc.getDoctorByID(id);
             if (doc == null)
             {
@@ -238,6 +244,7 @@ namespace FindADoctor.Controllers
         [HttpPost]
         public ActionResult FindADocUpdate(int id, doctor doc)
         {
+            ViewBag.Group = "Admin";
             if (ModelState.IsValid)
             {
                 try
@@ -256,7 +263,7 @@ namespace FindADoctor.Controllers
 
         public ActionResult FindADocDelete(int id)
         {
-
+            ViewBag.Group = "Admin";
             var doc = objDoc.getDoctorByID(id);
             if (doc == null)
             {
@@ -271,6 +278,7 @@ namespace FindADoctor.Controllers
         [HttpPost]
         public ActionResult FindADocDelete(int id, doctor doc)
         {
+            ViewBag.Group = "Admin";
             try
             {
                 objDoc.commitDelete(id);

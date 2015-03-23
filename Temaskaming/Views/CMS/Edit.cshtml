@@ -1,0 +1,50 @@
+﻿@model Temiskaming.Models.navigation
+
+@{
+    ViewBag.Title = "Temiskaming Admin - CMS Edit Page";
+    @section css{
+        @Styles.Render("~/Content/cms.css")
+        }
+    
+    string content = "";
+    if (File.Exists(Server.MapPath("~/userPages/" + Model.name + ".html")) == true)
+    {
+        content = File.ReadAllText(Server.MapPath("~/userPages/" + Model.name + ".html"));
+    }
+
+}
+
+<script type="text/javascript" src="@Url.Content("~/content/ckeditor/ckeditor.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/content/ckeditor/adapters/jquery.js")"></script>
+
+<h2>Edit page</h2>
+
+@using (Html.BeginForm("Edit", "CMS", FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>@Html.Label("Page Title: ")</td>
+            <td>@Html.TextBoxFor(x => x.name)</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Content: ")</td>
+            <td>@Html.TextArea("content", content, new { @class = "cmsRichText" })</td>
+        </tr>
+        <tr>
+            <td>@Html.Label("Choose Link Location:")</td>
+            <td>@Html.DropDownList("grouping", new SelectList(ViewBag.GroupList, "Value", "Text", ViewBag.SelGroup),"None",null)</td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Edit Page" /></td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+}
+<p>If not specifying link location, this is the link for the current page:<b> http://temis.sumeetb.com/Editable/Index/@ViewBag.CurrId </b></p>
+
+@Html.ActionLink("Back", "Index", "CMS")
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/cms.js")
+}

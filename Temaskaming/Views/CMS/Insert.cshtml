@@ -2,13 +2,17 @@
 
 @{
     ViewBag.Title = "Temiskaming Admin - CMS Create";
+    @section css{
+        @Styles.Render("~/Content/cms.css")
+        }
+    
 }
 
 <script type="text/javascript" src="@Url.Content("~/content/ckeditor/ckeditor.js")"></script>
 <script type="text/javascript" src="@Url.Content("~/content/ckeditor/adapters/jquery.js")"></script>
 
 <h2>Create new page</h2>
-
+    
     @using (Html.BeginForm("Insert", "CMS", FormMethod.Post))
     {
         <table>
@@ -21,12 +25,16 @@
                 <td>@Html.TextArea("content", new { @class = "cmsRichText" })</td>
             </tr>
             <tr>
+                <td>@Html.Label("Choose Link Location:")</td>
+                <td>@Html.DropDownList("group", new SelectList(ViewBag.GroupList, "Value", "Text"),"",null)</td>
+            </tr>
+            <tr>
                 <td><input type="submit" value="Create Page" /></td>
                 <td>&nbsp;</td>
             </tr>
         </table>
     }
-
+<p>If not specifying link location, this is the link for your new page:<b> http://temis.sumeetb.com/Editable/Index/@ViewBag.LastId </b></p>
 
 @section scripts {
     @Scripts.Render("~/bundles/jqueryval")

@@ -27,20 +27,27 @@ namespace Temiskaming.Controllers
         public ActionResult Insert()
         {
             ViewBag.Group = "Admin";
+            ViewBag.LastId = objCMS.getLastId() + 1;
+            ViewBag.GroupList = objCMS.allGroups();
             return View();
             
         }
         
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Insert(string content, navigation nav)
+        public ActionResult Insert(string content, string group, navigation nav)
         {
             ViewBag.Group = "Admin";
             if (ModelState.IsValid)
             {
                 nav.viewpath = nav.name;
+                if (group != "")
+                {
+                    nav.group = group;
+                }
                 nav.controller = "Editable";
                 string path = Server.MapPath("~/userPages/" + nav.name + ".html");
+                
                 objCMS.createPage(path, content, nav);
                 return RedirectToAction("Index");
             }
@@ -50,38 +57,48 @@ namespace Temiskaming.Controllers
             }
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int Id)
         {
-            var page = objCMS.getPage(id);
+            ViewBag.Group = "Admin";
+            var page = objCMS.getPage(Id);
+            ViewBag.CurrId = page.id;
+            ViewBag.GroupList = objCMS.allGroups();
+            ViewBag.SelGroup = page.group;
             return View(page);
         }
 
         [HttpPost]
-        public ActionResult Edit(int _id, navigation page)
+        [ValidateInput(false)]
+        public ActionResult Edit(int id, string content, string name, string grouping)
         {
+            ViewBag.Group = "Admin";
             if (ModelState.IsValid)
             {
-                objCMS.updatePage(page.id, page.name, page.group);
+                string path = Server.MapPath("~/userPages/" + name + ".html");
+                objCMS.updatePage(path, content, id, name, grouping);
                 return RedirectToAction("Index");
             }
             else
             {
-                return Edit(_id);
+                return Edit(id);
             }
         }
 
         public ActionResult Delete(int Id)
         {
-                var page = objCMS.getPage(Id);
-                return View(page);
+            ViewBag.Group = "Admin";
+            var page = objCMS.getPage(Id);
+            return View(page);
         }
 
         [HttpPost]
-        public ActionResult Delete(string action, int id)
+        public ActionResult Delete(string action, int id, string name)
         {
+            ViewBag.Group = "Admin";
             if (action == "Yes")
             {
-                objCMS.deletePage(id);
+                string path = Server.MapPath("~/userPages/" + name + ".html");
+                objCMS.deletePage(path, id);
                 return RedirectToAction("Index");
             }
             else

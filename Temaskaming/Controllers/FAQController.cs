@@ -16,29 +16,46 @@ namespace Temiskaming.Controllers
 
 
 
-        public ActionResult Index(string search)
+        public ActionResult FAQ(string search)
         {
-
             var Fa = objFAQ.getFAQ();
+            ViewBag.Group = "FAQ";
+            return View(Fa);
+        }
+
+        public ActionResult FAQAdmin()
+        {
+            ViewBag.Group = "FAQ";
+            var Fa = objFAQ.getFAQ();
+            if (Fa == null)
+            {
+                return View("FAQAdmin");
+            }
+            else
+            {
+                return View(Fa);
+            }
+        }
+
+        public ActionResult FAQInsert()
+        {
             return View();
         }
 
-        public ActionResult Informations(int id)
-        {
-            var fa = objFAQ.getFAQ();
-            return View(fa);
-        }
 
 
         [HttpPost]
-        public ActionResult insert(FAQ fa)
+        public ActionResult FAQInsert(FAQ fa)
         {
+
+            ViewBag.Group = "FAQ";
+
             if (ModelState.IsValid)
             {
                 try
                 {
                     objFAQ.commitInsert(fa);
-                    return RedirectToAction("FAQ");
+                    return RedirectToAction("FAQAdmin");
                 }
                 catch
                 {
@@ -47,7 +64,7 @@ namespace Temiskaming.Controllers
             }
             return View();
         }
-        public ActionResult update(int id)
+        public ActionResult FAQUpdate(int id)
         {
             var fa = objFAQ.getFAQByID(id);
             if (fa == null)
@@ -61,14 +78,17 @@ namespace Temiskaming.Controllers
         }
 
         [HttpPost]
-        public ActionResult update(int id, FAQ fa)
+        public ActionResult FAQUpdate(int id, FAQ fa)
         {
+
+            ViewBag.Group = "FAQ";
+
             if (ModelState.IsValid)
             {
                 try
                 {
                     objFAQ.commitUpdate(id, fa.Question, fa.Answer);
-                    return RedirectToAction("Informations" + id);
+                    return RedirectToAction("FAQAdmin");
                 }
                 catch
                 {
@@ -78,8 +98,9 @@ namespace Temiskaming.Controllers
             return View();
         }
 
-        public ActionResult delete(int id)
+        public ActionResult FAQDelete(int id)
         {
+
             var fa = objFAQ.getFAQByID(id);
             if (fa == null)
             {
@@ -91,12 +112,14 @@ namespace Temiskaming.Controllers
             }
         }
         [HttpPost]
-        public ActionResult delete(int id, FAQ fa)
+        public ActionResult FAQDelete(int id, FAQ fa)
         {
+
+            ViewBag.Group = "FAQ";
             try
             {
                 objFAQ.commitDelete(id);
-                return RedirectToAction("FAQ");
+                return RedirectToAction("FAQAdmin");
             }
             catch
             {

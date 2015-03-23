@@ -8,7 +8,7 @@ using System.ComponentModel;
 using System.Web.Mvc;
 
 
-namespace FindADoctor.Models
+namespace Temiskaming.Models
 {
     [MetadataType(typeof(doctorsValidation))]
     public partial class doctor

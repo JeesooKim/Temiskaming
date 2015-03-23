@@ -1,18 +1,43 @@
 ﻿@model IEnumerable<Temiskaming.Models.FAQ>
 
+
 @{
     ViewBag.Title = "FAQAdmin";
 }
 
 <h2>FAQ Admin</h2>
 <div>
-<h2>@Html.ActionLink("Add New Question and Answer", "FAQInsert", "FAQ")</h2>
+<h3>@Html.ActionLink("Add New Question and Answer", "FAQInsert", "FAQ")</h3>
 </div>
 <div>
     @foreach(var x in Model)
     {
-        @Html.DisplayFor(x.Question);
-        @Html.DisplayFor(x.Answer);
-    }
+        <table>
+            <tr>
+                <th>
+                    <p>Question</p>
+                </th>
+                <th>
+                    <p>Answer</p>
+                </th>
+            </tr>
+            <tr>
+       <td> @Html.DisplayFor(model => x.Question)
+       </td> 
+                <td>@Html.DisplayFor(model => x.Answer)</td>
+                <td>
+                    @Html.ActionLink("Update", "FAQUpdate", new { Id = x.Id })
+                </td>
+
+                <td>
+                    @Html.ActionLink("Delete", "FAQDelete", new { Id = x.Id })
+                </td>
+                </tr>
+            
+               
+           
+    </table>
+            
+            }
 </div>
 

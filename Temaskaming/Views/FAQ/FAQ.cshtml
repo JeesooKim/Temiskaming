@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Temiskaming.Models.FAQ>
+@{
+    ViewBag.Title = "index";
+}
+
+<h2>FAQ</h2>
+
+<div>
+    <!-- search textbox using string input to sql statement where-->
+<p>Seach</p> @Html.TextBox("Search")
+@Html.Hidden("status", Request.QueryString["status"])
+<input type="submit" value="Search"/>
+</div>
+
+
+<!-- show display when search  -->
+<div>
+    <!--display for question-->
+    <table>
+
+
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>
+                    <p>Question:</p>
+                    <p>@Html.DisplayFor(model => x.Question)</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <!--Display for answer-->
+                    <p>Answer:</p>
+                    <p>@Html.DisplayFor(model => x.Answer)</p>
+                </td>
+            </tr>
+
+
+        }
+    </table>
+
+</div>

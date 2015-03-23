@@ -12,7 +12,7 @@ namespace Temiskaming.Models
 
         public IQueryable<FAQ> getFAQ()
         {
-            var allFAQ = objFAQ.FAQs.Select(x => x);
+            var allFAQ = from x in objFAQ.FAQs select x;
             return allFAQ;
         }
 
