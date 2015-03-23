@@ -808,6 +808,7 @@
     <Content Include="Views\Chat\Index.cshtml" />
     <Content Include="Views\Chat\Chat.cshtml" />
     <Content Include="Views\Chat\Send.cshtml" />
+    <Content Include="Views\Chat\Exit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

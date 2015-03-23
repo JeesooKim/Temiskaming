@@ -4,12 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+using Temiskaming.Models;
+
 namespace Temiskaming.Controllers
 {
     public class ChatController : Controller
     {
-        //
-        // GET: /Chat/
+        chatClass objChat = new chatClass();
+        chatModel model = new chatModel();
 
         public ActionResult Index()
         {
@@ -22,11 +24,11 @@ namespace Temiskaming.Controllers
         }
 
         [HttpPost]
-        public ActionResult Chat(string email)
+        public ActionResult Chat(chatModel modelVal)
         {
             if (ModelState.IsValid)
             {
-                ViewBag.Email = email;
+                Session["email"] = modelVal.email;
                 return PartialView();
             }
             else
@@ -56,7 +58,8 @@ namespace Temiskaming.Controllers
 
         public ActionResult Exit()
         {
-            return RedirectToAction("Index");
+            Session.Abandon();
+            return PartialView();
         }
 
     }

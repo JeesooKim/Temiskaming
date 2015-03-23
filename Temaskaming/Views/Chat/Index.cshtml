@@ -1,4 +1,4 @@
-﻿
+﻿@model Temiskaming.Models.chatModel
 <div id="chat">
     @using (Ajax.BeginForm("Chat", "Chat", FormMethod.Post, new AjaxOptions
     {
@@ -8,7 +8,7 @@
     }))
     {
         @Html.Label("Please enter valid email to chat: ")<br />
-        @Html.TextBox("email")<br />
+        @Html.TextBoxFor(x => x.email)<br />
         <input type="submit" value="Enter Chat" />
     }
     

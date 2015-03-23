@@ -1,6 +1,11 @@
-﻿@Html.ActionLink("Exit Chat", "Exit", "Chat")
+﻿@Ajax.ActionLink("Exit Chat", "Exit", "Chat", new AjaxOptions
+{
+    HttpMethod = "Post",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "chat"
+})
 
-
+<p>@Session["email"]</p>
     <div id="chatLog">
 
     </div>
