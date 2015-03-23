@@ -1,10 +1,11 @@
 ﻿@model Temiskaming.Models.doctor
 
 @{
-    ViewBag.Title = @Model.lname;
+    ViewBag.Title = "Dr." + @Model.lname;
 }
 
-<h2>FindADocDetails -ADMIN </h2>
+<h2>Find A Doctor -ADMIN </h2>
+
 <h2>Details for Dr. @Html.DisplayFor(x => x.lname) , @Html.DisplayFor(x => x.fname) </h2>
 <hr />
 <h3>@Html.DisplayFor(x => x.title)</h3>
@@ -13,11 +14,13 @@
 
 <table>
     <tr>
-        <td>@Html.DisplayNameFor(x => x.status) :</td>
+        @*<td>@Html.DisplayNameFor(x => x.status) :</td>*@
+        <td>Status:</td>
         <td> @Html.DisplayFor(x => x.status)</td>
     </tr>
     <tr>
-        <td>@Html.DisplayNameFor(x => x.department):</td>
+        @*<td>@Html.DisplayNameFor(x => x.department):</td>*@
+        <td>Department:</td>
         <td> @Html.DisplayFor(x => x.department)</td>
     </tr>
     <tr>
@@ -30,41 +33,45 @@
     </tr>
 
     <tr>
-        <td>@Html.DisplayNameFor(x => x.office): </td>
+        @*<td>@Html.DisplayNameFor(x => x.office): </td>*@
+        <td>Office: Room# </td>
         <td>@Html.DisplayFor(x => x.office)</td>
     </tr>
     <tr>
-        <td>@Html.DisplayNameFor(x => x.office_hr): </td>
+        @*<td>@Html.DisplayNameFor(x => x.office_hr): </td>*@
+        <td>Office Hour: </td>
         <td>@Html.DisplayFor(x => x.office_hr)</td>
     </tr>
     <tr>
-        <td>@Html.DisplayNameFor(x => x.phone): </td>
+        @*<td>@Html.DisplayNameFor(x => x.phone): </td>*@
+        <td>Phone: </td>
         <td>@Html.DisplayFor(x => x.phone)</td>
     </tr>
     <tr>
-        <td>@Html.DisplayNameFor(x => x.extension): </td>
+        @*<td>@Html.DisplayNameFor(x => x.extension): </td>*@
+        <td>Extension: </td>
         <td>@Html.DisplayFor(x => x.extension)</td>
     </tr>
     <tr>
-        <td>@Html.DisplayNameFor(x => x.email): </td>
+        @*<td>@Html.DisplayNameFor(x => x.email): </td>*@
+        <td>Email:</td>
         <td>@Html.DisplayFor(x => x.email)</td>
     </tr>
 </table>
-
+<br/>
 
 <fieldset>
-    <legend> Brief Bio ...</legend>
+    <legend>Brief Bio</legend>
     @Html.DisplayFor(x => x.bio)
 </fieldset>
 
-<br />
 <p>
     @Html.ActionLink("Back to List", "FindADocAdmin", "Doctors")
-</p><br />
-<p>
-    @Html.ActionLink("Delete", "FindADocDelete", new { id = @Model.Id })
-</p>
-
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    @Html.ActionLink("Update", "FindADocUpdate", new { id = @Model.Id })
+    &nbsp;&nbsp;|&nbsp;&nbsp;
+    @Html.ActionLink("Delete", "FindADocDelete", new { id = @Model.Id })</p>
+    
 
 @*added/updated on March 18, 2015*@
 @*[Team2]Temiskaming-Hospital website Dedesign Project @ Humber college
