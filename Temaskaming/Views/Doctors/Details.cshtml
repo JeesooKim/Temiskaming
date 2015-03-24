@@ -13,23 +13,60 @@
 <fieldset>
     <legend>About Doctor</legend>
     <table>
-        <tr><td>@Html.DisplayNameFor(x => x.status) : </td><td>@Html.DisplayFor(x => x.status)  </td></tr>
-        <tr><td>@Html.DisplayNameFor(x => x.title):</td> <td>@Html.DisplayFor(x => x.title) </td> </tr>
-        <tr><td>@Html.DisplayNameFor(x => x.department):</td><td> @Html.DisplayFor(x => x.department)</td></tr>
-        <tr><td>Special role:</td><td>@Html.DisplayFor(x => x.role)</td></tr>
-        <tr><td>Program involved:</td> <td>@Html.DisplayFor(x => x.program)</td></tr>
+        <tr>
+            @*<td>@Html.DisplayNameFor(x => x.status) : </td>*@
+            <td>Status: </td>
+            <td>@Html.DisplayFor(x => x.status)  </td>
+        </tr>
+        <tr>
+            @*<td>@Html.DisplayNameFor(x => x.title):</td>*@ 
+            <td>Title: </td>
+            <td>@Html.DisplayFor(x => x.title) </td> 
+        </tr>
+        <tr>
+            @*<td>@Html.DisplayNameFor(x => x.department):</td>*@
+            <td>Department:</td>
+            <td> @Html.DisplayFor(x => x.department)</td>
+        </tr>
+        <tr>
+            <td>Special role:</td>
+            <td>@Html.DisplayFor(x => x.role)</td>
+        </tr>
+        <tr>
+            <td>Program involved:</td> 
+            <td>@Html.DisplayFor(x => x.program)</td>
+        </tr>
 
-        <tr><td>@Html.DisplayNameFor(x => x.bio): </td><td>@Html.DisplayFor(x => x.bio)</td></tr>
+        <tr>
+            @*<td>@Html.DisplayNameFor(x => x.bio): </td>*@
+            <td>Brief Bio: </td>
+            <td>@Html.DisplayFor(x => x.bio)</td>
+        </tr>
     </table>
 </fieldset>
 <fieldset>
     <legend>Contact Info</legend>
     <table>
-        <tr><td>@Html.DisplayNameFor(x => x.email): </td><td>@Html.DisplayFor(x => x.email)</td></tr>
-        <tr><td>@Html.DisplayNameFor(x => x.extension): </td><td>@Html.DisplayFor(x => x.extension)</td></tr>
-        <tr><td>@Html.DisplayNameFor(x => x.phone): </td><td>@Html.DisplayFor(x => x.phone)</td></tr>
-        <tr><td>@Html.DisplayNameFor(x => x.office): </td><td>@Html.DisplayFor(x => x.office)</td></tr>
-        <tr><td>@Html.DisplayNameFor(x => x.office_hr): </td><td>@Html.DisplayFor(x => x.office_hr)</td></tr>
+        <tr>
+            @*<td>@Html.DisplayNameFor(x => x.email): </td>*@
+            <td>Email: </td>
+            <td>@Html.DisplayFor(x => x.email)</td></tr>
+        <tr>
+            @*<td>@Html.DisplayNameFor(x => x.extension): </td>*@
+            <td>Extension: </td>
+            <td>@Html.DisplayFor(x => x.extension)</td></tr>
+        <tr>
+            @*<td>@Html.DisplayNameFor(x => x.phone): </td>*@
+            <td>Phone: </td>
+            <td>@Html.DisplayFor(x => x.phone)</td></tr>
+        <tr>
+            @*<td>@Html.DisplayNameFor(x => x.office): </td>*@
+            <td>Office: Room#. </td>
+            <td>@Html.DisplayFor(x => x.office)</td></tr>
+        <tr>
+            @*<td>@Html.DisplayNameFor(x => x.office_hr): </td>*@
+            <td>Office Hour: </td>
+            <td>@Html.DisplayFor(x => x.office_hr)</td></tr>
     </table>
 </fieldset>
 <br/>

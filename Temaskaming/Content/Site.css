@@ -30,6 +30,12 @@ ul{
     top: 20px;
 }
 
+input[type="submit"]{
+    background: #bbecff;
+    padding: 5px;
+    border: 1px solid black;
+}
+
 
 /*HEADER MASTER BEGINS*/
 
@@ -134,11 +140,34 @@ nav li {
         margin: 0;
     }
 
-    #chat {
-        display: none;
-        height: 500px;
-        background: #a0e2fa;
+    #chatbox{
+        width: 450px;
     }
+
+    #chat {
+        position: relative;
+        text-align: left;
+        display: none;
+        height: 450px;
+        padding: 20px;
+        background: #a0e2fa;
+        z-index: 1000;
+    }
+
+    #chatLog, #fMessage {
+        width: 100%;
+    }
+
+    #chatLog {
+        height: 300px;
+        margin: 10px 0;
+        background: white;
+    }
+
+    #send {
+        float: right;
+    }
+
     /*SIDEBAR MASTER ENDS*/
 
 /*BODY MASTER ENDS*/
@@ -365,6 +394,7 @@ textarea {
         background: #a0e2fa;
         margin: 0;
     }
+    
 }
 
 /*FEATURE SPECIFIC STYLING BEGINS*/
@@ -388,6 +418,7 @@ textarea {
     }
     
 }
+
 
 /*for News Feed only*/
 

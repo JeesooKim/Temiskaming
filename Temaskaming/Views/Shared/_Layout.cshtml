@@ -63,12 +63,7 @@
 
                     </div>
                 </div>
-                <div id="chatBox">
-                    <h2>Live Chat</h2>
-                    <div id="chat">
-
-                    </div>
-                </div>
+                
                 <div id="giftBox">
                     <h2>Gift Shop</h2>
                 </div>
@@ -77,6 +72,12 @@
                 </div>
                 <div id="appointBox">
                     <h2>Book an Appointment</h2>
+                </div>
+                <div id="chatBox">
+
+                    <h2><a>Live Chat</a></h2>
+                    @Html.Action("Index","Chat")
+
                 </div>
             </aside>   
             }
@@ -88,11 +89,12 @@
                     <ul>
                         <li><a href="#">Newsletter Signup</a></li>
                         <li><a href="#">Survey</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li>@Html.ActionLink("FAQ", "FAQ", "FAQ")</li>
                         <li><a href="#">Site Map</a></li>
                         <li>@Html.ActionLink("Admin", "Admin", "Home")</li>
                     </ul>
                 </nav>
+                
             </div>
         </footer>
     

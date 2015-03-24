@@ -1,0 +1,16 @@
+﻿@Ajax.ActionLink("Exit Chat", "Exit", "Chat", new AjaxOptions
+{
+    HttpMethod = "Post",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "chat"
+})
+
+<p>@ViewBag.Test</p>
+    <div id="chatLog">
+
+    </div>
+
+
+@Html.Partial("Send")
+
+@Scripts.Render("~/bundles/jqueryval")

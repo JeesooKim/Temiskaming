@@ -473,4 +473,9 @@ table.dataTable td {
   .dataTables_wrapper .dataTables_filter {
     margin-top: 0.5em;
   }
+
+  /*added on March 23,2015*/
+  .doc_tab_optional {
+      display: none;
+  }
 }
