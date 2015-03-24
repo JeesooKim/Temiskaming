@@ -190,7 +190,6 @@
     <Compile Include="Models\chatClass.cs" />
     <Compile Include="Models\cmsClass.cs" />
     <Compile Include="Models\cmsValidation.cs" />
-    <Compile Include="Models\ContactFormClass.cs" />
     <Compile Include="Models\database.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -810,11 +809,6 @@
     <Content Include="Views\Chat\Index.cshtml" />
     <Content Include="Views\Chat\Chat.cshtml" />
     <Content Include="Views\Chat\Send.cshtml" />
-    <Content Include="Views\ContactForm\ContactForm.cshtml" />
-    <Content Include="Views\ContactForm\AdminContactForm.cshtml" />
-    <Content Include="Views\ContactForm\ViewContactForm.cshtml" />
-    <Content Include="Views\ContactForm\DeleteContactForm.cshtml" />
-    <Content Include="Views\ContactForm\ReplyContactForm.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

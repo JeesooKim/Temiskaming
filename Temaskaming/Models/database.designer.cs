@@ -51,9 +51,6 @@ namespace Temiskaming.Models
     partial void Insertnews(news instance);
     partial void Updatenews(news instance);
     partial void Deletenews(news instance);
-    partial void Insertchat(chat instance);
-    partial void Updatechat(chat instance);
-    partial void Deletechat(chat instance);
     #endregion
 		
 		public databaseDataContext() : 
@@ -149,13 +146,7 @@ namespace Temiskaming.Models
 				return this.GetTable<news>();
 			}
 		}
-		
-		public System.Data.Linq.Table<chat> chats
-		{
-			get
-			{
-				return this.GetTable<chat>();
-			}
+	}
 		}
 	}
 	
@@ -1525,164 +1516,6 @@ namespace Temiskaming.Models
 					this._content = value;
 					this.SendPropertyChanged("content");
 					this.OncontentChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="temismain.chat")]
-	public partial class chat : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id;
-		
-		private string _email;
-		
-		private string _log_file;
-		
-		private string _nurse;
-		
-		private System.Nullable<System.DateTime> _log_date;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnidChanging(int value);
-    partial void OnidChanged();
-    partial void OnemailChanging(string value);
-    partial void OnemailChanged();
-    partial void Onlog_fileChanging(string value);
-    partial void Onlog_fileChanged();
-    partial void OnnurseChanging(string value);
-    partial void OnnurseChanged();
-    partial void Onlog_dateChanging(System.Nullable<System.DateTime> value);
-    partial void Onlog_dateChanged();
-    #endregion
-		
-		public chat()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id
-		{
-			get
-			{
-				return this._id;
-			}
-			set
-			{
-				if ((this._id != value))
-				{
-					this.OnidChanging(value);
-					this.SendPropertyChanging();
-					this._id = value;
-					this.SendPropertyChanged("id");
-					this.OnidChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(50)")]
-		public string email
-		{
-			get
-			{
-				return this._email;
-			}
-			set
-			{
-				if ((this._email != value))
-				{
-					this.OnemailChanging(value);
-					this.SendPropertyChanging();
-					this._email = value;
-					this.SendPropertyChanged("email");
-					this.OnemailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_log_file", DbType="VarChar(100)")]
-		public string log_file
-		{
-			get
-			{
-				return this._log_file;
-			}
-			set
-			{
-				if ((this._log_file != value))
-				{
-					this.Onlog_fileChanging(value);
-					this.SendPropertyChanging();
-					this._log_file = value;
-					this.SendPropertyChanged("log_file");
-					this.Onlog_fileChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nurse", DbType="VarChar(50)")]
-		public string nurse
-		{
-			get
-			{
-				return this._nurse;
-			}
-			set
-			{
-				if ((this._nurse != value))
-				{
-					this.OnnurseChanging(value);
-					this.SendPropertyChanging();
-					this._nurse = value;
-					this.SendPropertyChanged("nurse");
-					this.OnnurseChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_log_date", DbType="Date")]
-		public System.Nullable<System.DateTime> log_date
-		{
-			get
-			{
-				return this._log_date;
-			}
-			set
-			{
-				if ((this._log_date != value))
-				{
-					this.Onlog_dateChanging(value);
-					this.SendPropertyChanging();
-					this._log_date = value;
-					this.SendPropertyChanged("log_date");
-					this.Onlog_dateChanged();
 				}
 			}
 		}

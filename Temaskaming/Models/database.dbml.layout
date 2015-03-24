@@ -50,11 +50,5 @@
         <elementListCompartment Id="dee680c8-7850-44b7-b702-74ec7ad01738" absoluteBounds="3.2649999999999997, 5.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="a4814a1a-28c1-4699-a815-0735bf09ffcf" absoluteBounds="8.875, 3.625, 2, 1.7708968098958331">
-      <DataClassMoniker Name="/databaseDataContext/chat" />
-      <nestedChildShapes>
-        <elementListCompartment Id="5e2131b9-ca26-4437-8314-cef75e744d4a" absoluteBounds="8.89, 4.085, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>
