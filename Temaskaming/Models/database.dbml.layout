@@ -50,5 +50,11 @@
         <elementListCompartment Id="dee680c8-7850-44b7-b702-74ec7ad01738" absoluteBounds="3.2649999999999997, 5.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="c42ace08-5f20-46ac-ba77-fbe896149707" absoluteBounds="5.625, 5.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/databaseDataContext/ContactForm" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1466ff10-9e60-4071-bd46-64b1f8f523bd" absoluteBounds="5.64, 5.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>
