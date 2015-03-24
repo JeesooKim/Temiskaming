@@ -11,9 +11,12 @@ namespace Temiskaming.Models
 
    public IQueryable<ContactForm> getCF()
         {
-
+            var allCF = from x in objCF.ContactForms select x;
+            return allCF; 
         }
 
+        //get id 
+         public ContactForm 
     
     
     }
