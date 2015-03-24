@@ -28,7 +28,18 @@ namespace Temiskaming.Controllers
         {
             if (ModelState.IsValid)
             {
+                /*
+                 * Start session using email
+                 * grab current time and date, join with email to make unique filename
+                 * create chat log file
+                 * 
+                 */
                 Session["email"] = modelVal.email;
+                string date = DateTime.Now.ToString();
+                string fileName = date.ToString() + Session["email"].ToString();
+                string fileString = fileName.Replace(" ", "").Replace("@","").Replace("/","_").Replace(":",".");
+                string filePath = Server.MapPath("~/chatLogs/" + fileString + ".html");
+                objChat.makeChat(Session["email"].ToString(), fileString, date, filePath);
                 return PartialView();
             }
             else

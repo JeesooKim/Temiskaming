@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,13 +12,15 @@ namespace Temiskaming.Models
     {
         databaseDataContext objChat = new databaseDataContext();
         
-        public bool makeChat()
+        public bool makeChat(string email, string logfile, string logdate, string filepath)
         {
-            using (objChat)
-            {
-
-                return true;
-            }
+            File.Create(filepath);
+            //using (objChat)
+            //{
+                
+            //    return true;
+            //}
+            return true;
         }
     }
 
