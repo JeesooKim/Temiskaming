@@ -190,6 +190,7 @@
     <Compile Include="Models\chatClass.cs" />
     <Compile Include="Models\cmsClass.cs" />
     <Compile Include="Models\cmsValidation.cs" />
+    <Compile Include="Models\ContactFormClass.cs" />
     <Compile Include="Models\database.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -810,11 +811,18 @@
     <Content Include="Views\Chat\Chat.cshtml" />
     <Content Include="Views\Chat\Send.cshtml" />
     <Content Include="Views\Alert\ActiveAlert.cshtml" />
+<<<<<<< HEAD
+    <Content Include="Views\JobPostings\Appliedpartial.cshtml" />
+=======
+    <Content Include="Views\News\NotFound.cshtml" />
+    <Content Include="Views\News\newsupdatePartial.cshtml" />
+>>>>>>> origin/master
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="chatLogs\" />
     <Folder Include="Content\editable\" />
+    <Folder Include="Views\Contact Form\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
