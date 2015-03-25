@@ -36,7 +36,7 @@ namespace Temiskaming.Controllers
                 try
                 {
                     objJob.commitInsertApplic(valid);
-                    return PartialView("Appliedpartial",valid);
+                    return View("Applied", valid);
                 }
                 catch
                 {

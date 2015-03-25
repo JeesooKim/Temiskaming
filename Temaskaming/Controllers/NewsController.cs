@@ -20,12 +20,14 @@ namespace Temiskaming.Controllers
 
         public ActionResult newsadmin()
         {
+            ViewBag.Group = "Admin";
             var news = objNews.getNews();
             return View(news);
         }
 
         public ActionResult newsupdate(int id)
         {
+            ViewBag.Group = "Admin";
             var news = objNews.GetNewsByID(id);
             if (news == null)
             {
@@ -41,6 +43,7 @@ namespace Temiskaming.Controllers
         [HttpPost, ValidateInput(false)]
         public ActionResult newsupdate(int id, news news)
         {
+            ViewBag.Group = "Admin";
             if (ModelState.IsValid)
             {
                 try
@@ -90,6 +93,7 @@ namespace Temiskaming.Controllers
 
         public ActionResult newsdelete(int id)
         {
+            ViewBag.Group = "Admin";
             var news = objNews.GetNewsByID(id);
             if (news == null)
             {
@@ -104,6 +108,7 @@ namespace Temiskaming.Controllers
         [HttpPost]
         public ActionResult newsdelete(int id, news news)
         {
+            ViewBag.Group = "Admin";
             try
             {
                 objNews.NewsDelete(id);
@@ -123,6 +128,7 @@ namespace Temiskaming.Controllers
         [HttpPost, ValidateInput(false)]
         public ActionResult newsinsert(news news)
         {
+            ViewBag.Group = "Admin";
             if (ModelState.IsValid)
             {
                 try
@@ -145,6 +151,7 @@ namespace Temiskaming.Controllers
 
         public ActionResult NotFound()
         {
+            ViewBag.Group = "Admin";
             return View();
         }
 

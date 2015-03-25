@@ -1,0 +1,65 @@
+﻿@model Temiskaming.Models.job
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<h2>Update Job Posting</h2>
+@Html.ActionLink("Go back to viewing job postings", "AdminShowJobPostings", "AdminJobPostings")
+@using (Html.BeginForm())
+{
+    <table class="job_post_form">
+        <tr>
+            <th>
+                @Html.LabelFor(x => x.jobtitle)
+            </th>
+            <td>
+                @Html.TextBoxFor(x => x.jobtitle, new { @class = "jobform" })
+                @Html.ValidationMessageFor(x => x.jobtitle, "*")
+
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(x => x.jobdescr)
+            </th>
+            <td>
+                @Html.TextAreaFor(x => x.jobdescr)
+                @Html.ValidationMessageFor(x => x.jobdescr, "*")
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(x => x.posteddate)
+            </th>
+            <td>
+                @Html.TextBoxFor(x => x.posteddate, new { @class = "jobform" })
+                @Html.ValidationMessageFor(x => x.posteddate, "*")
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(x => x.qualifications)
+            </th>
+            <td>
+                @Html.TextBoxFor(x => x.qualifications, new { @class = "jobform" })
+                @Html.ValidationMessageFor(x => x.qualifications, "*")
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.LabelFor(x => x.duration)
+            </th>
+            <td>
+                @Html.TextBoxFor(x => x.duration, new { @class = "jobform" })
+                @Html.ValidationMessageFor(x => x.duration, "*")
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Update Job Posting" />
+            </td>
+        </tr>
+    </table>
+    @Html.ValidationSummary()
+}
+
