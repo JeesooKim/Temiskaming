@@ -12,7 +12,7 @@ namespace Temiskaming.Models
     [MetadataType(typeof(NewsValidation))]
     public partial class news
     {
-        
+
     }
 
     [Bind(Exclude = "id")]
