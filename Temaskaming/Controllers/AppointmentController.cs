@@ -16,5 +16,15 @@ namespace Temiskaming.Controllers
             return View();
         }
 
+    
+    
+        public ActionResult BookAppointment()
+        {
+
+            return View();
+        }
+    
     }
+
+
 }
