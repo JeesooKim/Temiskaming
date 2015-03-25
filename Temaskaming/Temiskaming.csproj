@@ -169,6 +169,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AlertController.cs" />
+    <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\CMSController.cs" />
     <Compile Include="Controllers\ContactFormController.cs" />
@@ -811,12 +812,6 @@
     <Content Include="Views\Chat\Chat.cshtml" />
     <Content Include="Views\Chat\Send.cshtml" />
     <Content Include="Views\Alert\ActiveAlert.cshtml" />
-<<<<<<< HEAD
-    <Content Include="Views\JobPostings\Appliedpartial.cshtml" />
-=======
-    <Content Include="Views\News\NotFound.cshtml" />
-    <Content Include="Views\News\newsupdatePartial.cshtml" />
->>>>>>> origin/master
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

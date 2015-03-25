@@ -16,40 +16,38 @@ namespace Temiskaming.Models
     [Bind(Exclude = "Id")]
     public class jobapplicationValidation
     {
-        //parameters for job title + validation for empty field
+        //parameters for sender name textbox + validation for empty field
         [DisplayName("Job Title")]
         [Required(ErrorMessage = "Enter job title")]
         public string jobtitle { get; set; }
 
-        //parameters for name + validation for empty field
-        [DisplayName("Name")]
+        //parameters for receiver textbox + validation for empty field
+        [DisplayName("Your name")]
         [Required(ErrorMessage = "Enter your name")]
         public string aname { get; set; }
 
-        //parameters for phone + validation for empty field and regular expression for phone number
-        [DisplayName("Phone Number")]
-        [RegularExpression("^\\(?([0-9]{3})\\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Enter a valid Email")]
+        //parameters for message textfield + validation for empty field
+        [DisplayName("Your phone number")]
         [Required(ErrorMessage = "Enter a phone number (416)-999-9999")]
-        public string aphone { get; set; }
+        public DateTime aphone { get; set; }
 
-        //parameters for email + validation for empty field and regular expression for email
-        [DisplayName("Email")]
+        //parameters for receiver textbox + validation for empty field
+        [DisplayName("Your email")]
         [Required(ErrorMessage = "Enter your email")]
-        [RegularExpression(".+\\@.+\\..+", ErrorMessage = "Enter a valid Email")]
         public string aemail { get; set; }
 
-        //parameters for resume + validation for empty field
-        [DisplayName("Resume")]
+        //parameters for receiver textbox + validation for empty field
+        [DisplayName("Submit resume")]
         [Required(ErrorMessage = "Submit resume")]
         public string aresume { get; set; }
 
-        //parameters for coverletter + validation for empty field
+        //parameters for receiver textbox + validation for empty field
         [DisplayName("Coverletter")]
         [Required(ErrorMessage = "Enter coverletter")]
         public string acoverletter { get; set; }
 
-        //parameters for notes
-        [DisplayName("Notes")]
+        //parameters for receiver textbox + validation for empty field
+        [DisplayName("Duration")]
         public string anotes { get; set; }
     }
 }

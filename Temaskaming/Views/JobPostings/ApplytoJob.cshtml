@@ -1,86 +1,79 @@
 ﻿@model Temiskaming.Models.jobapplicationValidation
 
 @{
-    ViewBag.Title = "ApplytoJob";
+    ViewBag.Title = "Apply";
 }
 
-<h2>Submit your application</h2>
-
-@* form with controls and validation for them for job application *@
+<h2>ApplytoJob</h2>
+@* form with controls and validation for them which adds records to review database *@
 @using (Html.BeginForm())
 {
-    <div style="width:100%">
-        <table id="job_form">
-            <tr>
-                @*hidden field and label for jobtitle *@
-                <th>
-                    @Html.HiddenFor(model => model.jobtitle, new { @Value = ViewBag.passjob })
-                    @Html.LabelFor(model => model.jobtitle)
-                </th>
-                <td>
-                    @ViewBag.passjob
-                </td>
-            </tr>
-            <tr>
-                @*label, textbox and validation message for name of applicant *@
-                <th>
-                    @Html.LabelFor(model => model.aname)
-                </th>
-                <td>
-                    @Html.TextBoxFor(model => model.aname, new { @class = "jobform" })
-                    @Html.ValidationMessageFor(model => model.aname, "*")
-                </td>
-            </tr>
-            <tr>
-                @*label, textbox and validation message for phone number of applicant *@
-                <th>
-                    @Html.LabelFor(model => model.aphone)
-                </th>
-                <td>
-                    @Html.TextBoxFor(model => model.aphone, new { @class = "jobform" })
-                    @Html.ValidationMessageFor(model => model.aphone, "*")
-                </td>
-            </tr>
-            <tr>
-                @*label, textbox and validation message for email *@
-                <th>
-                    @Html.LabelFor(model => model.aemail)
-                </th>
-                <td>
-                    @Html.TextBoxFor(model => model.aemail, new { @class = "jobform" })
-                    @Html.ValidationMessageFor(model => model.aemail, "*")
-                </td>
-            </tr>
-            <tr>
-                @*label, textbox and validation message for coverletter *@
-                <th>
-                    @Html.LabelFor(model => model.acoverletter)
-                </th>
-                <td>
-                    @Html.TextAreaFor(model => model.acoverletter)
-                    @Html.ValidationMessageFor(model => model.acoverletter, "*")
-                </td>
-            </tr>
-            <tr>
-                @*label, textbox and validation message for resume *@
-                <th>
-                    @Html.LabelFor(model => model.aresume)
-                </th>
-                <td>
-                    @Html.TextAreaFor(model => model.aresume)
-                    @Html.ValidationMessageFor(model => model.aresume, "*")
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td style="text-align:right">
-                    <input type="submit" value="Apply" />
-                </td>
-            </tr>
-        </table>
-        <br /> <br />
-        @Html.ValidationSummary()
-    </div>
+    <table>
+        <tr>
+            @*label, textbox and validation message for sender *@
+            <td>
+                @Html.LabelFor(model => model.jobtitle)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.jobtitle)
+                @Html.ValidationMessageFor(model => model.jobtitle, "*")
+            </td>
+        </tr>
+        <tr>
+            @*label, textbox and validation message for receiver *@
+            <td>
+                @Html.LabelFor(model => model.aname)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.aname)
+                @Html.ValidationMessageFor(model => model.aname, "*")
+            </td>
+        </tr>
+        <tr>
+            @*label, textbox and validation message for number of days stayed *@
+            <td>
+                @Html.LabelFor(model => model.aphone)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.aphone)
+                @Html.ValidationMessageFor(model => model.aphone, "*")
+            </td>
+        </tr>
+        <tr>
+            @*label, textbox and validation message for number of days stayed *@
+            <td>
+                @Html.LabelFor(model => model.aemail)
+            </td>
+            <td>
+                @Html.TextBoxFor(model => model.aemail)
+                @Html.ValidationMessageFor(model => model.aemail, "*")
+            </td>
+        </tr>
+        <tr>
+            @*label, textbox and validation message for number of days stayed *@
+            <td>
+                @Html.LabelFor(model => model.acoverletter)
+            </td>
+            <td>
+                @Html.TextAreaFor(model => model.acoverletter)
+                @Html.ValidationMessageFor(model => model.acoverletter, "*")
+            </td>
+        </tr>
+        <tr>
+            @*label, textbox and validation message for number of days stayed *@
+            <td>
+                @Html.LabelFor(model => model.aresume)
+            </td>
+            <td>
+                @Html.TextAreaFor(model => model.aresume)
+                @Html.ValidationMessageFor(model => model.aresume, "*")
+            </td>
+        </tr>
+    </table>
+    @* submit button for inserting new review *@
+    <input type="submit" value="Apply" />
+    <br /> <br />
+    @Html.ValidationSummary()
 }
 @section scripts {
     @Scripts.Render("~/bundles/jqueryval")
