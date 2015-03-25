@@ -18,8 +18,18 @@ namespace Temiskaming.Models
         //get id 
          public ContactForm getCFId(int _id)
    {
+       var AllCF = objCF.ContactForms.SingleOrDefault(x => x.id == _id);
+                 return AllCF;
    }
-    
+        public bool  CFInsert(ContactForm CF)
+         {
+            using (objCF)
+            {
+                objCF.ContactForms.InsertOnSubmit(CF);
+                objCF.SubmitChanges();
+                return true;
+            }
+         }
     
     }
 
