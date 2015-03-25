@@ -56,6 +56,38 @@ namespace Temiskaming.Controllers
             return View();
         }
 
+        public ActionResult newsupdatePartial(int id)
+        {
+            var news = objNews.GetNewsByID(id);
+            if (news == null)
+            {
+                return View("NotFound");
+            }
+            else
+            {
+                return View(news);
+            }
+
+        }
+
+        [HttpPost, ValidateInput(false)]
+        public ActionResult newsupdatePartial(int id, news news)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    objNews.NewsUpdate(id, news.title, news.content);
+                    return RedirectToAction("newsadmin");
+                }
+                catch
+                {
+                    return View();
+                }
+            }
+            return View();
+        }
+
         public ActionResult newsdelete(int id)
         {
             var news = objNews.GetNewsByID(id);
