@@ -1,28 +1,44 @@
 ﻿@model IEnumerable<Temiskaming.Models.job>
 
 @{
-    ViewBag.Title = "Temaskaming - View Postings";
+    ViewBag.Title = "ViewPostings";
 }
 
-<h2>View Postings</h2>
+<h2>View Job Postings</h2>
 
 @Scripts.Render("~/bundles/jqueryui")
 
+@*accordion script for job postings*@
 <script>
-      $(function () {
-          $("#accordion").accordion();
-      });
+    $(function () {
+        $("#accordion").accordion();
+    });
 </script>
 
+@*accordion which shows job postings: description, qualifications, duration, posted date and a link to apply for the job *@
 <div id="accordion">
     @foreach (var x in Model)
     {
-        <h3>@Html.DisplayFor(model => x.jobtitle)</h3>
+        <h3 class="accordion_h3">@Html.DisplayFor(model => x.jobtitle)</h3>
         <div>
             <p>
                 @Html.DisplayFor(model => x.jobdescr)
             </p>
-            @Html.ActionLink("Apply for this job", "ApplytoJob", "JobPostings")
+            <h4>Qualifications</h4>
+            <p>
+                @Html.DisplayFor(model => x.qualifications)
+            </p>
+            <h4>Duration</h4>
+            <p>
+                @Html.DisplayFor(model => x.duration)
+            </p>
+            <h4>Posted Date</h4>
+            <p>
+                @Html.DisplayFor(model => x.posteddate)
+            </p>
+            <a href="@Url.Action("ApplytoJob", "JobPostings", new { passjob = x.jobtitle })">
+                <div>Apply for this job</div>
+            </a>
         </div>
     }
 </div>
