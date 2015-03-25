@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "BookAppointment";
+}
+
+@section Scripts{
+    @*Jeesoo added the following on March 18,2015*@
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    
+    <link rel="stylesheet" href="~/Content/classic.css" />
+    <link rel="stylesheet" href="~/Content/classic.date.css" />
+    <script type="text/javascript" src="~/Scripts/picker.js"></script>
+    <script type="text/javascript" src="~/Scripts/picker.date.js"></script>
+    
+}
+
+<h2>BookAppointment</h2>
+
+<label>Pick a Doctor</label>
+<input type="text" name="date"/> <br />
+<label>Pick a date</label>
+<input type="text" name="date" class="datepicker"/><br />
+
+
+<script>
+
+    @*This datepicker api is used from source : http://amsul.ca/pickadate.js/*@
+
+    $(document).ready(function () {
+        $('.datepicker').pickadate();
+    });
+</script>
