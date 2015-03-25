@@ -21,8 +21,8 @@
             <td>@Html.ValidationMessageFor(model => model.lname, "*")</td>
         </tr>
         <tr>
-            <td>@Html.LabelFor(model => model.status)</td>
-            @*<td>@Html.TextBoxFor(model => model.status)</td>*@
+            <td>Status</td>
+            @*<td>@Html.LabelFor(model => model.status)</td><td>@Html.TextBoxFor(model => model.status)</td>*@
             <td>
                 @Html.DropDownListFor(model => model.status, new[] {
                             //new SelectListItem(){Text ="Choose" ,Value = "default", Selected= true},
