@@ -5413,10 +5413,7 @@ $.widget( "ui.accordion", {
 				});
 		}
 
-		// only need links in tab order for Safari
-		if ( !$.browser.safari ) {
-			self.headers.find( "a" ).attr( "tabIndex", -1 );
-		}
+		
 
 		if ( options.event ) {
 			self.headers.bind( options.event.split(" ").join(".accordion ") + ".accordion", function(event) {

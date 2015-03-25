@@ -936,10 +936,10 @@
     <Content Include="Views\Chat\Chat.cshtml" />
     <Content Include="Views\Chat\Send.cshtml" />
     <Content Include="Views\Alert\ActiveAlert.cshtml" />
-    <Content Include="Views\JobPostings\Appliedpartial.cshtml" />
     <Content Include="Views\News\NotFound.cshtml" />
     <Content Include="Views\News\newsupdatePartial.cshtml" />
     <Content Include="Views\Appointment\BookAppointment.cshtml" />
+    <Content Include="Views\JobPostings\Applied.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
