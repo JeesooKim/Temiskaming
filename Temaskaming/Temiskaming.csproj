@@ -946,7 +946,7 @@
     <Content Include="Views\AdminJobPostings\NewJob.cshtml" />
     <Content Include="Views\AdminJobPostings\NotFound.cshtml" />
     <Content Include="Views\AdminJobPostings\ShowJobApp.cshtml" />
-    <Content Include="Views\AdminJobPostings\ShowDetailsJobApp.cshtml" />
+    <Content Include="Views\AdminJobPostings\ViewDetailsJobApp.cshtml" />
     <Content Include="Views\AdminJobPostings\ViewJobDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
