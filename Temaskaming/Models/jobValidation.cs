@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using System.Web.Mvc;
 
-namespace Temaskaming.Models
+namespace Temiskaming.Models
 {
     [MetadataType(typeof(jobValidation))]
     public partial class job

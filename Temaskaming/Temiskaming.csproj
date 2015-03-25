@@ -942,6 +942,12 @@
     <Content Include="Views\News\newsupdatePartial.cshtml" />
     <Content Include="Views\Appointment\BookAppointment.cshtml" />
     <Content Include="Views\JobPostings\Applied.cshtml" />
+    <Content Include="Views\AdminJobPostings\AdminShowJobPostings.cshtml" />
+    <Content Include="Views\AdminJobPostings\NewJob.cshtml" />
+    <Content Include="Views\AdminJobPostings\NotFound.cshtml" />
+    <Content Include="Views\AdminJobPostings\ShowJobApp.cshtml" />
+    <Content Include="Views\AdminJobPostings\ShowDetailsJobApp.cshtml" />
+    <Content Include="Views\AdminJobPostings\ViewJobDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

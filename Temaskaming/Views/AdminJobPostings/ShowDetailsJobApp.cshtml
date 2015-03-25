@@ -1,0 +1,79 @@
+﻿@model Temiskaming.Models.jobapplication
+
+@{
+    ViewBag.Title = "Details for application";
+}
+@Html.ActionLink("Go back to viewing applications", "ShowJobApp", "AdminJobPostings")
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(x => x.jobtitle, new { @Value = ViewBag.jobtitle })
+    @Html.HiddenFor(x => x.aname, new { @Value = ViewBag.aname })
+    @Html.HiddenFor(x => x.aphone, new { @Value = ViewBag.aphone })
+    @Html.HiddenFor(x => x.aemail, new { @Value = ViewBag.aemail })
+    @Html.HiddenFor(x => x.aresume, new { @Value = ViewBag.aresume })
+    @Html.HiddenFor(x => x.acoverletter, new { @Value = ViewBag.acoverletter })
+    <table class="job_post_form">
+        <tr>
+            <th>
+                Job Title:
+            </th>
+            <td>
+                <span class="jobform">@Html.DisplayFor(x => x.jobtitle)</span>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Applicant name:
+            </th>
+            <td>
+                <span class="jobform">@Html.DisplayFor(x => x.aname)</span>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Notes:
+            </th>
+            <td style="text-align:right">
+                @Html.TextAreaFor(x => x.anotes, new { @class = "jobform" })
+                <br /><br />
+                <input type="submit" value="Update" />
+                @Html.ValidationSummary()
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Phone:
+            </th>
+            <td>
+                <span class="jobform">@Html.DisplayFor(x => x.aphone)</span>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Email:
+            </th>
+            <td>
+                <span class="jobform">@Html.DisplayFor(x => x.aemail)</span>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Resume:
+            </th>
+            <td>
+                <span class="jobform">@Html.DisplayFor(x => x.aresume)</span>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Cover letter:
+            </th>
+            <td>
+                <span class="jobform">@Html.DisplayFor(x => x.acoverletter)</span>
+            </td>
+        </tr>
+    </table>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}  

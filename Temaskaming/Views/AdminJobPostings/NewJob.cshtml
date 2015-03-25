@@ -1,0 +1,76 @@
+﻿@model Temiskaming.Models.jobValidation
+
+@{
+    ViewBag.Title = "Insert new job posting";
+}
+
+<h2>Insert New Job Posting</h2>
+@Html.ActionLink("Go back to all Job Postings", "AdminShowJobPostings", "AdminJobPostings")
+
+@* form with controls and validation for them which adds records to review database *@
+@using (Html.BeginForm())
+{
+    <table class="job_post_form">
+        <tr>
+            @*label, textbox and validation message for sender *@
+            <th>
+                @Html.LabelFor(model => model.jobtitle)
+            </th>
+            <td>
+                @Html.TextBoxFor(model => model.jobtitle, new { @class = "jobform" })
+                @Html.ValidationMessageFor(model => model.jobtitle, "*")
+            </td>
+        </tr>
+        <tr>
+            @*label, textbox and validation message for receiver *@
+            <th>
+                @Html.LabelFor(model => model.jobdescr)
+            </th>
+            <td>
+                @Html.TextAreaFor(model => model.jobdescr)
+                @Html.ValidationMessageFor(model => model.jobdescr, "*")
+            </td>
+        </tr>
+        <tr>
+            @*label, textbox and validation message for number of days stayed *@
+            <th>
+                @Html.LabelFor(model => model.posteddate)
+            </th>
+            <td>
+                @Html.TextBoxFor(model => model.posteddate, new { @class = "jobform" })
+                @Html.ValidationMessageFor(model => model.posteddate, "*")
+            </td>
+        </tr>
+        <tr>
+            @*label, textbox and validation message for number of days stayed *@
+            <th>
+                @Html.LabelFor(model => model.qualifications)
+            </th>
+            <td>
+                @Html.TextBoxFor(model => model.qualifications, new { @class = "jobform" })
+                @Html.ValidationMessageFor(model => model.qualifications, "*")
+            </td>
+        </tr>
+        <tr>
+            @*label, textbox and validation message for number of days stayed *@
+            <th>
+                @Html.LabelFor(model => model.duration)
+            </th>
+            <td>
+                @Html.TextBoxFor(model => model.duration, new { @class = "jobform" })
+                @Html.ValidationMessageFor(model => model.duration, "*")
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td style="text-align:right"><input type="submit" value="Create New" /></td>
+        </tr>
+    </table>
+    @* submit button for inserting new review *@
+    <br /> <br />
+    @Html.ValidationSummary()
+}
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
