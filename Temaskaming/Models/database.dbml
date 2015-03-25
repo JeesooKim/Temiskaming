@@ -80,13 +80,12 @@
       <Column Name="content" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
     </Type>
   </Table>
-  <Table Name="temismain.chat" Member="chats">
-    <Type Name="chat">
+  <Table Name="dbo.ContactForm" Member="ContactForms">
+    <Type Name="ContactForm">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="log_file" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="nurse" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="log_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="Comment" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>
