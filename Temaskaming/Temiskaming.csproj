@@ -171,6 +171,7 @@
     <Compile Include="Controllers\AlertController.cs" />
     <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\CMSController.cs" />
+    <Compile Include="Controllers\ContactFormController.cs" />
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\EditableController.cs" />
@@ -808,7 +809,7 @@
     <Content Include="Views\Chat\Index.cshtml" />
     <Content Include="Views\Chat\Chat.cshtml" />
     <Content Include="Views\Chat\Send.cshtml" />
-    <Content Include="Views\Chat\Exit.cshtml" />
+    <Content Include="Views\Alert\ActiveAlert.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
