@@ -16,7 +16,9 @@ namespace Temiskaming.Models
         }
 
         //get id 
-         public ContactForm 
+         public ContactForm getCFId(int _id)
+   {
+   }
     
     
     }

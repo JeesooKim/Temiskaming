@@ -190,6 +190,7 @@
     <Compile Include="Models\chatClass.cs" />
     <Compile Include="Models\cmsClass.cs" />
     <Compile Include="Models\cmsValidation.cs" />
+    <Compile Include="Models\ContactFormClass.cs" />
     <Compile Include="Models\database.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -815,6 +816,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="chatLogs\" />
     <Folder Include="Content\editable\" />
+    <Folder Include="Views\Contact Form\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
