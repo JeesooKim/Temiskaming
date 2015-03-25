@@ -22,6 +22,12 @@ namespace Temiskaming.Models
             return oneAlert;
         }
 
+        public alert getActiveAlert()
+        {
+            var oneAlert = objAlert.alerts.SingleOrDefault(x => x.alertStatus == true);
+            return oneAlert;
+        }
+
         public bool commitInsertAlert(alert newAlert)
         {
 

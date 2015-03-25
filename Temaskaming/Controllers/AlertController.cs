@@ -30,5 +30,18 @@ namespace Temiskaming.Controllers
 
         }
 
+        public ActionResult ActiveAlert()
+        {
+            var oneAlert = alertObj.getActiveAlert();
+            if (oneAlert == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                return View(oneAlert);
+            }
+
+        }
     }
 }

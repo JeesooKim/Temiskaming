@@ -12,7 +12,7 @@ namespace Temiskaming.Controllers
 
         public ActionResult ContactForm()
         {
-            var CF = objCF.getCF(); 
+            //var CF = objCF.getCF(); 
             return View();
         }
 
