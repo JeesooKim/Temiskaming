@@ -15,11 +15,19 @@ namespace Temiskaming.Models
         public bool makeChat(string email, string logfile, string logdate, string filepath)
         {
             File.Create(filepath);
-            //using (objChat)
-            //{
-                
-            //    return true;
-            //}
+            using (objChat)
+            {
+
+                return true;
+            }
+        }
+
+        public bool writeChat(string message, string logpath)
+        {
+            //File.AppendAllText(logpath, message);
+            var stree = File.AppendText(logpath);
+            stree.WriteLine(message);
+            stree.Close();
             return true;
         }
     }

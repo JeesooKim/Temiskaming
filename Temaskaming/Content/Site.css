@@ -168,6 +168,10 @@ nav li {
         float: right;
     }
 
+    #chatUrl{
+        display: none;
+    }
+
     /*SIDEBAR MASTER ENDS*/
 
 /*BODY MASTER ENDS*/

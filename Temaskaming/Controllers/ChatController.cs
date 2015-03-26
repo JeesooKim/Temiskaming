@@ -56,15 +56,11 @@ namespace Temiskaming.Controllers
         [HttpPost]
         public ActionResult Send(string message)
         {
-            if (ModelState.IsValid)
-            {
-                return PartialView();
-            }
-            else
-            {
-                return PartialView();
-            }
-            
+            var date = DateTime.Now;
+            string lineToWrite = date.Hour + ":" + date.Minute + ":" + date.Second + " (" + Session["email"] + ") : " + message + "<br />";
+            var path = Server.MapPath("~/chatLogs/test.html");
+            objChat.writeChat(lineToWrite, path);
+            return PartialView();
         }
 
         public ActionResult Exit()
@@ -73,5 +69,9 @@ namespace Temiskaming.Controllers
             return PartialView();
         }
 
+        public ActionResult Test()
+        {
+            return View();
+        }
     }
 }

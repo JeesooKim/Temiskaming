@@ -6,4 +6,17 @@
             $("#chat").slideUp();
         }
     })
+
+    function loadChatLog() {
+        var chaturl = $("#chatUrl").html();
+        $.ajax({
+            url: chaturl,
+            cache: false,
+            success: function (html) {
+                $("#chatLog").html(html);
+            }
+        })
+    }
+
+    setInterval(loadChatLog, 1000);
 })

@@ -5,12 +5,11 @@
     UpdateTargetId = "chat"
 })
 
-<p>@ViewBag.Test</p>
+
     <div id="chatLog">
 
     </div>
+    <div id="chatUrl">@Url.Content("~/chatLogs/test.html")</div>
 
 
 @Html.Partial("Send")
-
-@Scripts.Render("~/bundles/jqueryval")
