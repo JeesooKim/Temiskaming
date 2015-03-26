@@ -1,5 +1,4 @@
 ﻿@model Temiskaming.Models.chatModel
-<div id="chat">
     @using (Ajax.BeginForm("Chat", "Chat", FormMethod.Post, new AjaxOptions
     {
         HttpMethod = "Post",
@@ -11,6 +10,3 @@
         @Html.TextBoxFor(x => x.email)<br />
         <input type="submit" id="enter" value="Enter Chat" />
     }
-    
-</div>
-@Scripts.Render("~/bundles/jqueryval")

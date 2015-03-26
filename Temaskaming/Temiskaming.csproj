@@ -945,6 +945,7 @@
     <Content Include="Views\Survey\Index.cshtml" />
     <Content Include="Views\Survey\AddSurvey.cshtml" />
     <Content Include="Views\Chat\Test.cshtml" />
+    <Content Include="Views\Chat\Exit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

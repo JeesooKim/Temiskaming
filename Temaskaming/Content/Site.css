@@ -171,6 +171,9 @@ nav li {
     #chatUrl{
         display: none;
     }
+    #chatLog {
+        overflow-y: scroll;
+    }
 
     /*SIDEBAR MASTER ENDS*/
 

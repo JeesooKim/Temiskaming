@@ -11,6 +11,10 @@
     
    
     @RenderSection("css", false)
+    @if (Session["email"] != null)
+    {
+        <style>#chat {display: block;}</style>
+    }
 </head>
 <body>
     
@@ -76,7 +80,10 @@
                 <div id="chatBox">
 
                     <h2><a>Live Chat</a></h2>
-                    @Html.Action("Index","Chat")
+
+                    <div id="chat">
+                        @Html.Action("Index", "Chat")
+                    </div>
 
                 </div>
             </aside>   
@@ -98,6 +105,7 @@
             </div>
         </footer>
     
-    @RenderSection("scripts", required: false)
+        @RenderSection("scripts", required: false)
+        @Scripts.Render("~/bundles/jqueryval")
 </body>
 </html>

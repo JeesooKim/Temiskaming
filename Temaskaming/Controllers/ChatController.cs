@@ -15,12 +15,27 @@ namespace Temiskaming.Controllers
 
         public ActionResult Index()
         {
-            return PartialView();
+            if (Session["email"] != null)
+            {
+                return PartialView("Chat");
+            }
+            else
+            {
+                return PartialView();
+            }
         }
 
         public ActionResult Chat()
         {
-            return RedirectToAction("Index", "Home");
+            if (Session["email"] != null)
+            {
+                return PartialView();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            
         }
 
         [HttpPost]
@@ -57,7 +72,7 @@ namespace Temiskaming.Controllers
         public ActionResult Send(string message)
         {
             var date = DateTime.Now;
-            string lineToWrite = date.Hour + ":" + date.Minute + ":" + date.Second + " (" + Session["email"] + ") : " + message + "<br />";
+            string lineToWrite = date.ToString("hh:mm:ss tt") + " (" + Session["email"] + ") : " + message + "<br />";
             var path = Server.MapPath("~/chatLogs/test.html");
             objChat.writeChat(lineToWrite, path);
             return PartialView();

@@ -16,7 +16,11 @@
                 $("#chatLog").html(html);
             }
         })
+        
     }
+    loadChatLog();
+    var sHeight = $("#chatLog").prop('scrollHeight');
+    $("#chatLog").animate({ scrollTop: sHeight }, 'normal');
 
-    setInterval(loadChatLog, 1000);
+    setInterval(loadChatLog, 500);
 })
