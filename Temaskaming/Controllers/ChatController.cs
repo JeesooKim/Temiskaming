@@ -81,12 +81,8 @@ namespace Temiskaming.Controllers
         public ActionResult Exit()
         {
             Session.Abandon();
-            return PartialView();
+            return RedirectToAction("Index");
         }
 
-        public ActionResult Test()
-        {
-            return View();
-        }
     }
 }

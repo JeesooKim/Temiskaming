@@ -8,7 +8,7 @@
     })
 
     function clearMessage(){
-        $("#message").html("");
+        $(this).closest('form').find("inpute[type=text]").val("");
     }
 
     function loadChatLog() {
@@ -31,9 +31,7 @@
     var sHeight = $("#chatLog").prop('scrollHeight');
     $("#chatLog").animate({ scrollTop: sHeight }, 'normal');
 
-    $("#fMessage").submit(function(){
-        $("#message").html("");
-})
+    
 
     setInterval(loadChatLog, 500);
 })

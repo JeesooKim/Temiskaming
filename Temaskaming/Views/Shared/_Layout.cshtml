@@ -80,12 +80,17 @@
                 <div id="chatBox">
 
                     <h2><a>Live Chat</a></h2>
-
                     <div id="chat">
-                        @{Html.RenderAction("Index", "Chat");}
+                        @{Html.RenderAction("Index", "Chat");
+                            if (Session["email"] != null)
+                            {
+                                @Scripts.Render("~/bundles/jqueryval");
+                            }
+                        }
                     </div>
 
                 </div>
+
             </aside>   
             }
         </div>
@@ -106,6 +111,5 @@
         </footer>
     
         @RenderSection("scripts", required: false)
-        @Scripts.Render("~/bundles/jqueryval")
 </body>
 </html>

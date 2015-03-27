@@ -1,12 +1,13 @@
-﻿@using (Ajax.BeginForm("Send", new AjaxOptions
+﻿@using (Ajax.BeginForm("Send", "Chat", FormMethod.Post, new AjaxOptions
 {
     HttpMethod = "Post",
-    OnBegin = "alert('assss')",
-    OnSuccess = "alert('you asshole')"
+    OnSuccess = "$('#message').val('')"
     
-}, null, new { @id = "fMessage" }))
+}, new { @id = "fMessage" }))
 {
 
     @Html.TextBox("message")
     <input type="submit" id="send" name="send" value="Send" />
 }
+
+
