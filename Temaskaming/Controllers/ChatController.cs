@@ -17,7 +17,7 @@ namespace Temiskaming.Controllers
         {
             if (Session["email"] != null)
             {
-                return PartialView("Chat");
+                return View("Chat");
             }
             else
             {

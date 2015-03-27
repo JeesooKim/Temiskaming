@@ -1,7 +1,8 @@
 ﻿@using (Ajax.BeginForm("Send", new AjaxOptions
 {
     HttpMethod = "Post",
-    
+    OnBegin = "alert('assss')",
+    OnSuccess = "alert('you asshole')"
     
 }, null, new { @id = "fMessage" }))
 {
