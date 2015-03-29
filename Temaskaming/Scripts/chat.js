@@ -7,10 +7,6 @@
         }
     })
 
-    function clearMessage(){
-        $(this).closest('form').find("inpute[type=text]").val("");
-    }
-
     function loadChatLog() {
         var oldHeight = $("#chatLog").prop('scrollHeight') - 20;
         var chaturl = $("#chatUrl").html();

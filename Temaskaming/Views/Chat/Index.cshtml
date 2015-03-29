@@ -1,5 +1,7 @@
 ﻿@model Temiskaming.Models.chatModel
-          
+   @{
+       Layout = null;
+   }       
            
     @using (Ajax.BeginForm("Chat", "Chat", FormMethod.Post, new AjaxOptions
     {
@@ -12,5 +14,4 @@
         @Html.TextBoxFor(x => x.email)<br />
         <input type="submit" id="enter" value="Enter Chat" />
     }
-              
-        @Scripts.Render("~/bundles/jqueryval")
+             

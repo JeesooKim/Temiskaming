@@ -58,7 +58,7 @@
                 @RenderBody()
             </div>
             }
-            @if (ViewBag.Group != "Admin")
+            @if (ViewBag.Group != "Admin" && ViewBag.Group != "Nurse")
             {
             <aside>
                 <div id="alertBox">
@@ -81,12 +81,7 @@
 
                     <h2><a>Live Chat</a></h2>
                     <div id="chat">
-                        @{Html.RenderAction("Index", "Chat");
-                            if (Session["email"] != null)
-                            {
-                                @Scripts.Render("~/bundles/jqueryval");
-                            }
-                        }
+                        @{Html.RenderAction("Index", "Chat");}
                     </div>
 
                 </div>
@@ -111,5 +106,6 @@
         </footer>
     
         @RenderSection("scripts", required: false)
+        @Scripts.Render("~/bundles/jqueryval")
 </body>
 </html>
