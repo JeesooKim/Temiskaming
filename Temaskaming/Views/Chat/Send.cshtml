@@ -1,4 +1,8 @@
-﻿@using (Ajax.BeginForm("Send", "Chat", FormMethod.Post, new AjaxOptions
+﻿@{
+    Layout = null;
+}
+
+@using (Ajax.BeginForm("Send", "Chat", FormMethod.Post, new AjaxOptions
 {
     HttpMethod = "Post",
     OnSuccess = "$('#message').val('')"

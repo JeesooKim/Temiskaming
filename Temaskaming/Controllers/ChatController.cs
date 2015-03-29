@@ -17,10 +17,11 @@ namespace Temiskaming.Controllers
         {
             if (Session["email"] != null)
             {
-                return View("Chat");
+                return PartialView("Chat");
             }
             else
             {
+                ViewBag.Chat = 0;
                 return PartialView();
             }
         }
