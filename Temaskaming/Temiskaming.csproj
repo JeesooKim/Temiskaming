@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminJobPostingsController.cs" />
     <Compile Include="Controllers\AlertController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\ChatController.cs" />
@@ -202,6 +203,7 @@
     <Compile Include="Models\doctorsValidation.cs" />
     <Compile Include="Models\FAQClass.cs" />
     <Compile Include="Models\jobapplicationValidation.cs" />
+    <Compile Include="Models\jobValidation.cs" />
     <Compile Include="Models\linqjobsClass.cs" />
     <Compile Include="Models\navClass.cs" />
     <Compile Include="Models\NewsClass.cs" />
@@ -944,6 +946,12 @@
     <Content Include="Views\Appointment\BookAppointment.cshtml" />
     <Content Include="Views\Survey\Index.cshtml" />
     <Content Include="Views\Survey\AddSurvey.cshtml" />
+    <Content Include="Views\AdminJobPostings\AdminShowJobPostings.cshtml" />
+    <Content Include="Views\AdminJobPostings\NewJob.cshtml" />
+    <Content Include="Views\AdminJobPostings\ShowJobApp.cshtml" />
+    <Content Include="Views\AdminJobPostings\ViewDetailsJobApp.cshtml" />
+    <Content Include="Views\AdminJobPostings\ViewJobDetails.cshtml" />
+    <Content Include="Views\AdminJobPostings\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
