@@ -470,7 +470,83 @@ width : 350px;
 width : 96%;
 height : 200px;
 }
+/*styles for ecard page*/
+.thumb {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    margin: 5px;
+    border: 3px solid #60cdf6;
+    background-position: center center;
+    background-size: cover;
+}
+.thumb1 {
+    display: inline-block;
+    width: 380px;
+    height: 380px;
+    margin: 5px;
+    border: 3px solid #60cdf6;
+    background-position: center center;
+    background-size: cover;
+}
+.thumb3 {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    margin: 5px;
+    border: 3px solid #60cdf6;
+    background-position: center center;
+    background-size: cover;
+}
+.delete_image {
+    display: inline-block;
+    width: 180px;
+    height: 180px;
+    text-align:center;
+    padding-top:15px;
+    margin-bottom:25px;
+}
 
+.linkthumb {
+    display: inline-block;
+}
+
+#ecard_form {
+    display: inline-block;
+    vertical-align: top;
+    width:50%;
+}
+
+#ecard_form textarea {
+width : 96%;
+height : 100px;
+}
+
+.ecardform {
+width : 250px;
+}
+
+#ecard_table td {
+padding:4px;
+}
+
+.upload_img td {
+padding:4px;
+}
+
+.admin_ecard {
+    border: 2px solid #eeeeee;
+    margin-left:10px;   
+}
+
+.admin_ecard th {
+    background-color:#d4eff9;    
+}
+
+.admin_ecard td {
+    border: 2px solid #eeeeee;
+    padding-top:10px;
+}
 
 
 /* Styles for basi

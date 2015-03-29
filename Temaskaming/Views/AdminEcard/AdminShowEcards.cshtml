@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Temiskaming.Models.ecard>
+@{
+    ViewBag.Title = "AdminShowEcards";
+}
+@* Link to go to insert view page *@
+<p>@Html.ActionLink("Insert and delete images from database", "EditImages", "AdminEcard")</p>
+
+@*Table which displays all reviews *@
+
+<table class="admin_ecard">
+    <tr>
+        <th>Image</th>
+        <th>Sender</th>
+        <th>Receiver</th>
+        <th>Message</th>
+        <th>Date</th>
+        <th>Option 1</th>
+        <th>Option 2</th>
+        <th>Option 3</th>
+    </tr>
+    @* table row for each record of review *@
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>
+                <div class="thumb3" style="background-image:url('@Url.Content(x.urlpath)')"></div>
+            <td>
+                @Html.DisplayFor(model => x.sname)
+            </td>
+            <td>
+                @Html.DisplayFor(model => x.rname)
+            </td>
+            <td style="width:450px">
+                @Html.DisplayFor(model => x.emessage)
+            </td>
+            <td>
+                @Html.DisplayFor(model => x.mdate)
+            </td>
+            @* link which goes to preview view *@
+            <td>
+                @Html.ActionLink("Display", "Display", new { id = x.Id })
+            </td>
+            @* link which goes to update view *@
+            <td>
+                @Html.ActionLink("Update", "Update", new { id = x.Id })
+            </td>
+            @* link which deletes the review *@
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = x.Id })
+            </td>
+        </tr>
+    }
+</table>
