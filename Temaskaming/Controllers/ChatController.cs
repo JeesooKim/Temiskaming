@@ -85,5 +85,11 @@ namespace Temiskaming.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult nChat()
+        {
+            ViewBag.Group = "Nurse";
+            return View();
+        }
+
     }
 }
