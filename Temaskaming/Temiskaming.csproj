@@ -177,8 +177,10 @@
     <Compile Include="Controllers\ContactFormController.cs" />
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\DonationController.cs" />
+    <Compile Include="Controllers\EcardController.cs" />
     <Compile Include="Controllers\EcardControllerController.cs" />
     <Compile Include="Controllers\EditableController.cs" />
+    <Compile Include="Controllers\EmailSignupController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobPostingsController.cs" />
@@ -209,10 +211,12 @@
     <Compile Include="Models\jobapplicationValidation.cs" />
     <Compile Include="Models\jobValidation.cs" />
     <Compile Include="Models\linqecardsClass.cs" />
+    <Compile Include="Models\linqemailsClass.cs" />
     <Compile Include="Models\linqjobsClass.cs" />
     <Compile Include="Models\navClass.cs" />
     <Compile Include="Models\NewsClass.cs" />
     <Compile Include="Models\NewsValidation.cs" />
+    <Compile Include="Models\SignupValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -969,6 +973,8 @@
     <Content Include="Views\AdminEcard\EditImages.cshtml" />
     <Content Include="Views\AdminEcard\NotFound.cshtml" />
     <Content Include="Views\AdminEcard\Update.cshtml" />
+    <Content Include="Views\EmailSignup\EmailSignup.cshtml" />
+    <Content Include="Views\EmailSignup\SignupComplete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,62 @@
+﻿@model Temiskaming.Models.signupValidation
+
+@{
+    ViewBag.Title = "Email Signup";
+}
+
+<h2>Create Ecard</h2>
+@Html.ActionLink("Go to admin", "AdminEmailSignup", "AdminEmailSignup")
+<br />
+
+<div id="signup_form">
+    @* form with controls and validation for them which adds records to review database *@
+    @using (Ajax.BeginForm("SignupComplete", "EmailSignup", new AjaxOptions
+{
+    HttpMethod = "Post",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "signup_form"
+}))
+    {
+
+        <table>
+            <tr>
+                @*label, textbox and validation message for receiver *@
+                <td>
+                    @Html.LabelFor(model => model.ename)
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.ename)
+                    @Html.ValidationMessageFor(model => model.ename, "*")
+                </td>
+            </tr>
+            <tr>
+                @*label, textbox and validation message for number of days stayed *@
+                <td>
+                    @Html.LabelFor(model => model.elname)
+                </td>
+                <td>
+                    @Html.TextAreaFor(model => model.elname)
+                    @Html.ValidationMessageFor(model => model.elname, "*")
+                </td>
+            </tr>
+            <tr>
+                @*label, textbox and validation message for number of days stayed *@
+                <td>
+                    @Html.LabelFor(model => model.eemail)
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.eemail)
+                    @Html.ValidationMessageFor(model => model.eemail, "*")
+                </td>
+            </tr>
+        </table>
+        @* submit button for inserting new review *@
+        <input type="submit" value="Signup" />
+        <br /> <br />
+        @Html.ValidationSummary()
+    }
+</div>
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

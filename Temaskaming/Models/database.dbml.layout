@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.75" name="database">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 10.5" name="database">
   <DataContextMoniker Name="/databaseDataContext" />
   <nestedChildShapes>
     <classShape Id="fa63c0d9-1d3f-4256-8de7-7ef49edc104d" absoluteBounds="0.5, 0.5, 2, 1.7708968098958331">
@@ -66,6 +66,12 @@
       <DataClassMoniker Name="/databaseDataContext/ecard" />
       <nestedChildShapes>
         <elementListCompartment Id="c4ba8810-cc4d-48dd-b166-f22d82759318" absoluteBounds="0.51500000000000012, 6.9600000000000009, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b181f202-4817-4389-b1c0-6cce2e2d297e" absoluteBounds="0.5, 8.625, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/databaseDataContext/email_signup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="53bd2b85-6271-4a84-84c9-c1ceed1e2c65" absoluteBounds="0.51500000000000012, 9.085, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>
