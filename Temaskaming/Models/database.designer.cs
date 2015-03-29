@@ -60,6 +60,9 @@ namespace Temiskaming.Models
     partial void Insertecard(ecard instance);
     partial void Updateecard(ecard instance);
     partial void Deleteecard(ecard instance);
+    partial void Insertemail_signup(email_signup instance);
+    partial void Updateemail_signup(email_signup instance);
+    partial void Deleteemail_signup(email_signup instance);
     #endregion
 		
 		public databaseDataContext() : 
@@ -177,6 +180,14 @@ namespace Temiskaming.Models
 			get
 			{
 				return this.GetTable<ecard>();
+			}
+		}
+		
+		public System.Data.Linq.Table<email_signup> email_signups
+		{
+			get
+			{
+				return this.GetTable<email_signup>();
 			}
 		}
 	}
@@ -1949,6 +1960,140 @@ namespace Temiskaming.Models
 					this._emessage = value;
 					this.SendPropertyChanged("emessage");
 					this.OnemessageChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="temismain.email_signups")]
+	public partial class email_signup : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _ename;
+		
+		private string _elname;
+		
+		private string _eemail;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnenameChanging(string value);
+    partial void OnenameChanged();
+    partial void OnelnameChanging(string value);
+    partial void OnelnameChanged();
+    partial void OneemailChanging(string value);
+    partial void OneemailChanged();
+    #endregion
+		
+		public email_signup()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ename", DbType="NVarChar(MAX)")]
+		public string ename
+		{
+			get
+			{
+				return this._ename;
+			}
+			set
+			{
+				if ((this._ename != value))
+				{
+					this.OnenameChanging(value);
+					this.SendPropertyChanging();
+					this._ename = value;
+					this.SendPropertyChanged("ename");
+					this.OnenameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_elname", DbType="NVarChar(50)")]
+		public string elname
+		{
+			get
+			{
+				return this._elname;
+			}
+			set
+			{
+				if ((this._elname != value))
+				{
+					this.OnelnameChanging(value);
+					this.SendPropertyChanging();
+					this._elname = value;
+					this.SendPropertyChanged("elname");
+					this.OnelnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_eemail", DbType="NVarChar(MAX)")]
+		public string eemail
+		{
+			get
+			{
+				return this._eemail;
+			}
+			set
+			{
+				if ((this._eemail != value))
+				{
+					this.OneemailChanging(value);
+					this.SendPropertyChanging();
+					this._eemail = value;
+					this.SendPropertyChanged("eemail");
+					this.OneemailChanged();
 				}
 			}
 		}

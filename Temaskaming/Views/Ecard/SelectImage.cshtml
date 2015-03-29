@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Temiskaming.Models.ecardimage>
+
+@{
+    ViewBag.Title = "SelectImage";
+}
+
+<h2>Select an image for your card</h2>
+
+@* loop goes through the model to show images from the database as links *@
+
+@foreach (var x in Model)
+{
+    <a class="linkthumb" href="@Url.Action("CreateEcard", "Ecard", new { passurl = x.urlpath })">
+        <div class="thumb" style="background-image:url('@Url.Content(x.urlpath)')"></div>
+    </a>
+}
