@@ -975,6 +975,7 @@
     <Content Include="Views\AdminEcard\Update.cshtml" />
     <Content Include="Views\EmailSignup\EmailSignup.cshtml" />
     <Content Include="Views\EmailSignup\SignupComplete.cshtml" />
+    <Content Include="Views\Chat\nChatPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
