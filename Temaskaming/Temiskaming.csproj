@@ -177,6 +177,7 @@
     <Compile Include="Controllers\ContactFormController.cs" />
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\DonationController.cs" />
+    <Compile Include="Controllers\EcardControllerController.cs" />
     <Compile Include="Controllers\EditableController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -961,6 +962,9 @@
     <Content Include="Views\AdminEcard\EditImages.cshtml" />
     <Content Include="Views\AdminEcard\NotFound.cshtml" />
     <Content Include="Views\AdminEcard\Update.cshtml" />
+    <Content Include="Views\Ecard\CardSent.cshtml" />
+    <Content Include="Views\Ecard\CreateEcard.cshtml" />
+    <Content Include="Views\Ecard\SelectImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
