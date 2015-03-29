@@ -203,8 +203,12 @@
     </Compile>
     <Compile Include="Models\doctorClass.cs" />
     <Compile Include="Models\doctorsValidation.cs" />
+    <Compile Include="Models\ecardimageValidation.cs" />
+    <Compile Include="Models\EcardValidation.cs" />
     <Compile Include="Models\FAQClass.cs" />
     <Compile Include="Models\jobapplicationValidation.cs" />
+    <Compile Include="Models\jobValidation.cs" />
+    <Compile Include="Models\linqecardsClass.cs" />
     <Compile Include="Models\linqjobsClass.cs" />
     <Compile Include="Models\navClass.cs" />
     <Compile Include="Models\NewsClass.cs" />
