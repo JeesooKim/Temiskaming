@@ -24,12 +24,17 @@ namespace Temiskaming.Models
 
         public bool writeChat(string message, string logpath)
         {
-            //File.AppendAllText(logpath, message);
             var stree = File.AppendText(logpath);
             stree.WriteLine(message);
             stree.Close();
             return true;
         }
+    }
+
+    public class chatSendModel
+    {
+        [Required]
+        public string message { get; set; }
     }
 
     public class chatModel

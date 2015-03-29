@@ -12,6 +12,7 @@ namespace Temiskaming.Controllers
     {
         chatClass objChat = new chatClass();
         chatModel model = new chatModel();
+        chatSendModel sendmodel = new chatSendModel();
 
         public ActionResult Index()
         {
@@ -72,11 +73,18 @@ namespace Temiskaming.Controllers
         [HttpPost]
         public ActionResult Send(string message)
         {
-            var date = DateTime.Now;
-            string lineToWrite = date.ToString("hh:mm:ss tt") + " (" + Session["email"] + ") : " + message + "<br />";
-            var path = Server.MapPath("~/chatLogs/test.html");
-            objChat.writeChat(lineToWrite, path);
-            return PartialView();
+            if (ModelState.IsValid)
+            {
+                var date = DateTime.Now;
+                string lineToWrite = date.ToString("hh:mm:ss tt") + " (" + Session["email"] + ") : " + message + "<br />";
+                var path = Server.MapPath("~/chatLogs/test.txt");
+                objChat.writeChat(lineToWrite, path);
+                return PartialView();
+            }
+            else
+            {
+                return Chat();
+            }
         }
 
         public ActionResult Exit()
@@ -89,6 +97,11 @@ namespace Temiskaming.Controllers
         {
             ViewBag.Group = "Nurse";
             return View();
+        }
+
+        public ActionResult nChatPartial()
+        {
+            return PartialView();
         }
 
     }
