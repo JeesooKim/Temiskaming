@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminEcardController.cs" />
     <Compile Include="Controllers\AdminJobPostingsController.cs" />
     <Compile Include="Controllers\AlertController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
@@ -201,9 +202,12 @@
     </Compile>
     <Compile Include="Models\doctorClass.cs" />
     <Compile Include="Models\doctorsValidation.cs" />
+    <Compile Include="Models\ecardimageValidation.cs" />
+    <Compile Include="Models\EcardValidation.cs" />
     <Compile Include="Models\FAQClass.cs" />
     <Compile Include="Models\jobapplicationValidation.cs" />
     <Compile Include="Models\jobValidation.cs" />
+    <Compile Include="Models\linqecardsClass.cs" />
     <Compile Include="Models\linqjobsClass.cs" />
     <Compile Include="Models\navClass.cs" />
     <Compile Include="Models\NewsClass.cs" />
@@ -952,6 +956,11 @@
     <Content Include="Views\AdminJobPostings\ViewDetailsJobApp.cshtml" />
     <Content Include="Views\AdminJobPostings\ViewJobDetails.cshtml" />
     <Content Include="Views\AdminJobPostings\NotFound.cshtml" />
+    <Content Include="Views\AdminEcard\AdminShowEcards.cshtml" />
+    <Content Include="Views\AdminEcard\Display.cshtml" />
+    <Content Include="Views\AdminEcard\EditImages.cshtml" />
+    <Content Include="Views\AdminEcard\NotFound.cshtml" />
+    <Content Include="Views\AdminEcard\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,67 @@
+﻿@model Temiskaming.Models.ecard
+
+@{
+    ViewBag.Title = "Update Ecard: ";
+}
+@* form for updating reviews *@
+<div class="thumb1" style="background-image:url('@Url.Content(Model.urlpath)')"></div>
+<div id="ecard_form">
+    @using (Html.BeginForm())
+    {
+        <table id="ecard_table">
+            @* hidden field for id of review *@
+
+            @Html.HiddenFor(x => x.Id)
+            <tr>
+                @*label, textbox and validation message for resort name*@
+                <td>
+                    @Html.LabelFor(x => x.sname)
+                </td>
+                <td>
+                    @Html.TextBoxFor(x => x.sname, new { @class = "ecardform" })
+                    @Html.ValidationMessageFor(x => x.sname, "*")
+                </td>
+            </tr>
+            <tr>
+                @*label, textbox and validation message for country *@
+                <td>
+                    @Html.LabelFor(x => x.rname)
+                </td>
+                <td>
+                    @Html.TextBoxFor(x => x.rname, new { @class = "ecardform" })
+                    @Html.ValidationMessageFor(x => x.rname, "*")
+                </td>
+            </tr>
+            <tr>
+                @*label, textbox and validation message for number of days stayed *@
+                <td>
+                    @Html.LabelFor(x => x.emessage)
+                </td>
+                <td>
+                    @Html.TextAreaFor(x => x.emessage)
+                    @Html.ValidationMessageFor(x => x.emessage, "*")
+                </td>
+            </tr>
+            <tr>
+                @*label, textarea and validation message for review *@
+                <td>
+                    @Html.LabelFor(x => x.mdate)
+                </td>
+                <td>
+                    @Html.TextBoxFor(x => x.mdate, new { @class = "ecardform" })
+                    @Html.ValidationMessageFor(x => x.mdate, "*")
+                </td>
+            </tr>
+        </table>
+        @* submit button for updating the review *@
+        <input type="submit" value="Update Ecard" />
+        <br /> <br />
+        @Html.ValidationSummary()
+    }
+</div>
+@* link to go back to index page *@
+<p>@Html.ActionLink("Back to all cards", "AdminShowEcards", "AdminEcard")</p>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}  
