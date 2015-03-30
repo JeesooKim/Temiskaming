@@ -169,6 +169,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminEcardController.cs" />
+    <Compile Include="Controllers\AdminEmailController.cs" />
     <Compile Include="Controllers\AdminJobPostings.cs" />
     <Compile Include="Controllers\AlertController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
@@ -178,7 +179,6 @@
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\EcardController.cs" />
-    <Compile Include="Controllers\EcardControllerController.cs" />
     <Compile Include="Controllers\EditableController.cs" />
     <Compile Include="Controllers\EmailSignupController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
@@ -976,6 +976,8 @@
     <Content Include="Views\EmailSignup\SignupComplete.cshtml" />
     <Content Include="Views\Chat\Display.cshtml" />
     <Content Include="Views\Chat\nChatPartial.cshtml" />
+    <Content Include="Views\AdminEmail\AdminShowSignups.cshtml" />
+    <Content Include="Views\AdminEmail\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

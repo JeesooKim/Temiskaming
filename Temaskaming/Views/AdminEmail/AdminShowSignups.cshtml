@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Temiskaming.Models.email_signup>
+@{
+    ViewBag.Title = "AdminEmailSignups";
+}
+
+@*Table which displays all reviews *@
+
+<table class="admin_ecard">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Option 1</th>
+        <th>Option 2</th>
+    </tr>
+    @* table row for each record of review *@
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => x.ename)
+            </td>
+            <td>
+                @Html.DisplayFor(model => x.elname)
+            </td>
+            <td style="width:450px">
+                @Html.DisplayFor(model => x.eemail)
+            </td>
+            @* link which goes to update view *@
+            <td>
+                @Html.ActionLink("Update", "Update", new { id = x.Id })
+            </td>
+            @* link which deletes the review *@
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = x.Id })
+            </td>
+        </tr>
+    }
+</table>
