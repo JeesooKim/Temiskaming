@@ -12,12 +12,17 @@ namespace Temiskaming.Models
     {
         databaseDataContext objChat = new databaseDataContext();
         
-        public bool makeChat(string email, string logfile, string logdate, string filepath)
+        public bool makeChat(string email, string logfile, DateTime logdate, string filepath)
         {
-            File.Create(filepath);
+            File.Create(filepath).Close();
             using (objChat)
             {
-
+                chat newChat = new chat();
+                newChat.email = email;
+                newChat.log_date = logdate;
+                newChat.log_file = logfile;
+                objChat.chats.InsertOnSubmit(newChat);
+                objChat.SubmitChanges();
                 return true;
             }
         }

@@ -8,12 +8,11 @@
     InsertionMode = InsertionMode.Replace,
     UpdateTargetId = "chat"
 })
-
-    <p id="chatLog">
-
-    </p>
-    <div id="chatUrl">@Url.Content("~/chatLogs/test.txt")</div>
-
+    
+    <div id="chatLog">
+        @{Html.RenderAction("Display", "Chat", new { file = (String)Session["log"] });}
+    </div>
+    <div id="chatUrl">@Url.Content("/Chat/Display?file=" + Session["log"])</div>
 
 @Html.Partial("Send")
 
@@ -32,13 +31,13 @@
                 }
             }
         })
-
+        
     }
-    loadChatLog();
+
     var sHeight = $("#chatLog").prop('scrollHeight');
     $("#chatLog").animate({ scrollTop: sHeight }, 'normal');
 
 
 
-    setInterval(loadChatLog, 500);
+    setInterval(loadChatLog, 1000);
 </script>

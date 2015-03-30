@@ -52,15 +52,30 @@ namespace Temiskaming.Controllers
                  * 
                  */
                 Session["email"] = modelVal.email;
-                string date = DateTime.Now.ToString();
+                DateTime date = DateTime.Now;
                 string fileName = date.ToString() + Session["email"].ToString();
-                string fileString = fileName.Replace(" ", "").Replace("@","").Replace("/","_").Replace(":",".");
-                string filePath = Server.MapPath("~/chatLogs/" + fileString + ".html");
+                string fileString = fileName.Replace(" ", "").Replace("@","_").Replace("/","_").Replace(":","_");
+                Session["log"] = fileString;
+                string filePath = Server.MapPath("~/chatLogs/" + fileString + ".txt");
                 objChat.makeChat(Session["email"].ToString(), fileString, date, filePath);
                 return PartialView();
             }
             else
             {
+                return Index();
+            }
+        }
+
+        public ActionResult Display(string file)
+        {
+            if (file != "")
+            {
+                ViewBag.FileName = file;
+                return PartialView();
+            }
+            else
+            {
+                ViewBag.Error = "SSSSS";
                 return Index();
             }
         }
@@ -77,13 +92,14 @@ namespace Temiskaming.Controllers
             {
                 var date = DateTime.Now;
                 string lineToWrite = date.ToString("hh:mm:ss tt") + " (" + Session["email"] + ") : " + message + "<br />";
-                var path = Server.MapPath("~/chatLogs/test.txt");
+                string fileString = (String)Session["log"];
+                var path = Server.MapPath("~/chatLogs/"+ fileString +".txt");
                 objChat.writeChat(lineToWrite, path);
                 return PartialView();
             }
             else
             {
-                return Chat();
+                return PartialView();
             }
         }
 

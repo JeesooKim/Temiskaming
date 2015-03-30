@@ -220,7 +220,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="chatLogs\test.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -975,10 +974,12 @@
     <Content Include="Views\AdminEcard\Update.cshtml" />
     <Content Include="Views\EmailSignup\EmailSignup.cshtml" />
     <Content Include="Views\EmailSignup\SignupComplete.cshtml" />
+    <Content Include="Views\Chat\Display.cshtml" />
     <Content Include="Views\Chat\nChatPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="chatLogs\" />
     <Folder Include="Content\editable\" />
     <Folder Include="Views\Contact Form\" />
   </ItemGroup>
