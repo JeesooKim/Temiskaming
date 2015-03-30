@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="database">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.625" name="database">
   <DataContextMoniker Name="/databaseDataContext" />
   <nestedChildShapes>
     <classShape Id="fa63c0d9-1d3f-4256-8de7-7ef49edc104d" absoluteBounds="0.5, 0.5, 2, 1.7708968098958331">
@@ -54,6 +54,12 @@
       <DataClassMoniker Name="/databaseDataContext/ContactForm" />
       <nestedChildShapes>
         <elementListCompartment Id="6ad97e67-6692-4e1e-9044-7d349d839e2b" absoluteBounds="5.64, 5.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e64c0b0b-bf4a-46b3-8601-7c289b1db125" absoluteBounds="3.25, 6.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/databaseDataContext/waittime" />
+      <nestedChildShapes>
+        <elementListCompartment Id="07ce79d0-2cc4-4024-a344-b976ea820631" absoluteBounds="3.2649999999999997, 7.2100000000000009, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>
