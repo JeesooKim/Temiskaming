@@ -548,6 +548,38 @@ padding:4px;
     padding-top:10px;
 }
 
+/* Email signups*/
+.admin_email {
+    border: 2px solid #eeeeee;
+    margin-left:10px;   
+}
+
+.admin_email th {
+    background-color:#d4eff9;    
+}
+
+.admin_email td {
+    border: 2px solid #eeeeee;
+    padding-top:10px;
+}
+#email_form {
+    display: inline-block;
+    vertical-align: top;
+    width:50%;
+}
+
+#email_form textarea {
+width : 96%;
+height : 100px;
+}
+
+.emailform {
+width : 250px;
+}
+
+#email_table td {
+padding:4px;
+}
 
 /* Styles for basi
 

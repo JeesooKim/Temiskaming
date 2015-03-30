@@ -4,10 +4,10 @@
     ViewBag.Title = "Update Entry: ";
 }
 @* form for updating reviews *@
-<div id="ecard_form">
+<div id="email_form">
     @using (Html.BeginForm())
     {
-        <table id="ecard_table">
+        <table id="email_table">
             @* hidden field for id of review *@
 
             @Html.HiddenFor(x => x.Id)
@@ -17,7 +17,7 @@
                     @Html.LabelFor(x => x.ename)
                 </td>
                 <td>
-                    @Html.TextBoxFor(x => x.ename, new { @class = "ecardform" })
+                    @Html.TextBoxFor(x => x.ename, new { @class = "emailform" })
                     @Html.ValidationMessageFor(x => x.ename, "*")
                 </td>
             </tr>
@@ -27,7 +27,7 @@
                     @Html.LabelFor(x => x.elname)
                 </td>
                 <td>
-                    @Html.TextBoxFor(x => x.elname, new { @class = "ecardform" })
+                    @Html.TextBoxFor(x => x.elname, new { @class = "emailform" })
                     @Html.ValidationMessageFor(x => x.elname, "*")
                 </td>
             </tr>
@@ -37,7 +37,7 @@
                     @Html.LabelFor(x => x.eemail)
                 </td>
                 <td>
-                    @Html.TextAreaFor(x => x.eemail)
+                    @Html.TextBoxFor(x => x.eemail, new { @class = "emailform" })
                     @Html.ValidationMessageFor(x => x.eemail, "*")
                 </td>
             </tr>

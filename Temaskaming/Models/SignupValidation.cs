@@ -30,6 +30,7 @@ namespace Temiskaming.Models
         //parameters for message textfield + validation for empty field
         [DisplayName("Your email")]
         [Required(ErrorMessage = "Enter your email")]
+        [RegularExpression(".+\\@.+\\..+", ErrorMessage = "Enter a valid Email")]
         public string eemail { get; set; }
     }
 }
