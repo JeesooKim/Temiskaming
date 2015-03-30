@@ -25,5 +25,33 @@ namespace Temiskaming.Models
             var allSignups = objSignup.email_signups.Select(x => x);
             return allSignups;
         }
+        public email_signup getSignupsbyID(int _id)
+        {
+            var allSignups = objSignup.email_signups.SingleOrDefault(x => x.Id == _id);
+            return allSignups;
+        }
+        //method which delets a review based on id
+        public bool commitDelete(int _id)
+        {
+            using (objSignup)
+            {
+                var emailDel = objSignup.email_signups.Single(x => x.Id == _id);
+                objSignup.email_signups.DeleteOnSubmit(emailDel);
+                objSignup.SubmitChanges();
+                return true;
+            }
+        }
+        public bool commitUpdate(int _id, string _ename, string _elname, string _eemail)
+        {
+            using (objSignup)
+            {
+                var emailUpd = objSignup.email_signups.Single(x => x.Id == _id);
+                emailUpd.ename = _ename;
+                emailUpd.elname = _elname;
+                emailUpd.eemail = _eemail;
+                objSignup.SubmitChanges();
+                return true;
+            }
+        }
     }
 }

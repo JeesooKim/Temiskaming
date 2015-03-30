@@ -19,6 +19,49 @@ namespace Temiskaming.Controllers
             var signups = objSignup.getSignups();
             return View(signups);
         }
-
+        // action method which deletes Ecard from the database based on id 
+        public ActionResult Delete(int id)
+        {
+            var card = objSignup.getSignupsbyID(id);
+            if (card == null)
+            {
+                return View("NotFound");
+            }
+            else
+            {
+                objSignup.commitDelete(id);
+                return RedirectToAction("AdminShowSignups");
+            }
+        }
+        public ActionResult Update(int id)
+        {
+            var email = objSignup.getSignupsbyID(id);
+            if (email == null)
+            {
+                return View("NotFound");
+            }
+            else
+            {
+                return View(email);
+            }
+        }
+        // action result of post method of update Ecard if the input is valid
+        [HttpPost]
+        public ActionResult Update(int id, email_signup email)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    objSignup.commitUpdate(id, email.ename, email.elname, email.eemail);
+                    return RedirectToAction("AdminShowSignups");
+                }
+                catch
+                {
+                    return View();
+                }
+            }
+            return View();
+        }
     }
 }
