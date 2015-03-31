@@ -170,7 +170,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminEcardController.cs" />
     <Compile Include="Controllers\AdminEmailController.cs" />
-    <Compile Include="Controllers\AdminJobPostings.cs" />
+    <Compile Include="Controllers\AdminJobPostingsController.cs" />
     <Compile Include="Controllers\AlertController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\ChatController.cs" />
@@ -979,6 +979,10 @@
     <Content Include="Views\AdminEmail\AdminShowSignups.cshtml" />
     <Content Include="Views\AdminEmail\NotFound.cshtml" />
     <Content Include="Views\AdminEmail\Update.cshtml" />
+    <Content Include="Views\Ecard\CardSent.cshtml" />
+    <Content Include="Views\Ecard\CreateEcard.cshtml" />
+    <Content Include="Views\Ecard\SelectImage.cshtml" />
+    <Content Include="Views\Chat\ShowChat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1011,7 +1015,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>59641</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
