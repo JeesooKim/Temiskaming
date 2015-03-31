@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using Temiskaming.Models;
 
 // controller which creates new Ecard
-namespace VeronikaProject.Controllers
+namespace Temiskaming.Controllers
 {
     public class EcardController : Controller
     {

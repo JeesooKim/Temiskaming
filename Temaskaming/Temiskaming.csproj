@@ -169,6 +169,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminEcardController.cs" />
+    <Compile Include="Controllers\AdminEmailController.cs" />
     <Compile Include="Controllers\AdminJobPostings.cs" />
     <Compile Include="Controllers\AlertController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
@@ -178,7 +179,6 @@
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\EcardController.cs" />
-    <Compile Include="Controllers\EcardControllerController.cs" />
     <Compile Include="Controllers\EditableController.cs" />
     <Compile Include="Controllers\EmailSignupController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
@@ -220,7 +220,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="chatLogs\error.txt" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -610,7 +609,6 @@
     <Content Include="Content\datatables.extensions\TableTools\images\print_hover.png" />
     <Content Include="Content\datatables.extensions\TableTools\images\xls.png" />
     <Content Include="Content\datatables.extensions\TableTools\images\xls_hover.png" />
-    <Content Include="Content\nchat.css" />
     <Content Include="Scripts\datepicker\lib\compressed\legacy.js" />
     <Content Include="Scripts\datepicker\lib\compressed\picker.date.js" />
     <Content Include="Scripts\datepicker\lib\compressed\picker.js" />
@@ -978,10 +976,13 @@
     <Content Include="Views\EmailSignup\SignupComplete.cshtml" />
     <Content Include="Views\Chat\Display.cshtml" />
     <Content Include="Views\Chat\nChatPartial.cshtml" />
-    <Content Include="Views\Chat\ShowChat.cshtml" />
+    <Content Include="Views\AdminEmail\AdminShowSignups.cshtml" />
+    <Content Include="Views\AdminEmail\NotFound.cshtml" />
+    <Content Include="Views\AdminEmail\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="chatLogs\" />
     <Folder Include="Content\editable\" />
     <Folder Include="Views\Contact Form\" />
   </ItemGroup>

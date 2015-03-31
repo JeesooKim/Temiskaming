@@ -1,0 +1,56 @@
+﻿@model Temiskaming.Models.email_signup
+
+@{
+    ViewBag.Title = "Update Entry: ";
+}
+@* form for updating reviews *@
+<div id="email_form">
+    @using (Html.BeginForm())
+    {
+        <table id="email_table">
+            @* hidden field for id of review *@
+
+            @Html.HiddenFor(x => x.Id)
+            <tr>
+                @*label, textbox and validation message for resort name*@
+                <td>
+                    @Html.LabelFor(x => x.ename)
+                </td>
+                <td>
+                    @Html.TextBoxFor(x => x.ename, new { @class = "emailform" })
+                    @Html.ValidationMessageFor(x => x.ename, "*")
+                </td>
+            </tr>
+            <tr>
+                @*label, textbox and validation message for country *@
+                <td>
+                    @Html.LabelFor(x => x.elname)
+                </td>
+                <td>
+                    @Html.TextBoxFor(x => x.elname, new { @class = "emailform" })
+                    @Html.ValidationMessageFor(x => x.elname, "*")
+                </td>
+            </tr>
+            <tr>
+                @*label, textbox and validation message for number of days stayed *@
+                <td>
+                    @Html.LabelFor(x => x.eemail)
+                </td>
+                <td>
+                    @Html.TextBoxFor(x => x.eemail, new { @class = "emailform" })
+                    @Html.ValidationMessageFor(x => x.eemail, "*")
+                </td>
+            </tr>
+        </table>
+        @* submit button for updating the review *@
+        <input type="submit" value="Update Signup" />
+        <br /> <br />
+        @Html.ValidationSummary()
+    }
+</div>
+@* link to go back to index page *@
+<p>@Html.ActionLink("Back to all signups", "AdminShowSignups", "AdminEmail")</p>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}  

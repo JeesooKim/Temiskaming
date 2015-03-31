@@ -7,7 +7,7 @@ using System.Web.Mvc;
 using Temiskaming.Models;
 
 // controller which inserts, updates, and deletes data from tables for images and Ecards
-namespace VeronikaProject.Controllers
+namespace Temiskaming.Controllers
 {
     public class AdminEcardController : Controller
     {
