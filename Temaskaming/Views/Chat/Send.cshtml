@@ -1,4 +1,4 @@
-﻿@model Temiskaming.Models.chatSendModel
+﻿@*@model Temiskaming.Models.chatSendModel*@
 @{
     Layout = null;
 }
@@ -11,7 +11,7 @@
 }, new { @id = "fMessage" }))
 {
 
-    @Html.TextBoxFor(x => x.message)
+    @Html.TextBox("message")
     <input type="submit" id="send" name="send" value="Send" />
 }
 

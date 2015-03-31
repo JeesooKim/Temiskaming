@@ -1,5 +1,25 @@
-﻿@{
+﻿@model IEnumerable<Temiskaming.Models.chat>
+
+@{
     ViewBag.Title = "Temiskaming - Nurse Chat";
+    @section css{
+        @Styles.Render("~/content/nchat.css");
+        }
 }
 
 <h2>Nurse Live Chat</h2>
+
+@foreach (var x in Model)
+{
+    
+    @Ajax.ActionLink(x.email, "ShowChat", new { id = x.id }, new AjaxOptions
+    {
+        HttpMethod = "Post",
+        UpdateTargetId = "chat",
+        InsertionMode = InsertionMode.Replace
+    })
+}
+
+<div id="chat">
+
+</div>
