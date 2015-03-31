@@ -187,6 +187,7 @@
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\SurveyController.cs" />
+    <Compile Include="Controllers\WaittimeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -217,6 +218,8 @@
     <Compile Include="Models\NewsClass.cs" />
     <Compile Include="Models\NewsValidation.cs" />
     <Compile Include="Models\SignupValidation.cs" />
+    <Compile Include="Models\WaittimeClass.cs" />
+    <Compile Include="Models\WaittimeValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -983,6 +986,12 @@
     <Content Include="Views\Ecard\CreateEcard.cshtml" />
     <Content Include="Views\Ecard\SelectImage.cshtml" />
     <Content Include="Views\Chat\ShowChat.cshtml" />
+    <Content Include="Views\Waittime\admin.cshtml" />
+    <Content Include="Views\Waittime\create.cshtml" />
+    <Content Include="Views\Waittime\delete.cshtml" />
+    <Content Include="Views\Waittime\Index.cshtml" />
+    <Content Include="Views\Waittime\NotFound.cshtml" />
+    <Content Include="Views\Waittime\update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
