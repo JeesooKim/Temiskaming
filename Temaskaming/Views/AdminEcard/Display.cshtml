@@ -1,0 +1,37 @@
+﻿@model Temiskaming.Models.ecard
+
+@{
+    ViewBag.Title = "Display Ecard";
+}
+
+<h2>View Ecard</h2>
+<p>@Html.ActionLink("Go back to all Ecards", "AdminShowEcards", "AdminEcard")</p>
+<div class="thumb1" style="background-image:url('@Url.Content(Model.urlpath)')"></div>
+<div id="ecard_form">
+    <table id="ecard_table">
+        <tr>
+            <td>
+                From:
+            </td>
+            <td>
+                @Html.DisplayFor(x => x.sname)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                To:
+            </td>
+            <td>
+                @Html.DisplayFor(x => x.rname)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Message:
+            </td>
+            <td>
+                @Html.DisplayFor(x => x.emessage)
+            </td>
+        </tr>
+    </table>
+</div>

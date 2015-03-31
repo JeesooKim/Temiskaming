@@ -12,15 +12,32 @@ namespace Temiskaming.Controllers
     {
         chatClass objChat = new chatClass();
         chatModel model = new chatModel();
+        chatSendModel sendmodel = new chatSendModel();
 
         public ActionResult Index()
         {
-            return PartialView();
+            if (Session["email"] != null)
+            {
+                return PartialView("Chat");
+            }
+            else
+            {
+                ViewBag.Chat = 0;
+                return PartialView();
+            }
         }
 
         public ActionResult Chat()
         {
-            return RedirectToAction("Index", "Home");
+            if (Session["email"] != null)
+            {
+                return PartialView();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            
         }
 
         [HttpPost]
@@ -35,15 +52,30 @@ namespace Temiskaming.Controllers
                  * 
                  */
                 Session["email"] = modelVal.email;
-                string date = DateTime.Now.ToString();
+                DateTime date = DateTime.Now;
                 string fileName = date.ToString() + Session["email"].ToString();
-                string fileString = fileName.Replace(" ", "").Replace("@","").Replace("/","_").Replace(":",".");
-                string filePath = Server.MapPath("~/chatLogs/" + fileString + ".html");
+                string fileString = fileName.Replace(" ", "").Replace("@","_").Replace("/","_").Replace(":","_");
+                Session["log"] = fileString;
+                string filePath = Server.MapPath("~/chatLogs/" + fileString + ".txt");
                 objChat.makeChat(Session["email"].ToString(), fileString, date, filePath);
                 return PartialView();
             }
             else
             {
+                return Index();
+            }
+        }
+
+        public ActionResult Display(string file)
+        {
+            if (file != "")
+            {
+                ViewBag.FileName = file;
+                return PartialView();
+            }
+            else
+            {
+                ViewBag.Error = "SSSSS";
                 return Index();
             }
         }
@@ -58,18 +90,33 @@ namespace Temiskaming.Controllers
         {
             if (ModelState.IsValid)
             {
+                var date = DateTime.Now;
+                string lineToWrite = date.ToString("hh:mm:ss tt") + " (" + Session["email"] + ") : " + message + "<br />";
+                string fileString = (String)Session["log"];
+                var path = Server.MapPath("~/chatLogs/"+ fileString +".txt");
+                objChat.writeChat(lineToWrite, path);
                 return PartialView();
             }
             else
             {
                 return PartialView();
             }
-            
         }
 
         public ActionResult Exit()
         {
             Session.Abandon();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult nChat()
+        {
+            ViewBag.Group = "Nurse";
+            return View();
+        }
+
+        public ActionResult nChatPartial()
+        {
             return PartialView();
         }
 

@@ -168,6 +168,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminEcardController.cs" />
+    <Compile Include="Controllers\AdminEmailController.cs" />
     <Compile Include="Controllers\AdminJobPostings.cs" />
     <Compile Include="Controllers\AlertController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
@@ -176,13 +178,15 @@
     <Compile Include="Controllers\ContactFormController.cs" />
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\DonationController.cs" />
+    <Compile Include="Controllers\EcardController.cs" />
     <Compile Include="Controllers\EditableController.cs" />
+    <Compile Include="Controllers\EmailSignupController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobPostingsController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
-    <Compile Include="Controllers\WaittimeController.cs" />
+    <Compile Include="Controllers\SurveyController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -201,15 +205,18 @@
     </Compile>
     <Compile Include="Models\doctorClass.cs" />
     <Compile Include="Models\doctorsValidation.cs" />
+    <Compile Include="Models\ecardimageValidation.cs" />
+    <Compile Include="Models\EcardValidation.cs" />
     <Compile Include="Models\FAQClass.cs" />
     <Compile Include="Models\jobapplicationValidation.cs" />
     <Compile Include="Models\jobValidation.cs" />
+    <Compile Include="Models\linqecardsClass.cs" />
+    <Compile Include="Models\linqemailsClass.cs" />
     <Compile Include="Models\linqjobsClass.cs" />
     <Compile Include="Models\navClass.cs" />
     <Compile Include="Models\NewsClass.cs" />
     <Compile Include="Models\NewsValidation.cs" />
-    <Compile Include="Models\WaittimeClass.cs" />
-    <Compile Include="Models\WaittimeValidation.cs" />
+    <Compile Include="Models\SignupValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -787,6 +794,8 @@
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery.dataTables.js" />
     <Content Include="Scripts\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\menu.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\picker.date.js" />
@@ -871,8 +880,6 @@
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
-    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -941,16 +948,37 @@
     <Content Include="Views\Chat\Chat.cshtml" />
     <Content Include="Views\Chat\Send.cshtml" />
     <Content Include="Views\Alert\ActiveAlert.cshtml" />
+    <Content Include="Views\JobPostings\Appliedpartial.cshtml" />
     <Content Include="Views\News\NotFound.cshtml" />
     <Content Include="Views\News\newsupdatePartial.cshtml" />
     <Content Include="Views\Appointment\BookAppointment.cshtml" />
-    <Content Include="Views\JobPostings\Applied.cshtml" />
-    <Content Include="Views\Waittime\Index.cshtml" />
-    <Content Include="Views\Waittime\admin.cshtml" />
-    <Content Include="Views\Waittime\update.cshtml" />
-    <Content Include="Views\Waittime\delete.cshtml" />
-    <Content Include="Views\Waittime\NotFound.cshtml" />
-    <Content Include="Views\Waittime\create.cshtml" />
+    <Content Include="Views\Survey\Index.cshtml" />
+    <Content Include="Views\Survey\AddSurvey.cshtml" />
+    <Content Include="Views\Chat\nChat.cshtml" />
+    <Content Include="Views\AdminEcard\AdminShowEcards.cshtml" />
+    <Content Include="Views\AdminEcard\Display.cshtml" />
+    <Content Include="Views\AdminEcard\EditImages.cshtml" />
+    <Content Include="Views\AdminEcard\NotFound.cshtml" />
+    <Content Include="Views\AdminEcard\Update.cshtml" />
+    <Content Include="Views\AdminJobPostings\AdminShowJobPostings.cshtml" />
+    <Content Include="Views\AdminJobPostings\NewJob.cshtml" />
+    <Content Include="Views\AdminJobPostings\NotFound.cshtml" />
+    <Content Include="Views\AdminJobPostings\ShowJobApp.cshtml" />
+    <Content Include="Views\AdminJobPostings\ViewDetailsJobApp.cshtml" />
+    <Content Include="Views\AdminJobPostings\ViewJobDetails.cshtml" />
+    <Content Include="Views\AdminJobPostings\NotFound.cshtml" />
+    <Content Include="Views\AdminEcard\AdminShowEcards.cshtml" />
+    <Content Include="Views\AdminEcard\Display.cshtml" />
+    <Content Include="Views\AdminEcard\EditImages.cshtml" />
+    <Content Include="Views\AdminEcard\NotFound.cshtml" />
+    <Content Include="Views\AdminEcard\Update.cshtml" />
+    <Content Include="Views\EmailSignup\EmailSignup.cshtml" />
+    <Content Include="Views\EmailSignup\SignupComplete.cshtml" />
+    <Content Include="Views\Chat\Display.cshtml" />
+    <Content Include="Views\Chat\nChatPartial.cshtml" />
+    <Content Include="Views\AdminEmail\AdminShowSignups.cshtml" />
+    <Content Include="Views\AdminEmail\NotFound.cshtml" />
+    <Content Include="Views\AdminEmail\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

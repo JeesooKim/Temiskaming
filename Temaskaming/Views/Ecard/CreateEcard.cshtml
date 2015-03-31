@@ -1,0 +1,80 @@
+﻿@model Temiskaming.Models.ecardValidation
+
+@{
+    ViewBag.Title = "CreateEcard";
+}
+
+<h2>Continue creating your card</h2>
+<br />
+<div class="thumb1" style="background-image:url('@Url.Content(ViewBag.valurl)')"></div>
+
+<div id="ecard_form">
+    @* form with controls and validation for them which adds ecard to database *@
+    @using (Ajax.BeginForm("CardSent", "Ecard", new AjaxOptions
+{
+    HttpMethod = "Post",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "ecard_form"
+}))
+    {
+        <table id="ecard_table">
+            <tr>
+                @*label, textbox and validation message for sender *@
+                <td>
+                    @Html.HiddenFor(model => model.urlpath, new { @Value = ViewBag.valurl })
+                    @Html.LabelFor(model => model.sname)
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.sname, new { @class = "ecardform" })
+
+                    @Html.ValidationMessageFor(model => model.sname, "*")
+                </td>
+            </tr>
+            <tr>
+                @*label, textbox and validation message for receiver *@
+                <td>
+                    @Html.LabelFor(model => model.rname)
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.rname, new { @class = "ecardform" })
+                    @Html.ValidationMessageFor(model => model.rname, "*")
+                </td>
+            </tr>
+            <tr>
+                @*label, textarea and validation message for the message *@
+                <td>
+                    @Html.LabelFor(model => model.emessage)
+                </td>
+                <td>
+                    @Html.TextAreaFor(model => model.emessage)
+                    @Html.ValidationMessageFor(model => model.emessage, "*")
+                </td>
+            </tr>
+            <tr>
+                @*label, textbox and validation message for date to be sent on *@
+                <td>
+                    @Html.LabelFor(model => model.mdate)
+                </td>
+                <td>
+                    @Html.TextBoxFor(model => model.mdate, new { @class = "ecardform" })
+                    @Html.ValidationMessageFor(model => model.mdate, "*")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Send Ecard" /><br />
+                    @Html.ActionLink("or go back to choose a different image", "SelectImage", "Ecard")
+
+                </td>
+                <td></td>
+            </tr>
+        </table>
+        @* submit button for creating ecard *@
+        <br /> <br />
+        @Html.ValidationSummary()
+    }
+</div>
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

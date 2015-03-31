@@ -1,6 +1,7 @@
-﻿@{
+﻿@model Temiskaming.Models.chat
+@{
     Layout = null;
-    }
+}
 
 @Ajax.ActionLink("Exit Chat", "Exit", "Chat", new AjaxOptions
 {
@@ -8,15 +9,16 @@
     InsertionMode = InsertionMode.Replace,
     UpdateTargetId = "chat"
 })
-    
-    <div id="chatLog">
-        @{Html.RenderAction("Display", "Chat", new { file = (String)Session["log"] });}
-    </div>
-    <div id="chatUrl">@Url.Content("/Chat/Display?file=" + Session["log"])</div>
+
+<div id="chatLog">
+    @{Html.RenderAction("Display", "Chat", new { file = "test" });}
+</div>
+<div id="chatUrl">@Url.Content("/Chat/Display?file=" + Model.log_file)</div>
+
 
 @Html.Partial("Send")
 
-<script type="text/javascript" >
+<script type="text/javascript">
     function loadChatLog() {
         var oldHeight = $("#chatLog").prop('scrollHeight') - 20;
         var chaturl = $("#chatUrl").html();
@@ -31,7 +33,7 @@
                 }
             }
         })
-        
+
     }
 
     var sHeight = $("#chatLog").prop('scrollHeight');
