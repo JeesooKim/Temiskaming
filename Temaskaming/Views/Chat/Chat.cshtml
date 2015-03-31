@@ -1,16 +1,43 @@
-﻿@Ajax.ActionLink("Exit Chat", "Exit", "Chat", new AjaxOptions
+﻿@{
+    Layout = null;
+    }
+
+@Ajax.ActionLink("Exit Chat", "Exit", "Chat", new AjaxOptions
 {
     HttpMethod = "Post",
     InsertionMode = InsertionMode.Replace,
     UpdateTargetId = "chat"
 })
-
-<p>@ViewBag.Test</p>
+    
     <div id="chatLog">
-
+        @{Html.RenderAction("Display", "Chat", new { file = (String)Session["log"] });}
     </div>
-
+    <div id="chatUrl">@Url.Content("/Chat/Display?file=" + Session["log"])</div>
 
 @Html.Partial("Send")
 
-@Scripts.Render("~/bundles/jqueryval")
+<script type="text/javascript" >
+    function loadChatLog() {
+        var oldHeight = $("#chatLog").prop('scrollHeight') - 20;
+        var chaturl = $("#chatUrl").html();
+        $.ajax({
+            url: chaturl,
+            cache: false,
+            success: function (html) {
+                $("#chatLog").html(html);
+                var newHeight = $("#chatLog").prop('scrollHeight') - 20;
+                if (newHeight > oldHeight) {
+                    $("#chatLog").animate({ scrollTop: newHeight }, 'normal');
+                }
+            }
+        })
+        
+    }
+
+    var sHeight = $("#chatLog").prop('scrollHeight');
+    $("#chatLog").animate({ scrollTop: sHeight }, 'normal');
+
+
+
+    setInterval(loadChatLog, 1000);
+</script>

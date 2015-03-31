@@ -1,0 +1,7 @@
+﻿<h3> Thank you, @Model.sname, the message below will be delivered to @Model.rname on @Model.mdate.ToString("MMMM-dd")</h3>
+<div id="message">
+    <p>@Model.emessage</p>
+</div>
+
+
+@Html.ActionLink("Send another Ecard", "SelectImage", "Ecard")

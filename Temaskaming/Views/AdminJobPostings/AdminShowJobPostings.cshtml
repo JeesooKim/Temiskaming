@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Temiskaming.Models.job>
+
+@{
+    ViewBag.Title = "AdminShowJobPostings";
+}
+
+@Html.ActionLink("Show job applications", "ShowJobApp", "AdminJobPostings")
+<h2>View and update Job Postings</h2>
+<table class="admin_job">
+    <tr>
+        <th>Job Title</th>
+        <th>Job Description</th>
+        <th>Option 1</th>
+        <th>Option 2</th>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td colspan="2">@Html.ActionLink("Create new listing", "NewJob", "AdminJobPostings")</td>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => x.jobtitle)
+            </td>
+            <td>
+                @Html.DisplayFor(model => x.jobdescr)
+            </td>
+            <td>
+                @Html.ActionLink("View details/Update", "ViewJobDetails", new { id = x.Id })
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "DeleteJob", new { id = x.Id })
+            </td>
+        </tr>
+    }
+</table>

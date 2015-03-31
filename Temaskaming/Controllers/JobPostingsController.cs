@@ -5,36 +5,38 @@ using System.Web;
 using System.Web.Mvc;
 
 using Temiskaming.Models;
-
+// controller which creates new job application and shows job postings
 namespace Temiskaming.Controllers
 {
     public class JobPostingsController : Controller
     {
         linqjobsClass objJob = new linqjobsClass();
-
+        
+        //action method which shows all job postings
         public ActionResult ViewPostings()
         {
             var jobpostings = objJob.getJobs();
-            ViewBag.Group = "JoinOurTeam";
             return View(jobpostings);
         }
 
-        public ActionResult ApplytoJob()
+        //action method which directs user to apply form for selected job
+        public ActionResult ApplytoJob(string passjob)
         {
-            ViewBag.Group = "JoinOurTeam";
+            @ViewBag.passjob = passjob;
             return View();
         }
 
+        //action method which on post inserts user job application if the data is valid
         [HttpPost]
         public ActionResult ApplytoJob(jobapplication valid)
         {
-            ViewBag.Group = "JoinOurTeam";
+
             if (ModelState.IsValid)
             {
                 try
                 {
                     objJob.commitInsertApplic(valid);
-                    return PartialView("Appliedpartial", valid);
+                    return View("Applied", valid);
                 }
                 catch
                 {
