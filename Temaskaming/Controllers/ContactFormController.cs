@@ -38,7 +38,7 @@ namespace Temiskaming.Controllers
 
         public ActionResult CFDelete()
         {
-
+            return View(); //Please try not to push errors on to git
         }
     }
 }

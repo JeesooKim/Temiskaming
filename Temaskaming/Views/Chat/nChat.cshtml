@@ -15,8 +15,8 @@
     @Ajax.ActionLink(x.email, "ShowChat", new { id = x.id }, new AjaxOptions
     {
         HttpMethod = "Post",
-        UpdateTargetId = "chat",
-        InsertionMode = InsertionMode.Replace
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "chat"
     })
 }
 
