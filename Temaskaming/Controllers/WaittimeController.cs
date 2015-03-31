@@ -14,6 +14,7 @@ namespace Temiskaming.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.Wait_Time = objWaittime.GetWaitTime();
             return View();
         }
 

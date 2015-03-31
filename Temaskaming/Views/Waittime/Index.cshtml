@@ -1,27 +1,8 @@
-﻿@using Temiskaming.Models
-@model Temiskaming.Models.WaittimeClass
-
-@{
-var objwaittime = new WaittimeClass();
-var patients = objwaittime.GetRecentPatients();
-}
-
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
 <h2>Emergency Room Wait Time</h2>
 
-@{
-    List<int> waittimeList = new List<int>();
-    foreach (var x in patients)
-    {
-        DateTime startTime = x.time_admit;
-        DateTime endTime = (DateTime) x.time_doctor;
-        var waittime = endTime.Subtract(startTime).Minutes;
-        waittimeList.Add(waittime);
-    }
-    
-}
 
-<p>The average wait time for the last 5 patients is @waittimeList.Average() Minutes</p>
+<p>The approximate wait time is @ViewBag.Wait_Time minutes.</p>

@@ -14,20 +14,23 @@ namespace Temiskaming.Models
 
         public IQueryable<waittime> GetRecentPatients()
         {
-            var recentPatients = objDB.waittimes.Select(x => x).OrderByDescending(x => x.time_doctor).Take(5);
+            var recentPatients = objDB.waittimes.Where(x => x.time_doctor != null).OrderByDescending(x => x.time_doctor).Take(5);
             return recentPatients;
         }
 
-        //public void GetWaitTime()
-        //{
-        //    Array waittime;
-        //    var recentPatients = GetRecentPatients();
-        //    foreach (var x in recentPatients)
-        //    {
-
-                
-        //    }
-        //}
+        public string GetWaitTime()
+        {
+            var patients = GetRecentPatients();
+            List<double> waittimeList = new List<double>();
+            foreach (var x in patients)
+            {
+                DateTime startTime = x.time_admit;
+                DateTime endTime = (DateTime)x.time_doctor;
+                var waittime = endTime.Subtract(startTime).TotalMinutes;
+                waittimeList.Add(waittime);
+            }
+            return waittimeList.Average().ToString();
+        }
 
         public IQueryable<waittime> GetPatients()
         {
