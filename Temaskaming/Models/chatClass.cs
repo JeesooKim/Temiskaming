@@ -11,7 +11,19 @@ namespace Temiskaming.Models
     public class chatClass
     {
         databaseDataContext objChat = new databaseDataContext();
-        
+
+        public IQueryable<chat> getWaitingChats()
+        {
+            var chats = objChat.chats.Where(x => x.nurse == null);
+            return chats;
+        }
+
+        public chat getChat(int _id)
+        {
+            var chat = objChat.chats.SingleOrDefault(x => x.id == _id);
+            return chat;
+        }
+
         public bool makeChat(string email, string logfile, DateTime logdate, string filepath)
         {
             File.Create(filepath).Close();

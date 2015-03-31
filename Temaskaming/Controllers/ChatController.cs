@@ -40,6 +40,12 @@ namespace Temiskaming.Controllers
             
         }
 
+        public ActionResult ShowChat(int id)
+        {
+            var chat = objChat.getChat(id);
+            return PartialView(chat);
+        }
+
         [HttpPost]
         public ActionResult Chat(chatModel modelVal)
         {
@@ -75,8 +81,8 @@ namespace Temiskaming.Controllers
             }
             else
             {
-                ViewBag.Error = "SSSSS";
-                return Index();
+                ViewBag.FileName = "error";
+                return PartialView();
             }
         }
 
@@ -86,7 +92,7 @@ namespace Temiskaming.Controllers
         }
 
         [HttpPost]
-        public ActionResult Send(string message)
+        public ActionResult Send(string message, chatSendModel model)
         {
             if (ModelState.IsValid)
             {
@@ -112,7 +118,8 @@ namespace Temiskaming.Controllers
         public ActionResult nChat()
         {
             ViewBag.Group = "Nurse";
-            return View();
+            var chats = objChat.getWaitingChats();
+            return View(chats);
         }
 
         public ActionResult nChatPartial()
