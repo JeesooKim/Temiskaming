@@ -30,7 +30,7 @@ namespace Temiskaming.Controllers
 
         public ActionResult CFDelete()
         {
-
+            return View();
         }
     }
 }
