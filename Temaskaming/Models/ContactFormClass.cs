@@ -16,13 +16,13 @@ namespace Temiskaming.Models
         }
 
         //get id 
-         public ContactForm getCFId(int _id)
+         public ContactForm getCFById(int _id)
    {
        var AllCF = objCF.ContactForms.SingleOrDefault(x => x.id == _id);
                  return AllCF;
    }
         //INSERT
-        public bool  CFInsert(ContactForm CF)
+        public bool  CommitInsert(ContactForm CF)
          {
             using (objCF)
             {
@@ -32,7 +32,7 @@ namespace Temiskaming.Models
             }
          }
     //DELETE
-        public bool CFDelete(int _id)
+        public bool CommitDelete(int _id)
         {
             using (objCF)
             {
