@@ -10,10 +10,11 @@
         UpdateTargetId = "chat"
     }))
     {
-        @Html.Label("Please enter valid email to chat: ")<br />
+        @Html.Label("Please enter email to chat: ")<br />
         @Html.TextBoxFor(x => x.email)<br />
+        
         <input type="submit" id="enter" value="Enter Chat" />
+        @Html.ValidationSummary()
     }
 
-@ViewBag.Error
-             
+        

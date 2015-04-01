@@ -992,6 +992,7 @@
     <Content Include="Views\AdminJobPostings\ViewJobDetails.cshtml" />
     <Content Include="Views\Waittime\Index.cshtml" />
     <Content Include="Views\Chat\nSend.cshtml" />
+    <Content Include="Views\Chat\Exit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

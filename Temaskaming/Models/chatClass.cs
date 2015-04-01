@@ -58,15 +58,15 @@ namespace Temiskaming.Models
 
     public class chatSendModel
     {
-        [Required]
+        [Required(ErrorMessage= "Please enter a message to send")]
         public string message { get; set; }
 
     }
 
     public class chatModel
     {
-        [Required]
-        [RegularExpression("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")]
+        [Required(ErrorMessage= "Please enter your email")]
+        [RegularExpression("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$", ErrorMessage= "Please enter valid email")]
         public string email { get; set; }
 
     }
