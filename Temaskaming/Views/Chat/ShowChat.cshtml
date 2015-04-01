@@ -3,21 +3,17 @@
     Layout = null;
 }
 
-@Ajax.ActionLink("Exit Chat", "Exit", "Chat", new AjaxOptions
-{
-    HttpMethod = "Post",
-    InsertionMode = InsertionMode.Replace,
-    UpdateTargetId = "chat"
-})
+@Html.ActionLink("Close Chat", "nExit", "Chat", new { id = Model.id }, null)
 
 <div id="chatLog">
     @{Html.RenderAction("Display", "Chat", new { file = Model.log_file });}
 </div>
 <div id="chatUrl">@Url.Content("/Chat/Display?file=" + Model.log_file)</div>
 
-
-@Html.Partial("Send")
-
+@{
+    ViewBag.File = Model.log_file;
+    Html.RenderAction("nSend", new { file = Model.log_file });
+}
 <script type="text/javascript">
     function loadChatLog() {
         var oldHeight = $("#chatLog").prop('scrollHeight') - 20;

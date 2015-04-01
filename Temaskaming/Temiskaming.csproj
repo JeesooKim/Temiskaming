@@ -964,7 +964,6 @@
     <Content Include="Views\Survey\AddSurvey.cshtml" />
     <Content Include="Views\Chat\Display.cshtml" />
     <Content Include="Views\Chat\nChat.cshtml" />
-    <Content Include="Views\Chat\nChatPartial.cshtml" />
     <Content Include="Views\Chat\ShowChat.cshtml" />
     <Content Include="Views\Waittime\admin.cshtml" />
     <Content Include="Views\Waittime\create.cshtml" />
