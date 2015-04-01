@@ -80,11 +80,5 @@
         <elementListCompartment Id="4a425042-3087-47a0-bc5c-d5cd7df946c9" absoluteBounds="7.8900000000000006, 2.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="bee3f448-7c90-4aa3-8b97-265c0602884f" absoluteBounds="8, 4.375, 2, 1.5785953776041666">
-      <DataClassMoniker Name="/databaseDataContext/waittime" />
-      <nestedChildShapes>
-        <elementListCompartment Id="c77dc9af-1d36-43be-b4de-d59dd4947124" absoluteBounds="8.015, 4.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

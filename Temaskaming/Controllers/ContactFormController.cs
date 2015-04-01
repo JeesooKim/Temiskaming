@@ -10,35 +10,39 @@ namespace Temiskaming.Controllers
 {
     public class ContactFormController : Controller
     {
-        ContactFormClass objCF = new ContactFormClass(); 
+        ContactFormClass objCF = new ContactFormClass();
 
 
+
+
+        public ActionResult ContactForm(ContactForm Cf)
+        {
+            return View();
+        }
 
         [HttpPost]
         public ActionResult ContactForm(ContactForm Cf)
         {
-            var CF = objCF.getCF(); 
-            ViewBag.Group="Contact Form";
-            return View();
-        }
+            ViewBag.Group = "Contact Form";
 
-        public ActionResult CFAdmin()
-        {
-            ViewBag.Group="Contact Form";
-            var Cf= objCF.getCF();
-            if (Cf== null)
+            if (ModelState.IsValid)
             {
-                return View ("CFAdmin");
+                try
+                {
+                    objCF.CFInsert(Cf);
+                    return RedirectToAction("ContactForm");
+                }
+                catch
+                {
+                    return View();
+                }
             }
-            else
-            {
-                return View(Cf);
-            }
+            return View();
         }
 
         public ActionResult CFDelete()
         {
-            return View(); //Please try not to push errors on to git
+            return View();
         }
     }
 }

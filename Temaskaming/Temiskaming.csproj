@@ -168,9 +168,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminContactFormController.cs" />
     <Compile Include="Controllers\AdminEcardController.cs" />
     <Compile Include="Controllers\AdminEmailController.cs" />
-    <Compile Include="Controllers\AdminJobPostingsController.cs" />
+    <Compile Include="Controllers\AdminJobPostings.cs" />
     <Compile Include="Controllers\AlertController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\ChatController.cs" />
@@ -187,7 +188,6 @@
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\SurveyController.cs" />
-    <Compile Include="Controllers\WaittimeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -218,8 +218,6 @@
     <Compile Include="Models\NewsClass.cs" />
     <Compile Include="Models\NewsValidation.cs" />
     <Compile Include="Models\SignupValidation.cs" />
-    <Compile Include="Models\WaittimeClass.cs" />
-    <Compile Include="Models\WaittimeValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -978,20 +976,10 @@
     <Content Include="Views\EmailSignup\EmailSignup.cshtml" />
     <Content Include="Views\EmailSignup\SignupComplete.cshtml" />
     <Content Include="Views\Chat\Display.cshtml" />
+    <Content Include="Views\Chat\nChatPartial.cshtml" />
     <Content Include="Views\AdminEmail\AdminShowSignups.cshtml" />
     <Content Include="Views\AdminEmail\NotFound.cshtml" />
     <Content Include="Views\AdminEmail\Update.cshtml" />
-    <Content Include="Views\Ecard\CardSent.cshtml" />
-    <Content Include="Views\Ecard\CreateEcard.cshtml" />
-    <Content Include="Views\Ecard\SelectImage.cshtml" />
-    <Content Include="Views\Chat\ShowChat.cshtml" />
-    <Content Include="Views\Waittime\admin.cshtml" />
-    <Content Include="Views\Waittime\create.cshtml" />
-    <Content Include="Views\Waittime\delete.cshtml" />
-    <Content Include="Views\Waittime\Index.cshtml" />
-    <Content Include="Views\Waittime\NotFound.cshtml" />
-    <Content Include="Views\Waittime\update.cshtml" />
-    <Content Include="Views\Chat\nSend.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1024,7 +1012,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>59641</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
