@@ -22,7 +22,6 @@ namespace Temiskaming.Controllers
             }
             else
             {
-                ViewBag.Chat = 0;
                 return PartialView();
             }
         }
@@ -37,14 +36,9 @@ namespace Temiskaming.Controllers
             {
                 return RedirectToAction("Index", "Home");
             }
-            
+
         }
 
-        public ActionResult ShowChat(int id)
-        {
-            var chat = objChat.getChat(id);
-            return PartialView(chat);
-        }
 
         [HttpPost]
         public ActionResult Chat(chatModel modelVal)
@@ -60,10 +54,12 @@ namespace Temiskaming.Controllers
                 Session["email"] = modelVal.email;
                 DateTime date = DateTime.Now;
                 string fileName = date.ToString() + Session["email"].ToString();
-                string fileString = fileName.Replace(" ", "").Replace("@","_").Replace("/","_").Replace(":","_");
+                string fileString = fileName.Replace(" ", "").Replace("@", "_").Replace("/", "_").Replace(":", "_");
                 Session["log"] = fileString;
                 string filePath = Server.MapPath("~/chatLogs/" + fileString + ".txt");
                 objChat.makeChat(Session["email"].ToString(), fileString, date, filePath);
+                string firstLine = date.ToString("yyyy-MM-dd hh:mm:ss tt") + Session["email"].ToString() + " has entered chat.";
+                objChat.writeChat(firstLine, filePath);
                 return PartialView();
             }
             else
@@ -86,20 +82,20 @@ namespace Temiskaming.Controllers
             }
         }
 
-        public ActionResult Send()
+        public ActionResult Send(chatSendModel model)
         {
-            return PartialView();
+            return PartialView(model);
         }
 
         [HttpPost]
-        public ActionResult Send(string message, chatSendModel model)
+        public ActionResult Send(string message, string file, chatSendModel model)
         {
             if (ModelState.IsValid)
             {
                 var date = DateTime.Now;
                 string lineToWrite = date.ToString("hh:mm:ss tt") + " (" + Session["email"] + ") : " + message + "<br />";
-                string fileString = (String)Session["log"];
-                var path = Server.MapPath("~/chatLogs/"+ fileString +".txt");
+                string fileString = file;
+                var path = Server.MapPath("~/chatLogs/" + fileString + ".txt");
                 objChat.writeChat(lineToWrite, path);
                 return PartialView();
             }
@@ -111,6 +107,9 @@ namespace Temiskaming.Controllers
 
         public ActionResult Exit()
         {
+            string lineToWrite = " (" + Session["email"] + ") has left chat <br />";
+            var path = Server.MapPath("~/chatLogs/" + Session["log"] + ".txt");
+            objChat.writeChat(lineToWrite, path);
             Session.Abandon();
             return RedirectToAction("Index");
         }
@@ -122,10 +121,46 @@ namespace Temiskaming.Controllers
             return View(chats);
         }
 
-        public ActionResult nChatPartial()
+        public ActionResult ShowChat(int id)
         {
-            return PartialView();
+            var chat = objChat.getChat(id);
+            return PartialView(chat);
         }
 
+
+
+        public ActionResult nSend(string file, chatSendModel model)
+        {
+            ViewBag.File = file;
+            return PartialView(model);
+        }
+
+        [HttpPost]
+        public ActionResult nSend(string message, string file, chatSendModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var date = DateTime.Now;
+                string lineToWrite = "<!--" + date.ToString("yyyy-MM-dd hh:mm:ss tt") + "-->" + " (" +User.Identity.Name+ "NURSE" + ") : " + message + "<br />";
+                string fileString = file;
+                var path = Server.MapPath("~/chatLogs/" + fileString + ".txt");
+                objChat.writeChat(lineToWrite, path);
+                return PartialView();
+            }
+            else
+            {
+                return PartialView();
+            }
+        }
+
+        public ActionResult nExit(int id, string file)
+        {
+            string lineToWrite = User.Identity.Name + " has left chat. <br /> ::CHATEND";
+            string fileString = file;
+            var path = Server.MapPath("~/chatLogs/" + fileString + ".txt");
+            objChat.writeChat(lineToWrite, path);
+            objChat.closeChat(id);
+            return RedirectToAction("nChat");
+        }
     }
 }

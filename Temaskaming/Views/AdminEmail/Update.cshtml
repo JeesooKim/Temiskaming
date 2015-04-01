@@ -7,15 +7,15 @@
 <div id="email_form">
     @using (Html.BeginForm())
     {
-        <table id="email_table">
+        <table id="emailform">
             @* hidden field for id of review *@
 
             @Html.HiddenFor(x => x.Id)
             <tr>
                 @*label, textbox and validation message for resort name*@
-                <td>
+                <th>
                     @Html.LabelFor(x => x.ename)
-                </td>
+                </th>
                 <td>
                     @Html.TextBoxFor(x => x.ename, new { @class = "emailform" })
                     @Html.ValidationMessageFor(x => x.ename, "*")
@@ -23,9 +23,9 @@
             </tr>
             <tr>
                 @*label, textbox and validation message for country *@
-                <td>
+                <th>
                     @Html.LabelFor(x => x.elname)
-                </td>
+                </th>
                 <td>
                     @Html.TextBoxFor(x => x.elname, new { @class = "emailform" })
                     @Html.ValidationMessageFor(x => x.elname, "*")
@@ -33,9 +33,9 @@
             </tr>
             <tr>
                 @*label, textbox and validation message for number of days stayed *@
-                <td>
+                <th>
                     @Html.LabelFor(x => x.eemail)
-                </td>
+                </th>
                 <td>
                     @Html.TextBoxFor(x => x.eemail, new { @class = "emailform" })
                     @Html.ValidationMessageFor(x => x.eemail, "*")

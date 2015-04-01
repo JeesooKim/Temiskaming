@@ -24,6 +24,14 @@ namespace Temiskaming.Models
             return chat;
         }
 
+        public bool closeChat(int _id)
+        {
+            var chat = objChat.chats.SingleOrDefault(x => x.id == _id);
+            chat.nurse = "NURSE";
+            objChat.SubmitChanges();
+            return true;
+        }
+
         public bool makeChat(string email, string logfile, DateTime logdate, string filepath)
         {
             File.Create(filepath).Close();
@@ -52,11 +60,13 @@ namespace Temiskaming.Models
     {
         [Required]
         public string message { get; set; }
+
     }
 
     public class chatModel
     {
         [Required]
+        [RegularExpression("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")]
         public string email { get; set; }
 
     }
