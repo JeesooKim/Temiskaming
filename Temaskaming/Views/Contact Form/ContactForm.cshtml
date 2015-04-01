@@ -1,0 +1,26 @@
+﻿@model Temiskaming.Models.ContactForm
+
+@{
+    ViewBag.Title = "ContactForm";
+}
+
+<h2>Contact Form</h2>
+
+@using(Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(model =>model.Name)
+        @Html.TextBoxFor(model=>model.Name)
+    </div>
+    <div>
+        @Html.LabelFor(model=>model.Email)
+        @Html.TextBoxFor(model=>model.Email)
+    </div>
+    <div>
+        @Html.LabelFor(model=>model.Comment)
+        @Html.TextAreaFor(model=>model.Comment)
+    </div>
+    <div>
+        <input type="submit" value="Submit"/>
+    </div>
+}
