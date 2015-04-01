@@ -956,7 +956,6 @@
     <Content Include="Views\Chat\Index.cshtml" />
     <Content Include="Views\Chat\Chat.cshtml" />
     <Content Include="Views\Chat\Send.cshtml" />
-    <Content Include="Views\Alert\ActiveAlert.cshtml" />
     <Content Include="Views\JobPostings\Appliedpartial.cshtml" />
     <Content Include="Views\News\NotFound.cshtml" />
     <Content Include="Views\News\newsupdatePartial.cshtml" />
@@ -992,7 +991,10 @@
     <Content Include="Views\AdminJobPostings\ViewJobDetails.cshtml" />
     <Content Include="Views\Waittime\Index.cshtml" />
     <Content Include="Views\Chat\nSend.cshtml" />
-    <Content Include="Views\Chat\Exit.cshtml" />
+    <Content Include="Views\Alert\AddAlert.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Alert\ActiveAlert.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

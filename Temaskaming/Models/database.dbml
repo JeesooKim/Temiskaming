@@ -58,16 +58,6 @@
       <Association Name="doctor_appointment" Member="appointments" ThisKey="Id" OtherKey="doctor_id" Type="appointment" />
     </Type>
   </Table>
-  <Table Name="temismain.alerts" Member="alerts">
-    <Type Name="alert">
-      <Column Name="alertId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="alertTitle" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="alertDescription" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="alertLevel" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="alertTimeline" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="alertStatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.FAQ" Member="FAQs">
     <Type Name="FAQ">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -150,6 +140,16 @@
     <Type Name="ecardimage">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="urlpath" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="temismain.alerts" Member="alerts">
+    <Type Name="alert">
+      <Column Name="alertId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="alertTitle" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="alertDescription" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="alertLevel" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="alertTimeline" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="alertStatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
