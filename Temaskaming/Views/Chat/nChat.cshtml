@@ -3,23 +3,23 @@
 @{
     ViewBag.Title = "Temiskaming - Nurse Chat";
     @section css{
-        @Styles.Render("~/content/nchat.css")
+        @Styles.Render("~/content/nchat.css");
         }
 }
 
 <h2>Nurse Live Chat</h2>
-<ul class="chatMenu">
+
 @foreach (var x in Model)
 {
-    <li>@Ajax.ActionLink(x.email, "ShowChat", new { id = x.id }, new AjaxOptions
+    
+    @Ajax.ActionLink(x.email, "ShowChat", new { id = x.id }, new AjaxOptions
     {
         HttpMethod = "Post",
         InsertionMode = InsertionMode.Replace,
-        UpdateTargetId = "nchat"
-    })</li>
-    
+        UpdateTargetId = "chat"
+    })
 }
-</ul>
 
-<div id="nchat">
+<div id="chat">
+
 </div>

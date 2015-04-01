@@ -1,13 +1,13 @@
-﻿@model Temiskaming.Models.chatSendModel
+﻿@*@model Temiskaming.Models.chatSendModel*@
 @{
     Layout = null;
 }
 
-@using (Ajax.BeginForm("Send", "Chat", new { file = Session["log"] }, new AjaxOptions
+@using (Ajax.BeginForm("Send", "Chat", FormMethod.Post, new AjaxOptions
 {
     HttpMethod = "Post",
     OnSuccess = "$('#message').val('')"
-
+    
 }, new { @id = "fMessage" }))
 {
 
