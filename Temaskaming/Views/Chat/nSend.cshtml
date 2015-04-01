@@ -3,16 +3,16 @@
     Layout = null;
 }
 
-@using (Ajax.BeginForm("Send", "Chat", new { file = Session["log"] }, new AjaxOptions
+@using (Ajax.BeginForm("nSend", "Chat", new {file = ViewBag.File}, new AjaxOptions
 {
     HttpMethod = "Post",
     OnSuccess = "$('#message').val('')"
 
 }, new { @id = "fMessage" }))
 {
-
     @Html.TextBox("message")
     <input type="submit" id="send" name="send" value="Send" />
 }
+
 
 

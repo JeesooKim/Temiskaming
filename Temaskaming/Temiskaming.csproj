@@ -978,7 +978,6 @@
     <Content Include="Views\EmailSignup\EmailSignup.cshtml" />
     <Content Include="Views\EmailSignup\SignupComplete.cshtml" />
     <Content Include="Views\Chat\Display.cshtml" />
-    <Content Include="Views\Chat\nChatPartial.cshtml" />
     <Content Include="Views\AdminEmail\AdminShowSignups.cshtml" />
     <Content Include="Views\AdminEmail\NotFound.cshtml" />
     <Content Include="Views\AdminEmail\Update.cshtml" />
@@ -992,6 +991,7 @@
     <Content Include="Views\Waittime\Index.cshtml" />
     <Content Include="Views\Waittime\NotFound.cshtml" />
     <Content Include="Views\Waittime\update.cshtml" />
+    <Content Include="Views\Chat\nSend.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
