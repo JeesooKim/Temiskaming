@@ -168,6 +168,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminContactFormController.cs" />
+    <Compile Include="Controllers\AdminEcardController.cs" />
+    <Compile Include="Controllers\AdminEmailController.cs" />
+    <Compile Include="Controllers\AdminJobPostings.cs" />
+    <Compile Include="Controllers\AdminJobPostingsController.cs" />
     <Compile Include="Controllers\AlertController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\ChatController.cs" />
@@ -175,7 +180,9 @@
     <Compile Include="Controllers\ContactFormController.cs" />
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\DonationController.cs" />
+    <Compile Include="Controllers\EcardController.cs" />
     <Compile Include="Controllers\EditableController.cs" />
+    <Compile Include="Controllers\EmailSignupController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobPostingsController.cs" />
@@ -203,12 +210,18 @@
     </Compile>
     <Compile Include="Models\doctorClass.cs" />
     <Compile Include="Models\doctorsValidation.cs" />
+    <Compile Include="Models\ecardimageValidation.cs" />
+    <Compile Include="Models\EcardValidation.cs" />
     <Compile Include="Models\FAQClass.cs" />
     <Compile Include="Models\jobapplicationValidation.cs" />
+    <Compile Include="Models\jobValidation.cs" />
+    <Compile Include="Models\linqecardsClass.cs" />
+    <Compile Include="Models\linqemailsClass.cs" />
     <Compile Include="Models\linqjobsClass.cs" />
     <Compile Include="Models\navClass.cs" />
     <Compile Include="Models\NewsClass.cs" />
     <Compile Include="Models\NewsValidation.cs" />
+    <Compile Include="Models\SignupValidation.cs" />
     <Compile Include="Models\surveyClass.cs" />
     <Compile Include="Models\surveyValidation.cs" />
     <Compile Include="Models\WaittimeClass.cs" />
@@ -950,12 +963,34 @@
     <Content Include="Views\Appointment\BookAppointment.cshtml" />
     <Content Include="Views\Survey\Index.cshtml" />
     <Content Include="Views\Survey\AddSurvey.cshtml" />
+    <Content Include="Views\Chat\Display.cshtml" />
+    <Content Include="Views\Chat\nChat.cshtml" />
+    <Content Include="Views\Chat\nChatPartial.cshtml" />
+    <Content Include="Views\Chat\ShowChat.cshtml" />
     <Content Include="Views\Waittime\admin.cshtml" />
     <Content Include="Views\Waittime\create.cshtml" />
     <Content Include="Views\Waittime\delete.cshtml" />
-    <Content Include="Views\Waittime\Index.cshtml" />
     <Content Include="Views\Waittime\NotFound.cshtml" />
     <Content Include="Views\Waittime\update.cshtml" />
+    <Content Include="Views\Ecard\CardSent.cshtml" />
+    <Content Include="Views\Ecard\CreateEcard.cshtml" />
+    <Content Include="Views\Ecard\SelectImage.cshtml" />
+    <Content Include="Views\EmailSignup\EmailSignup.cshtml" />
+    <Content Include="Views\EmailSignup\SignupComplete.cshtml" />
+    <Content Include="Views\AdminEcard\AdminShowEcards.cshtml" />
+    <Content Include="Views\AdminEcard\Display.cshtml" />
+    <Content Include="Views\AdminEcard\EditImages.cshtml" />
+    <Content Include="Views\AdminEcard\NotFound.cshtml" />
+    <Content Include="Views\AdminEcard\Update.cshtml" />
+    <Content Include="Views\AdminEmail\AdminShowSignups.cshtml" />
+    <Content Include="Views\AdminEmail\NotFound.cshtml" />
+    <Content Include="Views\AdminEmail\Update.cshtml" />
+    <Content Include="Views\AdminJobPostings\AdminShowJobPostings.cshtml" />
+    <Content Include="Views\AdminJobPostings\NewJob.cshtml" />
+    <Content Include="Views\AdminJobPostings\NotFound.cshtml" />
+    <Content Include="Views\AdminJobPostings\ShowJobApp.cshtml" />
+    <Content Include="Views\AdminJobPostings\ViewDetailsJobApp.cshtml" />
+    <Content Include="Views\AdminJobPostings\ViewJobDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -988,7 +1023,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
+          <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>59641</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
