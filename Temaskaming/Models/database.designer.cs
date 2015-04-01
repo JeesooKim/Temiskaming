@@ -66,6 +66,9 @@ namespace Temiskaming.Models
     partial void Insertchat(chat instance);
     partial void Updatechat(chat instance);
     partial void Deletechat(chat instance);
+    partial void Insertwaittime(waittime instance);
+    partial void Updatewaittime(waittime instance);
+    partial void Deletewaittime(waittime instance);
     #endregion
 		
 		public databaseDataContext() : 
@@ -199,6 +202,14 @@ namespace Temiskaming.Models
 			get
 			{
 				return this.GetTable<chat>();
+			}
+		}
+		
+		public System.Data.Linq.Table<waittime> waittimes
+		{
+			get
+			{
+				return this.GetTable<waittime>();
 			}
 		}
 	}
@@ -2263,6 +2274,140 @@ namespace Temiskaming.Models
 					this._log_date = value;
 					this.SendPropertyChanged("log_date");
 					this.Onlog_dateChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.waittime")]
+	public partial class waittime : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _name;
+		
+		private System.DateTime _time_admit;
+		
+		private System.Nullable<System.DateTime> _time_doctor;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
+    partial void Ontime_admitChanging(System.DateTime value);
+    partial void Ontime_admitChanged();
+    partial void Ontime_doctorChanging(System.Nullable<System.DateTime> value);
+    partial void Ontime_doctorChanged();
+    #endregion
+		
+		public waittime()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string name
+		{
+			get
+			{
+				return this._name;
+			}
+			set
+			{
+				if ((this._name != value))
+				{
+					this.OnnameChanging(value);
+					this.SendPropertyChanging();
+					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_time_admit", DbType="DateTime2 NOT NULL")]
+		public System.DateTime time_admit
+		{
+			get
+			{
+				return this._time_admit;
+			}
+			set
+			{
+				if ((this._time_admit != value))
+				{
+					this.Ontime_admitChanging(value);
+					this.SendPropertyChanging();
+					this._time_admit = value;
+					this.SendPropertyChanged("time_admit");
+					this.Ontime_admitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_time_doctor", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> time_doctor
+		{
+			get
+			{
+				return this._time_doctor;
+			}
+			set
+			{
+				if ((this._time_doctor != value))
+				{
+					this.Ontime_doctorChanging(value);
+					this.SendPropertyChanging();
+					this._time_doctor = value;
+					this.SendPropertyChanged("time_doctor");
+					this.Ontime_doctorChanged();
 				}
 			}
 		}
