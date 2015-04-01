@@ -39,7 +39,7 @@ namespace Temiskaming.Controllers
             }
             else
             {
-                return View(oneAlert);
+                return PartialView(oneAlert);
             }
 
         }

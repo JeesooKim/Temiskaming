@@ -1,25 +1,28 @@
 ﻿@model Temiskaming.Models.alert
 
 @{
-    ViewBag.Title = "ActiveAlert";
 
     DateTime expirydate = (DateTime)@Model.alertTimeline;
 
-    var showTime = expirydate - @DateTime.Now;     
-        
+    var showTime = expirydate - @DateTime.Now;
+
 }
 
-<h2>ActiveAlert</h2>
-
+<div id="alertDiv">
     <h3>@Model.alertTitle</h3>
-    <p>@Model.alertDescription <strong> is for the next
-        
-        @if (@showTime.Days > 0) {@showTime.Days } Days
-        @showTime.Hours hours</strong></p>
-    <p>@Model.alertLevel</p>
+    <p>
+        @Model.alertDescription <strong>
+        is for the next
 
- 
+        @if (@showTime.Days > 0)
+        {@showTime.Days } Days
+        @showTime.Hours hours
+    </strong>
+    </p>
+    <p>@Model.alertLevel</p>
+</div>
+
 
 <script>
-    
+
 </script>
