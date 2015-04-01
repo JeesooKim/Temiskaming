@@ -1,0 +1,48 @@
+﻿@model Temiskaming.Models.alert
+
+@{
+    ViewBag.Title = "AddAlert";
+}
+
+@section Scripts{
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="~/Content/classic.css" />
+    <link rel="stylesheet" href="~/Content/classic.date.css" />
+    <script type="text/javascript" src="~/Scripts/picker.js"></script>
+    <script type="text/javascript" src="~/Scripts/picker.date.js"></script>
+
+}
+
+<h2>AddAlert</h2>
+
+@using (Html.BeginForm())
+{
+    
+<br />
+@Html.LabelFor(x => x.alertTitle )
+@Html.TextBoxFor(x => x.alertTitle )
+<br />
+@Html.LabelFor(x => x.alertLevel)
+@Html.TextBoxFor(x => x.alertLevel)
+<br />
+@Html.LabelFor(x => x.alertDescription)
+@Html.TextAreaFor(x => x.alertDescription)
+<br />
+@Html.LabelFor(x => x.alertTimeline)
+@Html.TextBoxFor(x => x.alertTimeline, new { @class = "datepicker" })
+<br />    
+<input type="submit"  value="ADD"/>
+
+}
+
+
+<script>
+
+    @*This datepicker api is used from source : http://amsul.ca/pickadate.js/*@
+
+    $(document).ready(function () {
+        $('.datepicker').pickadate();
+    });
+</script>

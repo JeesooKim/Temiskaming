@@ -75,6 +75,9 @@ namespace Temiskaming.Models
     partial void Insertecardimage(ecardimage instance);
     partial void Updateecardimage(ecardimage instance);
     partial void Deleteecardimage(ecardimage instance);
+    partial void Insertalert(alert instance);
+    partial void Updatealert(alert instance);
+    partial void Deletealert(alert instance);
     #endregion
 		
 		public databaseDataContext() : 
@@ -144,14 +147,6 @@ namespace Temiskaming.Models
 			get
 			{
 				return this.GetTable<doctor>();
-			}
-		}
-		
-		public System.Data.Linq.Table<alert> alerts
-		{
-			get
-			{
-				return this.GetTable<alert>();
 			}
 		}
 		
@@ -232,6 +227,14 @@ namespace Temiskaming.Models
 			get
 			{
 				return this.GetTable<ecardimage>();
+			}
+		}
+		
+		public System.Data.Linq.Table<alert> alerts
+		{
+			get
+			{
+				return this.GetTable<alert>();
 			}
 		}
 	}
@@ -1343,123 +1346,6 @@ namespace Temiskaming.Models
 		{
 			this.SendPropertyChanging();
 			entity.doctor = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="temismain.alerts")]
-	public partial class alert
-	{
-		
-		private int _alertId;
-		
-		private string _alertTitle;
-		
-		private string _alertDescription;
-		
-		private string _alertLevel;
-		
-		private System.Nullable<System.DateTime> _alertTimeline;
-		
-		private System.Nullable<bool> _alertStatus;
-		
-		public alert()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_alertId", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
-		public int alertId
-		{
-			get
-			{
-				return this._alertId;
-			}
-			set
-			{
-				if ((this._alertId != value))
-				{
-					this._alertId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_alertTitle", DbType="VarChar(100)")]
-		public string alertTitle
-		{
-			get
-			{
-				return this._alertTitle;
-			}
-			set
-			{
-				if ((this._alertTitle != value))
-				{
-					this._alertTitle = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_alertDescription", DbType="VarChar(MAX)")]
-		public string alertDescription
-		{
-			get
-			{
-				return this._alertDescription;
-			}
-			set
-			{
-				if ((this._alertDescription != value))
-				{
-					this._alertDescription = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_alertLevel", DbType="VarChar(10)")]
-		public string alertLevel
-		{
-			get
-			{
-				return this._alertLevel;
-			}
-			set
-			{
-				if ((this._alertLevel != value))
-				{
-					this._alertLevel = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_alertTimeline", DbType="DateTime")]
-		public System.Nullable<System.DateTime> alertTimeline
-		{
-			get
-			{
-				return this._alertTimeline;
-			}
-			set
-			{
-				if ((this._alertTimeline != value))
-				{
-					this._alertTimeline = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_alertStatus", DbType="Bit")]
-		public System.Nullable<bool> alertStatus
-		{
-			get
-			{
-				return this._alertStatus;
-			}
-			set
-			{
-				if ((this._alertStatus != value))
-				{
-					this._alertStatus = value;
-				}
-			}
 		}
 	}
 	
@@ -2908,6 +2794,188 @@ namespace Temiskaming.Models
 					this._urlpath = value;
 					this.SendPropertyChanged("urlpath");
 					this.OnurlpathChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="temismain.alerts")]
+	public partial class alert : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _alertId;
+		
+		private string _alertTitle;
+		
+		private string _alertDescription;
+		
+		private string _alertLevel;
+		
+		private System.Nullable<System.DateTime> _alertTimeline;
+		
+		private System.Nullable<bool> _alertStatus;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnalertIdChanging(int value);
+    partial void OnalertIdChanged();
+    partial void OnalertTitleChanging(string value);
+    partial void OnalertTitleChanged();
+    partial void OnalertDescriptionChanging(string value);
+    partial void OnalertDescriptionChanged();
+    partial void OnalertLevelChanging(string value);
+    partial void OnalertLevelChanged();
+    partial void OnalertTimelineChanging(System.Nullable<System.DateTime> value);
+    partial void OnalertTimelineChanged();
+    partial void OnalertStatusChanging(System.Nullable<bool> value);
+    partial void OnalertStatusChanged();
+    #endregion
+		
+		public alert()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_alertId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int alertId
+		{
+			get
+			{
+				return this._alertId;
+			}
+			set
+			{
+				if ((this._alertId != value))
+				{
+					this.OnalertIdChanging(value);
+					this.SendPropertyChanging();
+					this._alertId = value;
+					this.SendPropertyChanged("alertId");
+					this.OnalertIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_alertTitle", DbType="VarChar(100)")]
+		public string alertTitle
+		{
+			get
+			{
+				return this._alertTitle;
+			}
+			set
+			{
+				if ((this._alertTitle != value))
+				{
+					this.OnalertTitleChanging(value);
+					this.SendPropertyChanging();
+					this._alertTitle = value;
+					this.SendPropertyChanged("alertTitle");
+					this.OnalertTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_alertDescription", DbType="VarChar(MAX)")]
+		public string alertDescription
+		{
+			get
+			{
+				return this._alertDescription;
+			}
+			set
+			{
+				if ((this._alertDescription != value))
+				{
+					this.OnalertDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._alertDescription = value;
+					this.SendPropertyChanged("alertDescription");
+					this.OnalertDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_alertLevel", DbType="VarChar(10)")]
+		public string alertLevel
+		{
+			get
+			{
+				return this._alertLevel;
+			}
+			set
+			{
+				if ((this._alertLevel != value))
+				{
+					this.OnalertLevelChanging(value);
+					this.SendPropertyChanging();
+					this._alertLevel = value;
+					this.SendPropertyChanged("alertLevel");
+					this.OnalertLevelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_alertTimeline", DbType="DateTime")]
+		public System.Nullable<System.DateTime> alertTimeline
+		{
+			get
+			{
+				return this._alertTimeline;
+			}
+			set
+			{
+				if ((this._alertTimeline != value))
+				{
+					this.OnalertTimelineChanging(value);
+					this.SendPropertyChanging();
+					this._alertTimeline = value;
+					this.SendPropertyChanged("alertTimeline");
+					this.OnalertTimelineChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_alertStatus", DbType="Bit")]
+		public System.Nullable<bool> alertStatus
+		{
+			get
+			{
+				return this._alertStatus;
+			}
+			set
+			{
+				if ((this._alertStatus != value))
+				{
+					this.OnalertStatusChanging(value);
+					this.SendPropertyChanging();
+					this._alertStatus = value;
+					this.SendPropertyChanged("alertStatus");
+					this.OnalertStatusChanged();
 				}
 			}
 		}
