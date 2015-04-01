@@ -69,6 +69,12 @@ namespace Temiskaming.Models
     partial void Insertemail_signup(email_signup instance);
     partial void Updateemail_signup(email_signup instance);
     partial void Deleteemail_signup(email_signup instance);
+    partial void Insertecard(ecard instance);
+    partial void Updateecard(ecard instance);
+    partial void Deleteecard(ecard instance);
+    partial void Insertecardimage(ecardimage instance);
+    partial void Updateecardimage(ecardimage instance);
+    partial void Deleteecardimage(ecardimage instance);
     #endregion
 		
 		public databaseDataContext() : 
@@ -210,6 +216,22 @@ namespace Temiskaming.Models
 			get
 			{
 				return this.GetTable<email_signup>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ecard> ecards
+		{
+			get
+			{
+				return this.GetTable<ecard>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ecardimage> ecardimages
+		{
+			get
+			{
+				return this.GetTable<ecardimage>();
 			}
 		}
 	}
@@ -2618,6 +2640,274 @@ namespace Temiskaming.Models
 					this._eemail = value;
 					this.SendPropertyChanged("eemail");
 					this.OneemailChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="temismain.ecards")]
+	public partial class ecard : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _sname;
+		
+		private string _rname;
+		
+		private System.DateTime _mdate;
+		
+		private string _urlpath;
+		
+		private string _emessage;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnsnameChanging(string value);
+    partial void OnsnameChanged();
+    partial void OnrnameChanging(string value);
+    partial void OnrnameChanged();
+    partial void OnmdateChanging(System.DateTime value);
+    partial void OnmdateChanged();
+    partial void OnurlpathChanging(string value);
+    partial void OnurlpathChanged();
+    partial void OnemessageChanging(string value);
+    partial void OnemessageChanged();
+    #endregion
+		
+		public ecard()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sname", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string sname
+		{
+			get
+			{
+				return this._sname;
+			}
+			set
+			{
+				if ((this._sname != value))
+				{
+					this.OnsnameChanging(value);
+					this.SendPropertyChanging();
+					this._sname = value;
+					this.SendPropertyChanged("sname");
+					this.OnsnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rname", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string rname
+		{
+			get
+			{
+				return this._rname;
+			}
+			set
+			{
+				if ((this._rname != value))
+				{
+					this.OnrnameChanging(value);
+					this.SendPropertyChanging();
+					this._rname = value;
+					this.SendPropertyChanged("rname");
+					this.OnrnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mdate", DbType="Date NOT NULL")]
+		public System.DateTime mdate
+		{
+			get
+			{
+				return this._mdate;
+			}
+			set
+			{
+				if ((this._mdate != value))
+				{
+					this.OnmdateChanging(value);
+					this.SendPropertyChanging();
+					this._mdate = value;
+					this.SendPropertyChanged("mdate");
+					this.OnmdateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_urlpath", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string urlpath
+		{
+			get
+			{
+				return this._urlpath;
+			}
+			set
+			{
+				if ((this._urlpath != value))
+				{
+					this.OnurlpathChanging(value);
+					this.SendPropertyChanging();
+					this._urlpath = value;
+					this.SendPropertyChanged("urlpath");
+					this.OnurlpathChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_emessage", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string emessage
+		{
+			get
+			{
+				return this._emessage;
+			}
+			set
+			{
+				if ((this._emessage != value))
+				{
+					this.OnemessageChanging(value);
+					this.SendPropertyChanging();
+					this._emessage = value;
+					this.SendPropertyChanged("emessage");
+					this.OnemessageChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="temismain.ecardimages")]
+	public partial class ecardimage : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private string _urlpath;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnurlpathChanging(string value);
+    partial void OnurlpathChanged();
+    #endregion
+		
+		public ecardimage()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_urlpath", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string urlpath
+		{
+			get
+			{
+				return this._urlpath;
+			}
+			set
+			{
+				if ((this._urlpath != value))
+				{
+					this.OnurlpathChanging(value);
+					this.SendPropertyChanging();
+					this._urlpath = value;
+					this.SendPropertyChanged("urlpath");
+					this.OnurlpathChanged();
 				}
 			}
 		}
