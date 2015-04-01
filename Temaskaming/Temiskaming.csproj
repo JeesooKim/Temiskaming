@@ -171,7 +171,6 @@
     <Compile Include="Controllers\AdminContactFormController.cs" />
     <Compile Include="Controllers\AdminEcardController.cs" />
     <Compile Include="Controllers\AdminEmailController.cs" />
-    <Compile Include="Controllers\AdminJobPostings.cs" />
     <Compile Include="Controllers\AdminJobPostingsController.cs" />
     <Compile Include="Controllers\AlertController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
@@ -991,6 +990,7 @@
     <Content Include="Views\AdminJobPostings\ShowJobApp.cshtml" />
     <Content Include="Views\AdminJobPostings\ViewDetailsJobApp.cshtml" />
     <Content Include="Views\AdminJobPostings\ViewJobDetails.cshtml" />
+    <Content Include="Views\Waittime\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
