@@ -128,4 +128,12 @@
       <Column Name="log_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="temismain.email_signups" Member="email_signups">
+    <Type Name="email_signup">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ename" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="elname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="eemail" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>

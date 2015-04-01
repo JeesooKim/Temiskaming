@@ -94,5 +94,11 @@
         <elementListCompartment Id="e6304d7d-b471-43a0-b9fb-4467bded6b3f" absoluteBounds="9.14, 1.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="2383a2c0-c252-4442-9d6d-b0b62eea1109" absoluteBounds="5.125, 3, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/databaseDataContext/email_signup" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9ed8b773-c3a5-4280-94b7-1ca11784152c" absoluteBounds="5.14, 3.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>
