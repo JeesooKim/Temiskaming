@@ -992,6 +992,9 @@
     <Content Include="Views\AdminJobPostings\ViewJobDetails.cshtml" />
     <Content Include="Views\Waittime\Index.cshtml" />
     <Content Include="Views\Chat\nSend.cshtml" />
+    <Content Include="Views\Alert\AddAlert.cshtml">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
