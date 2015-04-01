@@ -1,0 +1,36 @@
+﻿@using Temiskaming.Models
+
+@model Temiskaming.Models.waittime
+
+@{
+    ViewBag.Title = "update";
+}
+
+@{
+    DateTime currentTime = DateTime.Now;
+}
+
+
+<h2>update</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    <br/>
+    @Html.HiddenFor(x=>x.id)
+    @Html.LabelFor(x=>x.name)
+    @Html.TextBoxFor(x=>x.name)
+    <br/>
+    @Html.LabelFor(x=>x.time_admit)
+    @Html.TextBoxFor(x=>x.time_admit)
+    <br/>
+    @Html.LabelFor(x=>x.time_doctor)
+    @Html.TextBoxFor(x=>x.time_doctor, new {@Value = currentTime})
+    <br/><br/>
+    <input type="submit" value="Update"/>
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
