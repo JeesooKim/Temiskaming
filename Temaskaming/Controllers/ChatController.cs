@@ -12,15 +12,38 @@ namespace Temiskaming.Controllers
     {
         chatClass objChat = new chatClass();
         chatModel model = new chatModel();
+        chatSendModel sendmodel = new chatSendModel();
 
         public ActionResult Index()
         {
-            return PartialView();
+            if (Session["email"] != null)
+            {
+                return PartialView("Chat");
+            }
+            else
+            {
+                ViewBag.Chat = 0;
+                return PartialView();
+            }
         }
 
         public ActionResult Chat()
         {
-            return RedirectToAction("Index", "Home");
+            if (Session["email"] != null)
+            {
+                return PartialView();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            
+        }
+
+        public ActionResult ShowChat(int id)
+        {
+            var chat = objChat.getChat(id);
+            return PartialView(chat);
         }
 
         [HttpPost]
@@ -35,10 +58,11 @@ namespace Temiskaming.Controllers
                  * 
                  */
                 Session["email"] = modelVal.email;
-                string date = DateTime.Now.ToString();
+                DateTime date = DateTime.Now;
                 string fileName = date.ToString() + Session["email"].ToString();
-                string fileString = fileName.Replace(" ", "").Replace("@","").Replace("/","_").Replace(":",".");
-                string filePath = Server.MapPath("~/chatLogs/" + fileString + ".html");
+                string fileString = fileName.Replace(" ", "").Replace("@","_").Replace("/","_").Replace(":","_");
+                Session["log"] = fileString;
+                string filePath = Server.MapPath("~/chatLogs/" + fileString + ".txt");
                 objChat.makeChat(Session["email"].ToString(), fileString, date, filePath);
                 return PartialView();
             }
@@ -48,28 +72,58 @@ namespace Temiskaming.Controllers
             }
         }
 
+        public ActionResult Display(string file)
+        {
+            if (file != "")
+            {
+                ViewBag.FileName = file;
+                return PartialView();
+            }
+            else
+            {
+                ViewBag.FileName = "error";
+                return PartialView();
+            }
+        }
+
         public ActionResult Send()
         {
             return PartialView();
         }
 
         [HttpPost]
-        public ActionResult Send(string message)
+        public ActionResult Send(string message, chatSendModel model)
         {
             if (ModelState.IsValid)
             {
+                var date = DateTime.Now;
+                string lineToWrite = date.ToString("hh:mm:ss tt") + " (" + Session["email"] + ") : " + message + "<br />";
+                string fileString = (String)Session["log"];
+                var path = Server.MapPath("~/chatLogs/"+ fileString +".txt");
+                objChat.writeChat(lineToWrite, path);
                 return PartialView();
             }
             else
             {
                 return PartialView();
             }
-            
         }
 
         public ActionResult Exit()
         {
             Session.Abandon();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult nChat()
+        {
+            ViewBag.Group = "Nurse";
+            var chats = objChat.getWaitingChats();
+            return View(chats);
+        }
+
+        public ActionResult nChatPartial()
+        {
             return PartialView();
         }
 
