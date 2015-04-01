@@ -173,6 +173,15 @@ nav li {
     }
     #chatLog {
         overflow-y: scroll;
+        font-size: 1.3em;
+    }
+
+    .umessage, .nmessage {
+        font-weight: bold;
+    }
+
+    .nmessage {
+        color: red;
     }
 
     /*SIDEBAR MASTER ENDS*/
@@ -400,6 +409,10 @@ textarea {
         list-style: none;
         background: #a0e2fa;
         margin: 0;
+    }
+
+    #chatLog {
+        font-size: 1em;
     }
     
 }
