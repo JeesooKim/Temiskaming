@@ -1,9 +1,11 @@
-﻿@{
+﻿@model Temiskaming.Models.appointment
+
+@{
     ViewBag.Title = "BookAppointment";
 }
 
 @section Scripts{
-    @*Jeesoo added the following on March 18,2015*@
+    
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     
     <link rel="stylesheet" href="~/Content/classic.css" />
@@ -16,9 +18,16 @@
 <h2>BookAppointment</h2>
 
 <label>Pick a Doctor</label>
-<input type="text" name="date"/> <br />
+@Html.TextBoxFor(x => x.doctor_id, new { @id = "doc"})
+
 <label>Pick a date</label>
-<input type="text" name="date" class="datepicker"/><br />
+@Html.TextBoxFor(x => x.booking_date, new { @class = "datepicker" })
+<br />
+<label>Enter email</label>
+@Html.TextBoxFor(x => x.email)
+<br />
+@Html.LabelFor(x => x.phone )
+@Html.TextBoxFor(x => x.phone)
 
 
 <script>

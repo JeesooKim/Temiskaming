@@ -54,6 +54,8 @@
       <Column Name="office" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="office_hr" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="bio" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="doctor_doctor_schedule" Member="doctor_schedules" ThisKey="Id" OtherKey="doctor_id" Type="doctor_schedule" />
+      <Association Name="doctor_appointment" Member="appointments" ThisKey="Id" OtherKey="doctor_id" Type="appointment" />
     </Type>
   </Table>
   <Table Name="temismain.alerts" Member="alerts">
@@ -88,28 +90,33 @@
       <Column Name="Comment" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="temismain.ecardimages" Member="ecardimages">
-    <Type Name="ecardimage">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="urlpath" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+  <Table Name="temismain.doctor_schedules" Member="doctor_schedules">
+    <Type Name="doctor_schedule">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="doctor_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="day" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="start_time" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="end_time" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="patient_limit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="doctor_doctor_schedule" Member="doctor" ThisKey="doctor_id" OtherKey="Id" Type="doctor" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="temismain.ecards" Member="ecards">
-    <Type Name="ecard">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="sname" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="rname" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="mdate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="urlpath" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="emessage" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+  <Table Name="temismain.appointments" Member="appointments">
+    <Type Name="appointment">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="doctor_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="booking_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="phone" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="doctor_appointment" Member="doctor" ThisKey="doctor_id" OtherKey="Id" Type="doctor" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="temismain.email_signups" Member="email_signups">
-    <Type Name="email_signup">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="ename" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="elname" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="eemail" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+  <Table Name="dbo.waittime" Member="waittimes">
+    <Type Name="waittime">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="name" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="time_admit" Type="System.DateTime" DbType="DateTime2 NOT NULL" CanBeNull="false" />
+      <Column Name="time_doctor" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="temismain.chat" Member="chats">

@@ -2,7 +2,7 @@
     Layout = null;
     }
 
-@Ajax.ActionLink("Exit Chat", "Exit", "Chat", new { file = (String)Session["log"] }, new AjaxOptions
+@Ajax.ActionLink("Exit Chat", "Exit", "Chat", new AjaxOptions
 {
     HttpMethod = "Post",
     InsertionMode = InsertionMode.Replace,

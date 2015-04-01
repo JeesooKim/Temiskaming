@@ -40,5 +40,9 @@ namespace Temiskaming.Controllers
             return View();
         }
 
+        public ActionResult CFDelete()
+        {
+            return View();
+        }
     }
 }

@@ -54,15 +54,15 @@ namespace Temiskaming.Models
     partial void InsertContactForm(ContactForm instance);
     partial void UpdateContactForm(ContactForm instance);
     partial void DeleteContactForm(ContactForm instance);
-    partial void Insertecardimage(ecardimage instance);
-    partial void Updateecardimage(ecardimage instance);
-    partial void Deleteecardimage(ecardimage instance);
-    partial void Insertecard(ecard instance);
-    partial void Updateecard(ecard instance);
-    partial void Deleteecard(ecard instance);
-    partial void Insertemail_signup(email_signup instance);
-    partial void Updateemail_signup(email_signup instance);
-    partial void Deleteemail_signup(email_signup instance);
+    partial void Insertdoctor_schedule(doctor_schedule instance);
+    partial void Updatedoctor_schedule(doctor_schedule instance);
+    partial void Deletedoctor_schedule(doctor_schedule instance);
+    partial void Insertappointment(appointment instance);
+    partial void Updateappointment(appointment instance);
+    partial void Deleteappointment(appointment instance);
+    partial void Insertwaittime(waittime instance);
+    partial void Updatewaittime(waittime instance);
+    partial void Deletewaittime(waittime instance);
     partial void Insertchat(chat instance);
     partial void Updatechat(chat instance);
     partial void Deletechat(chat instance);
@@ -170,27 +170,27 @@ namespace Temiskaming.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<ecardimage> ecardimages
+		public System.Data.Linq.Table<doctor_schedule> doctor_schedules
 		{
 			get
 			{
-				return this.GetTable<ecardimage>();
+				return this.GetTable<doctor_schedule>();
 			}
 		}
 		
-		public System.Data.Linq.Table<ecard> ecards
+		public System.Data.Linq.Table<appointment> appointments
 		{
 			get
 			{
-				return this.GetTable<ecard>();
+				return this.GetTable<appointment>();
 			}
 		}
 		
-		public System.Data.Linq.Table<email_signup> email_signups
+		public System.Data.Linq.Table<waittime> waittimes
 		{
 			get
 			{
-				return this.GetTable<email_signup>();
+				return this.GetTable<waittime>();
 			}
 		}
 		
@@ -917,6 +917,10 @@ namespace Temiskaming.Models
 		
 		private string _bio;
 		
+		private EntitySet<doctor_schedule> _doctor_schedules;
+		
+		private EntitySet<appointment> _appointments;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -953,6 +957,8 @@ namespace Temiskaming.Models
 		
 		public doctor()
 		{
+			this._doctor_schedules = new EntitySet<doctor_schedule>(new Action<doctor_schedule>(this.attach_doctor_schedules), new Action<doctor_schedule>(this.detach_doctor_schedules));
+			this._appointments = new EntitySet<appointment>(new Action<appointment>(this.attach_appointments), new Action<appointment>(this.detach_appointments));
 			OnCreated();
 		}
 		
@@ -1236,6 +1242,32 @@ namespace Temiskaming.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="doctor_doctor_schedule", Storage="_doctor_schedules", ThisKey="Id", OtherKey="doctor_id")]
+		public EntitySet<doctor_schedule> doctor_schedules
+		{
+			get
+			{
+				return this._doctor_schedules;
+			}
+			set
+			{
+				this._doctor_schedules.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="doctor_appointment", Storage="_appointments", ThisKey="Id", OtherKey="doctor_id")]
+		public EntitySet<appointment> appointments
+		{
+			get
+			{
+				return this._appointments;
+			}
+			set
+			{
+				this._appointments.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -1254,6 +1286,30 @@ namespace Temiskaming.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+		
+		private void attach_doctor_schedules(doctor_schedule entity)
+		{
+			this.SendPropertyChanging();
+			entity.doctor = this;
+		}
+		
+		private void detach_doctor_schedules(doctor_schedule entity)
+		{
+			this.SendPropertyChanging();
+			entity.doctor = null;
+		}
+		
+		private void attach_appointments(appointment entity)
+		{
+			this.SendPropertyChanging();
+			entity.doctor = this;
+		}
+		
+		private void detach_appointments(appointment entity)
+		{
+			this.SendPropertyChanging();
+			entity.doctor = null;
 		}
 	}
 	
@@ -1728,67 +1784,204 @@ namespace Temiskaming.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="temismain.ecardimages")]
-	public partial class ecardimage : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="temismain.doctor_schedules")]
+	public partial class doctor_schedule : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _Id;
+		private int _id;
 		
-		private string _urlpath;
+		private int _doctor_id;
+		
+		private string _day;
+		
+		private System.TimeSpan _start_time;
+		
+		private System.TimeSpan _end_time;
+		
+		private System.Nullable<int> _patient_limit;
+		
+		private EntityRef<doctor> _doctor;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnurlpathChanging(string value);
-    partial void OnurlpathChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void Ondoctor_idChanging(int value);
+    partial void Ondoctor_idChanged();
+    partial void OndayChanging(string value);
+    partial void OndayChanged();
+    partial void Onstart_timeChanging(System.TimeSpan value);
+    partial void Onstart_timeChanged();
+    partial void Onend_timeChanging(System.TimeSpan value);
+    partial void Onend_timeChanged();
+    partial void Onpatient_limitChanging(System.Nullable<int> value);
+    partial void Onpatient_limitChanged();
     #endregion
 		
-		public ecardimage()
+		public doctor_schedule()
 		{
+			this._doctor = default(EntityRef<doctor>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
 		{
 			get
 			{
-				return this._Id;
+				return this._id;
 			}
 			set
 			{
-				if ((this._Id != value))
+				if ((this._id != value))
 				{
-					this.OnIdChanging(value);
+					this.OnidChanging(value);
 					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_urlpath", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string urlpath
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_doctor_id", DbType="Int NOT NULL")]
+		public int doctor_id
 		{
 			get
 			{
-				return this._urlpath;
+				return this._doctor_id;
 			}
 			set
 			{
-				if ((this._urlpath != value))
+				if ((this._doctor_id != value))
 				{
-					this.OnurlpathChanging(value);
+					if (this._doctor.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Ondoctor_idChanging(value);
 					this.SendPropertyChanging();
-					this._urlpath = value;
-					this.SendPropertyChanged("urlpath");
-					this.OnurlpathChanged();
+					this._doctor_id = value;
+					this.SendPropertyChanged("doctor_id");
+					this.Ondoctor_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_day", DbType="VarChar(20) NOT NULL", CanBeNull=false)]
+		public string day
+		{
+			get
+			{
+				return this._day;
+			}
+			set
+			{
+				if ((this._day != value))
+				{
+					this.OndayChanging(value);
+					this.SendPropertyChanging();
+					this._day = value;
+					this.SendPropertyChanged("day");
+					this.OndayChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_start_time", DbType="Time NOT NULL")]
+		public System.TimeSpan start_time
+		{
+			get
+			{
+				return this._start_time;
+			}
+			set
+			{
+				if ((this._start_time != value))
+				{
+					this.Onstart_timeChanging(value);
+					this.SendPropertyChanging();
+					this._start_time = value;
+					this.SendPropertyChanged("start_time");
+					this.Onstart_timeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_end_time", DbType="Time NOT NULL")]
+		public System.TimeSpan end_time
+		{
+			get
+			{
+				return this._end_time;
+			}
+			set
+			{
+				if ((this._end_time != value))
+				{
+					this.Onend_timeChanging(value);
+					this.SendPropertyChanging();
+					this._end_time = value;
+					this.SendPropertyChanged("end_time");
+					this.Onend_timeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_patient_limit", DbType="Int")]
+		public System.Nullable<int> patient_limit
+		{
+			get
+			{
+				return this._patient_limit;
+			}
+			set
+			{
+				if ((this._patient_limit != value))
+				{
+					this.Onpatient_limitChanging(value);
+					this.SendPropertyChanging();
+					this._patient_limit = value;
+					this.SendPropertyChanged("patient_limit");
+					this.Onpatient_limitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="doctor_doctor_schedule", Storage="_doctor", ThisKey="doctor_id", OtherKey="Id", IsForeignKey=true)]
+		public doctor doctor
+		{
+			get
+			{
+				return this._doctor.Entity;
+			}
+			set
+			{
+				doctor previousValue = this._doctor.Entity;
+				if (((previousValue != value) 
+							|| (this._doctor.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._doctor.Entity = null;
+						previousValue.doctor_schedules.Remove(this);
+					}
+					this._doctor.Entity = value;
+					if ((value != null))
+					{
+						value.doctor_schedules.Add(this);
+						this._doctor_id = value.Id;
+					}
+					else
+					{
+						this._doctor_id = default(int);
+					}
+					this.SendPropertyChanged("doctor");
 				}
 			}
 		}
@@ -1814,163 +2007,180 @@ namespace Temiskaming.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="temismain.ecards")]
-	public partial class ecard : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="temismain.appointments")]
+	public partial class appointment : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _Id;
+		private int _id;
 		
-		private string _sname;
+		private int _doctor_id;
 		
-		private string _rname;
+		private System.DateTime _booking_date;
 		
-		private System.DateTime _mdate;
+		private string _email;
 		
-		private string _urlpath;
+		private string _phone;
 		
-		private string _emessage;
+		private EntityRef<doctor> _doctor;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnsnameChanging(string value);
-    partial void OnsnameChanged();
-    partial void OnrnameChanging(string value);
-    partial void OnrnameChanged();
-    partial void OnmdateChanging(System.DateTime value);
-    partial void OnmdateChanged();
-    partial void OnurlpathChanging(string value);
-    partial void OnurlpathChanged();
-    partial void OnemessageChanging(string value);
-    partial void OnemessageChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void Ondoctor_idChanging(int value);
+    partial void Ondoctor_idChanged();
+    partial void Onbooking_dateChanging(System.DateTime value);
+    partial void Onbooking_dateChanged();
+    partial void OnemailChanging(string value);
+    partial void OnemailChanged();
+    partial void OnphoneChanging(string value);
+    partial void OnphoneChanged();
     #endregion
 		
-		public ecard()
+		public appointment()
 		{
+			this._doctor = default(EntityRef<doctor>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int id
 		{
 			get
 			{
-				return this._Id;
+				return this._id;
 			}
 			set
 			{
-				if ((this._Id != value))
+				if ((this._id != value))
 				{
-					this.OnIdChanging(value);
+					this.OnidChanging(value);
 					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sname", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string sname
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_doctor_id", DbType="Int NOT NULL")]
+		public int doctor_id
 		{
 			get
 			{
-				return this._sname;
+				return this._doctor_id;
 			}
 			set
 			{
-				if ((this._sname != value))
+				if ((this._doctor_id != value))
 				{
-					this.OnsnameChanging(value);
+					if (this._doctor.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Ondoctor_idChanging(value);
 					this.SendPropertyChanging();
-					this._sname = value;
-					this.SendPropertyChanged("sname");
-					this.OnsnameChanged();
+					this._doctor_id = value;
+					this.SendPropertyChanged("doctor_id");
+					this.Ondoctor_idChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_rname", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string rname
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_booking_date", DbType="Date NOT NULL")]
+		public System.DateTime booking_date
 		{
 			get
 			{
-				return this._rname;
+				return this._booking_date;
 			}
 			set
 			{
-				if ((this._rname != value))
+				if ((this._booking_date != value))
 				{
-					this.OnrnameChanging(value);
+					this.Onbooking_dateChanging(value);
 					this.SendPropertyChanging();
-					this._rname = value;
-					this.SendPropertyChanged("rname");
-					this.OnrnameChanged();
+					this._booking_date = value;
+					this.SendPropertyChanged("booking_date");
+					this.Onbooking_dateChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mdate", DbType="Date NOT NULL")]
-		public System.DateTime mdate
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_email", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string email
 		{
 			get
 			{
-				return this._mdate;
+				return this._email;
 			}
 			set
 			{
-				if ((this._mdate != value))
+				if ((this._email != value))
 				{
-					this.OnmdateChanging(value);
+					this.OnemailChanging(value);
 					this.SendPropertyChanging();
-					this._mdate = value;
-					this.SendPropertyChanged("mdate");
-					this.OnmdateChanged();
+					this._email = value;
+					this.SendPropertyChanged("email");
+					this.OnemailChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_urlpath", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string urlpath
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_phone", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string phone
 		{
 			get
 			{
-				return this._urlpath;
+				return this._phone;
 			}
 			set
 			{
-				if ((this._urlpath != value))
+				if ((this._phone != value))
 				{
-					this.OnurlpathChanging(value);
+					this.OnphoneChanging(value);
 					this.SendPropertyChanging();
-					this._urlpath = value;
-					this.SendPropertyChanged("urlpath");
-					this.OnurlpathChanged();
+					this._phone = value;
+					this.SendPropertyChanged("phone");
+					this.OnphoneChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_emessage", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string emessage
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="doctor_appointment", Storage="_doctor", ThisKey="doctor_id", OtherKey="Id", IsForeignKey=true)]
+		public doctor doctor
 		{
 			get
 			{
-				return this._emessage;
+				return this._doctor.Entity;
 			}
 			set
 			{
-				if ((this._emessage != value))
+				doctor previousValue = this._doctor.Entity;
+				if (((previousValue != value) 
+							|| (this._doctor.HasLoadedOrAssignedValue == false)))
 				{
-					this.OnemessageChanging(value);
 					this.SendPropertyChanging();
-					this._emessage = value;
-					this.SendPropertyChanged("emessage");
-					this.OnemessageChanged();
+					if ((previousValue != null))
+					{
+						this._doctor.Entity = null;
+						previousValue.appointments.Remove(this);
+					}
+					this._doctor.Entity = value;
+					if ((value != null))
+					{
+						value.appointments.Add(this);
+						this._doctor_id = value.Id;
+					}
+					else
+					{
+						this._doctor_id = default(int);
+					}
+					this.SendPropertyChanged("doctor");
 				}
 			}
 		}
@@ -1996,115 +2206,115 @@ namespace Temiskaming.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="temismain.email_signups")]
-	public partial class email_signup : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.waittime")]
+	public partial class waittime : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _Id;
+		private int _id;
 		
-		private string _ename;
+		private string _name;
 		
-		private string _elname;
+		private System.DateTime _time_admit;
 		
-		private string _eemail;
+		private System.Nullable<System.DateTime> _time_doctor;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnenameChanging(string value);
-    partial void OnenameChanged();
-    partial void OnelnameChanging(string value);
-    partial void OnelnameChanged();
-    partial void OneemailChanging(string value);
-    partial void OneemailChanged();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnnameChanging(string value);
+    partial void OnnameChanged();
+    partial void Ontime_admitChanging(System.DateTime value);
+    partial void Ontime_admitChanged();
+    partial void Ontime_doctorChanging(System.Nullable<System.DateTime> value);
+    partial void Ontime_doctorChanged();
     #endregion
 		
-		public email_signup()
+		public waittime()
 		{
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
 		{
 			get
 			{
-				return this._Id;
+				return this._id;
 			}
 			set
 			{
-				if ((this._Id != value))
+				if ((this._id != value))
 				{
-					this.OnIdChanging(value);
+					this.OnidChanging(value);
 					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ename", DbType="NVarChar(MAX)")]
-		public string ename
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_name", DbType="NChar(10) NOT NULL", CanBeNull=false)]
+		public string name
 		{
 			get
 			{
-				return this._ename;
+				return this._name;
 			}
 			set
 			{
-				if ((this._ename != value))
+				if ((this._name != value))
 				{
-					this.OnenameChanging(value);
+					this.OnnameChanging(value);
 					this.SendPropertyChanging();
-					this._ename = value;
-					this.SendPropertyChanged("ename");
-					this.OnenameChanged();
+					this._name = value;
+					this.SendPropertyChanged("name");
+					this.OnnameChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_elname", DbType="NVarChar(50)")]
-		public string elname
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_time_admit", DbType="DateTime2 NOT NULL")]
+		public System.DateTime time_admit
 		{
 			get
 			{
-				return this._elname;
+				return this._time_admit;
 			}
 			set
 			{
-				if ((this._elname != value))
+				if ((this._time_admit != value))
 				{
-					this.OnelnameChanging(value);
+					this.Ontime_admitChanging(value);
 					this.SendPropertyChanging();
-					this._elname = value;
-					this.SendPropertyChanged("elname");
-					this.OnelnameChanged();
+					this._time_admit = value;
+					this.SendPropertyChanged("time_admit");
+					this.Ontime_admitChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_eemail", DbType="NVarChar(MAX)")]
-		public string eemail
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_time_doctor", DbType="DateTime2")]
+		public System.Nullable<System.DateTime> time_doctor
 		{
 			get
 			{
-				return this._eemail;
+				return this._time_doctor;
 			}
 			set
 			{
-				if ((this._eemail != value))
+				if ((this._time_doctor != value))
 				{
-					this.OneemailChanging(value);
+					this.Ontime_doctorChanging(value);
 					this.SendPropertyChanging();
-					this._eemail = value;
-					this.SendPropertyChanged("eemail");
-					this.OneemailChanged();
+					this._time_doctor = value;
+					this.SendPropertyChanged("time_doctor");
+					this.Ontime_doctorChanged();
 				}
 			}
 		}
