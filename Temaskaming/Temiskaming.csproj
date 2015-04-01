@@ -182,6 +182,7 @@
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\SurveyController.cs" />
+    <Compile Include="Controllers\WaittimeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -210,6 +211,8 @@
     <Compile Include="Models\NewsValidation.cs" />
     <Compile Include="Models\surveyClass.cs" />
     <Compile Include="Models\surveyValidation.cs" />
+    <Compile Include="Models\WaittimeClass.cs" />
+    <Compile Include="Models\WaittimeValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -947,6 +950,12 @@
     <Content Include="Views\Appointment\BookAppointment.cshtml" />
     <Content Include="Views\Survey\Index.cshtml" />
     <Content Include="Views\Survey\AddSurvey.cshtml" />
+    <Content Include="Views\Waittime\admin.cshtml" />
+    <Content Include="Views\Waittime\create.cshtml" />
+    <Content Include="Views\Waittime\delete.cshtml" />
+    <Content Include="Views\Waittime\Index.cshtml" />
+    <Content Include="Views\Waittime\NotFound.cshtml" />
+    <Content Include="Views\Waittime\update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -979,7 +988,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>59641</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
