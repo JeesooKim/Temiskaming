@@ -10,22 +10,22 @@ namespace Temiskaming.Controllers
 {
     public class ContactFormController : Controller
     {
-        ContactFormClass objCF = new ContactFormClass(); 
+        ContactFormClass objCF = new ContactFormClass();
 
 
 
-        
+
         public ActionResult ContactForm(ContactForm Cf)
         {
             return View();
-        }   
-        
+        }
+
         [HttpPost]
         public ActionResult ContactForm(ContactForm Cf)
         {
             ViewBag.Group = "Contact Form";
 
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 try
                 {
@@ -40,6 +40,9 @@ namespace Temiskaming.Controllers
             return View();
         }
 
-                                                                                                   
+        public ActionResult CFDelete()
+        {
+            return View();
+        }
     }
 }
