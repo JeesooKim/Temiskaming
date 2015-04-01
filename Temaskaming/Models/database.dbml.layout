@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="database">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 9.375" name="database">
   <DataContextMoniker Name="/databaseDataContext" />
   <nestedChildShapes>
     <classShape Id="fa63c0d9-1d3f-4256-8de7-7ef49edc104d" absoluteBounds="0.5, 0.5, 2, 1.7708968098958331">
@@ -56,5 +56,31 @@
         <elementListCompartment Id="6ad97e67-6692-4e1e-9044-7d349d839e2b" absoluteBounds="5.64, 5.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="53c9e31a-cd90-4959-90b0-5551c7c6d8b1" absoluteBounds="0.75, 7.125, 2, 1.9631982421875">
+      <DataClassMoniker Name="/databaseDataContext/doctor_schedule" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b32cc7a3-2b7b-48b9-9338-aebab4ea53ee" absoluteBounds="0.765, 7.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.625 : 5.87660970052083); (1.625 : 7.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/databaseDataContext/doctor/doctor_doctor_schedule" />
+      <nodes>
+        <classShapeMoniker Id="99976909-5af7-4123-9d34-a19403dbc6fb" />
+        <classShapeMoniker Id="53c9e31a-cd90-4959-90b0-5551c7c6d8b1" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="276e17d6-c8bf-48e5-9fd1-0772854f4ea0" absoluteBounds="3.5, 7.25, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/databaseDataContext/appointment" />
+      <nestedChildShapes>
+        <elementListCompartment Id="102dea85-7ed5-4127-988b-2856e18c1126" absoluteBounds="3.5149999999999997, 7.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.031248 : 5.87660970052083); (1.031248 : 6.875); (1.54166666666667 : 6.875 : JumpStart); (1.70833333333333 : 6.875 : JumpEnd); (3 : 6.875); (3 : 8.13544840494792); (3.5 : 8.13544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/databaseDataContext/doctor/doctor_appointment" />
+      <nodes>
+        <classShapeMoniker Id="99976909-5af7-4123-9d34-a19403dbc6fb" />
+        <classShapeMoniker Id="276e17d6-c8bf-48e5-9fd1-0772854f4ea0" />
+      </nodes>
+    </associationConnector>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

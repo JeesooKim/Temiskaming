@@ -189,6 +189,8 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\alertClass.cs" />
     <Compile Include="Models\alertValidation.cs" />
+    <Compile Include="Models\appointmentClass.cs" />
+    <Compile Include="Models\appointmentValdation.cs" />
     <Compile Include="Models\chatClass.cs" />
     <Compile Include="Models\cmsClass.cs" />
     <Compile Include="Models\cmsValidation.cs" />
@@ -206,6 +208,8 @@
     <Compile Include="Models\navClass.cs" />
     <Compile Include="Models\NewsClass.cs" />
     <Compile Include="Models\NewsValidation.cs" />
+    <Compile Include="Models\surveyClass.cs" />
+    <Compile Include="Models\surveyValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
