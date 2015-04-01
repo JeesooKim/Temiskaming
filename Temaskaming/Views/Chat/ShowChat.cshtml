@@ -3,7 +3,7 @@
     Layout = null;
 }
 
-@Html.ActionLink("Close Chat", "nExit", "Chat", new { id = Model.id }, null)
+@Html.ActionLink("Close Chat", "nExit", "Chat", new { id = Model.id, file = Model.log_file }, null)
 
 <div id="chatLog">
     @{Html.RenderAction("Display", "Chat", new { file = Model.log_file });}

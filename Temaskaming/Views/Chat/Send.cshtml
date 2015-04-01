@@ -3,7 +3,7 @@
     Layout = null;
 }
 
-@using (Ajax.BeginForm("nSend", "Chat", new { file = ViewBag.File }, new AjaxOptions
+@using (Ajax.BeginForm("Send", "Chat", new { file = Session["log"] }, new AjaxOptions
 {
     HttpMethod = "Post",
     OnSuccess = "$('#message').val('')"

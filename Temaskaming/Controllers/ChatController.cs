@@ -58,6 +58,8 @@ namespace Temiskaming.Controllers
                 Session["log"] = fileString;
                 string filePath = Server.MapPath("~/chatLogs/" + fileString + ".txt");
                 objChat.makeChat(Session["email"].ToString(), fileString, date, filePath);
+                string firstLine = date.ToString("yyyy-MM-dd hh:mm:ss tt") + Session["email"].ToString() + " has entered chat.";
+                objChat.writeChat(firstLine, filePath);
                 return PartialView();
             }
             else
@@ -139,7 +141,7 @@ namespace Temiskaming.Controllers
             if (ModelState.IsValid)
             {
                 var date = DateTime.Now;
-                string lineToWrite = date.ToString("hh:mm:ss tt") + " (" + "NURSE" + ") : " + message + "<br />";
+                string lineToWrite = "<!--" + date.ToString("yyyy-MM-dd hh:mm:ss tt") + "-->" + " (" +User.Identity.Name+ "NURSE" + ") : " + message + "<br />";
                 string fileString = file;
                 var path = Server.MapPath("~/chatLogs/" + fileString + ".txt");
                 objChat.writeChat(lineToWrite, path);
@@ -151,8 +153,12 @@ namespace Temiskaming.Controllers
             }
         }
 
-        public ActionResult nExit(int id)
+        public ActionResult nExit(int id, string file)
         {
+            string lineToWrite = User.Identity.Name + " has left chat. <br /> ::CHATEND";
+            string fileString = file;
+            var path = Server.MapPath("~/chatLogs/" + fileString + ".txt");
+            objChat.writeChat(lineToWrite, path);
             objChat.closeChat(id);
             return RedirectToAction("nChat");
         }

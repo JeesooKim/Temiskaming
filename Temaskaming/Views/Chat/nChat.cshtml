@@ -8,6 +8,7 @@
 }
 
 <h2>Nurse Live Chat</h2>
+<p>Reload page to see new chats started by visitors.</p>
 <ul class="chatMenu">
     @foreach (var x in Model)
     {
@@ -16,8 +17,7 @@
     {
         HttpMethod = "Post",
         InsertionMode = InsertionMode.Replace,
-        UpdateTargetId = "nchat",
-        OnSuccess = "alert('hey')"
+        UpdateTargetId = "nchat"
     })
     </li>
 
