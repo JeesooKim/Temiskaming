@@ -6,6 +6,9 @@
 
 <h2>Admin - Department Update: @Model.d_name</h2>
 
+@Html.ActionLink("To Admin-Staff List", "DirectoryAdmin_Staff")
+<br /><hr />
+
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(x => x.d_id)

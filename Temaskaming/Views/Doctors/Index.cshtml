@@ -43,12 +43,12 @@
             <th>
                 @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.currentFilter })
             </th>
-            <th class="doc_tab_optional">Title</th>
+            <th class="tab_optional">Title</th>
             <th>
                 @Html.ActionLink("Medical Departm't", "Index", new { sortOrder = ViewBag.DepartSortParm, currentFilter = ViewBag.currentFilter })
             </th>
-            <th class="doc_tab_optional">Ext.</th>
-            <th class="doc_tab_optional">Email</th>            
+            <th class="tab_optional">Ext.</th>
+            <th class="tab_optional">Email</th>            
         </tr>
     </thead>
     <tbody>
@@ -58,10 +58,10 @@
                 <td>                    
                     @Html.ActionLink(item.fname + " " + item.lname, "Details", new { id = item.Id })
                 </td>
-                <td class="doc_tab_optional">@Html.DisplayFor(modelItem => item.title)</td>
+                <td class="tab_optional">@Html.DisplayFor(modelItem => item.title)</td>
                 <td>@Html.DisplayFor(modelItem => item.department)</td>
-                <td class="doc_tab_optional">@Html.DisplayFor(modelItem => item.extension)</td>
-                <td class="doc_tab_optional">@Html.DisplayFor(modelItem => item.email)</td>                
+                <td class="tab_optional">@Html.DisplayFor(modelItem => item.extension)</td>
+                <td class="tab_optional">@Html.DisplayFor(modelItem => item.email)</td>                
             </tr>
         }
     </tbody>    

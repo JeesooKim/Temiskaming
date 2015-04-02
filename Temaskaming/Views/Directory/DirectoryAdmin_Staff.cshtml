@@ -4,12 +4,19 @@
     ViewBag.Title = "DirectoryAdmin_Staff";
 }
 
+@section css{
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/Content/css/jquery.dataTables.css" />
+    <script type="text/javascript" src="~/Scripts/jquery.dataTables.min.js"></script>
+}
+
 <h2>Admin -Staff List</h2>
 
 @Html.ActionLink("To Admin-Department List", "DirectoryAdmin")
 <br /><hr />
+
 <p>@Html.ActionLink("Insert a New Staff", "Admin_staffInsert", "Directory") </p>
-<table>
+<table id="staffTable">
     <thead>
         <tr>
             <th>Staff Name</th>
@@ -39,6 +46,13 @@
         }
     </tbody>
 </table>
+
+
+<script>
+    $(document).ready(function () {
+        $('#staffTable').dataTable();
+    });
+</script>
 
 @*//[Team2]Temiskaming-Hospital website Redesign Project @ Humber College
     //Feature: Directory-Admin

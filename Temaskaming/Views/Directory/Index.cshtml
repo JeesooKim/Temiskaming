@@ -4,15 +4,20 @@
     ViewBag.Title = "Directory";
 }
 
+@section css{   
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/Content/css/jquery.dataTables.css" />
+    <script type="text/javascript" src="~/Scripts/jquery.dataTables.min.js"></script>   
+}
 <h2>Hospital Directory</h2>
 
-<table border="1">
+<table id="departmentTable" class="display">
     <thead>
         <tr>
             <th>Name</th>
             <th>Phone</th>
-            <th>Extension</th>
-            <th>Fax</th>
+            <th class="tab_optional">Extension</th>
+            <th class="tab_optional">Fax</th>
         </tr>
     </thead>
     <tbody>
@@ -28,19 +33,23 @@
                         })
                 </td>
                 <td>@item.d_phone</td>
-                <td>@item.d_ext</td>
-                <td>@item.d_fax</td>
+                <td class="tab_optional">@item.d_ext</td>
+                <td class="tab_optional">@item.d_fax</td>
             </tr>
         }
     </tbody>
 </table>
 
+<script>
+    $(document).ready(function () {
+        $('#departmentTable').dataTable();
+    });
+</script>
+
 <br />
-<div id="department_detail">
+<div id="department_detail"></div>
 
-</div>
-
-@section scripts{
+@section Scripts{
     @Scripts.Render("~/bundles/jqueryval")
 }
 
