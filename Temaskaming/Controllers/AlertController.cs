@@ -70,19 +70,28 @@ namespace Temiskaming.Controllers
             return View();
         }
 
-        public ActionResult UpdateAlert()
+        public ActionResult UpdateAlert(int id)
         {
-            return View();
+            alert loadAlert = alertObj.getAlertByID(id);
+            if (loadAlert == null)
+            { 
+                return View(); 
+            }
+            else
+            {
+                return View(loadAlert);
+            }
         }
 
         [HttpPost]
         public ActionResult UpdateAlert(int id, alert updAlert)
         {
+
             if (ModelState.IsValid)
             {
                 try
                 {
-                    alertObj.commitUpdateAlert(id, updAlert.alertTitle, updAlert.alertLevel, updAlert.alertDescription, (DateTime)updAlert.alertTimeline, (bool)updAlert.alertStatus);
+                    alertObj.commitUpdateAlert(id, updAlert.alertTitle, updAlert.alertLevel, updAlert.alertDescription, (DateTime)updAlert.alertTimeline);
                     return RedirectToAction("Index");
                 }
                 catch
@@ -102,15 +111,20 @@ namespace Temiskaming.Controllers
         [HttpPost]
         public ActionResult DeleteAlert(int id)
         {
-            try
+            if (id > 0)
             {
-                alertObj.commitDeleteAlert(id);
-                return RedirectToAction("Index");
+                try
+                {
+                    alertObj.commitDeleteAlert(id);
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    return View();
+                }
             }
-            catch
-            {
-                return View();
-            }
+
+            return View();
         }
-    }
+    }  
 }
