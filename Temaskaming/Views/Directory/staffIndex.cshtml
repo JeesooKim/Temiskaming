@@ -1,27 +1,23 @@
 ﻿@model IEnumerable<Temiskaming.Models.staff>
+<h2>Staff List in @Model.FirstOrDefault().staff_departmentName</h2>
 
+@*Ref1:http://forums.asp.net/t/1702524.aspx?Accessing+IEnumerable+Model+values+outside+the+foreach+at+Razor+view
+    Ref2:http://stackoverflow.com/questions/6703353/how-to-use-labelfor-on-a-strongly-typed-view-for-a-list*@
 
-<h2>Staff List</h2>
-<ul>
+<ol>
     @foreach (var item in Model)
     {
         <li>
-            @Ajax.ActionLink(item.staff_lname, "staffDetails", "Directory", new { id = item.staff_id }, new AjaxOptions
-                {
-                    HttpMethod = "Post",
-                    UpdateTargetId = "staff_detail",
-                    InsertionMode = InsertionMode.Replace
-                })
+            <p><b>@item.staff_fname @item.staff_lname</b></p>
+            Position: @item.staff_position
+            <br />
+            Extension:@item.staff_ext
+            <br />
+            Email:@item.staff_email
+            <br/>
         </li>
-
     }
-</ul>
-<br />
-<div id="staff_detail"></div>
-
-@section scripts{
-    @Scripts.Render("~/bundles/jqueryval")
-}
+</ol>
 
 <br />
 @Html.ActionLink("Collapse Staff Details", "Index", "Directory")

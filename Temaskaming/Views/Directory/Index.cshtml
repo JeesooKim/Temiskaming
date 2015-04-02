@@ -5,50 +5,42 @@
 }
 
 @section css{   
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="~/Content/css/jquery.dataTables.css" />
-    <script type="text/javascript" src="~/Scripts/jquery.dataTables.min.js"></script>   
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#accordion").accordion();
+        });
+    </script>
 }
+
 <h2>Hospital Directory</h2>
-
-<table id="departmentTable" class="display">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Phone</th>
-            <th class="tab_optional">Extension</th>
-            <th class="tab_optional">Fax</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Ajax.ActionLink(item.d_name, "staffIndex", "Directory", new { departmentId = item.d_id }, new AjaxOptions
-                        {
-                            HttpMethod = "Post",
-                            UpdateTargetId = "department_detail",
-                            InsertionMode = InsertionMode.Replace
-                        })
-                </td>
-                <td>@item.d_phone</td>
-                <td class="tab_optional">@item.d_ext</td>
-                <td class="tab_optional">@item.d_fax</td>
-            </tr>
-        }
-    </tbody>
-</table>
-
-<script>
-    $(document).ready(function () {
-        $('#departmentTable').dataTable();
-    });
-</script>
-
+<div id="accordion">
+    @foreach (var item in Model)
+    {
+        @*<li>*@
+        <h3>
+            @Ajax.ActionLink(item.d_name, "staffIndex", "Directory", new { departmentId = item.d_id }, new AjaxOptions
+                 {
+                     HttpMethod = "Post",
+                     UpdateTargetId = "department_detail",
+                     InsertionMode = InsertionMode.Replace
+                 })
+        </h3>
+        <div>
+            <p>
+                Phone: @item.d_phone
+                <br />
+                Extension: @item.d_ext
+                <br />
+                Fax: @item.d_fax                
+            </p>
+        </div>
+    }
+</div>
 <br />
 <div id="department_detail"></div>
-
 @section Scripts{
     @Scripts.Render("~/bundles/jqueryval")
 }

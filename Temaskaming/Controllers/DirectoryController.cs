@@ -33,12 +33,17 @@ namespace Temiskaming.Controllers
             var staffs = from s in objDir.getStaff()
                          where s.staff_departmentId == departmentId
                          select s;
+            //var department = from t in objDir.getStaff()
+            //                 where t.staff_departmentId==departmentId
+            //                 select t.staff_departmentName.Distinct();
+
             if (staffs == null)
             {
                 return PartialView("NotFound");
             }
             else
             {
+                //ViewData["department"] = department;
                 return PartialView(staffs);
             }
         }
