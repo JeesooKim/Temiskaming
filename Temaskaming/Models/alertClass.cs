@@ -40,7 +40,7 @@ namespace Temiskaming.Models
         }
 
 
-        public bool commitUpdateAlert(int _id, string _title, string _level, string _description, DateTime _timeline, bool _status)
+        public bool commitUpdateAlert(int _id, string _title, string _level, string _description, DateTime _timeline)
         {
             using (objAlert)
             {
@@ -51,7 +51,6 @@ namespace Temiskaming.Models
                 updateAlert.alertLevel = _level;
                 updateAlert.alertDescription = _description;
                 updateAlert.alertTimeline = _timeline;
-                updateAlert.alertStatus = _status;
                 
                 objAlert.SubmitChanges();
                 return true;

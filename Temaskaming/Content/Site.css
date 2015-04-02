@@ -173,6 +173,15 @@ nav li {
     }
     #chatLog {
         overflow-y: scroll;
+        font-size: 1.3em;
+    }
+
+    .umessage, .nmessage {
+        font-weight: bold;
+    }
+
+    .nmessage {
+        color: red;
     }
 
     /*SIDEBAR MASTER ENDS*/
@@ -401,6 +410,10 @@ textarea {
         background: #a0e2fa;
         margin: 0;
     }
+
+    #chatLog {
+        font-size: 1em;
+    }
     
 }
 
@@ -579,6 +592,21 @@ width : 250px;
 
 #email_table td {
 padding:4px;
+}
+
+#emailform {
+    padding: 10px;
+    margin: 0 auto;
+}
+
+#emailform th {
+    background-color:#d4eff9;
+    padding-left:5px;
+    padding-right:5px;    
+}
+
+#emailform td {
+    padding: 5px;
 }
 
 /* Styles for basi

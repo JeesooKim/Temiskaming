@@ -168,6 +168,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminContactFormController.cs" />
     <Compile Include="Controllers\AdminEcardController.cs" />
     <Compile Include="Controllers\AdminEmailController.cs" />
     <Compile Include="Controllers\AdminJobPostingsController.cs" />
@@ -201,7 +202,6 @@
     <Compile Include="Models\cmsClass.cs" />
     <Compile Include="Models\cmsValidation.cs" />
     <Compile Include="Models\ContactFormClass.cs" />
-    <Compile Include="Models\ContactFormValidation.cs" />
     <Compile Include="Models\database.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -233,6 +233,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\chatAdmin.css" />
     <Content Include="Content\ckeditor\adapters\jquery.js" />
     <Content Include="Content\ckeditor\build-config.js" />
     <Content Include="Content\ckeditor\ckeditor.js" />
@@ -618,6 +619,7 @@
     <Content Include="Content\datatables.extensions\TableTools\images\print_hover.png" />
     <Content Include="Content\datatables.extensions\TableTools\images\xls.png" />
     <Content Include="Content\datatables.extensions\TableTools\images\xls_hover.png" />
+    <Content Include="Content\nchat.css" />
     <Content Include="Scripts\datepicker\lib\compressed\legacy.js" />
     <Content Include="Scripts\datepicker\lib\compressed\picker.date.js" />
     <Content Include="Scripts\datepicker\lib\compressed\picker.js" />
@@ -956,7 +958,6 @@
     <Content Include="Views\Chat\Index.cshtml" />
     <Content Include="Views\Chat\Chat.cshtml" />
     <Content Include="Views\Chat\Send.cshtml" />
-    <Content Include="Views\Alert\ActiveAlert.cshtml" />
     <Content Include="Views\JobPostings\Appliedpartial.cshtml" />
     <Content Include="Views\News\NotFound.cshtml" />
     <Content Include="Views\News\newsupdatePartial.cshtml" />
@@ -965,7 +966,6 @@
     <Content Include="Views\Survey\AddSurvey.cshtml" />
     <Content Include="Views\Chat\Display.cshtml" />
     <Content Include="Views\Chat\nChat.cshtml" />
-    <Content Include="Views\Chat\nChatPartial.cshtml" />
     <Content Include="Views\Chat\ShowChat.cshtml" />
     <Content Include="Views\Waittime\admin.cshtml" />
     <Content Include="Views\Waittime\create.cshtml" />
@@ -991,15 +991,22 @@
     <Content Include="Views\AdminJobPostings\ShowJobApp.cshtml" />
     <Content Include="Views\AdminJobPostings\ViewDetailsJobApp.cshtml" />
     <Content Include="Views\AdminJobPostings\ViewJobDetails.cshtml" />
-    <Content Include="Views\ContactForm\contactform.cshtml" />
-    <Content Include="Views\ContactForm\contactformAdmin.cshtml" />
-    <Content Include="Views\ContactForm\contactformDetail.cshtml" />
-    <Content Include="Views\ContactForm\contactformDelete.cshtml" />
+    <Content Include="Views\Waittime\Index.cshtml" />
+    <Content Include="Views\Chat\nSend.cshtml" />
+    <Content Include="Views\Alert\AddAlert.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Alert\ActiveAlert.cshtml" />
+    <Content Include="Views\Chat\Exit.cshtml" />
+    <Content Include="Views\Chat\chatAdmin.cshtml" />
+    <Content Include="Views\Alert\DeleteAlert.cshtml" />
+    <Content Include="Views\Alert\UpdateAlert.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="chatLogs\" />
     <Folder Include="Content\editable\" />
+    <Folder Include="Views\Contact Form\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
