@@ -18,6 +18,7 @@ namespace Temiskaming.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.Group = "Admin";
             var allAlerts = alertObj.getAllAlerts();
             if (allAlerts == null)
             {
@@ -46,6 +47,7 @@ namespace Temiskaming.Controllers
 
         public ActionResult AddAlert()
         {
+            ViewBag.Group = "Admin";
             return View();
         }
 
@@ -53,7 +55,7 @@ namespace Temiskaming.Controllers
         public ActionResult AddAlert(alert newAlert)
         {
             newAlert.alertStatus = false;
-
+            ViewBag.Group = "Admin";
             if (ModelState.IsValid)
             {
                 try
@@ -72,6 +74,7 @@ namespace Temiskaming.Controllers
 
         public ActionResult UpdateAlert(int id)
         {
+            ViewBag.Group = "Admin";
             alert loadAlert = alertObj.getAlertByID(id);
             if (loadAlert == null)
             { 
@@ -86,7 +89,7 @@ namespace Temiskaming.Controllers
         [HttpPost]
         public ActionResult UpdateAlert(int id, alert updAlert)
         {
-
+            ViewBag.Group = "Admin";
             if (ModelState.IsValid)
             {
                 try
@@ -105,12 +108,14 @@ namespace Temiskaming.Controllers
 
         public ActionResult DeleteAlert()
         {
+            ViewBag.Group = "Admin";
             return View();
         }
 
         [HttpPost]
         public ActionResult DeleteAlert(int id)
         {
+            ViewBag.Group = "Admin";
             if (id > 0)
             {
                 try
