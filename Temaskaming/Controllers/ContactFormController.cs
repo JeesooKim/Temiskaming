@@ -15,13 +15,13 @@ namespace Temiskaming.Controllers
 
 
 
-        public ActionResult contactform()
+        public ActionResult index()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult contactform(ContactForm Cf)
+        public ActionResult index(ContactForm Cf)
         {
             ViewBag.Group = "Contact Form";
 
@@ -30,7 +30,7 @@ namespace Temiskaming.Controllers
                 try
                 {
                     objCF.CommitInsert(Cf);
-                    return RedirectToAction("ContactForm");
+                    return RedirectToAction("index");
                 }
                 catch
                 {
