@@ -10,8 +10,9 @@
 
 }, new { @id = "fMessage" }))
 {
-    @Html.TextBoxFor(Model => Model.message)
+    @Html.TextBoxFor(x => x.message)
     <input type="submit" id="send" name="send" value="Send" />
+    @Html.ValidationSummary()
 }
 
 
