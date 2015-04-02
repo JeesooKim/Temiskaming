@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Temiskaming.Models.staff>
+
+@{
+    ViewBag.Title = "DirectoryAdmin_Staff";
+}
+
+<h2>Admin -Staff List</h2>
+
+@Html.ActionLink("To Admin-Department List", "DirectoryAdmin")
+<br /><hr />
+<p>@Html.ActionLink("Insert a New Staff", "Admin_staffInsert", "Directory") </p>
+<table>
+    <thead>
+        <tr>
+            <th>Staff Name</th>
+            <th>Position</th>
+            <th>Phone</th>
+            <th>Extension</th>
+            <th>Email</th>
+            <th>Department</th>
+            <th>Option</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.ActionLink(item.staff_fname + " " + item.staff_lname, "Admin_staffDetails", new { id = item.staff_id })</td>
+                <td>@Html.DisplayFor(modelItem => item.staff_position)</td>
+                <td>@Html.DisplayFor(modelItem => item.staff_phone)</td>
+                <td>@Html.DisplayFor(modelItem => item.staff_ext)</td>
+                <td>@Html.DisplayFor(modelItem => item.staff_email)</td>
+                <td>@Html.DisplayFor(modelItem => item.staff_departmentName)</td>
+                <td>
+                    @Html.ActionLink("Update", "Admin_staffUpdate", new { id = item.staff_id }) |
+                    @Html.ActionLink("Delete", "Admin_staffDelete", new { id = item.staff_id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*//[Team2]Temiskaming-Hospital website Redesign Project @ Humber College
+    //Feature: Directory-Admin
+    //File: DirectoryAdmin_Staff.cshtml
+    //Author: Jeesoo Kim
+    //April 1, 2015*@
+
+

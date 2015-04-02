@@ -1,0 +1,27 @@
+﻿@model Temiskaming.Models.staff
+@{
+    ViewBag.Title = "Admin_staffDelete";
+}
+
+<h2>Admin - Staff delete</h2>
+
+<h2>Are you sure you want to delete Staff <em> @Model.staff_fname &nbsp;@Model.staff_lname</em>?</h2>
+
+
+@using (Html.BeginForm())
+{
+    <div>
+        <input type="submit" value="Delete" />
+    </div>
+}
+
+<br /><br />
+@Html.ActionLink("To Staff Details", "Admin_staffDetails", new { id = Model.staff_id })
+&nbsp;|&nbsp;
+@Html.ActionLink("Back to Staff List", "DirectoryAdmin_Staff", new { id = Model.staff_id })
+
+@*//[Team2]Temiskaming-Hospital website Redesign Project @ Humber College
+    //Feature: Directory
+    //File: Admin_staffDelete.cs
+    //Author: Jeesoo Kim
+    //April 1, 2015*@

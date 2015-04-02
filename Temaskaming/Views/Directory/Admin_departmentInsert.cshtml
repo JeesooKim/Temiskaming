@@ -1,0 +1,51 @@
+﻿@model Temiskaming.Models.department
+
+@{
+    ViewBag.Title = "Admin_departmentInsert";
+}
+
+<h2>Admin - Insert a New Department</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+
+    <table>
+        <tr>
+            <td>@Html.LabelFor(model => model.d_name) * </td>
+            <td>@Html.TextBoxFor(model => model.d_name)</td>
+            <td>@Html.ValidationMessageFor(model => model.d_name, "*")</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.d_phone) * </td>
+            <td>@Html.TextBoxFor(model => model.d_phone, new { @Value = "(705) 647-1088" })</td>
+            <td>@Html.ValidationMessageFor(model => model.d_phone, "*")</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.d_ext) * </td>
+            <td>@Html.TextBoxFor(model => model.d_ext, new { @Value = "x" })</td>
+            <td>@Html.ValidationMessageFor(model => model.d_ext, "*")</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.d_fax) * </td>
+            <td>@Html.TextBoxFor(model => model.d_fax, new { @Value = "(705) 647-5800" })</td>
+            <td>@Html.ValidationMessageFor(model => model.d_fax, "*")</td>
+        </tr>
+    </table>
+    <br />
+    <input type="submit" value="Insert" />
+}
+<br />
+<p>@Html.ActionLink("Back to Departments List", "DirectoryAdmin")</p>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+@*//[Team2]Temiskaming-Hospital website Redesign Project @ Humber College
+    //Feature: Directory-Admin
+    //File:Admin_departmentInsert.cshtml
+    //Author: Jeesoo Kim
+    //April 1, 2015*@

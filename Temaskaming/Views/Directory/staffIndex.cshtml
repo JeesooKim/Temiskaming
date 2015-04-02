@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Temiskaming.Models.staff>
+
+
+<h2>Staff List</h2>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            @Ajax.ActionLink(item.staff_lname, "staffDetails", "Directory", new { id = item.staff_id }, new AjaxOptions
+                {
+                    HttpMethod = "Post",
+                    UpdateTargetId = "staff_detail",
+                    InsertionMode = InsertionMode.Replace
+                })
+        </li>
+
+    }
+</ul>
+<br />
+<div id="staff_detail"></div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<br />
+@Html.ActionLink("Back to Departments List", "Index", "Directory")
+
+@*//[Team2]Temiskaming-Hospital website Redesig Project @ Humber College
+    //Feature: Directory-Public
+    //File: staffIndex.cshtml
+    //Author: Jeesoo Kim
+    //March30, 2015*@

@@ -152,4 +152,28 @@
       <Column Name="alertStatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.departments" Member="departments">
+    <Type Name="department">
+      <Column Name="d_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="d_name" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="d_phone" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="d_ext" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="d_fax" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="department_staff" Member="staffs" ThisKey="d_id" OtherKey="staff_departmentId" Type="staff" />
+    </Type>
+  </Table>
+  <Table Name="dbo.staffs" Member="staffs">
+    <Type Name="staff">
+      <Column Name="staff_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="staff_fname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="staff_lname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="staff_position" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="staff_phone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="staff_ext" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="staff_email" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="staff_departmentName" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="staff_departmentId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="department_staff" Member="department" ThisKey="staff_departmentId" OtherKey="d_id" Type="department" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
 </Database>

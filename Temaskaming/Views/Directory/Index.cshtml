@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Temiskaming.Models.department>
+
+@{
+    ViewBag.Title = "Directory";
+}
+
+<h2>Hospital Directory</h2>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Extension</th>
+            <th>Fax</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Ajax.ActionLink(item.d_name, "staffIndex", "Directory", new { departmentId = item.d_id }, new AjaxOptions
+                        {
+                            HttpMethod = "Post",
+                            UpdateTargetId = "department_detail",
+                            InsertionMode = InsertionMode.Replace
+                        })
+                </td>
+                <td>@item.d_phone</td>
+                <td>@item.d_ext</td>
+                <td>@item.d_fax</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<br />
+<div id="department_detail">
+
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@*//[Team2]Temiskaming-Hospital website Redesig Project @ Humber College
+    //Feature: Directory-Public
+    //File: Index.cshtml
+    //Author: Jeesoo Kim
+    //March30, 2015*@
