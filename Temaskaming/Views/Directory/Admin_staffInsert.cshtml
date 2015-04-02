@@ -1,0 +1,92 @@
+﻿@model Temiskaming.Models.staff
+@{
+    ViewBag.Title = "Admin_staffInsert";
+}
+
+<h2>Admin - Insert a New Staff</h2>
+
+@Html.ActionLink("To Admin-Department List", "DirectoryAdmin")
+<br /><hr />
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary();
+
+    <table>
+        <tr>
+            <td>@Html.LabelFor(model => model.staff_fname) * </td>
+            <td>@Html.TextBoxFor(model => model.staff_fname)</td>
+            <td>@Html.ValidationMessageFor(model => model.staff_fname, "*")</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.staff_lname) * </td>
+            <td>@Html.TextBoxFor(model => model.staff_lname)</td>
+            <td>@Html.ValidationMessageFor(model => model.staff_lname, "*")</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.staff_position) * </td>
+            <td>@Html.TextBoxFor(model => model.staff_position)</td>
+            <td>@Html.ValidationMessageFor(model => model.staff_position, "*")</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.staff_phone) * </td>
+            <td>@Html.TextBoxFor(model => model.staff_phone, new { @Value = "(705) 647-1088" })</td>
+            <td>@Html.ValidationMessageFor(model => model.staff_phone, "*")</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.staff_ext) * </td>
+            <td>@Html.TextBoxFor(model => model.staff_ext, new { @Value = "x" })</td>
+            <td>@Html.ValidationMessageFor(model => model.staff_ext, "*")</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.staff_email) * </td>
+            <td>@Html.TextBoxFor(model => model.staff_email, new { @Value = "*@temiskming-hospital.com" })</td>
+            <td>@Html.ValidationMessageFor(model => model.staff_email, "*")</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.staff_departmentName) * </td>
+            <td>
+                @Html.DropDownListFor(model => model.staff_departmentName, new[] {
+                            //new SelectListItem(){Text ="Choose" ,Value = "default", Selected= true},
+                            new SelectListItem(){Text="Senior Management(Id=1)", Value= "Senior Management"},
+                            new SelectListItem(){Text="Physicians(Id=2)", Value="Physicians"},
+                            new SelectListItem(){Text="Nursing(Id=3)", Value="Nurses"},
+                            new SelectListItem(){Text="Midwives(Id=4)", Value="Midwives"},
+                            new SelectListItem(){Text="Human Resources(Id=5)", Value="Human Resources"},
+                            new SelectListItem(){Text="Patients Relations(Id=6)", Value="Patient Relations"},
+                            new SelectListItem(){Text="Volunteer(Id=7)", Value="Volunteer Coordinator"},
+                            new SelectListItem(){Text="Finances(Id=8)", Value="Finances"},
+                            new SelectListItem(){Text="Website Technical Support(Id=9)", Value="Website Technical Support"},
+                            new SelectListItem(){Text="Maintenance(Id=10)", Value="Maintenance"},
+                            new SelectListItem(){Text="Physician Recruitment(Id=11)", Value="Physician Recruitment Coordinator"},
+                            new SelectListItem(){Text="", Value=""}
+                            })
+            </td>
+            <td>@Html.ValidationMessageFor(model => model.staff_departmentName, "*")</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.staff_departmentId) * </td>
+            <td>@Html.TextBoxFor(model => model.staff_departmentId)</td>
+            <td>@Html.ValidationMessageFor(model => model.staff_departmentId, "*")</td>
+        </tr>
+    </table>
+
+
+    <br />
+    <input type="submit" value="Insert New Staff" />
+}
+
+<br />
+<p>@Html.ActionLink("Back to Staff List", "DirectoryAdmin_Staff")</p>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@*//[Team2]Temiskaming-Hospital website Redesign Project @ Humber College
+    //Feature: Directory-Admin
+    //File: Admin_staffInsert.cshtml
+    //Author: Jeesoo Kim
+    //April 1, 2015*@
+
+

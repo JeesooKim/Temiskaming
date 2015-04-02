@@ -1,0 +1,42 @@
+﻿@model Temiskaming.Models.staff
+
+@{
+    ViewBag.Title = "Admin_staffDetails";
+}
+
+<h2>Admin - Details for @Html.DisplayFor(x => x.staff_fname) @Html.DisplayFor(x => x.staff_lname)</h2>
+
+@Html.ActionLink("To Admin-Department List", "DirectoryAdmin")
+<br /><hr />
+
+<table>
+    <tr>
+        <td>Position:</td>
+        <td>@Html.DisplayFor(x => x.staff_position)</td>
+    </tr>
+    <tr>
+        <td>Phone:</td>
+        <td>@Html.DisplayFor(x => x.staff_phone)</td>
+    </tr>
+    <tr>
+        <td>Extension:</td>
+        <td>@Html.DisplayFor(x => x.staff_ext)</td>
+    </tr>
+    <tr>
+        <td>Email:</td>
+        <td>@Html.DisplayFor(x => x.staff_email)</td>
+    </tr>
+    <tr>
+        <td>Department:</td>
+        <td>@Html.DisplayFor(x => x.staff_departmentName)</td>
+    </tr>
+</table>
+
+
+<p>@Html.ActionLink("Back to Staff List", "DirectoryAdmin_Staff", "Directory")</p>
+
+@*//[Team2]Temiskaming-Hospital website Redesign Project @ Humber College
+    //Feature: Directory-Admin
+    //File: Admin_staffDetails.cshtml
+    //Author: Jeesoo Kim
+    //April 1, 2015*@

@@ -475,7 +475,7 @@ table.dataTable td {
   }
 
   /*added on March 23,2015*/
-  .doc_tab_optional {
+  .tab_optional {
       display: none;
   }
 }

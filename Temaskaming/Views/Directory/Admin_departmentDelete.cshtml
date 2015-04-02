@@ -1,0 +1,29 @@
+﻿@model Temiskaming.Models.department
+@{
+    ViewBag.Title = "Admin_departmentDelete";
+}
+
+<h2>Admin - Delete Depatment: @Model.d_name</h2>
+
+@Html.ActionLink("To Admin-Staff List", "DirectoryAdmin_Staff")
+<br /><hr />
+
+<h2>Are you sure you want to delete Department <em><b>@Model.d_name </b></em>?</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        <input type="submit" value="Delete" />
+    </div>
+}
+
+<br /><br />
+@Html.ActionLink("To Department Details", "Admin_departmentDetails", new { id = Model.d_id })
+        &nbsp;| &nbsp;
+@Html.ActionLink("Back to Departments List", "DirectoryAdmin", new { id = Model.d_id })
+
+@*//[Team2]Temiskaming-Hospital website Redesign Project @ Humber College
+    //Feature: Directory-Admin
+    //File: Admin_departmentDelete.cshtml
+    //Author: Jeesoo Kim
+    //April 1, 2015*@
