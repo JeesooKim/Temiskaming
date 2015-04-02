@@ -212,6 +212,7 @@
     <Compile Include="Models\ecardimageValidation.cs" />
     <Compile Include="Models\EcardValidation.cs" />
     <Compile Include="Models\FAQClass.cs" />
+    <Compile Include="Models\FAQValidation.cs" />
     <Compile Include="Models\jobapplicationValidation.cs" />
     <Compile Include="Models\jobValidation.cs" />
     <Compile Include="Models\linqecardsClass.cs" />
@@ -998,6 +999,8 @@
     <Content Include="Views\Alert\ActiveAlert.cshtml" />
     <Content Include="Views\Chat\Exit.cshtml" />
     <Content Include="Views\Chat\chatAdmin.cshtml" />
+    <Content Include="Views\Alert\DeleteAlert.cshtml" />
+    <Content Include="Views\Alert\UpdateAlert.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
