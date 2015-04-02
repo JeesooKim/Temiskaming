@@ -168,7 +168,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AdminContactFormController.cs" />
     <Compile Include="Controllers\AdminEcardController.cs" />
     <Compile Include="Controllers\AdminEmailController.cs" />
     <Compile Include="Controllers\AdminJobPostingsController.cs" />
@@ -202,6 +201,7 @@
     <Compile Include="Models\cmsClass.cs" />
     <Compile Include="Models\cmsValidation.cs" />
     <Compile Include="Models\ContactFormClass.cs" />
+    <Compile Include="Models\ContactFormValidation.cs" />
     <Compile Include="Models\database.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -212,6 +212,7 @@
     <Compile Include="Models\ecardimageValidation.cs" />
     <Compile Include="Models\EcardValidation.cs" />
     <Compile Include="Models\FAQClass.cs" />
+    <Compile Include="Models\FAQValidation.cs" />
     <Compile Include="Models\jobapplicationValidation.cs" />
     <Compile Include="Models\jobValidation.cs" />
     <Compile Include="Models\linqecardsClass.cs" />
@@ -990,12 +991,15 @@
     <Content Include="Views\AdminJobPostings\ShowJobApp.cshtml" />
     <Content Include="Views\AdminJobPostings\ViewDetailsJobApp.cshtml" />
     <Content Include="Views\AdminJobPostings\ViewJobDetails.cshtml" />
+    <Content Include="Views\ContactForm\contactform.cshtml" />
+    <Content Include="Views\ContactForm\contactformAdmin.cshtml" />
+    <Content Include="Views\ContactForm\contactformDetail.cshtml" />
+    <Content Include="Views\ContactForm\contactformDelete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="chatLogs\" />
     <Folder Include="Content\editable\" />
-    <Folder Include="Views\Contact Form\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

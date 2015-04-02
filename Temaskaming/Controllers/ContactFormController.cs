@@ -40,9 +40,61 @@ namespace Temiskaming.Controllers
             return View();
         }
 
-        public ActionResult CFDelete()
+   
+   //admin side     
+
+        public ActionResult contactformAdmin()
         {
-            return View();
+            var Cf = objCF.getCF();
+            ViewBag.Group = "contactformAdmin";
+            return View(Cf);
         }
+
+
+        //show Detail of each one
+        public ActionResult contactformDetail(int id)
+        {
+            ViewBag.Group = "Contact Form";
+            var Cf = objCF.getCFById(id);
+            if (Cf == null)
+            {
+                return View("contactformAdmin");
+            }
+            else
+            {
+                return View(Cf);
+            }
+        }
+
+        //Delete
+        public ActionResult contactformDelete(int id)
+        {
+            var Cf = objCF.getCFById(id);
+            if (Cf == null)
+            {
+                return View("contactformAdmin");
+            }
+            else
+            {
+                return View(Cf);
+            }
+        }
+        
+       //Delete
+        [HttpPost]
+        public ActionResult contactformDelete(int id, ContactForm Cf)
+        {
+            ViewBag.Group = "Contact Form";
+            try
+            {
+                objCF.CommitDelete(id);
+                return RedirectToAction("contactformAdmin");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
     }
 }
