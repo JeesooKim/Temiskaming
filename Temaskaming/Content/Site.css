@@ -9,6 +9,9 @@ body {
     margin: 0;
     padding: 0;
 }
+p{
+    font-size: 1.2em;
+}
 
 
 header, footer, nav, section {
@@ -88,6 +91,11 @@ nav li {
    margin: 30px 30px -150px 30px;
 }
 
+#adminContent {
+    width: 100%;
+    padding-bottom: 50px;
+    float: left;
+}
 #content {
     width: 70%;
     float: left;
