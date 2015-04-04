@@ -4,10 +4,11 @@
 
 <h2>Emergency Room Wait Time</h2>
 
+@using (Html.BeginForm("Index", "Waittime", FormMethod.Post))
+{
+    <p>Get the average wait time for the last @Html.DropDownList("NumPatients", new SelectList(ViewBag.numList, "Value", "Text")) patients. <input type="submit" value="Submit" /></p> 
+}
 
 <p>The approximate wait time is @ViewBag.Wait_Time minutes.</p>
 
-@*@using (Html.BeginForm())
-{
-    @Html.DropDownList()
-}*@
+<p>There are currently @ViewBag.waitingPatients patient(s) waiting in the emergency room.</p>
