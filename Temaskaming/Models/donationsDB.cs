@@ -20,5 +20,40 @@ namespace Temiskaming.Models
             var donation = objDon.donations.SingleOrDefault(x => x.id == _id);
             return donation;
         }
+
+        public bool makeDonation(donationsPublic donation)
+        {
+            using (objDon)
+            {
+                donation don = new donation();
+                don.first_name = donation.fname;
+                don.last_name = donation.lname;
+                don.email = donation.email;
+                don.amount = donation.amount;
+                don.message = donation.message;
+                don.donation_date = DateTime.Now;
+                objDon.donations.InsertOnSubmit(don);
+                objDon.SubmitChanges();
+                return true;
+            }
+        }
+
+        public bool verifyDonation(int _id)
+        {
+            using (objDon)
+            {
+                var donation = objDon.donations.SingleOrDefault(x => x.id == _id);
+                if (donation.verify == false)
+                {
+                    donation.verify = true;
+                }
+                else if (donation.verify == true)
+                {
+                    donation.verify = false;
+                }
+                objDon.SubmitChanges();
+                return true;
+            }
+        }
     }
 }

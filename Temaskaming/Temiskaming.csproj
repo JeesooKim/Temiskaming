@@ -1023,6 +1023,7 @@
     <Content Include="Views\Directory\Admin_staffUpdate.cshtml" />
     <Content Include="Views\Directory\Admin_staffDelete.cshtml" />
     <Content Include="Views\Donation\DonationRev.cshtml" />
+    <Content Include="Views\Donation\Success.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

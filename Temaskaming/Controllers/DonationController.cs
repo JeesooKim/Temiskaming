@@ -30,12 +30,28 @@ namespace Temiskaming.Controllers
             if (ModelState.IsValid)
             {
 
-                return View();
+                return View(don);
             }
             else
             {
                 return Index();
             }
+        }
+        public ActionResult SubmitDonation()
+        {
+            return Index();
+        }
+
+        [HttpPost]
+        public ActionResult SubmitDonation(donationsPublic don)
+        {
+            objDon.makeDonation(don);
+            return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult Success()
+        {
+            return View();
         }
 
     }

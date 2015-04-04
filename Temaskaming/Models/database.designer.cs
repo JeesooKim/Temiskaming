@@ -3533,7 +3533,9 @@ namespace Temiskaming.Models
 		
 		private string _message;
 		
-		private System.Nullable<System.DateTime> _donation_date;
+		private System.DateTime _donation_date;
+		
+		private bool _verify;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -3551,8 +3553,10 @@ namespace Temiskaming.Models
     partial void OnamountChanged();
     partial void OnmessageChanging(string value);
     partial void OnmessageChanged();
-    partial void Ondonation_dateChanging(System.Nullable<System.DateTime> value);
+    partial void Ondonation_dateChanging(System.DateTime value);
     partial void Ondonation_dateChanged();
+    partial void OnverifyChanging(bool value);
+    partial void OnverifyChanged();
     #endregion
 		
 		public donation()
@@ -3680,8 +3684,8 @@ namespace Temiskaming.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_donation_date", DbType="DateTime")]
-		public System.Nullable<System.DateTime> donation_date
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_donation_date", DbType="DateTime NOT NULL")]
+		public System.DateTime donation_date
 		{
 			get
 			{
@@ -3696,6 +3700,26 @@ namespace Temiskaming.Models
 					this._donation_date = value;
 					this.SendPropertyChanged("donation_date");
 					this.Ondonation_dateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_verify", DbType="Bit NOT NULL")]
+		public bool verify
+		{
+			get
+			{
+				return this._verify;
+			}
+			set
+			{
+				if ((this._verify != value))
+				{
+					this.OnverifyChanging(value);
+					this.SendPropertyChanging();
+					this._verify = value;
+					this.SendPropertyChanged("verify");
+					this.OnverifyChanged();
 				}
 			}
 		}
