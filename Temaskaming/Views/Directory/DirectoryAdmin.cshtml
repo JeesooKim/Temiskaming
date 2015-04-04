@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Temiskaming.Models.department>
+
+@{
+    ViewBag.Title = "DirectoryAdmin";
+}
+@section css{
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/Content/css/jquery.dataTables.css" />
+    <script type="text/javascript" src="~/Scripts/jquery.dataTables.min.js"></script>
+}
+
+<h2>Admin - Operational Departments List</h2>
+
+@Html.ActionLink("To Admin-Staff List", "DirectoryAdmin_Staff")
+<br /><hr />
+<p>@Html.ActionLink("Insert a New Department", "Admin_departmentInsert", "Directory") </p>
+
+<table id="departmentTable">
+    <thead>
+        <tr>
+            <th>Department ID</th>
+            <th>Department Name</th>
+            <th>Phone</th>
+            <th>Extension</th>
+            <th>Fax</th>
+            <th>Option</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.d_id)</td>
+                <td>@Html.ActionLink(item.d_name, "Admin_departmentDetails", new { id = item.d_id })</td>
+                <td>@Html.DisplayFor(modelItem => item.d_phone)</td>
+                <td>@Html.DisplayFor(modelItem => item.d_ext)</td>
+                <td>@Html.DisplayFor(modelItem => item.d_fax)</td>
+                <td>
+                    @Html.ActionLink("Update", "Admin_departmentUpdate", new { id = item.d_id }) |
+                    @Html.ActionLink("Delete", "Admin_departmentDelete", new { id = item.d_id })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+<script>
+    $(document).ready(function () {
+        $('#departmentTable').dataTable();
+    });
+</script>
+
+@*//[Team2]Temiskaming-Hospital website Redesign Project @ Humber College
+    //Feature: Directory-Admin
+    //File: DirectoryAdmin.cshtml --> Admin Index page
+    //Author: Jeesoo Kim
+    //April 1, 2015*@

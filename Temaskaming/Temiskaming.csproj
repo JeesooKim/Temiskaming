@@ -168,7 +168,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AdminContactFormController.cs" />
     <Compile Include="Controllers\AdminEcardController.cs" />
     <Compile Include="Controllers\AdminEmailController.cs" />
     <Compile Include="Controllers\AdminJobPostingsController.cs" />
@@ -177,6 +176,7 @@
     <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\CMSController.cs" />
     <Compile Include="Controllers\ContactFormController.cs" />
+    <Compile Include="Controllers\DirectoryController.cs" />
     <Compile Include="Controllers\DoctorsController.cs" />
     <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\EcardController.cs" />
@@ -207,11 +207,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>database.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Models\directoryClass.cs" />
+    <Compile Include="Models\directoryValidation.cs" />
     <Compile Include="Models\doctorClass.cs" />
     <Compile Include="Models\doctorsValidation.cs" />
+    <Compile Include="Models\donationsDB.cs" />
+    <Compile Include="Models\donationsPublic.cs" />
     <Compile Include="Models\ecardimageValidation.cs" />
     <Compile Include="Models\EcardValidation.cs" />
     <Compile Include="Models\FAQClass.cs" />
+    <Compile Include="Models\FAQValidation.cs" />
     <Compile Include="Models\jobapplicationValidation.cs" />
     <Compile Include="Models\jobValidation.cs" />
     <Compile Include="Models\linqecardsClass.cs" />
@@ -232,6 +237,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\chatAdmin.css" />
     <Content Include="Content\ckeditor\adapters\jquery.js" />
     <Content Include="Content\ckeditor\build-config.js" />
     <Content Include="Content\ckeditor\ckeditor.js" />
@@ -617,6 +623,7 @@
     <Content Include="Content\datatables.extensions\TableTools\images\print_hover.png" />
     <Content Include="Content\datatables.extensions\TableTools\images\xls.png" />
     <Content Include="Content\datatables.extensions\TableTools\images\xls_hover.png" />
+    <Content Include="Content\nchat.css" />
     <Content Include="Scripts\datepicker\lib\compressed\legacy.js" />
     <Content Include="Scripts\datepicker\lib\compressed\picker.date.js" />
     <Content Include="Scripts\datepicker\lib\compressed\picker.js" />
@@ -955,7 +962,6 @@
     <Content Include="Views\Chat\Index.cshtml" />
     <Content Include="Views\Chat\Chat.cshtml" />
     <Content Include="Views\Chat\Send.cshtml" />
-    <Content Include="Views\Alert\ActiveAlert.cshtml" />
     <Content Include="Views\JobPostings\Appliedpartial.cshtml" />
     <Content Include="Views\News\NotFound.cshtml" />
     <Content Include="Views\News\newsupdatePartial.cshtml" />
@@ -964,7 +970,6 @@
     <Content Include="Views\Survey\AddSurvey.cshtml" />
     <Content Include="Views\Chat\Display.cshtml" />
     <Content Include="Views\Chat\nChat.cshtml" />
-    <Content Include="Views\Chat\nChatPartial.cshtml" />
     <Content Include="Views\Chat\ShowChat.cshtml" />
     <Content Include="Views\Waittime\admin.cshtml" />
     <Content Include="Views\Waittime\create.cshtml" />
@@ -991,13 +996,38 @@
     <Content Include="Views\AdminJobPostings\ViewDetailsJobApp.cshtml" />
     <Content Include="Views\AdminJobPostings\ViewJobDetails.cshtml" />
     <Content Include="Views\Waittime\Index.cshtml" />
-    <Content Include="Views\Waittime\Index2.cshtml" />
+    <Content Include="Views\Chat\nSend.cshtml" />
+    <Content Include="Views\Alert\AddAlert.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Views\Alert\ActiveAlert.cshtml" />
+    <Content Include="Views\Chat\Exit.cshtml" />
+    <Content Include="Views\Chat\chatAdmin.cshtml" />
+    <Content Include="Views\Alert\DeleteAlert.cshtml" />
+    <Content Include="Views\Alert\UpdateAlert.cshtml" />
+    <Content Include="Views\ContactForm\index.cshtml" />
+    <Content Include="Views\ContactForm\contactformAdmin.cshtml" />
+    <Content Include="Views\ContactForm\contactformDetail.cshtml" />
+    <Content Include="Views\ContactForm\contactformDelete.cshtml" />
+    <Content Include="Views\Directory\Index.cshtml" />
+    <Content Include="Views\Directory\staffIndex.cshtml" />
+    <Content Include="Views\Directory\staffDetails.cshtml" />
+    <Content Include="Views\Directory\DirectoryAdmin.cshtml" />
+    <Content Include="Views\Directory\DirectoryAdmin_Staff.cshtml" />
+    <Content Include="Views\Directory\Admin_departmentDetails.cshtml" />
+    <Content Include="Views\Directory\Admin_staffDetails.cshtml" />
+    <Content Include="Views\Directory\Admin_departmentInsert.cshtml" />
+    <Content Include="Views\Directory\Admin_departmentUpdate.cshtml" />
+    <Content Include="Views\Directory\Admin_departmentDelete.cshtml" />
+    <Content Include="Views\Directory\Admin_staffInsert.cshtml" />
+    <Content Include="Views\Directory\Admin_staffUpdate.cshtml" />
+    <Content Include="Views\Directory\Admin_staffDelete.cshtml" />
+    <Content Include="Views\Donation\DonationRev.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="chatLogs\" />
     <Folder Include="Content\editable\" />
-    <Folder Include="Views\Contact Form\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

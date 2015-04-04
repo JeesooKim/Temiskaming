@@ -1,0 +1,17 @@
+﻿@model Temiskaming.Models.ContactForm
+
+@{
+    ViewBag.Title = "ContactFormDetail";
+}
+
+<h2>Contact Form</h2>
+<div>
+    <p>Name: @Html.DisplayFor(x => x.Name)</p>
+    <p>Email: @Html.DisplayFor(x => x.Email)</p>
+    <p>Comment: @Html.DisplayFor(x => x.Comment)</p>
+</div>
+
+<p>
+    @Html.ActionLink("Back", "contactformAdmin", "ContactForm")
+    @Html.ActionLink("Email", "")
+</p>

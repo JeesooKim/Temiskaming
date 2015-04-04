@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Temiskaming.Models.chat>
+
+@{
+    ViewBag.Title = "Temiskaming - Chat Admin";
+    @section css{
+        @Styles.Render("~/content/chatAdmin.css");
+        }
+}
+
+<h2>Chat Admin</h2>
+<div>
+    <table class="chatAdmin" id="chatAdmin">
+        <tr>
+            <th>User Email</th>
+            <th>Chat Log</th>
+            <th>Nurse</th>
+            <th>DateTime</th>
+            <th>&nbsp;</th>
+            <th>&nbsp;</th>
+        </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.email</td>
+            <td>@x.log_file</td>
+            <td>@x.nurse</td>
+            <td>@x.log_date.Value.ToString("MMMM dd, yyyy HH:mm:ss")</td>
+            <td><a href='@Url.Content("~/chatLogs/" + x.log_file + ".txt")'>Read text log</a></td>
+            <td>@Html.ActionLink("Delete", "Delete", "Chat", new { id = x.id, file = x.log_file }, new { onclick = "return confirm('Are you sure you wish to delete this chat log? " + x.log_file + ".txt');" })</td>
+        </tr>
+    }
+    </table>
+</div>

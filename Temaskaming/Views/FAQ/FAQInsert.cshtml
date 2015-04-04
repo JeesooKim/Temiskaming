@@ -8,20 +8,24 @@
 
 @using (Html.BeginForm())
 {
-    @Html.ValidationSummary()
 
     <div>
         @Html.LabelFor(model => model.Question)
         @Html.TextAreaFor(model => model.Question)
+        @Html.ValidationMessageFor(model => model.Question, "*")
         
     
     </div>
     <div>
         @Html.LabelFor(model => model.Answer)
         @Html.TextAreaFor(model => model.Answer)
+        @Html.ValidationMessageFor(model => model.Answer, "*")
     </div>
     <div>
         <input type="submit" value="Enter" /> @Html.ActionLink("Back", "FAQAdmin", "FAQ")
     </div>
-
+}  
+    
+    @section Scripts{
+        @Scripts.Render("~/bundles/jqueryval")
 }

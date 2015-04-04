@@ -1,22 +1,22 @@
 ﻿@{
     Layout = null;
-    }
+}
 
-@Ajax.ActionLink("Exit Chat", "Exit", "Chat", new AjaxOptions
+@Ajax.ActionLink("Exit Chat", "Exit", "Chat", new { file = (String)Session["log"] }, new AjaxOptions
 {
     HttpMethod = "Post",
     InsertionMode = InsertionMode.Replace,
     UpdateTargetId = "chat"
 })
-    
-    <div id="chatLog">
-        @{Html.RenderAction("Display", "Chat", new { file = (String)Session["log"] });}
-    </div>
-    <div id="chatUrl">@Url.Content("/Chat/Display?file=" + Session["log"])</div>
+
+<div id="chatLog">
+    @{Html.RenderAction("Display", "Chat", new { file = (String)Session["log"] });}
+</div>
+<div id="chatUrl">@Url.Content("/Chat/Display?file=" + Session["log"])</div>
 
 @Html.Partial("Send")
 
-<script type="text/javascript" >
+<script type="text/javascript">
     function loadChatLog() {
         var oldHeight = $("#chatLog").prop('scrollHeight') - 20;
         var chaturl = $("#chatUrl").html();
@@ -31,7 +31,7 @@
                 }
             }
         })
-        
+
     }
 
     var sHeight = $("#chatLog").prop('scrollHeight');

@@ -1,0 +1,16 @@
+﻿@model Temiskaming.Models.ContactForm
+
+@{
+    ViewBag.Title = "ContactFormDelete";
+}
+
+<h2> delete this entry from @Html.DisplayFor(x => x.Name)</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        <input type="submit" value="Delete" />
+        @Html.ActionLink("Back", "contactformAdmin", "ContactForm")
+    </div>
+}
+

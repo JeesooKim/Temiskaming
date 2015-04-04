@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Temiskaming.Models.ContactForm>
+@{
+    ViewBag.Title = "ContactFormAdmin";
+}
+
+<h2>ContactForm Admin</h2>
+
+
+<div>
+    <ul>
+        @foreach (var x in Model)
+        {
+            <li>
+                @Html.DisplayFor(model => x.Name)
+                @Html.DisplayFor(model => x.Email)
+
+                @Html.ActionLink("Details", "contactformDetail", new { id = x.id })
+                @Html.ActionLink("Delete", "ContactFormDelete", new { id = x.id })
+            </li>
+        }
+    </ul>
+</div>

@@ -1,0 +1,59 @@
+﻿@model Temiskaming.Models.department
+
+@{
+    ViewBag.Title = "Admin_departmentUpdate";
+}
+
+<h2>Admin - Department Update: @Model.d_name</h2>
+
+@Html.ActionLink("To Admin-Staff List", "DirectoryAdmin_Staff")
+<br /><hr />
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(x => x.d_id)
+
+
+    @Html.LabelFor(x => x.d_name)
+    <br />
+    @Html.TextBoxFor(x => x.d_name)
+    @Html.ValidationMessageFor(x => x.d_name)
+    <br /><br />
+
+    @Html.LabelFor(x => x.d_phone)
+    <br />
+    @Html.TextBoxFor(x => x.d_phone)
+    @Html.ValidationMessageFor(x => x.d_phone)
+    <br /><br />
+
+    @Html.LabelFor(x => x.d_ext)
+    <br />
+    @Html.TextBoxFor(x => x.d_ext)
+    @Html.ValidationMessageFor(x => x.d_ext)
+    <br /><br />
+
+    @Html.LabelFor(x => x.d_fax)
+    <br />
+    @Html.TextBoxFor(x => x.d_fax)
+    @Html.ValidationMessageFor(x => x.d_fax)
+    <br /><br />
+
+    <input type="submit" value="Update" />
+}
+
+<br />
+<p>
+    @Html.ActionLink("Department details", "Admin_departmentDetails", new { id = Model.d_id })
+    &nbsp;| &nbsp;
+    @Html.ActionLink("Back to Departments List", "DirectoryAdmin", new { id = Model.d_id })
+</p>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@*//[Team2]Temiskaming-Hospital website Redesign Project @ Humber College
+    //Feature: Directory-Admin
+    //File: Admin_departmentUpdate.cshtml
+    //Author: Jeesoo Kim
+    //April 1, 2015*@
