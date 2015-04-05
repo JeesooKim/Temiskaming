@@ -32,8 +32,13 @@
     </tr>
 </table>
 
-
-<p>@Html.ActionLink("Back to Staff List", "DirectoryAdmin_Staff", "Directory")</p>
+<p>
+@Html.ActionLink("Back to Staff List", "DirectoryAdmin_Staff", "Directory")
+&nbsp;|&nbsp;
+@Html.ActionLink("Update", "Admin_staffUpdate", new { id = Model.staff_id })
+&nbsp; | &nbsp;
+@Html.ActionLink("Delete", "Admin_staffDelete", new { id = Model.staff_id })
+</p>
 
 @*//[Team2]Temiskaming-Hospital website Redesign Project @ Humber College
     //Feature: Directory-Admin
