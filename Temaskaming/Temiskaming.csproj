@@ -941,7 +941,6 @@
     <Content Include="Views\Alert\Index.cshtml" />
     <Content Include="Views\Home\Admin.cshtml" />
     <Content Include="Views\FAQ\FAQInsert.cshtml" />
-    <Content Include="Views\FAQ\index.cshtml" />
     <Content Include="Views\FAQ\FAQAdmin.cshtml" />
     <Content Include="Views\FAQ\FAQUpdate.cshtml" />
     <Content Include="Views\CMS\Index.cshtml" />
@@ -962,7 +961,6 @@
     <Content Include="Views\Chat\Index.cshtml" />
     <Content Include="Views\Chat\Chat.cshtml" />
     <Content Include="Views\Chat\Send.cshtml" />
-    <Content Include="Views\JobPostings\Appliedpartial.cshtml" />
     <Content Include="Views\News\NotFound.cshtml" />
     <Content Include="Views\News\newsupdatePartial.cshtml" />
     <Content Include="Views\Appointment\BookAppointment.cshtml" />
@@ -1024,6 +1022,8 @@
     <Content Include="Views\Directory\Admin_staffDelete.cshtml" />
     <Content Include="Views\Donation\DonationRev.cshtml" />
     <Content Include="Views\Donation\Success.cshtml" />
+    <Content Include="Views\JobPostings\Applied.cshtml" />
+    <Content Include="Views\Donation\IPN.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
