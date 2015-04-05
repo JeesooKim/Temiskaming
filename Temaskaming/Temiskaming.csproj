@@ -1010,8 +1010,6 @@
     <Content Include="Views\ContactForm\contactformDetail.cshtml" />
     <Content Include="Views\ContactForm\contactformDelete.cshtml" />
     <Content Include="Views\Directory\Index.cshtml" />
-    <Content Include="Views\Directory\staffIndex.cshtml" />
-    <Content Include="Views\Directory\staffDetails.cshtml" />
     <Content Include="Views\Directory\DirectoryAdmin.cshtml" />
     <Content Include="Views\Directory\DirectoryAdmin_Staff.cshtml" />
     <Content Include="Views\Directory\Admin_departmentDetails.cshtml" />

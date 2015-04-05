@@ -57,7 +57,7 @@ namespace Temiskaming.Models
     //        string departmentName = (string)value;
     //        staff ...
     //    }
-
+    //april 5,2015....tried to build a custom validation model..
     //}
 
 
