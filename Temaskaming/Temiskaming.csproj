@@ -211,6 +211,8 @@
     <Compile Include="Models\directoryValidation.cs" />
     <Compile Include="Models\doctorClass.cs" />
     <Compile Include="Models\doctorsValidation.cs" />
+    <Compile Include="Models\donationsDB.cs" />
+    <Compile Include="Models\donationsPublic.cs" />
     <Compile Include="Models\ecardimageValidation.cs" />
     <Compile Include="Models\EcardValidation.cs" />
     <Compile Include="Models\FAQClass.cs" />
@@ -1008,6 +1010,8 @@
     <Content Include="Views\ContactForm\contactformDetail.cshtml" />
     <Content Include="Views\ContactForm\contactformDelete.cshtml" />
     <Content Include="Views\Directory\Index.cshtml" />
+    <Content Include="Views\Directory\staffIndex.cshtml" />
+    <Content Include="Views\Directory\staffDetails.cshtml" />
     <Content Include="Views\Directory\DirectoryAdmin.cshtml" />
     <Content Include="Views\Directory\DirectoryAdmin_Staff.cshtml" />
     <Content Include="Views\Directory\Admin_departmentDetails.cshtml" />
@@ -1018,7 +1022,8 @@
     <Content Include="Views\Directory\Admin_staffInsert.cshtml" />
     <Content Include="Views\Directory\Admin_staffUpdate.cshtml" />
     <Content Include="Views\Directory\Admin_staffDelete.cshtml" />
-    <Content Include="Views\Directory\_staffIndex.cshtml" />
+    <Content Include="Views\Donation\DonationRev.cshtml" />
+    <Content Include="Views\Donation\Success.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,6 +1,42 @@
-﻿@{
+﻿@model Temiskaming.Models.donationsPublic
+@{
     ViewBag.Title = "Temiskaming - Donations";
 }
 
 <h2>Donations</h2>
+
+<p>Our goal is to acquire funds to continue operating the CAT Scan at Temiskaming Hospital. The CAT Scan was installed and operating as of January 2006. Having a CAT scanner locally has eliminated the need to transfer urgent cases to other facilities. A CAT Scan is an integral part of offering TeleStroke services.</p>
+
+<p>The availability of CAT Scans locally has the benefit of speeding up the diagnosis made by the radiologist, whereby the physician can initiate the appropriate therapy required for treating their patients. It has also eliminated the need for non-urgent patients to travel the long distances that were previously required for CAT scans. For many patients, CAT scans can be performed on an outpatient basis. Having one locally has helped to alleviate the anxiety for patients and family members and has had a tremendous impact on diagnosis and treatment. Specifically, in terms of cancer: diagnosis, staging of cancer (degree) and treatment response can now be made in a timely fashion.</p>
+
+@using(Html.BeginForm("DonationRev", "Donation", FormMethod.Post)){
+    <table>
+        <tr>
+            <td>@Html.LabelFor(x => x.fname)</td>
+            <td>@Html.TextBoxFor(x => x.fname)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(x => x.lname)</td>
+            <td>@Html.TextBoxFor(x => x.lname)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(x => x.email)</td>
+            <td>@Html.TextBoxFor(x => x.email)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(x => x.amount)</td>
+            <td>@Html.TextBoxFor(x => x.amount, new { @Value = "100.00" })</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(x => x.message)</td>
+            <td>@Html.TextAreaFor(x => x.message)</td>
+        </tr>
+        <tr>
+        </tr>
+    </table>
+
+    <input type="submit" value="Submit Donation" />
+
+    @Html.ValidationSummary()
+}
 

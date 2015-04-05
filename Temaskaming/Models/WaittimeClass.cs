@@ -12,15 +12,21 @@ namespace Temiskaming.Models
     {
         databaseDataContext objDB = new databaseDataContext();
 
-        public IQueryable<waittime> GetRecentPatients(int num = 5)
+        public int GetWaitingPatients()
+        {
+            var waitingPatients = objDB.waittimes.Where(x => x.time_doctor == null).Count();
+            return waitingPatients;
+        } 
+
+        public IQueryable<waittime> GetRecentPatients(int num)
         {
             var recentPatients = objDB.waittimes.Where(x => x.time_doctor != null).OrderByDescending(x => x.time_doctor).Take(num);
             return recentPatients;
         }
 
-        public string GetWaitTime()
+        public double GetWaitTime(int num)
         {
-            var patients = GetRecentPatients();
+            var patients = GetRecentPatients(num);
             List<double> waittimeList = new List<double>();
             foreach (var x in patients)
             {
@@ -29,7 +35,7 @@ namespace Temiskaming.Models
                 var waittime = endTime.Subtract(startTime).TotalMinutes;
                 waittimeList.Add(waittime);
             }
-            return waittimeList.Average().ToString();
+            return waittimeList.Average();
         }
 
         public IQueryable<waittime> GetPatients()
