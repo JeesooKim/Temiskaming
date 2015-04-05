@@ -20,6 +20,7 @@ namespace Temiskaming.Models
     {
     }
 
+    
     //when I had one validation class, such that 
     //[MetadataType(typeof(directoryValidation))]public partial class directoryValidation{}
     //including every fields from both tables
@@ -47,6 +48,18 @@ namespace Temiskaming.Models
         [Required(ErrorMessage = "Please enter department fax")]
         public string d_fax { get; set; }
     }
+
+    //public class departmentNameIdCompare : ValidationAttribute
+    //{
+    //    protected override ValidationResult IsValid
+    //        (object value, ValidationContext validationContext)
+    //    {
+    //        string departmentName = (string)value;
+    //        staff ...
+    //    }
+
+    //}
+
 
     [Bind(Exclude = "staff_id")]
     public partial class staffValidation
@@ -77,16 +90,18 @@ namespace Temiskaming.Models
         public string staff_email { get; set; }
 
         [DisplayName("Staff Department Name")]
-        [Required(ErrorMessage = "Please enter staff's department Name")]
+        [Required(ErrorMessage = "Please choose staff's department Name")]
+        //[CompareAttribute("staff_departmentId.Text", ErrorMessage = " Name does not match with Department Id below")]
+        //need a validation to compare the value of the text attribute of departmentID and the value of the name(this)
         public string staff_departmentName { get; set; }
 
         [DisplayName("Staff Department Id")]
-        [Required(ErrorMessage = "Please enter corresponding department Id")]
+        [Required(ErrorMessage = "Please choose the department ID for the staff")]        
         public int staff_departmentId { get; set; }
     }
 
 
-    //[Team2]Temiskaming-Hospital website Redesig Project @ Humber College
+    //[Team2]Temiskaming-Hospital website Redesign Project @ Humber College
     //Feature: Directory - Model
     //File: directoryValidation.cs
     //Author: Jeesoo Kim
