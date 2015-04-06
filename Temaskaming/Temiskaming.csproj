@@ -187,6 +187,7 @@
     <Compile Include="Controllers\JobPostingsController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Controllers\StoryController.cs" />
     <Compile Include="Controllers\SurveyController.cs" />
     <Compile Include="Controllers\WaittimeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -226,6 +227,8 @@
     <Compile Include="Models\NewsClass.cs" />
     <Compile Include="Models\NewsValidation.cs" />
     <Compile Include="Models\SignupValidation.cs" />
+    <Compile Include="Models\StoryClass.cs" />
+    <Compile Include="Models\StoryValidationClass.cs" />
     <Compile Include="Models\surveyClass.cs" />
     <Compile Include="Models\surveyValidation.cs" />
     <Compile Include="Models\WaittimeClass.cs" />
@@ -1023,6 +1026,12 @@
     <Content Include="Views\Directory\Admin_staffUpdate.cshtml" />
     <Content Include="Views\Directory\Admin_staffDelete.cshtml" />
     <Content Include="Views\Donation\DonationRev.cshtml" />
+    <Content Include="Views\Story\Index.cshtml" />
+    <Content Include="Views\Story\Submit.cshtml" />
+    <Content Include="Views\Story\SubmitAction.cshtml" />
+    <Content Include="Views\Story\Admin.cshtml" />
+    <Content Include="Views\Story\edit.cshtml" />
+    <Content Include="Views\Story\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,38 @@
+﻿@model Temiskaming.Models.story
+
+@{
+    ViewBag.Title = "edit";
+}
+
+<script type="text/javascript" src="@Url.Content("~/content/ckeditor/ckeditor.js")"></script>
+<script type="text/javascript" src="@Url.Content("~/content/ckeditor/adapters/jquery.js")"></script>
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    
+    @Html.HiddenFor(x=>x.id)
+    
+    @Html.LabelFor(x=>x.author)
+    @Html.TextBoxFor(x=>x.author)
+    <br/>
+    @Html.LabelFor(x=>x.email)
+    @Html.TextBoxFor(x=>x.email)
+    <br/>
+    @Html.LabelFor(x=>x.title)
+    @Html.TextBoxFor(x=>x.title)
+    <br/>
+    @Html.LabelFor(x=>x.story1)
+    @Html.TextAreaFor(x => x.story1, new { @class = "adminRichText" })
+    <br/><br/>
+    <input type="submit" value="Save"/>
+}
+
+@section scripts
+{@Scripts.Render("~/bundles/jqueryval")}
+
+<script language="javascript" type="text/javascript">
+    jQuery(".adminRichText").ckeditor();
+</script>

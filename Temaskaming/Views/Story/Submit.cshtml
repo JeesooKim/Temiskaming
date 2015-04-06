@@ -1,0 +1,37 @@
+﻿@model Temiskaming.Models.story
+
+@{
+    ViewBag.Title = "Submit";
+}
+
+<h2>Submit your story</h2>
+
+@using (Html.BeginForm("submitAction", "Story", FormMethod.Post))
+{
+    @Html.ValidationSummary()
+    
+    @Html.LabelFor(x=>x.author)
+    @Html.TextBoxFor(x=>x.author)
+    @Html.ValidationMessageFor(x=>x.author)
+    <br/>
+    @Html.LabelFor(x=>x.email)
+    @Html.TextBoxFor(x=>x.email)
+    @Html.ValidationMessageFor(x => x.email)
+    <br/>
+    @Html.LabelFor(x=>x.title)
+    @Html.TextBoxFor(x=>x.title)
+    @Html.ValidationMessageFor(x => x.title)
+    <br/>
+    @Html.LabelFor(x=>x.story1)
+    @Html.TextAreaFor(x=>x.story1)
+    @Html.ValidationMessageFor(x => x.story1)
+
+    <br/><br/>
+    
+    <input type="submit" value="Submit"/>
+}
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

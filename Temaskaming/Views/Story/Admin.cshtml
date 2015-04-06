@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Temiskaming.Models.story>
+
+@{
+    ViewBag.Title = "Admin";
+}
+
+<h2>Share Your Stories Admin</h2>
+<table>
+    <tr>
+        <td>Author</td>
+        <td>Title</td>
+        <td>Published</td>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.author</td>
+            <td>@x.title</td>
+            <td>
+                @if (x.published == 1)
+                {
+                    @: Yes
+                }
+                else
+                {
+                    @: No
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "edit", new {id = x.id})
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "delete", new {id = x.id}, new {onclick = "return confirm('Confirm to delete this story?')"})
+            </td>
+            <td>
+                @if (x.published == 0)
+                {
+                    @Html.ActionLink("Publish", "publish", new {id = x.id}, new{onclick="return confirm('Confirm to publish this story?')"})
+                }
+                else
+                {
+                    @Html.ActionLink("Unpublish", "unpublish", new {id = x.id}, new {onclick="return confirm('Confirm to unpublish this story?')"})
+                }
+            </td>
+        </tr>
+    }
+</table>
