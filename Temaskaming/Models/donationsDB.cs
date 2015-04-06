@@ -54,5 +54,16 @@ namespace Temiskaming.Models
                 return true;
             }
         }
+
+        public bool deleteDonation(int _id)
+        {
+            using (objDon)
+            {
+                var donation = objDon.donations.SingleOrDefault(x => x.id == _id);
+                objDon.donations.DeleteOnSubmit(donation);
+                objDon.SubmitChanges();
+                return true;
+            }
+        }
     }
 }

@@ -24,12 +24,19 @@ namespace Temiskaming.Controllers
 
         public ActionResult DonationRev(donationsPublic don)
         {
-            return View();
+            if (don.id != null)
+            {
+                return View();
+            }
+            else
+            {
+                return View("Index");
+            }
         }
 
         public ActionResult SubmitDonation()
         {
-            return Index();
+            return View("Index");
         }
 
         [HttpPost]
@@ -44,56 +51,58 @@ namespace Temiskaming.Controllers
             }
             else
             {
-                return Index();
+                return View("Index");
             }
         }
 
-
-        
-        public ActionResult IPN()
+        [HttpPost]
+        public EmptyResult IPN()
         {
-            var ipnVals = new Dictionary<string, string>();
-            ipnVals.Add("cmd", "_notify-validate");
+            //Instant Payment Notification (IPN) listener, built with reference to http://blog.liamcavanagh.com/2012/06/how-to-use-paypal-with-asp-net-mvc/
+
+            //url to the sandbox test site for paypal. Change this to https://www.paypal.com/cgi-bin/webscr on live sites with actual business account made
             string url = "https://www.sandbox.paypal.com/cgi-bin/webscr";
 
-            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
+            //Create httpwebrequest object that will be sent out to paypal
+            //Set method to POST, and establish content type
+            HttpWebRequest ppreq = (HttpWebRequest)WebRequest.Create(url);
+            ppreq.Method = "POST";
+            ppreq.ContentType = "application/x-www-form-urlencoded";
 
-            req.Method = "POST";
-            req.ContentType = "application/x-www-form-urlencoded";
+            //Read in the POSTed data from paypal, and parse it as ASCII encoded string as per PayPal documentation
+            byte[] data = Request.BinaryRead(Request.ContentLength);
+            string strReq = Encoding.ASCII.GetString(data);
 
-            byte[] param = Request.BinaryRead(Request.ContentLength);
-            string strReq = Encoding.UTF8.GetString(param);
-
+            //Create string to return to PayPal for verification of notification as per PayPal documentation
             StringBuilder sb = new StringBuilder();
             sb.Append(strReq);
-
-            foreach (string key in ipnVals.Keys)
-            {
-                sb.AppendFormat("&{0}={1}", key, ipnVals[key]);
-            }
+            sb.Append("&cmd=_notify-validate");
             strReq += sb.ToString();
-            req.ContentLength = strReq.Length;
+            //The string to be sent out will be placed inside the HTTPWEBREQUEST object created earlier, prepare it
+            ppreq.ContentLength = strReq.Length;
 
+            //Send out POST request for verification from PayPal and immediately catch the response from paypal in streamin
+            //response will be a string of 'VERIFIED' or 'INVALID'
             string response = "";
-            using (StreamWriter streamOut = new StreamWriter(req.GetRequestStream(), Encoding.UTF8))
+            using (StreamWriter streamOut = new StreamWriter(ppreq.GetRequestStream(), Encoding.ASCII))
             {
                 streamOut.Write(strReq);
                 streamOut.Close();
-                using (StreamReader streamIn = new StreamReader(req.GetResponse().GetResponseStream()))
+                using (StreamReader streamIn = new StreamReader(ppreq.GetResponse().GetResponseStream()))
                 {
                     response = streamIn.ReadToEnd();
                 }
             }
 
+            //If response is VERIFIED, then donation has been made and we update database using our custom variable that is passed back to us
             if (response == "VERIFIED")
             {
-                string tranID = Request["txn_id"];
-                string amount = Request["mc_gross"];
-                string donation_id = Request["donation_id"];
+                string donation_id = Request["custom"];
 
                 //objDon.verifyDonation(Convert.ToInt32(donation_id));
+                
             }
-            return View();
+            return null;
         }
 
         public ActionResult Success()
@@ -101,5 +110,17 @@ namespace Temiskaming.Controllers
             return View();
         }
 
+        public ActionResult donationAdmin()
+        {
+            ViewBag.Group = "Admin";
+            var donations = objDon.getAllDonations();
+            return View(donations);
+        }
+
+        public ActionResult Delete(int id)
+        {
+            objDon.deleteDonation(id);
+            return RedirectToAction("donationAdmin");
+        }
     }
 }

@@ -9,7 +9,7 @@ namespace Temiskaming.Models
 {
     public class donationsPublic
     {
-        public int id { get; set; }
+        public int? id { get; set; }
 
         [Display(Name="First Name: ")]
         [Required(ErrorMessage = "First Name required.")]

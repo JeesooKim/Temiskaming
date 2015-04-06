@@ -236,6 +236,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="chatLogs\chattest.txt" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -589,9 +590,6 @@
     <Content Include="Content\classic.css" />
     <Content Include="Content\classic.date.css" />
     <Content Include="Content\cms.css" />
-    <Content Include="Content\css\jquery.dataTables.css" />
-    <Content Include="Content\css\jquery.dataTables.min.css" />
-    <Content Include="Content\css\jquery.dataTables_themeroller.css" />
     <Content Include="Content\datatables.extensions\AutoFill\css\dataTables.autoFill.css" />
     <Content Include="Content\datatables.extensions\AutoFill\css\dataTables.autoFill.min.css" />
     <Content Include="Content\datatables.extensions\AutoFill\images\filler.png" />
@@ -626,6 +624,10 @@
     <Content Include="Content\datatables.extensions\TableTools\images\print_hover.png" />
     <Content Include="Content\datatables.extensions\TableTools\images\xls.png" />
     <Content Include="Content\datatables.extensions\TableTools\images\xls_hover.png" />
+    <Content Include="Content\doc_style\jquery.dataTables.css" />
+    <Content Include="Content\doc_style\jquery.dataTables.min.css" />
+    <Content Include="Content\doc_style\jquery.dataTables_themeroller.css" />
+    <Content Include="Content\donation.css" />
     <Content Include="Content\nchat.css" />
     <Content Include="Scripts\datepicker\lib\compressed\legacy.js" />
     <Content Include="Scripts\datepicker\lib\compressed\picker.date.js" />
@@ -944,7 +946,6 @@
     <Content Include="Views\Alert\Index.cshtml" />
     <Content Include="Views\Home\Admin.cshtml" />
     <Content Include="Views\FAQ\FAQInsert.cshtml" />
-    <Content Include="Views\FAQ\index.cshtml" />
     <Content Include="Views\FAQ\FAQAdmin.cshtml" />
     <Content Include="Views\FAQ\FAQUpdate.cshtml" />
     <Content Include="Views\CMS\Index.cshtml" />
@@ -965,7 +966,6 @@
     <Content Include="Views\Chat\Index.cshtml" />
     <Content Include="Views\Chat\Chat.cshtml" />
     <Content Include="Views\Chat\Send.cshtml" />
-    <Content Include="Views\JobPostings\Appliedpartial.cshtml" />
     <Content Include="Views\News\NotFound.cshtml" />
     <Content Include="Views\News\newsupdatePartial.cshtml" />
     <Content Include="Views\Appointment\BookAppointment.cshtml" />
@@ -1013,8 +1013,6 @@
     <Content Include="Views\ContactForm\contactformDetail.cshtml" />
     <Content Include="Views\ContactForm\contactformDelete.cshtml" />
     <Content Include="Views\Directory\Index.cshtml" />
-    <Content Include="Views\Directory\staffIndex.cshtml" />
-    <Content Include="Views\Directory\staffDetails.cshtml" />
     <Content Include="Views\Directory\DirectoryAdmin.cshtml" />
     <Content Include="Views\Directory\DirectoryAdmin_Staff.cshtml" />
     <Content Include="Views\Directory\Admin_departmentDetails.cshtml" />
@@ -1032,10 +1030,12 @@
     <Content Include="Views\Story\Admin.cshtml" />
     <Content Include="Views\Story\edit.cshtml" />
     <Content Include="Views\Story\NotFound.cshtml" />
+    <Content Include="Views\Donation\Success.cshtml" />
+    <Content Include="Views\JobPostings\Applied.cshtml" />
+    <Content Include="Views\Donation\donationAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="chatLogs\" />
     <Folder Include="Content\editable\" />
   </ItemGroup>
   <ItemGroup>
