@@ -184,7 +184,8 @@
       <Column Name="email" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
       <Column Name="amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="message" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="donation_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="donation_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="verify" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.story" Member="stories">

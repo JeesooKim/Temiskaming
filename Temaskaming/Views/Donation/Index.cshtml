@@ -9,7 +9,7 @@
 
 <p>The availability of CAT Scans locally has the benefit of speeding up the diagnosis made by the radiologist, whereby the physician can initiate the appropriate therapy required for treating their patients. It has also eliminated the need for non-urgent patients to travel the long distances that were previously required for CAT scans. For many patients, CAT scans can be performed on an outpatient basis. Having one locally has helped to alleviate the anxiety for patients and family members and has had a tremendous impact on diagnosis and treatment. Specifically, in terms of cancer: diagnosis, staging of cancer (degree) and treatment response can now be made in a timely fashion.</p>
 
-@using(Html.BeginForm("DonationRev", "Donation", FormMethod.Post)){
+@using(Html.BeginForm("SubmitDonation", "Donation", FormMethod.Post)){
     <table>
         <tr>
             <td>@Html.LabelFor(x => x.fname)</td>
@@ -39,3 +39,4 @@
 
     @Html.ValidationSummary()
 }
+

@@ -26,7 +26,7 @@ namespace Temiskaming.Controllers
             return View(departments);
         }
 
-        public ActionResult staffIndex(int departmentId)
+        public ActionResult _staffIndex(int departmentId)
         {
             ViewBag.Group = "ContactUs";
 
@@ -47,22 +47,7 @@ namespace Temiskaming.Controllers
                 return PartialView(staffs);
             }
         }
-
-        public ActionResult staffDetails(int id)
-        {
-            ViewBag.Group = "ContactUs";
-
-            var staff = objDir.getStaffByID(id);
-
-            if (staff == null)
-            {
-                return PartialView("NotFound");
-            }
-            else
-            {
-                return PartialView(staff);
-            }
-        }        
+        
 
         //************ Below, action methods for Amind-side ************//
         //Admin Index
@@ -137,6 +122,8 @@ namespace Temiskaming.Controllers
         public ActionResult Admin_departmentInsert(department d)
         {
             ViewBag.Group="Admin";
+
+            
             if(ModelState.IsValid)
             {
                 try
@@ -231,7 +218,17 @@ namespace Temiskaming.Controllers
             {
                 try
                 {
+                    
                     objDir.commitInsertS(s);
+                    //int i= s.staff_id;
+                    //int j = s.staff_departmentId;
+                    //////****//
+                    //////int i = (Int32)objDir.getStaffId(s).First();
+                    //////int j = (Int32)objDir.getDepartmentId(s).First();
+                    ////int i = (Int32)objDir.getStaff().Select(x => x.staff_id).First();                    
+                    ////int j = (Int32)objDir.getStaff().Select(x => x.staff_departmentId).First();
+                    //objDir.commitInsertDNameS(i,j);
+                    //****//
                     return RedirectToAction("DirectoryAdmin_Staff");
                 }
                 catch
@@ -245,6 +242,7 @@ namespace Temiskaming.Controllers
         public ActionResult Admin_staffUpdate(int id)
         {
             ViewBag.Group="Admin";
+
             var s = objDir.getStaffByID(id);
             if (s == null)
             {
@@ -297,7 +295,7 @@ namespace Temiskaming.Controllers
             try
             {
                 objDir.commitDeleteS(id);
-                return RedirectToAction("DirectoryAdmin_Staff");
+                return RedirectToAction("DirectoryAdmin_Staff"); //after the staff(id), return to the staff list
             }
             catch
             {
@@ -308,7 +306,7 @@ namespace Temiskaming.Controllers
     }
 }
 
-//[Team2]Temiskaming-Hospital website Redesig Project @ Humber College
+//[Team2]Temiskaming-Hospital website Redesign Project @ Humber College
 //Feature: Directory
 //File: directoryController.cs
 //Author: Jeesoo Kim

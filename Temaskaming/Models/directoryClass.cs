@@ -23,10 +23,13 @@ namespace Temiskaming.Models
         //10.define commitUpdate for staff
         //11.define commitDelete for staff
 
-        //creates an instance of LINQ object
+        //creates an instance of LINQ object:objDirectory
         databaseDataContext objDirectory = new databaseDataContext();
 
         //***************** Departments ********************//
+        //linq object:objDirectory
+        //tables: departmets, staffs
+
         // method: get the list of departments thru linq object
         public IQueryable<department> getDepartments()
         {
@@ -39,6 +42,13 @@ namespace Temiskaming.Models
         {
             var alldepartment = objDirectory.departments.SingleOrDefault(x => x.d_id == _id);
             return alldepartment;
+        }
+
+        //method : get the name of the department by its id  ?????
+        public IQueryable<string> getDepartmentNameById(int _id)
+        {
+            var d_name = objDirectory.departments.Where(x=>x.d_id == _id).Select(x=>x.d_name).Distinct();
+            return d_name;
         }
 
         //Insert method with a parameter, department object
@@ -103,16 +113,86 @@ namespace Temiskaming.Models
             return allstaffInD;
         }
 
+        //method : get the id of the department from staff linq object
+        //public IQueryable<Int32> getDepartmentId()
+        //{
+        //    var departmentId = objDirectory.staffs.Select(x => x.staff_departmentId);
+        //    return departmentId;
+        //}
+
+        ////method : get the id of the staff from staff linq object
+        //public IQueryable<Int32> getStaffId()
+        //{
+        //    var staffId = objDirectory.staffs.Select(x => x.staff_id);
+        //    return staffId;
+        //}
+
         //Insert method with a parameter, staff object
         public bool commitInsertS(staff s)
         {
             using (objDirectory)
             {
-                objDirectory.staffs.InsertOnSubmit(s);
+
+                objDirectory.staffs.InsertOnSubmit(s);                
                 objDirectory.SubmitChanges();
                 return true;
             }
         }
+
+        //insert department name for the staff ?????
+        //want to insert department name automatically for the selected department id when inserting staff
+        //but..not working yet  _April 3, 2015
+        //public bool commitInsertDNameS(int staffId, int departmentId)
+        //{
+            
+        //    using(objDirectory)
+        //    {
+        //        var objI_Dname = objDirectory.staffs.Single(x => x.staff_id == staffId);
+
+        //        switch (departmentId)
+        //        {
+        //            case 1:
+        //                objI_Dname.staff_departmentName = "Senior Management";
+        //                break;
+        //            case 2:
+        //                objI_Dname.staff_departmentName = "Physicians";
+        //                break;
+        //            case 3:
+        //                objI_Dname.staff_departmentName = "Nursing";
+        //                break;
+        //            case 4:
+        //                objI_Dname.staff_departmentName = "Midwives";
+        //                break;
+        //            case 5:
+        //                objI_Dname.staff_departmentName = "Human Resources";
+        //                break;
+        //            case 6:
+        //                objI_Dname.staff_departmentName = "Patients Relations";
+        //                break;
+        //            case 7:
+        //                objI_Dname.staff_departmentName = "Volunteer";
+        //                break;
+        //            case 8:
+        //                objI_Dname.staff_departmentName = "Finances";
+        //                break;
+        //            case 9:
+        //                objI_Dname.staff_departmentName = "Website Technical Support";
+        //                break;
+        //            case 10:
+        //                objI_Dname.staff_departmentName = "Maintenance";
+        //                break;
+        //            case 11:
+        //                objI_Dname.staff_departmentName = "Physician Recruitment";
+        //                break;
+        //            default:
+        //                objI_Dname.staff_departmentName ="Default";
+        //                break;
+        //        }
+                                
+        //        objDirectory.SubmitChanges();
+        //        return true;
+        //    }
+        //}
 
         //Update method for staff
         public bool commitUpdateS(int _id, string _fname, string _lname, string _position, string _phone, string _ext, string _email, string _departmentName, int _departmentId)
@@ -141,11 +221,12 @@ namespace Temiskaming.Models
             {
                 var objDelStaff = objDirectory.staffs.Single(x => x.staff_id == _id);
                 objDirectory.staffs.DeleteOnSubmit(objDelStaff);
+                objDirectory.SubmitChanges();
                 return true;
             }
         }
 
-        //[Team2]Temiskaming-Hospital website Redesig Project @ Humber College
+        //[Team2]Temiskaming-Hospital website Redesign Project @ Humber College
         //Feature: Directory -Model
         //File: directoryClass.cs
         //Author: Jeesoo Kim
