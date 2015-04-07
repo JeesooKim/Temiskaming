@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Temiskaming.Models.donation>
+
+@{
+    ViewBag.Title = "Temiskaming - Donations Admin";
+    @section css{
+        @Styles.Render("~/Content/donation.css")
+    }
+}
+
+<h2>Donations Admin</h2>
+
+<p>Sum of all donations: <b>$@ViewBag.Sum</b></p>
+<p>Sum of all received(verified) donations: <b>$@ViewBag.DonSum</b></p>
+
+<p>@Html.ActionLink("Delete Unverified donations", "DeleteUnverified", "Donation") - Unverified donations over 30 minutes old will be deleted, as per PayPal timeout.</p>
+
+<h3>List of All Donations (verified and unverified)</h3>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Amount</th>
+        <th>Date</th>
+        <th>Message</th>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+    </tr>
+@foreach (var x in Model)
+{
+    if (x.verify == true)
+    {
+        <tr class='verified'>
+            <td>@x.first_name @x.last_name</td>
+            <td>@x.email</td>
+            <td>$@Convert.ToDecimal(x.amount).ToString("#,###.00")</td>
+            <td>@TimeZoneInfo.ConvertTimeFromUtc(x.donation_date, TimeZoneInfo.Local)</td>
+            <td>@x.message</td>
+            <td>Received</td>
+            <td>&nbsp;</td>
+        </tr>
+    }
+    else
+    {
+        <tr class="unverified">
+            <td>@x.first_name @x.last_name</td>
+            <td>@x.email</td>
+            <td>$@Convert.ToDecimal(x.amount).ToString("#,###.00")</td>
+            <td>@x.donation_date.ToLocalTime()</td>
+            <td>@x.message</td>
+            <td>Unverified</td>
+            <td> @Html.ActionLink("Delete", "Delete", "Donation", new { id = x.id }, new { onclick = "return confirm('Are you sure you wish to delete this donation from " + @x.first_name + " " + @x.last_name + " for $" + @x.amount + "?')" })</td>
+        </tr>
+    }
+
+}
+</table>

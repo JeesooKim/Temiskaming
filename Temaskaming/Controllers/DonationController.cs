@@ -100,7 +100,7 @@ namespace Temiskaming.Controllers
                 string txn_id = Request["txn_id"];
                 string donation_id = Request["custom"];
 
-                //objDon.verifyDonation(Convert.ToInt32(donation_id));
+                objDon.verifyDonation(Convert.ToInt32(donation_id));
                 
             }
             return null;
@@ -126,8 +126,8 @@ namespace Temiskaming.Controllers
             {
                 vsum += Convert.ToDecimal(x.amount);
             }
-            ViewBag.Sum = usum.ToString("0.00");
-            ViewBag.DonSum = vsum.ToString("0.00");
+            ViewBag.Sum = usum.ToString("#,###.00");
+            ViewBag.DonSum = vsum.ToString("#,###.00");
             return View(donations);
         }
 

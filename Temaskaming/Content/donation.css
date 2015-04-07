@@ -13,6 +13,10 @@ td {
     text-align: center;
 }
 
-tr:nth-child(2n+1) td {
-    background: #E0E0E0;
+/*tr:nth-child(2n+1) td {
+    background: rgba(78, 198, 237, 0.50);
+}*/
+
+.unverified td {
+    background-color: #ffffff;
 }
