@@ -97,9 +97,10 @@ namespace Temiskaming.Controllers
             //If response is VERIFIED, then donation has been made and we update database using our custom variable that is passed back to us
             if (response == "VERIFIED")
             {
+                string txn_id = Request["txn_id"];
                 string donation_id = Request["custom"];
 
-                //objDon.verifyDonation(Convert.ToInt32(donation_id));
+                objDon.verifyDonation(Convert.ToInt32(donation_id));
                 
             }
             return null;
@@ -114,12 +115,31 @@ namespace Temiskaming.Controllers
         {
             ViewBag.Group = "Admin";
             var donations = objDon.getAllDonations();
+            var received = objDon.getVerifiedDonations();
+            decimal usum = 0;
+            foreach (var x in donations)
+            {
+                usum += Convert.ToDecimal(x.amount);
+            }
+            decimal vsum = 0;
+            foreach (var x in received)
+            {
+                vsum += Convert.ToDecimal(x.amount);
+            }
+            ViewBag.Sum = usum.ToString("#,###.00");
+            ViewBag.DonSum = vsum.ToString("#,###.00");
             return View(donations);
         }
 
         public ActionResult Delete(int id)
         {
             objDon.deleteDonation(id);
+            return RedirectToAction("donationAdmin");
+        }
+
+        public ActionResult DeleteUnverified()
+        {
+            objDon.deleteAllUnverified();
             return RedirectToAction("donationAdmin");
         }
     }

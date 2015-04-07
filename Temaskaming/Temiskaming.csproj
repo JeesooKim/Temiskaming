@@ -189,6 +189,7 @@
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\StoryController.cs" />
     <Compile Include="Controllers\SurveyController.cs" />
+    <Compile Include="Controllers\VolunteersController.cs" />
     <Compile Include="Controllers\WaittimeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -231,6 +232,8 @@
     <Compile Include="Models\StoryValidationClass.cs" />
     <Compile Include="Models\surveyClass.cs" />
     <Compile Include="Models\surveyValidation.cs" />
+    <Compile Include="Models\volunteersClass.cs" />
+    <Compile Include="Models\volunteersValidation.cs" />
     <Compile Include="Models\WaittimeClass.cs" />
     <Compile Include="Models\WaittimeValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -908,6 +911,9 @@
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Donation\donationAdmin.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1032,7 +1038,9 @@
     <Content Include="Views\Story\NotFound.cshtml" />
     <Content Include="Views\Donation\Success.cshtml" />
     <Content Include="Views\JobPostings\Applied.cshtml" />
-    <Content Include="Views\Donation\donationAdmin.cshtml" />
+    <Content Include="Views\Volunteers\Index.cshtml" />
+    <Content Include="Views\Volunteers\Form.cshtml" />
+    <Content Include="Views\Volunteers\Thanks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
