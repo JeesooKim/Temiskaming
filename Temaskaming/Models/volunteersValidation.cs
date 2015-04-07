@@ -32,8 +32,8 @@ namespace Temiskaming.Models
         [DisplayName("Opportunity Name")]
         [Required(ErrorMessage = "Please enter opportunity name")]
         public string o_name { get; set; }
-    
-    
+
+
     }
 
     [Bind(Exclude = "v_id")]
@@ -42,7 +42,7 @@ namespace Temiskaming.Models
         [DisplayName("First Name")]
         [Required(ErrorMessage = "Please enter First name")]
         public string v_fname { get; set; }
-        
+
         [DisplayName("Last Name")]
         [Required(ErrorMessage = "Please enter Last name")]
         public string v_lname { get; set; }
@@ -57,7 +57,7 @@ namespace Temiskaming.Models
 
         [DisplayName("Province")]
         [Required(ErrorMessage = "Please choose Province")]
-        public string v_province{ get; set; }
+        public string v_province { get; set; }
 
         [DisplayName("Postal Code")]
         [Required(ErrorMessage = "Please enter the first name")]
@@ -69,7 +69,7 @@ namespace Temiskaming.Models
 
         [DisplayName("Email Address")]
         [Required(ErrorMessage = "Please enter email address")]
-        [RegularExpression(".+\\@.+\\..+", ErrorMessage ="Please enter a valid email")]
+        [RegularExpression(".+\\@.+\\..+", ErrorMessage = "Please enter a valid email")]
         public string v_email { get; set; }
 
 

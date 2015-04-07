@@ -17,81 +17,81 @@
 
 <h2>Volunteering at Temiskaming Hospital</h2>
 
-<br/>
+<br />
     Temiskaming Hospital is very grateful to our dedicated Volunteers who give freely of their time to enhance the quality of our patient’s stay in this facility. Our patients benefit in many ways from these interactions whether it be on a physical, cognitive, emotional, or spiritual basis. The social interaction enhances ones communication skills and helps develop a sense of belonging. The Volunteers in our building come from all walks of life, male and female, young and old.
-<br/>
+<br />
 
-<br/><br/>
+<br /><br />
     Students have the opportunity to learn about careers in health care and complete their mandatory volunteer hours.
-<br/><br/>
+<br /><br />
 
-    <b>Volunteer Opportunities:</b>
-    <br />
+<b>Volunteer Opportunities:</b>
+<br />
     Monday to Friday
-    <br /><br/>
-    <div id="accordion">
-        @foreach (var item in Model)
-        {
-            <h3>@item.o_name</h3>
-            <div>
-                <p>
-                    @item.o_start - @item.o_end
-                    <br />
-                    @item.o_location
-                    <br />
-                    @item.o_description
-                    <br />
-                    @item.o_date
-                </p>
-            </div>
-        }
-     </div>
-
-        @*Physiotherapy Department: 10:00 a.m. – 12:00 p.m.<br />
-            Emergency Department: 8:00 a.m. – 2:00 p.m.<br />
-            Long-Term Care Activity Room: 10:00 a.m. – 2:00 p.m.<br />
-            Outpatient Clinics: (days & times will vary depending on outpatient clinic).<br />
-            Day Medicine/Cancer Care Department: 9:30 a.m. – 12:30 p.m.<br />
-            Long-Term Care Department: 4:00 p.m. – 6:00 p.m.<br />*@
-   <br/><br/>
-
-            <b>To become a volunteer you must do the following:</b>
-            <br />
-            <ol>
-                <li>Complete and return the Volunteer Application Package:</li>
-                <ul>
-                    <li>Application</li>
-                    <li>Vulnerable Sector/Criminal Check (Required by all applicants 18 years of age and older)</li>
-                    <li>Immunization Record</li>
-                    <li>Pre-Placement Health Assessment</li>
-                </ul>
+<br /><br />
+<div id="accordion">
+    @foreach (var item in Model)
+    {
+        <h3>@item.o_name</h3>
+        <div>
+            <p>
+                @item.o_start - @item.o_end
                 <br />
-                <b>NOTE</b>: The form for Vulnerable Sector/Criminal Check is to be picked up by the applicant at the volunteer office. A witnessed signature is required. This form is then brought by the applicant to the Temiskaming OPP Department. Applicants should not be asked for payment as the form waives the fee.
+                @item.o_location
                 <br />
+                @item.o_description
                 <br />
+                @item.o_date
+            </p>
+        </div>
+    }
+</div>
 
-                <li>Interview</li>
-                <li>General Orientation/Hospital Tour</li>
-                <li>Department Orientation</li>
-            </ol>
+@*Physiotherapy Department: 10:00 a.m. – 12:00 p.m.<br />
+    Emergency Department: 8:00 a.m. – 2:00 p.m.<br />
+    Long-Term Care Activity Room: 10:00 a.m. – 2:00 p.m.<br />
+    Outpatient Clinics: (days & times will vary depending on outpatient clinic).<br />
+    Day Medicine/Cancer Care Department: 9:30 a.m. – 12:30 p.m.<br />
+    Long-Term Care Department: 4:00 p.m. – 6:00 p.m.<br />*@
+<br /><br />
 
-            <br /><br />
+<b>To become a volunteer you must do the following:</b>
+<br />
+<ol>
+    <li>Complete and return the Volunteer Application Package:</li>
+    <ul>
+        <li>Application</li>
+        <li>Vulnerable Sector/Criminal Check (Required by all applicants 18 years of age and older)</li>
+        <li>Immunization Record</li>
+        <li>Pre-Placement Health Assessment</li>
+    </ul>
+    <br />
+    <b>NOTE</b>: The form for Vulnerable Sector/Criminal Check is to be picked up by the applicant at the volunteer office. A witnessed signature is required. This form is then brought by the applicant to the Temiskaming OPP Department. Applicants should not be asked for payment as the form waives the fee.
+    <br />
+    <br />
+
+    <li>Interview</li>
+    <li>General Orientation/Hospital Tour</li>
+    <li>Department Orientation</li>
+</ol>
+
+<br /><br />
             Applicants must be 14 years of age and older to be accepted in the Volunteer Program at Temiskaming Hospital.
-            <br /><br />
-            <b>NOTE</b>: To volunteer in the Emergency Department applicants must be 20 years of age or older. To volunteer in the Day Medicine/Cancer Care Department applicants must be 20 years of age or older, and be a cancer survivor or a caregiver to someone (family member/close friend) with cancer.
-            <br /><br />
+<br /><br />
+<b>NOTE</b>: To volunteer in the Emergency Department applicants must be 20 years of age or older. To volunteer in the Day Medicine/Cancer Care Department applicants must be 20 years of age or older, and be a cancer survivor or a caregiver to someone (family member/close friend) with cancer.
+<br /><br />
             We appreciate our Volunteers and consider them an integral part of our health care team.
-       <br/><br/>
+<br /><br />
 
-        @Html.ActionLink("Click for Apply", "Form", "Volunteers")
+@Html.ActionLink("Click for Apply", "Form", "Volunteers")
 
 
-        @section Scripts{
-            @Scripts.Render("~/bundles/jquertval")
-        }
+@section Scripts{
+    @Scripts.Render("~/bundles/jquertval")
+}
 
-        @*//[Team2]Temiskaming-Hospital website Redesign project @ Humber College
-            //Feature: Volunteers - Public View
-            //File : Index.cshtml
-            //Author: Jeesoo Kim
-            //Created: April 7, 2015*@
+@*//[Team2]Temiskaming-Hospital website Redesign project @ Humber College
+    //Feature: Volunteers - Public View
+    //File : Index.cshtml
+    //Author: Jeesoo Kim
+    //Created: April 7, 2015*@

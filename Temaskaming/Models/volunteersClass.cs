@@ -7,7 +7,7 @@ namespace Temiskaming.Models
 {
 
     public class volunteersClass
-    {
+    {   
         //initiating an instance of Linq object(objVolunteers) to bring the data into this class(or this feature)
         databaseDataContext objVolunteers = new databaseDataContext();
 

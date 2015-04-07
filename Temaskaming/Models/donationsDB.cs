@@ -27,6 +27,23 @@ namespace Temiskaming.Models
             return donation;
         }
 
+        public IQueryable<donation> getVerifiedDonations()
+        {
+            var received = objDon.donations.Where(x => x.verify == true);
+            return received;
+        }
+
+        public bool deleteAllUnverified()
+        {
+            using (objDon)
+            {
+                var unverified = objDon.donations.Where(x => x.verify == false && (DateTime.UtcNow - (DateTime)x.donation_date).TotalMinutes > 1);
+                objDon.donations.DeleteAllOnSubmit(unverified);
+                objDon.SubmitChanges();
+                return true;
+            }
+        }
+
         public bool makeDonation(donationsPublic donation)
         {
             donation don = new donation();
@@ -50,6 +67,17 @@ namespace Temiskaming.Models
                 {
                     donation.verify = true;
                 }
+                objDon.SubmitChanges();
+                return true;
+            }
+        }
+
+        public bool deleteDonation(int _id)
+        {
+            using (objDon)
+            {
+                var donation = objDon.donations.SingleOrDefault(x => x.id == _id);
+                objDon.donations.DeleteOnSubmit(donation);
                 objDon.SubmitChanges();
                 return true;
             }
