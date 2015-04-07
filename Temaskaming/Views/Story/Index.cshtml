@@ -1,0 +1,19 @@
+﻿@using Temiskaming.Models
+@model IEnumerable<story>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Testimonials</h2>
+<hr/>
+@foreach (var x in Model)
+{
+    <div>
+        <h3>@x.title</h3>
+        <h4>Author: @x.author</h4>
+        @Html.Raw(x.story1)
+    </div>
+}
+
+@Html.ActionLink("Submit your story", "submit")

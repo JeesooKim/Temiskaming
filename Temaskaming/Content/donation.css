@@ -1,0 +1,22 @@
+﻿table {
+    width: 100%;
+    border-collapse: separate;
+    margin: 10px;
+}
+
+td, th {
+    padding: 10px;
+}
+
+td {
+    background-color: rgba(78, 198, 237, 0.25);
+    text-align: center;
+}
+
+/*tr:nth-child(2n+1) td {
+    background: rgba(78, 198, 237, 0.50);
+}*/
+
+.unverified td {
+    background-color: #ffffff;
+}

@@ -43,7 +43,7 @@
             <td>@Html.TextBoxFor(model => model.staff_email, new { @Value = "*@temiskming-hospital.com" })</td>
             <td>@Html.ValidationMessageFor(model => model.staff_email, "*")</td>
         </tr>
-        <tr>
+        <tr>@*For now, manually choose the department name as well when inserting a new staff*@
             <td>@Html.LabelFor(model => model.staff_departmentName) * </td>
             <td>
                 @Html.DropDownListFor(model => model.staff_departmentName, new[] {
@@ -66,14 +66,29 @@
         </tr>
         <tr>
             <td>@Html.LabelFor(model => model.staff_departmentId) * </td>
-            <td>@Html.TextBoxFor(model => model.staff_departmentId)</td>
+            <td>@Html.DropDownListFor(model => model.staff_departmentId, new[] {
+                            new SelectListItem(){Text ="Please Choose the same as the above!!!" ,Value = "", Selected= true},
+                            new SelectListItem(){Text="Senior Management", Value="1"},
+                            new SelectListItem(){Text="Physicians", Value="2"},
+                            new SelectListItem(){Text="Nursing", Value="3"},
+                            new SelectListItem(){Text="Midwives", Value="4"},
+                            new SelectListItem(){Text="Human Resources", Value="5"},
+                            new SelectListItem(){Text="Patients Relations", Value="6"},
+                            new SelectListItem(){Text="Volunteer", Value="7"},
+                            new SelectListItem(){Text="Finances", Value="8"},
+                            new SelectListItem(){Text="Website Technical Support", Value="9"},
+                            new SelectListItem(){Text="Maintenance", Value="10"},
+                            new SelectListItem(){Text="Physician Recruitment", Value="11"},
+                            new SelectListItem(){Text="", Value=""}
+                            })           
+            </td>
             <td>@Html.ValidationMessageFor(model => model.staff_departmentId, "*")</td>
         </tr>
     </table>
 
 
     <br />
-    <input type="submit" value="Insert New Staff" />
+    <input type="submit" value="New Staff" />
 }
 
 <br />

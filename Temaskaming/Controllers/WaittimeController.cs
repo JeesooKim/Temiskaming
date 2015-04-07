@@ -13,7 +13,31 @@ namespace Temiskaming.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.Wait_Time = objWaittime.GetWaitTime();
+            List<SelectListItem> patientNumList = new List<SelectListItem>();
+            patientNumList.Add(new SelectListItem
+            {Text = "5", Value = "5"});
+            patientNumList.Add(new SelectListItem
+            {Text = "10", Value = "10"});
+            patientNumList.Add(new SelectListItem
+            {Text = "15", Value = "15"});
+            ViewBag.numList = patientNumList;
+            ViewBag.Wait_Time = Math.Round(objWaittime.GetWaitTime(5)).ToString();
+            ViewBag.waitingPatients = objWaittime.GetWaitingPatients().ToString();
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Index(FormCollection form)
+        {
+            List<SelectListItem> patientNumList = new List<SelectListItem>();
+            patientNumList.Add(new SelectListItem { Text = "5", Value = "5" });
+            patientNumList.Add(new SelectListItem { Text = "10", Value = "10" });
+            patientNumList.Add(new SelectListItem { Text = "15", Value = "15" });
+            ViewBag.numList = patientNumList;
+            int numPatient = Int32.Parse(form["NumPatients"]);
+            ViewBag.PatientNumber = numPatient;
+            ViewBag.Wait_Time = Math.Round(objWaittime.GetWaitTime(numPatient), 0).ToString();
+            ViewBag.waitingPatients = objWaittime.GetWaitingPatients().ToString();
             return View();
         }
 

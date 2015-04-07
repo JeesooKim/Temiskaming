@@ -1,0 +1,82 @@
+﻿@model Temiskaming.Models.volnunteerValidation
+
+@{
+    ViewBag.Title = "Application Form";
+}
+
+
+<h2>Please show your interest in our Volunteer Program bt sending the form below.</h2>
+
+<div id="form">
+    @using (Ajax.BeginForm("Thanks", "Volunteers", new AjaxOptions
+    {
+        //Confirm = "Are you sure?",
+        HttpMethod = "Post",
+        InsertionMode = InsertionMode.Replace,
+        LoadingElementId = "loading",
+        UpdateTargetId = "form"
+    }))
+    {
+        @Html.ValidationSummary()
+
+        <table>
+            <tr>
+                <td>@Html.LabelFor(model => model.v_fname)</td>
+                <td>@Html.TextBoxFor(model => model.v_fname)</td>
+                <td>@Html.ValidationMessageFor(model => model.v_fname, "*")</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.v_lname)</td>
+                <td>@Html.TextBoxFor(model => model.v_lname, new { @Value = "please enter lastname" })</td>
+                <td>@Html.ValidationMessageFor(model => model.v_lname, "*")</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.v_address)</td>
+                <td>@Html.TextBoxFor(model => model.v_address, new { @Value = "please enter address" })</td>
+                <td>@Html.ValidationMessageFor(model => model.v_address, "*")</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.v_city)</td>
+                <td>@Html.TextBoxFor(model => model.v_city, new { @Value = "please enter city" })</td>
+                <td>@Html.ValidationMessageFor(model => model.v_city, "*")</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.v_province)</td>
+                <td>@Html.DropDownListFor(model => model.v_province, (SelectList)ViewBag.provList)</td>
+                <td>@Html.ValidationMessageFor(model => model.v_province, "*")</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.v_postalCode)</td>
+                <td>@Html.TextBoxFor(model => model.v_postalCode, new { @Value = "please enter postal code" })</td>
+                <td>@Html.ValidationMessageFor(model => model.v_postalCode, "*")</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.v_phone)</td>
+                <td>@Html.TextBoxFor(model => model.v_phone, new { @Value = "(416) 123-4567" })</td>
+                <td>@Html.ValidationMessageFor(model => model.v_phone, "*")</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(model => model.v_email)</td>
+                <td>@Html.TextBoxFor(model => model.v_email, new { @Value = "*@*.*" })</td>
+                <td>@Html.ValidationMessageFor(model => model.v_email, "*")</td>
+            </tr>
+        </table>
+        <input type="submit" id="submit" value="Submit" />
+    }
+</div>
+
+<div id="loading" style="display:none;">
+    Processing Request ...
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+@*//[Team2]Temiskaming-Hospital website Redesign project @ Humber College
+    //Feature: Volunteers - Public
+    //File : Form.cshtml
+    //Author: Jeesoo Kim
+    //Created: April 7, 2015*@
+
