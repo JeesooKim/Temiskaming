@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Temiskaming", "Temaskaming\Temiskaming.csproj", "{86DBDEB8-CB53-4171-9131-6F25906343B4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "week02", "..\..\..\Desktop\Web Application 2\week02\week02\week02\week02.csproj", "{F038057D-5E76-4558-B7CF-3BE352C7ABBE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +15,6 @@ Global
 		{86DBDEB8-CB53-4171-9131-6F25906343B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86DBDEB8-CB53-4171-9131-6F25906343B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86DBDEB8-CB53-4171-9131-6F25906343B4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F038057D-5E76-4558-B7CF-3BE352C7ABBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F038057D-5E76-4558-B7CF-3BE352C7ABBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F038057D-5E76-4558-B7CF-3BE352C7ABBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F038057D-5E76-4558-B7CF-3BE352C7ABBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
