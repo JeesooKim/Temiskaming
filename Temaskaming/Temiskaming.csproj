@@ -939,7 +939,6 @@
     <Content Include="Views\Alert\Index.cshtml" />
     <Content Include="Views\Home\Admin.cshtml" />
     <Content Include="Views\FAQ\FAQInsert.cshtml" />
-    <Content Include="Views\FAQ\index.cshtml" />
     <Content Include="Views\FAQ\FAQAdmin.cshtml" />
     <Content Include="Views\FAQ\FAQUpdate.cshtml" />
     <Content Include="Views\CMS\Index.cshtml" />
@@ -1020,6 +1019,7 @@
     <Content Include="Views\Directory\Admin_staffInsert.cshtml" />
     <Content Include="Views\Directory\Admin_staffUpdate.cshtml" />
     <Content Include="Views\Directory\Admin_staffDelete.cshtml" />
+    <Content Include="Views\FAQ\index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
