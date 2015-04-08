@@ -90,15 +90,15 @@ namespace Temiskaming.Models
     partial void Insertstory(story instance);
     partial void Updatestory(story instance);
     partial void Deletestory(story instance);
-    partial void Insertvolunteer_opportunity(volunteer_opportunity instance);
-    partial void Updatevolunteer_opportunity(volunteer_opportunity instance);
-    partial void Deletevolunteer_opportunity(volunteer_opportunity instance);
     partial void Insertvolunteer(volunteer instance);
     partial void Updatevolunteer(volunteer instance);
     partial void Deletevolunteer(volunteer instance);
     partial void Insertvolunteer_schedule(volunteer_schedule instance);
     partial void Updatevolunteer_schedule(volunteer_schedule instance);
     partial void Deletevolunteer_schedule(volunteer_schedule instance);
+    partial void Insertvolunteer_opportunity(volunteer_opportunity instance);
+    partial void Updatevolunteer_opportunity(volunteer_opportunity instance);
+    partial void Deletevolunteer_opportunity(volunteer_opportunity instance);
     #endregion
 		
 		public databaseDataContext() : 
@@ -291,14 +291,6 @@ namespace Temiskaming.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<volunteer_opportunity> volunteer_opportunities
-		{
-			get
-			{
-				return this.GetTable<volunteer_opportunity>();
-			}
-		}
-		
 		public System.Data.Linq.Table<volunteer> volunteers
 		{
 			get
@@ -312,6 +304,14 @@ namespace Temiskaming.Models
 			get
 			{
 				return this.GetTable<volunteer_schedule>();
+			}
+		}
+		
+		public System.Data.Linq.Table<volunteer_opportunity> volunteer_opportunities
+		{
+			get
+			{
+				return this.GetTable<volunteer_opportunity>();
 			}
 		}
 	}
@@ -3971,292 +3971,6 @@ namespace Temiskaming.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.volunteer_opportunities")]
-	public partial class volunteer_opportunity : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _o_id;
-		
-		private string _o_name;
-		
-		private System.Nullable<System.DateTime> _o_date;
-		
-		private System.Nullable<System.TimeSpan> _o_start;
-		
-		private System.Nullable<System.TimeSpan> _o_end;
-		
-		private string _o_day;
-		
-		private string _o_location;
-		
-		private string _o_description;
-		
-		private EntitySet<volunteer> _volunteers;
-		
-		private EntitySet<volunteer_schedule> _volunteer_schedules;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Ono_idChanging(int value);
-    partial void Ono_idChanged();
-    partial void Ono_nameChanging(string value);
-    partial void Ono_nameChanged();
-    partial void Ono_dateChanging(System.Nullable<System.DateTime> value);
-    partial void Ono_dateChanged();
-    partial void Ono_startChanging(System.Nullable<System.TimeSpan> value);
-    partial void Ono_startChanged();
-    partial void Ono_endChanging(System.Nullable<System.TimeSpan> value);
-    partial void Ono_endChanged();
-    partial void Ono_dayChanging(string value);
-    partial void Ono_dayChanged();
-    partial void Ono_locationChanging(string value);
-    partial void Ono_locationChanged();
-    partial void Ono_descriptionChanging(string value);
-    partial void Ono_descriptionChanged();
-    #endregion
-		
-		public volunteer_opportunity()
-		{
-			this._volunteers = new EntitySet<volunteer>(new Action<volunteer>(this.attach_volunteers), new Action<volunteer>(this.detach_volunteers));
-			this._volunteer_schedules = new EntitySet<volunteer_schedule>(new Action<volunteer_schedule>(this.attach_volunteer_schedules), new Action<volunteer_schedule>(this.detach_volunteer_schedules));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_o_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int o_id
-		{
-			get
-			{
-				return this._o_id;
-			}
-			set
-			{
-				if ((this._o_id != value))
-				{
-					this.Ono_idChanging(value);
-					this.SendPropertyChanging();
-					this._o_id = value;
-					this.SendPropertyChanged("o_id");
-					this.Ono_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_o_name", DbType="VarChar(150)")]
-		public string o_name
-		{
-			get
-			{
-				return this._o_name;
-			}
-			set
-			{
-				if ((this._o_name != value))
-				{
-					this.Ono_nameChanging(value);
-					this.SendPropertyChanging();
-					this._o_name = value;
-					this.SendPropertyChanged("o_name");
-					this.Ono_nameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_o_date", DbType="Date")]
-		public System.Nullable<System.DateTime> o_date
-		{
-			get
-			{
-				return this._o_date;
-			}
-			set
-			{
-				if ((this._o_date != value))
-				{
-					this.Ono_dateChanging(value);
-					this.SendPropertyChanging();
-					this._o_date = value;
-					this.SendPropertyChanged("o_date");
-					this.Ono_dateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_o_start", DbType="Time")]
-		public System.Nullable<System.TimeSpan> o_start
-		{
-			get
-			{
-				return this._o_start;
-			}
-			set
-			{
-				if ((this._o_start != value))
-				{
-					this.Ono_startChanging(value);
-					this.SendPropertyChanging();
-					this._o_start = value;
-					this.SendPropertyChanged("o_start");
-					this.Ono_startChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_o_end", DbType="Time")]
-		public System.Nullable<System.TimeSpan> o_end
-		{
-			get
-			{
-				return this._o_end;
-			}
-			set
-			{
-				if ((this._o_end != value))
-				{
-					this.Ono_endChanging(value);
-					this.SendPropertyChanging();
-					this._o_end = value;
-					this.SendPropertyChanged("o_end");
-					this.Ono_endChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_o_day", DbType="VarChar(50)")]
-		public string o_day
-		{
-			get
-			{
-				return this._o_day;
-			}
-			set
-			{
-				if ((this._o_day != value))
-				{
-					this.Ono_dayChanging(value);
-					this.SendPropertyChanging();
-					this._o_day = value;
-					this.SendPropertyChanged("o_day");
-					this.Ono_dayChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_o_location", DbType="VarChar(150)")]
-		public string o_location
-		{
-			get
-			{
-				return this._o_location;
-			}
-			set
-			{
-				if ((this._o_location != value))
-				{
-					this.Ono_locationChanging(value);
-					this.SendPropertyChanging();
-					this._o_location = value;
-					this.SendPropertyChanged("o_location");
-					this.Ono_locationChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_o_description", DbType="VarChar(250)")]
-		public string o_description
-		{
-			get
-			{
-				return this._o_description;
-			}
-			set
-			{
-				if ((this._o_description != value))
-				{
-					this.Ono_descriptionChanging(value);
-					this.SendPropertyChanging();
-					this._o_description = value;
-					this.SendPropertyChanged("o_description");
-					this.Ono_descriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="volunteer_opportunity_volunteer", Storage="_volunteers", ThisKey="o_id", OtherKey="v_opportunityId")]
-		public EntitySet<volunteer> volunteers
-		{
-			get
-			{
-				return this._volunteers;
-			}
-			set
-			{
-				this._volunteers.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="volunteer_opportunity_volunteer_schedule", Storage="_volunteer_schedules", ThisKey="o_id", OtherKey="o_id")]
-		public EntitySet<volunteer_schedule> volunteer_schedules
-		{
-			get
-			{
-				return this._volunteer_schedules;
-			}
-			set
-			{
-				this._volunteer_schedules.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_volunteers(volunteer entity)
-		{
-			this.SendPropertyChanging();
-			entity.volunteer_opportunity = this;
-		}
-		
-		private void detach_volunteers(volunteer entity)
-		{
-			this.SendPropertyChanging();
-			entity.volunteer_opportunity = null;
-		}
-		
-		private void attach_volunteer_schedules(volunteer_schedule entity)
-		{
-			this.SendPropertyChanging();
-			entity.volunteer_opportunity = this;
-		}
-		
-		private void detach_volunteer_schedules(volunteer_schedule entity)
-		{
-			this.SendPropertyChanging();
-			entity.volunteer_opportunity = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.volunteers")]
 	public partial class volunteer : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -4622,9 +4336,9 @@ namespace Temiskaming.Models
 		
 		private string _s_day;
 		
-		private EntityRef<volunteer_opportunity> _volunteer_opportunity;
-		
 		private EntityRef<volunteer> _volunteer;
+		
+		private EntityRef<volunteer_opportunity> _volunteer_opportunity;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -4646,8 +4360,8 @@ namespace Temiskaming.Models
 		
 		public volunteer_schedule()
 		{
-			this._volunteer_opportunity = default(EntityRef<volunteer_opportunity>);
 			this._volunteer = default(EntityRef<volunteer>);
+			this._volunteer_opportunity = default(EntityRef<volunteer_opportunity>);
 			OnCreated();
 		}
 		
@@ -4779,40 +4493,6 @@ namespace Temiskaming.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="volunteer_opportunity_volunteer_schedule", Storage="_volunteer_opportunity", ThisKey="o_id", OtherKey="o_id", IsForeignKey=true)]
-		public volunteer_opportunity volunteer_opportunity
-		{
-			get
-			{
-				return this._volunteer_opportunity.Entity;
-			}
-			set
-			{
-				volunteer_opportunity previousValue = this._volunteer_opportunity.Entity;
-				if (((previousValue != value) 
-							|| (this._volunteer_opportunity.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._volunteer_opportunity.Entity = null;
-						previousValue.volunteer_schedules.Remove(this);
-					}
-					this._volunteer_opportunity.Entity = value;
-					if ((value != null))
-					{
-						value.volunteer_schedules.Add(this);
-						this._o_id = value.o_id;
-					}
-					else
-					{
-						this._o_id = default(int);
-					}
-					this.SendPropertyChanged("volunteer_opportunity");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="volunteer_volunteer_schedule", Storage="_volunteer", ThisKey="v_id", OtherKey="v_id", IsForeignKey=true)]
 		public volunteer volunteer
 		{
@@ -4847,6 +4527,40 @@ namespace Temiskaming.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="volunteer_opportunity_volunteer_schedule", Storage="_volunteer_opportunity", ThisKey="o_id", OtherKey="o_id", IsForeignKey=true)]
+		public volunteer_opportunity volunteer_opportunity
+		{
+			get
+			{
+				return this._volunteer_opportunity.Entity;
+			}
+			set
+			{
+				volunteer_opportunity previousValue = this._volunteer_opportunity.Entity;
+				if (((previousValue != value) 
+							|| (this._volunteer_opportunity.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._volunteer_opportunity.Entity = null;
+						previousValue.volunteer_schedules.Remove(this);
+					}
+					this._volunteer_opportunity.Entity = value;
+					if ((value != null))
+					{
+						value.volunteer_schedules.Add(this);
+						this._o_id = value.o_id;
+					}
+					else
+					{
+						this._o_id = default(int);
+					}
+					this.SendPropertyChanged("volunteer_opportunity");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -4865,6 +4579,292 @@ namespace Temiskaming.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.volunteer_opportunities")]
+	public partial class volunteer_opportunity : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _o_id;
+		
+		private string _o_name;
+		
+		private string _o_date;
+		
+		private string _o_start;
+		
+		private string _o_end;
+		
+		private string _o_day;
+		
+		private string _o_location;
+		
+		private string _o_description;
+		
+		private EntitySet<volunteer> _volunteers;
+		
+		private EntitySet<volunteer_schedule> _volunteer_schedules;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Ono_idChanging(int value);
+    partial void Ono_idChanged();
+    partial void Ono_nameChanging(string value);
+    partial void Ono_nameChanged();
+    partial void Ono_dateChanging(string value);
+    partial void Ono_dateChanged();
+    partial void Ono_startChanging(string value);
+    partial void Ono_startChanged();
+    partial void Ono_endChanging(string value);
+    partial void Ono_endChanged();
+    partial void Ono_dayChanging(string value);
+    partial void Ono_dayChanged();
+    partial void Ono_locationChanging(string value);
+    partial void Ono_locationChanged();
+    partial void Ono_descriptionChanging(string value);
+    partial void Ono_descriptionChanged();
+    #endregion
+		
+		public volunteer_opportunity()
+		{
+			this._volunteers = new EntitySet<volunteer>(new Action<volunteer>(this.attach_volunteers), new Action<volunteer>(this.detach_volunteers));
+			this._volunteer_schedules = new EntitySet<volunteer_schedule>(new Action<volunteer_schedule>(this.attach_volunteer_schedules), new Action<volunteer_schedule>(this.detach_volunteer_schedules));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_o_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int o_id
+		{
+			get
+			{
+				return this._o_id;
+			}
+			set
+			{
+				if ((this._o_id != value))
+				{
+					this.Ono_idChanging(value);
+					this.SendPropertyChanging();
+					this._o_id = value;
+					this.SendPropertyChanged("o_id");
+					this.Ono_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_o_name", DbType="VarChar(150)")]
+		public string o_name
+		{
+			get
+			{
+				return this._o_name;
+			}
+			set
+			{
+				if ((this._o_name != value))
+				{
+					this.Ono_nameChanging(value);
+					this.SendPropertyChanging();
+					this._o_name = value;
+					this.SendPropertyChanged("o_name");
+					this.Ono_nameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_o_date", DbType="VarChar(50)")]
+		public string o_date
+		{
+			get
+			{
+				return this._o_date;
+			}
+			set
+			{
+				if ((this._o_date != value))
+				{
+					this.Ono_dateChanging(value);
+					this.SendPropertyChanging();
+					this._o_date = value;
+					this.SendPropertyChanged("o_date");
+					this.Ono_dateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_o_start", DbType="VarChar(50)")]
+		public string o_start
+		{
+			get
+			{
+				return this._o_start;
+			}
+			set
+			{
+				if ((this._o_start != value))
+				{
+					this.Ono_startChanging(value);
+					this.SendPropertyChanging();
+					this._o_start = value;
+					this.SendPropertyChanged("o_start");
+					this.Ono_startChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_o_end", DbType="VarChar(50)")]
+		public string o_end
+		{
+			get
+			{
+				return this._o_end;
+			}
+			set
+			{
+				if ((this._o_end != value))
+				{
+					this.Ono_endChanging(value);
+					this.SendPropertyChanging();
+					this._o_end = value;
+					this.SendPropertyChanged("o_end");
+					this.Ono_endChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_o_day", DbType="VarChar(50)")]
+		public string o_day
+		{
+			get
+			{
+				return this._o_day;
+			}
+			set
+			{
+				if ((this._o_day != value))
+				{
+					this.Ono_dayChanging(value);
+					this.SendPropertyChanging();
+					this._o_day = value;
+					this.SendPropertyChanged("o_day");
+					this.Ono_dayChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_o_location", DbType="VarChar(150)")]
+		public string o_location
+		{
+			get
+			{
+				return this._o_location;
+			}
+			set
+			{
+				if ((this._o_location != value))
+				{
+					this.Ono_locationChanging(value);
+					this.SendPropertyChanging();
+					this._o_location = value;
+					this.SendPropertyChanged("o_location");
+					this.Ono_locationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_o_description", DbType="VarChar(250)")]
+		public string o_description
+		{
+			get
+			{
+				return this._o_description;
+			}
+			set
+			{
+				if ((this._o_description != value))
+				{
+					this.Ono_descriptionChanging(value);
+					this.SendPropertyChanging();
+					this._o_description = value;
+					this.SendPropertyChanged("o_description");
+					this.Ono_descriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="volunteer_opportunity_volunteer", Storage="_volunteers", ThisKey="o_id", OtherKey="v_opportunityId")]
+		public EntitySet<volunteer> volunteers
+		{
+			get
+			{
+				return this._volunteers;
+			}
+			set
+			{
+				this._volunteers.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="volunteer_opportunity_volunteer_schedule", Storage="_volunteer_schedules", ThisKey="o_id", OtherKey="o_id")]
+		public EntitySet<volunteer_schedule> volunteer_schedules
+		{
+			get
+			{
+				return this._volunteer_schedules;
+			}
+			set
+			{
+				this._volunteer_schedules.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_volunteers(volunteer entity)
+		{
+			this.SendPropertyChanging();
+			entity.volunteer_opportunity = this;
+		}
+		
+		private void detach_volunteers(volunteer entity)
+		{
+			this.SendPropertyChanging();
+			entity.volunteer_opportunity = null;
+		}
+		
+		private void attach_volunteer_schedules(volunteer_schedule entity)
+		{
+			this.SendPropertyChanging();
+			entity.volunteer_opportunity = this;
+		}
+		
+		private void detach_volunteer_schedules(volunteer_schedule entity)
+		{
+			this.SendPropertyChanging();
+			entity.volunteer_opportunity = null;
 		}
 	}
 }
