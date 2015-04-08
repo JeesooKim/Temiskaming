@@ -41,7 +41,7 @@
 </style>
 
 
-@section css{   
+@*@section css{   
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -50,10 +50,10 @@
             $("#accordion").accordion();
         });
     </script>
-}
+}*@
 
 <h2>Hospital Directory</h2>
-<div id="accordion">
+@*<div id="accordion">*@
     <ul id="accordionCSS">
         @foreach (var item in Model)
         {
@@ -81,7 +81,7 @@
               </li>
         }
         </ul>
-</div>
+@*</div>*@@*end of #accordion*@
 
 @*<div id="staff_detail"></div>*@
 
