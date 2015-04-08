@@ -30,9 +30,11 @@ namespace Temiskaming.Controllers
         {
             ViewBag.Group = "ContactUs";
 
-            var staffs = from s in objDir.getStaff()
-                         where s.staff_departmentId == departmentId
-                         select s;
+            var staffs = objDir.getStaffByDepartmentID(departmentId);
+            
+            //var staffs = from s in objDir.getStaff()
+            //             where s.staff_departmentId == departmentId
+            //             select s;
             //var department = from t in objDir.getStaff()
             //                 where t.staff_departmentId==departmentId
             //                 select t.staff_departmentName.Distinct();

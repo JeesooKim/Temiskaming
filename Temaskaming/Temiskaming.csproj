@@ -1041,6 +1041,7 @@
     <Content Include="Views\Volunteers\Index.cshtml" />
     <Content Include="Views\Volunteers\Form.cshtml" />
     <Content Include="Views\Volunteers\Thanks.cshtml" />
+    <Content Include="Views\Directory\_staffIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
