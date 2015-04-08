@@ -16,10 +16,26 @@ namespace Temiskaming.Controllers
 
 
 
-        public ActionResult FAQ(string search)
+        public ActionResult index(string searchString)
         {
-            var Fa = objFAQ.getFAQ();
-            ViewBag.Group = "FAQ";
+          
+            if(searchString != null)
+            {
+                
+            }
+            else
+            {
+
+            };
+            
+
+            //REFERENCE http://stackoverflow.com/questions/5374481/like-operator-in-linq
+            var Fa = from q in objFAQ.getFAQ() select q; 
+
+            if(!string.IsNullOrEmpty(searchString))
+            {
+                Fa = Fa.Where(q => q.Question.Contains(searchString));
+            }
             return View(Fa);
         }
 
