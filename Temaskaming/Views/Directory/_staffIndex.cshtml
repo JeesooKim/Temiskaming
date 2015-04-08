@@ -1,16 +1,60 @@
-﻿@model Temiskaming.Models.staff
+﻿@model IEnumerable<Temiskaming.Models.staff>
 
-<h2>_staffList</h2>
+<h2>Staff List</h2>
 
 
-<h3>@Model.staff_fname @Model.staff_lname</h3>
+<div id="accordion">
+    @*style="float:left;">*@
+    @foreach (var item in Model)
+    {
+        <h3>@item.staff_fname @item.staff_lname</h3>
+        @*@Ajax.ActionLink(item.staff_lname, "staffDetails", "Directory", new { id = item.staff_id }, new AjaxOptions
+            {
+                HttpMethod = "Post",
+                UpdateTargetId = "staff_detail",
+                InsertionMode = InsertionMode.Replace
+            })*@
+        <div>
+            <p>
+                @*Added*@
+            <br />Position: @item.staff_position
+            <br />Phone: @item..staff_phone
+            <br />Extension:@item.staff_ext
+            <br />Email:@item.staff_email
 
-<p>
+        </p>
+    </div>
+    }
+
+    @*<div id="staff_detail" style="float:right"></div>
+        <div style="clear:both;" />*@
+    @Html.ActionLink("Collapse Staff Details", "Index", "Directory")
+</div>
+
+@*@section scripts{
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@
+
+@*//[Team2]Temiskaming-Hospital website Redesig Project @ Humber College
+    //Feature: Directory-Public
+    //File: staffIndex.cshtml
+    //Author: Jeesoo Kim
+    //March30, 2015*@
+
+
+@*@model Temiskaming.Models.staff
+
+<h2>_staffList</h2>*@
+
+
+@*<h3>@Model.staff_fname @Model.staff_lname</h3>*@
+
+@*<p>
     <br />Position: @Model.staff_position
     <br />Phone: @Model.staff_phone
     <br />Extension:@Model.staff_ext
     <br />Email:@Model.staff_email
-</p>
+</p>*@
 
 
 

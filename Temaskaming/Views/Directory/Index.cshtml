@@ -4,6 +4,43 @@
     ViewBag.Title = "Directory";
 }
 
+
+<style type="text/css">
+    #accordionCSS {
+        width: 100%;
+        /*width: 600px;*/
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+    }
+
+        #accordionCSS h2 {
+            font-size: 12pt;
+            margin: 0px;
+            padding: 10px;
+            background: #ccc;
+            border-bottom: 1px solid #fff;
+        }
+
+        #accordionCSS li div.contentCSS {
+            display: none;
+            padding: 10px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+
+        #accordionCSS li:hover div.contentCSS {
+            display: inherit;
+        }
+
+    /*.staff_list{
+           display: inherit;
+           position: relative;*/
+    }
+    /*<ul><li><h2></h2><div class="content"></div></li></ul>*/
+</style>
+
+
 @section css{   
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -17,30 +54,37 @@
 
 <h2>Hospital Directory</h2>
 <div id="accordion">
-    @foreach (var item in Model)
-    {
-        @*<li>*@
-        <h3>
-            @Ajax.ActionLink(item.d_name, "_staffIndex", "Directory", new { departmentId = item.d_id }, new AjaxOptions
+    <ul id="accordionCSS">
+        @foreach (var item in Model)
+        {
+          <li>
+            <h2>
+                @Ajax.ActionLink(item.d_name, "_staffIndex", "Directory", new { departmentId = item.d_id }, new AjaxOptions
                  {
                      HttpMethod = "Post",
                      UpdateTargetId = "staff_detail",
                      InsertionMode = InsertionMode.Replace
                  })
-        </h3>
-        <div>
-            <p>
-                Phone: @item.d_phone
-                <br />
-                Extension: @item.d_ext
-                <br />
-                Fax: @item.d_fax                
-            </p>
-        </div>
-    }
+            </h2>
+              <div class="contentCSS">
+                  <p>
+                      Phone: @item.d_phone
+                      <br />
+                      Extension: @item.d_ext
+                      <br />
+                      Fax: @item.d_fax
+                  </p>
+              </div>
+              <div id="staff_detail"></div>
+
+
+              </li>
+        }
+        </ul>
 </div>
-<br />
-<div id="staff_detail"></div>
+
+@*<div id="staff_detail"></div>*@
+
 @section Scripts{
     @Scripts.Render("~/bundles/jqueryval")
 }
