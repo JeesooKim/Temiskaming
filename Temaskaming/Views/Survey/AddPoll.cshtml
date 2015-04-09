@@ -1,5 +1,27 @@
-﻿@{
+﻿@model Temiskaming.Models.poll
+
+@{
     ViewBag.Title = "AddPoll";
 }
 
 <h2>AddPoll</h2>
+
+
+
+@using (Html.BeginForm())
+{
+
+    <br />
+    @Html.LabelFor(x => x.question)
+    @Html.TextBoxFor(x => x.question)
+    <br />
+    @Html.LabelFor(x => x.option1)
+    @Html.TextBoxFor(x => x.option1)
+    <br />
+    @Html.LabelFor(x => x.option2)
+    @Html.TextAreaFor(x => x.option2)
+    <br />
+    
+    <input type="submit" value="ADD" />
+
+}

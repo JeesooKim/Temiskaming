@@ -10,7 +10,7 @@ using System.Web.Mvc;
 namespace Temiskaming.Models
 {
 
-    [MetadataType(typeof(alertValidation))]
+    [MetadataType(typeof(surveyValidation))]
     public partial class poll
     {
 
