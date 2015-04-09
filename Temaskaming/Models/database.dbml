@@ -293,4 +293,15 @@
       <Association Name="Gift_OrderDetail" Member="OrderDetails" ThisKey="ItemId" OtherKey="ItemId" Type="OrderDetail" />
     </Type>
   </Table>
+  <Table Name="temismain.polls" Member="polls">
+    <Type Name="poll">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="question" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="option1" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="option2" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="choice1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="choice2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="published" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
 </Database>

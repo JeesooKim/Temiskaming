@@ -204,6 +204,7 @@
     <Compile Include="Models\cmsClass.cs" />
     <Compile Include="Models\cmsValidation.cs" />
     <Compile Include="Models\ContactFormClass.cs" />
+    <Compile Include="Models\ContactFormValidation.cs" />
     <Compile Include="Models\database.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -976,7 +977,6 @@
     <Content Include="Views\News\newsupdatePartial.cshtml" />
     <Content Include="Views\Appointment\BookAppointment.cshtml" />
     <Content Include="Views\Survey\Index.cshtml" />
-    <Content Include="Views\Survey\AddSurvey.cshtml" />
     <Content Include="Views\Chat\Display.cshtml" />
     <Content Include="Views\Chat\nChat.cshtml" />
     <Content Include="Views\Chat\ShowChat.cshtml" />
@@ -1042,6 +1042,10 @@
     <Content Include="Views\Volunteers\Form.cshtml" />
     <Content Include="Views\Volunteers\Thanks.cshtml" />
     <Content Include="Views\Directory\_staffIndex.cshtml" />
+    <Content Include="Views\Survey\PostedPoll.cshtml" />
+    <Content Include="Views\Survey\AddPoll.cshtml" />
+    <Content Include="Views\Survey\UpdatePoll.cshtml" />
+    <Content Include="Views\Survey\DeletePoll.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
