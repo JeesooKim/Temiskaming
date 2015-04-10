@@ -240,6 +240,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="chatLogs\01_04_20155_56_23PMtest_test.ca.txt" />
     <Content Include="chatLogs\chattest.txt" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />

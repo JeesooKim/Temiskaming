@@ -1,0 +1,5 @@
+2015-04-01 05:56:23 PM <em><b>(test@test.ca)</b>  has entered chat.</em><br />
+2015-04-01 05:57:21 PM <em><b>( NURSE)</b>  has entered chat.</em><br />
+<!--2015-04-01 05:57:29 PM--> <span class='nmessage'>(NURSE)</span> : Whaaaat<br />
+<!--2015-04-01 05:57:32 PM--> <span class='nmessage'>(NURSE)</span> : uuuuup<br />
+<em><b>()</b> has left chat.</em> <br />

@@ -18,7 +18,7 @@ namespace volunteers.Controllers
         //****************PUBLIC *****************//
         public ActionResult Index()
         {
-            //ViewBag.Group="Join Our Team";
+            ViewBag.Group="Join Our Team";
 
             //linq query to select the opportunities
             var opportunities = from o in objVol.getOpportunites()
@@ -29,7 +29,7 @@ namespace volunteers.Controllers
         public ActionResult Form()
         {//Reference: Course Material - Week 5 
 
-            //ViewBag.Group="Join Our Team";
+            ViewBag.Group="Join Our Team";
 
             var provList = new SelectList(new[] { 
                 "AB", "BC","MB", "NB","NL","NS","NT","NU","ON","PE", "QC","SK","YT",""});
@@ -53,12 +53,14 @@ namespace volunteers.Controllers
 
         public ActionResult Thanks()
         {
+            ViewBag.Group = "JoinOurTeam";
             return RedirectToAction("Form");
         }
 
         [HttpPost]
         public ActionResult Thanks(volnunteerValidation valid)
         {
+            ViewBag.Group = "JoinOurTeam";
             if (ModelState.IsValid)
             {
                 return PartialView(valid);
