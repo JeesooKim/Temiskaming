@@ -632,6 +632,13 @@
     <Content Include="Content\doc_style\jquery.dataTables.min.css" />
     <Content Include="Content\doc_style\jquery.dataTables_themeroller.css" />
     <Content Include="Content\donation.css" />
+    <Content Include="Content\Images\flower1.jpg" />
+    <Content Include="Content\Images\flower2.jpg" />
+    <Content Include="Content\Images\flower3.jpg" />
+    <Content Include="Content\Images\flower5.jpg" />
+    <Content Include="Content\Images\flower7.jpg" />
+    <Content Include="Content\Images\flower8.jpg" />
+    <Content Include="Content\Images\flower9.jpg" />
     <Content Include="Content\nchat.css" />
     <Content Include="Scripts\datepicker\lib\compressed\legacy.js" />
     <Content Include="Scripts\datepicker\lib\compressed\picker.date.js" />
