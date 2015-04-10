@@ -27,7 +27,7 @@ namespace Temiskaming.Models
         [Required(ErrorMessage = "Enter your last name")]
         public string elname { get; set; }
 
-        //parameters for message textfield + validation for empty field
+        //parameters for email textfield + validation for empty field+regular expression for email
         [DisplayName("Your email")]
         [Required(ErrorMessage = "Enter your email")]
         [RegularExpression(".+\\@.+\\..+", ErrorMessage = "Enter a valid Email")]

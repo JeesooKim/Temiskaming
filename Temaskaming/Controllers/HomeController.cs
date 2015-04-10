@@ -20,7 +20,15 @@ namespace Temiskaming.Controllers
         [Authorize]
         public ActionResult Admin()
         {
-            ViewBag.Group = "Admin";
+            if (User.IsInRole("Nurse"))
+            {
+                ViewBag.Group = "Nurse";
+            }
+            else
+            {
+                ViewBag.Group = "Admin";
+            }
+            
             return View();
         }
 

@@ -30,30 +30,31 @@ namespace Temiskaming.Models
                 return true;
             }
         }
+        // method which gets all Ecards
         public IQueryable<ecard> getEcards()
         {
-            //creating anonymous varible with value of instance of LINQ object
             var allEcards = objEcard.ecards.Select(x => x);
             return allEcards;
         }
+        // method which gets all Ecard images
         public IQueryable<ecardimage> getEcardImages()
         {
-            //creating anonymous varible with value of instance of LINQ object
             var allEcardImages = objEcard.ecardimages.Select(x => x);
             return allEcardImages;
         }
-        //method which gets a review from database by id
+        //method which gets Ecard by Id
         public ecard getEcardById(int _id)
         {
             var allEcards = objEcard.ecards.SingleOrDefault(x => x.Id == _id);
             return allEcards;
         }
+        //method which gets ecard images by id
         public ecardimage getEcardImageById(int _id)
         {
             var allImages = objEcard.ecardimages.SingleOrDefault(x => x.Id == _id);
             return allImages;
         }
-        //method which does update of review
+        //method which updates Ecard
         public bool commitUpdate(int _id, string _sname, string _rname, string _emessage, DateTime _mdate)
         {
             using (objEcard)
@@ -67,7 +68,7 @@ namespace Temiskaming.Models
                 return true;
             }
         }
-        //method which delets a review based on id
+        //method which deletes a Ecard based on id
         public bool commitDelete(int _id)
         {
             using (objEcard)
@@ -78,7 +79,7 @@ namespace Temiskaming.Models
                 return true;
             }
         }
-        //method which delets a review based on id
+        //method which deletes image based on id
         public bool commitImageDelete(int _id)
         {
             using (objEcard)

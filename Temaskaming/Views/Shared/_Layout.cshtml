@@ -45,7 +45,7 @@
             }
         </div>
         <div id="container">
-            @if (ViewBag.Group == "Admin")
+            @if (ViewBag.Group == "Admin" || ViewBag.Group == "Nurse")
             {
                 
                 <div id="adminContent">
@@ -71,6 +71,9 @@
                 <div id="giftBox">
                     <h2>Gift Shop</h2>
                 </div>
+                <div id="ecard_side">
+                    <h2>@Html.ActionLink("Send E-Card","SelectImage", "Ecard")</h2>
+                </div>
                 <div id="donateBox">
                     <h2>@Html.ActionLink("Donate", "Index", "Donation")</h2>
                 </div>
@@ -94,7 +97,7 @@
             <div id="fwrapper">
                 <nav>
                     <ul>
-                        <li><a href="#">Newsletter Signup</a></li>
+                        <li>@Html.ActionLink("Newsletter Signup", "EmailSignup", "EmailSignup")</li>
                         <li><a href="#">Survey</a></li>
                         <li>@Html.ActionLink("FAQ", "FAQ", "FAQ")</li>
                         <li><a href="#">Site Map</a></li>

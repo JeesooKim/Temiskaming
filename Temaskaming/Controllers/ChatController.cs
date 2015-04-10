@@ -129,6 +129,7 @@ namespace Temiskaming.Controllers
             return PartialView();
         }
 
+        [Authorize(Roles="Nurse")]
         public ActionResult nChat()
         {
             ViewBag.Group = "Nurse";

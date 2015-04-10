@@ -6,7 +6,7 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using System.Web.Mvc;
-
+// model used for ecard images
 namespace Temiskaming.Models
 {
 
@@ -18,7 +18,7 @@ namespace Temiskaming.Models
     [Bind(Exclude = "Id")]
     public class ecardimageValidation
     {
-        //parameters for sender name textbox + validation for empty field
+        //parameters for url path and error message for ecard images
         [DisplayName("URL")]
         [Required(ErrorMessage = "Select url")]
         public string urlpath { get; set; }
