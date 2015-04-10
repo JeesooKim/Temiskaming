@@ -16,12 +16,14 @@ namespace Temiskaming.Controllers
         // action result for page admin page showing table of Ecards
         public ActionResult AdminShowEcards()
         {
+            ViewBag.Group = "Admin";
             var card = objEcard.getEcards();
             return View(card);
         }
         // action result which displays the selected Ecard
         public ActionResult Display(int id)
         {
+            ViewBag.Group = "Admin";
             var card = objEcard.getEcardById(id);
             if (card == null)
             {
@@ -35,6 +37,7 @@ namespace Temiskaming.Controllers
         // action result which shows the card to be updated
         public ActionResult Update(int id)
         {
+            ViewBag.Group = "Admin";
             var card = objEcard.getEcardById(id);
             if (card == null)
             {
@@ -49,6 +52,7 @@ namespace Temiskaming.Controllers
         [HttpPost]
         public ActionResult Update(int id, ecard card)
         {
+            ViewBag.Group = "Admin";
             if (ModelState.IsValid)
             {
                 try
@@ -66,6 +70,7 @@ namespace Temiskaming.Controllers
         // action method which deletes Ecard from the database based on id 
         public ActionResult Delete(int id)
         {
+            ViewBag.Group = "Admin";
             var card = objEcard.getEcardById(id);
             if (card == null)
             {
@@ -81,6 +86,7 @@ namespace Temiskaming.Controllers
         //action result which shows all images to be edited
         public ActionResult EditImages()
         {
+            ViewBag.Group = "Admin";
             var cardimage = objEcard.getEcardImages();
             return View(cardimage);
         }
@@ -89,7 +95,7 @@ namespace Temiskaming.Controllers
         [HttpPost]
         public ActionResult EditImages(HttpPostedFileBase file, ecardimage cardimage)
         {
-
+            ViewBag.Group = "Admin";
             if (file.ContentLength > 0)
             {
                 var fileName = Path.GetFileName(file.FileName);
@@ -107,6 +113,7 @@ namespace Temiskaming.Controllers
         //action result which deletes ecard image from database
         public ActionResult DeleteImage(int id)
         {
+            ViewBag.Group = "Admin";
             var card = objEcard.getEcardImageById(id);
             if (card == null)
             {
@@ -122,6 +129,7 @@ namespace Temiskaming.Controllers
         // action result which displays not found view in case of the error
         public ActionResult NotFound()
         {
+            ViewBag.Group = "Admin";
             return View();
         }
     }
