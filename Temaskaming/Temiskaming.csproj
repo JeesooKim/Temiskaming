@@ -240,6 +240,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="chatLogs\01_04_20155_56_23PMtest_test.ca.txt" />
     <Content Include="chatLogs\chattest.txt" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -628,17 +629,6 @@
     <Content Include="Content\datatables.extensions\TableTools\images\print_hover.png" />
     <Content Include="Content\datatables.extensions\TableTools\images\xls.png" />
     <Content Include="Content\datatables.extensions\TableTools\images\xls_hover.png" />
-    <Content Include="Content\doc_style\jquery.dataTables.css" />
-    <Content Include="Content\doc_style\jquery.dataTables.min.css" />
-    <Content Include="Content\doc_style\jquery.dataTables_themeroller.css" />
-    <Content Include="Content\donation.css" />
-    <Content Include="Content\Images\flower1.jpg" />
-    <Content Include="Content\Images\flower2.jpg" />
-    <Content Include="Content\Images\flower3.jpg" />
-    <Content Include="Content\Images\flower5.jpg" />
-    <Content Include="Content\Images\flower7.jpg" />
-    <Content Include="Content\Images\flower8.jpg" />
-    <Content Include="Content\Images\flower9.jpg" />
     <Content Include="Content\nchat.css" />
     <Content Include="Scripts\datepicker\lib\compressed\legacy.js" />
     <Content Include="Scripts\datepicker\lib\compressed\picker.date.js" />
@@ -825,6 +815,8 @@
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery.dataTables.js" />
     <Content Include="Scripts\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery.mobile-1.4.5.js" />
+    <Content Include="Scripts\jquery.mobile-1.4.5.min.js" />
     <Content Include="Scripts\menu.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\picker.date.js" />
@@ -906,6 +898,7 @@
     <None Include="Properties\PublishProfiles\Temiskaming.pubxml" />
     <Content Include="Scripts\chat.js" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Scripts\jquery.mobile-1.4.5.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
