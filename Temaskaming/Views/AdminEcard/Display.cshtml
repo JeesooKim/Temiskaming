@@ -5,9 +5,12 @@
 }
 
 <h2>View Ecard</h2>
+@*link to go see all eards*@
 <p>@Html.ActionLink("Go back to all Ecards", "AdminShowEcards", "AdminEcard")</p>
+@*image for ecard*@
 <div class="thumb1" style="background-image:url('@Url.Content(Model.urlpath)')"></div>
 <div id="ecard_form">
+    @*table to show all ecards*@
     <table id="ecard_table">
         <tr>
             <td>

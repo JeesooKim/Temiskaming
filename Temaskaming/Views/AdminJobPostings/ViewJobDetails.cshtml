@@ -3,11 +3,14 @@
     @Scripts.Render("~/bundles/jqueryval")
 }
 <h2>Update Job Posting</h2>
+@*action link to view job postings*@
 @Html.ActionLink("Go back to viewing job postings", "AdminShowJobPostings", "AdminJobPostings")
 @using (Html.BeginForm())
-{
+{   
+    @*table to show job postings*@
     <table class="job_post_form">
         <tr>
+            @*label, textbox and validation for jobtitle*@
             <th>
                 @Html.LabelFor(x => x.jobtitle)
             </th>
@@ -18,6 +21,7 @@
             </td>
         </tr>
         <tr>
+            @*label, textarea and validation for jobdescription*@
             <th>
                 @Html.LabelFor(x => x.jobdescr)
             </th>
@@ -27,6 +31,7 @@
             </td>
         </tr>
         <tr>
+            @*label, textbox and validation for posted date*@
             <th>
                 @Html.LabelFor(x => x.posteddate)
             </th>
@@ -36,6 +41,7 @@
             </td>
         </tr>
         <tr>
+            @*label, textbox and validation for qualifications*@
             <th>
                 @Html.LabelFor(x => x.qualifications)
             </th>
@@ -45,6 +51,7 @@
             </td>
         </tr>
         <tr>
+            @*label, textbox and validation for duration*@
             <th>
                 @Html.LabelFor(x => x.duration)
             </th>

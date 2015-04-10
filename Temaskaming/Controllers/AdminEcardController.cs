@@ -91,7 +91,7 @@ namespace Temiskaming.Controllers
             return View(cardimage);
         }
 
-        //action result which on post inserts the image into the datdabase
+        //action result which on post inserts the image into the database
         [HttpPost]
         public ActionResult EditImages(HttpPostedFileBase file, ecardimage cardimage)
         {
