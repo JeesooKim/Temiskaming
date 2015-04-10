@@ -96,7 +96,7 @@ namespace Temiskaming.Controllers
         public ActionResult EditImages(HttpPostedFileBase file, ecardimage cardimage)
         {
             ViewBag.Group = "Admin";
-            if (file.ContentLength > 0)
+            if (file != null)
             {
                 var fileName = Path.GetFileName(file.FileName);
                 var path = Path.Combine(Server.MapPath("~/Content/Images"), fileName);
