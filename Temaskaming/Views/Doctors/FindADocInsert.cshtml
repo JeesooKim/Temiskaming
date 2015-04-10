@@ -21,8 +21,7 @@
             <td>@Html.ValidationMessageFor(model => model.lname, "*")</td>
         </tr>
         <tr>
-            <td>Status</td>
-            @*<td>@Html.LabelFor(model => model.status)</td><td>@Html.TextBoxFor(model => model.status)</td>*@
+            <td>Status</td>            
             <td>
                 @Html.DropDownListFor(model => model.status, new[] {
                             //new SelectListItem(){Text ="Choose" ,Value = "default", Selected= true},
@@ -95,11 +94,11 @@
 <p>@Html.ActionLink("Back to List", "FindADocAdmin")</p>
 
 @section Scripts{
-
     @Scripts.Render("~/bundles/jqueryval")
 }
 @*added on March 18, 2015*@
-@*[Team2]Temiskaming-Hospital website Dedesign Project @ Humber college
-    Feature: Find a doctor
+@*[Team2]Temiskaming-Hospital Website Redesign Project @ Humber college
+    Feature: Find a doctor - Admin
+    File: FindADocInsert.cshtml
     Author: Jeesoo Kim
     Feb 17, 2015*@

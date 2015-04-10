@@ -29,7 +29,7 @@ namespace Temiskaming.Controllers
         public ActionResult _staffIndex(int departmentId)
         {
             ViewBag.Group = "ContactUs";
-
+            
             var staffs = from s in objDir.getStaff()
                          where s.staff_departmentId == departmentId
                          select s;
@@ -39,7 +39,7 @@ namespace Temiskaming.Controllers
 
             if (staffs == null)
             {
-                return PartialView("NotFound");
+                return PartialView("NotFound_P");
             }
             else
             {
@@ -307,7 +307,7 @@ namespace Temiskaming.Controllers
 }
 
 //[Team2]Temiskaming-Hospital website Redesign Project @ Humber College
-//Feature: Directory
+//Feature: Directory -Controller
 //File: directoryController.cs
 //Author: Jeesoo Kim
 //March30, 2015s

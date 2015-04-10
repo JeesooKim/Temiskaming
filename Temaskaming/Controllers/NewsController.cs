@@ -14,6 +14,7 @@ namespace Temiskaming.Controllers
         NewsClass objNews = new NewsClass();
         public ActionResult Index()
         {
+            ViewBag.Group = "AboutUs";
             var news = objNews.getNews();
             return View(news);
         }

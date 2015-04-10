@@ -1,29 +1,26 @@
 ﻿@model IEnumerable<Temiskaming.Models.staff>
-<h2>Staff List in @Model.FirstOrDefault().staff_departmentName</h2>
 
-@*Ref1:http://forums.asp.net/t/1702524.aspx?Accessing+IEnumerable+Model+values+outside+the+foreach+at+Razor+view
-    Ref2:http://stackoverflow.com/questions/6703353/how-to-use-labelfor-on-a-strongly-typed-view-for-a-list*@
+<h2>Staff List</h2>
+@*in the department of @Model.FirstOrDefault().staff_departmentNam*@
 
-<ol>
-    @foreach (var item in Model)
-    {
-        <li>
-            <p><b>@item.staff_fname @item.staff_lname</b></p>
-            Position: @item.staff_position
-            <br />
-            Extension:@item.staff_ext
-            <br />
-            Email:@item.staff_email
-            <br />
-        </li>
-    }
-</ol>
+@foreach (var item in Model)
+{
+    <h4>@item.staff_fname @item.staff_lname</h4>
 
-<br />
+    <p>
+        Position: @item.staff_position
+        <br />Phone: @item.staff_phone
+        <br />Extension:@item.staff_ext
+        <br />Email:@item.staff_email
+        <br/>
+    </p>
+}
+
 @Html.ActionLink("Collapse Staff Details", "Index", "Directory")
 
-@*//[Team2]Temiskaming-Hospital website Redesign Project @ Humber College
+
+@*//[Team2]Temiskaming-Hospital Website Redesign Project @ Humber College
     //Feature: Directory-Public
-    //File: staffIndex.cshtml
+    //File: _staffIndex.cshtml (Partial)
     //Author: Jeesoo Kim
-    //March30, 2015*@
+    //March 30, 2015*@
