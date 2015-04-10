@@ -91,12 +91,12 @@ namespace Temiskaming.Controllers
             return View(cardimage);
         }
 
-        //action result which on post inserts the image into the datdabase
+        //action result which on post inserts the image into the database
         [HttpPost]
         public ActionResult EditImages(HttpPostedFileBase file, ecardimage cardimage)
         {
             ViewBag.Group = "Admin";
-            if (file.ContentLength > 0)
+            if (file != null)
             {
                 var fileName = Path.GetFileName(file.FileName);
                 var path = Path.Combine(Server.MapPath("~/Content/Images"), fileName);
