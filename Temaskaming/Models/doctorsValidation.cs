@@ -10,12 +10,12 @@ using System.Web.Mvc;
 
 namespace Temiskaming.Models
 {
+    //input validation class for Find a Doctor feature
+
     [MetadataType(typeof(doctorsValidation))]
     public partial class doctor
     {
-
     }
-
 
     [Bind(Exclude = "id")]
     public partial class doctorsValidation
@@ -75,6 +75,7 @@ namespace Temiskaming.Models
 }
 
 //[Team2]Temiskaming-Hospital website Redesign Project @ Humber college
-//Feature: Find a doctor
+//Feature: Find a doctor - Model
+//File: doctorsValidation.cs
 //Author: Jeesoo Kim
 // Feb 17, 2015
