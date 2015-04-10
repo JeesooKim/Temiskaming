@@ -1046,6 +1046,8 @@
     <Content Include="Views\Survey\AddPoll.cshtml" />
     <Content Include="Views\Survey\UpdatePoll.cshtml" />
     <Content Include="Views\Survey\DeletePoll.cshtml" />
+    <Content Include="Views\Directory\NotFound.cshtml" />
+    <Content Include="Views\Directory\NotFound_P.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

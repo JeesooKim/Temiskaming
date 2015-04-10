@@ -40,7 +40,8 @@ namespace Temiskaming.Models
         }
 
         //method: Update an opportunity selected
-        public bool commitUpdateO(int _id, string _name, DateTime _date, TimeSpan _start, TimeSpan _end, string _day, string _location, string _description)
+        //public bool commitUpdateO(int _id, string _name, DateTime _date, TimeSpan _start, TimeSpan _end, string _day, string _location, string _description)
+        public bool commitUpdateO(int _id, string _name, string _date, string _start, string _end, string _day, string _location, string _description)
         {
             using(objVolunteers){
                 var objUpOpp = objVolunteers.volunteer_opportunities.SingleOrDefault(x => x.o_id == _id);
@@ -196,16 +197,15 @@ namespace Temiskaming.Models
 
         //method: Update a schedule selected
         //for a selected volunteer, schedule will be updated for the volunteer 
-        public bool commitUpdateS(int _id, int _oppId, int _volId, string _status, string _detail, string _day)
+        public bool commitUpdateS(int _id, int _oppId, int _volId, string _status)//, string _day)
         {
             using (objVolunteers)
             {
                 var objUpSch = objVolunteers.volunteer_schedules.SingleOrDefault(x => x.s_id == _id);
                 objUpSch.o_id = _oppId;
                 objUpSch.v_id = _volId;
-                objUpSch.s_status = _status;
-                objUpSch.s_detail = _detail;
-                objUpSch.s_day = _day;
+                objUpSch.s_status = _status;                
+                //objUpSch.s_day = _day;
 
                 objVolunteers.SubmitChanges();
                 return true;
