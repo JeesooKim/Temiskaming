@@ -4,6 +4,10 @@
     ViewBag.Title = "Alerts List";
 }
 
+<br />
+
+@Html.ActionLink("Click here to add a New Alert", "AddAlert")
+
 <h2>All alerts</h2>
 
 @foreach (var record in Model)
@@ -19,6 +23,6 @@
  
   <br />
     @Html.ActionLink("Update", "UpdateAlert", new { id = record.alertId})
-                           
-                                                     
+    @Html.ActionLink("Delete", "DeleteAlert", new { id = record.alertId })
+
 }
