@@ -22,32 +22,20 @@ namespace Temiskaming.Controllers
             return View();
         }
 
-        public ActionResult DonationRev(donationsPublic don)
-        {
-            if (don.id != null)
-            {
-                return View();
-            }
-            else
-            {
-                return View("Index");
-            }
-        }
-
-        public ActionResult SubmitDonation()
+        public ActionResult DonationRev()
         {
             return View("Index");
         }
 
         [HttpPost]
-        public ActionResult SubmitDonation(donationsPublic don)
+        public ActionResult DonationRev(donationsPublic don)
         {
             if (ModelState.IsValid)
             {
                 objDon.makeDonation(don);
                 var donation = objDon.getLatestDonation();
                 don.id = donation.id;
-                return View("DonationRev", don);
+                return View(don);
             }
             else
             {

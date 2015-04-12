@@ -1,0 +1,23 @@
+﻿@model Temiskaming.Models.poll
+
+@{
+    ViewBag.Title = "DeletePoll";
+}
+
+<h2>DeletePoll</h2>
+
+@using (@Html.BeginForm())
+{
+    @Html.LabelFor(x => x.question)
+    @Html.DisplayFor(x => x.question)
+    <br />
+    @Html.LabelFor(x => x.option1)
+    @Html.DisplayFor(x => x.option1)
+    <br />
+    @Html.LabelFor(x => x.option2)
+    @Html.DisplayFor(x => x.option2)
+    <br />
+
+    <input type="submit" value="Confirm Delete" />
+
+}

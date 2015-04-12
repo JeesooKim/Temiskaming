@@ -23,9 +23,11 @@
     <br/>
     @Html.LabelFor(x=>x.time_admit)
     @Html.TextBoxFor(x=>x.time_admit)
+    @Html.ValidationMessageFor(x=>x.time_admit)
     <br/>
     @Html.LabelFor(x=>x.time_doctor)
     @Html.TextBoxFor(x=>x.time_doctor, new {@Value = currentTime})
+    @Html.ValidationMessageFor(x=>x.time_doctor)
     <br/><br/>
     <input type="submit" value="Update"/>
 }

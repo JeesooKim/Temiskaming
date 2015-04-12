@@ -7,23 +7,22 @@ namespace Temiskaming.Models
 {
     public class linqjobsClass
     {
-        //creating an instance of LINQ object
         databaseDataContext objJob = new databaseDataContext();
 
+        //method which gets job postings from database
         public IQueryable<job> getJobs()
         {
-            //creating varialble to select all job postings 
             var allJobs = objJob.jobs.Select(x => x);
             return allJobs;
         }
+        //method which gets job applications from database
         public IQueryable<jobapplication> getApplications()
         {
-            //creating varialble to select all job applications 
             var allApplications = objJob.jobapplications.Select(x => x);
             return allApplications;
         }
 
-        //method which inserts jobapplication
+        //method which inserts job application to database
         public bool commitInsertApplic(jobapplication japplic)
         {
             using (objJob)
@@ -98,7 +97,7 @@ namespace Temiskaming.Models
             }
         }
 
-        //method which comits job application
+        //method which updates job application
         public bool commitUpdateApp(int _id, string _anotes, string _jobtitle, string _aname, string _aphone, string _aemail, string _aresume, string _acoverletter)
         {
             using (objJob)

@@ -204,6 +204,7 @@
     <Compile Include="Models\cmsClass.cs" />
     <Compile Include="Models\cmsValidation.cs" />
     <Compile Include="Models\ContactFormClass.cs" />
+    <Compile Include="Models\ContactFormValidation.cs" />
     <Compile Include="Models\database.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -239,6 +240,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="chatLogs\01_04_20155_56_23PMtest_test.ca.txt" />
     <Content Include="chatLogs\chattest.txt" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -627,10 +629,6 @@
     <Content Include="Content\datatables.extensions\TableTools\images\print_hover.png" />
     <Content Include="Content\datatables.extensions\TableTools\images\xls.png" />
     <Content Include="Content\datatables.extensions\TableTools\images\xls_hover.png" />
-    <Content Include="Content\doc_style\jquery.dataTables.css" />
-    <Content Include="Content\doc_style\jquery.dataTables.min.css" />
-    <Content Include="Content\doc_style\jquery.dataTables_themeroller.css" />
-    <Content Include="Content\donation.css" />
     <Content Include="Content\nchat.css" />
     <Content Include="Scripts\datepicker\lib\compressed\legacy.js" />
     <Content Include="Scripts\datepicker\lib\compressed\picker.date.js" />
@@ -817,6 +815,8 @@
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery.dataTables.js" />
     <Content Include="Scripts\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery.mobile-1.4.5.js" />
+    <Content Include="Scripts\jquery.mobile-1.4.5.min.js" />
     <Content Include="Scripts\menu.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\picker.date.js" />
@@ -898,6 +898,7 @@
     <None Include="Properties\PublishProfiles\Temiskaming.pubxml" />
     <Content Include="Scripts\chat.js" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Scripts\jquery.mobile-1.4.5.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
@@ -976,7 +977,6 @@
     <Content Include="Views\News\newsupdatePartial.cshtml" />
     <Content Include="Views\Appointment\BookAppointment.cshtml" />
     <Content Include="Views\Survey\Index.cshtml" />
-    <Content Include="Views\Survey\AddSurvey.cshtml" />
     <Content Include="Views\Chat\Display.cshtml" />
     <Content Include="Views\Chat\nChat.cshtml" />
     <Content Include="Views\Chat\ShowChat.cshtml" />
@@ -1041,6 +1041,13 @@
     <Content Include="Views\Volunteers\Index.cshtml" />
     <Content Include="Views\Volunteers\Form.cshtml" />
     <Content Include="Views\Volunteers\Thanks.cshtml" />
+    <Content Include="Views\Directory\_staffIndex.cshtml" />
+    <Content Include="Views\Survey\PostedPoll.cshtml" />
+    <Content Include="Views\Survey\AddPoll.cshtml" />
+    <Content Include="Views\Survey\UpdatePoll.cshtml" />
+    <Content Include="Views\Survey\DeletePoll.cshtml" />
+    <Content Include="Views\Directory\NotFound.cshtml" />
+    <Content Include="Views\Directory\NotFound_P.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

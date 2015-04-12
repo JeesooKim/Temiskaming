@@ -16,12 +16,14 @@ namespace Temiskaming.Controllers
         //action result which shows all email signups
         public ActionResult AdminShowSignups()
         {
+            ViewBag.Group = "Admin";
             var signups = objSignup.getSignups();
             return View(signups);
         }
-        // action method which deletes Ecard from the database based on id 
+        // action method which deletes email signup based on id 
         public ActionResult Delete(int id)
         {
+            ViewBag.Group = "Admin";
             var card = objSignup.getSignupsbyID(id);
             if (card == null)
             {
@@ -33,8 +35,10 @@ namespace Temiskaming.Controllers
                 return RedirectToAction("AdminShowSignups");
             }
         }
+        // action method which shows an email signup to be updated
         public ActionResult Update(int id)
         {
+            ViewBag.Group = "Admin";
             var email = objSignup.getSignupsbyID(id);
             if (email == null)
             {
@@ -45,10 +49,11 @@ namespace Temiskaming.Controllers
                 return View(email);
             }
         }
-        // action result of post method of update Ecard if the input is valid
+        // action result of post method which updates email signup if the data is valid
         [HttpPost]
         public ActionResult Update(int id, email_signup email)
         {
+            ViewBag.Group = "Admin";
             if (ModelState.IsValid)
             {
                 try

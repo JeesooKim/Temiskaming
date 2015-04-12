@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace Temiskaming.Controllers
 {
-    public class AppointmentController : Controller
+    public class AppointmentController : Controller 
     {
         //
         // GET: /Appointment/

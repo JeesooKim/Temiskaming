@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Temiskaming.Models.staff>
+
+<h2>Staff List</h2>
+@*in the department of @Model.FirstOrDefault().staff_departmentNam*@
+
+@foreach (var item in Model)
+{
+    <h4>@item.staff_fname @item.staff_lname</h4>
+
+    <p>
+        Position: @item.staff_position
+        <br />Phone: @item.staff_phone
+        <br />Extension:@item.staff_ext
+        <br />Email:@item.staff_email
+        <br/>
+    </p>
+}
+
+@Html.ActionLink("Collapse Staff Details", "Index", "Directory")
+
+
+@*//[Team2]Temiskaming-Hospital Website Redesign Project @ Humber College
+    //Feature: Directory-Public
+    //File: _staffIndex.cshtml (Partial)
+    //Author: Jeesoo Kim
+    //March 30, 2015*@

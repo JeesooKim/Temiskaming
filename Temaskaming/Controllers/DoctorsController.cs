@@ -11,12 +11,11 @@ namespace FindADoctor.Controllers
 {
     public class DoctorsController : Controller
     {
-        //
+        //Controller to manage the hospital doctors and search for doctor(s)
         // GET: /Doctors/
-        doctorClass objDoc = new doctorClass();
+
         //initiating a doctorClass object, objDoc, which is from a linq object in the model
-
-
+        doctorClass objDoc = new doctorClass();
 
         //Public Index->SEARCH FOR DOCTORS (FIND A DOCTOR)
         //Ref: http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
@@ -41,7 +40,7 @@ namespace FindADoctor.Controllers
             //the above lines are LINQ query to select the doctors, created by the IndexMethod
             //The query is defined at this point, but hasn't been run against the data store.
 
-            if(searchString != null)
+            if (searchString != null)
             {
                 page = 1;
             }
@@ -61,7 +60,7 @@ namespace FindADoctor.Controllers
             //AddRange: the method of the generic List collection to add all the distinct medical departments to the list. Without the Distinct modifier, duplicate departments would be added.
 
             ViewBag.medicalDepartment = new SelectList(DepartLst);
-            
+
             switch (sortOrder)
             {
                 case "name_desc":
@@ -88,12 +87,12 @@ namespace FindADoctor.Controllers
             //The following code shows how to check the medicalDepartment parameter. If it's not empty, the code further contains the doctors query to limit the selected doctors to the specified medical department.
             if (!string.IsNullOrEmpty(medicalDepartment))
             {
-                doctors= doctors.Where(x => x.department == medicalDepartment);
+                doctors = doctors.Where(x => x.department == medicalDepartment);
             }
             return View(doctors);
         }// End of Index
-        
-        
+
+
         public ActionResult Details(int id)
         {
             ViewBag.Group = "ContactUs";
@@ -111,7 +110,7 @@ namespace FindADoctor.Controllers
         //*************** Below, action methods are only for Admin-side *****************//
         // Admin index page will be different and added below.
         // Insert, Update, and Delete
-       
+
         public ActionResult FindADocAdmin(string sortOrder, string currentFilter, string medicalDepartment, string searchString, int? page)
         {//Admin Index page:this action method is basically the same as the public index page 
             //but three more options added, update and delete for each row (doctor), and insert
@@ -140,7 +139,7 @@ namespace FindADoctor.Controllers
             {
                 searchString = currentFilter;
             }
-            
+
             var DepartLst = new List<string>();
             //this creates a List object to hold medical departments from the database.
             //the following code is a LINQ query that retrieves all the medical departments from the db.
@@ -180,13 +179,13 @@ namespace FindADoctor.Controllers
             if (!string.IsNullOrEmpty(medicalDepartment))
             {
                 doctors = doctors.Where(x => x.department == medicalDepartment);
-            }            
+            }
             return View(doctors);
         }
 
         public ActionResult FindADocDetails(int id)
         {
-            ViewBag.Group = "Admin";   
+            ViewBag.Group = "Admin";
             var doc = objDoc.getDoctorByID(id);
             if (doc == null)
             {
@@ -201,7 +200,7 @@ namespace FindADoctor.Controllers
         public ActionResult FindADocInsert()
         {//when firstly Insert page is loaded...this action method is for Admin
             ViewBag.Group = "Admin";
-            return View();  
+            return View();
         }
 
 
@@ -289,12 +288,11 @@ namespace FindADoctor.Controllers
                 return View();
             }
         }
-
-        //[Team2]Temiskaming-Hospital website Dedesign Project @ Humber college
-        //Feature: Find a doctor
-        //Author: Jeesoo Kim
-        // Feb 17, 2015
-
         //Sorting/Paginagion for the Index action method : referenced and updated on March17, 2015
-        }
+    }
 }
+//[Team2]Temiskaming-Hospital Website Redesign Project @ Humber college
+//Feature: Find a doctor -Controller
+//File: DoctorsController.cs
+//Author: Jeesoo Kim
+// Feb 17, 2015

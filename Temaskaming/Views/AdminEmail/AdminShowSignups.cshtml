@@ -3,7 +3,7 @@
     ViewBag.Title = "AdminEmailSignups";
 }
 
-@*Table which displays all reviews *@
+@*Table which displays all email signups *@
 
 <table class="admin_email">
     <tr>
@@ -13,7 +13,7 @@
         <th>Option 1</th>
         <th>Option 2</th>
     </tr>
-    @* table row for each record of review *@
+    @* table row for each record of signups *@
     @foreach (var x in Model)
     {
         <tr>
@@ -26,11 +26,11 @@
             <td style="width:450px">
                 @Html.DisplayFor(model => x.eemail)
             </td>
-            @* link which goes to update view *@
+            @* link which goes to update signup *@
             <td>
                 @Html.ActionLink("Update", "Update", new { id = x.Id })
             </td>
-            @* link which deletes the review *@
+            @* link which deletes the signup *@
             <td>
                 @Html.ActionLink("Delete", "Delete", new { id = x.Id })
             </td>

@@ -20,7 +20,7 @@
         </tr>
         <tr>
             <td>@Html.LabelFor(x => x.amount)</td>
-            <td>@Convert.ToDecimal(Html.DisplayFor(x => x.amount)).ToString("#,###.00")</td>
+            <td>@Html.DisplayFor(x => x.amount)</td>
         </tr>
         <tr>
             <td>@Html.LabelFor(x => x.message)</td>

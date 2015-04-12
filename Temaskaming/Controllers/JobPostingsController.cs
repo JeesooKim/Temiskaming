@@ -15,6 +15,7 @@ namespace Temiskaming.Controllers
         //action method which shows all job postings
         public ActionResult ViewPostings()
         {
+            ViewBag.Group = "JoinOurTeam";
             var jobpostings = objJob.getJobs();
             return View(jobpostings);
         }
@@ -22,6 +23,7 @@ namespace Temiskaming.Controllers
         //action method which directs user to apply form for selected job
         public ActionResult ApplytoJob(string passjob)
         {
+            ViewBag.Group = "JoinOurTeam";
             @ViewBag.passjob = passjob;
             return View();
         }
@@ -30,7 +32,7 @@ namespace Temiskaming.Controllers
         [HttpPost]
         public ActionResult ApplytoJob(jobapplication valid)
         {
-
+            ViewBag.Group = "JoinOurTeam";
             if (ModelState.IsValid)
             {
                 try

@@ -17,9 +17,12 @@
 
 <h2>BookAppointment</h2>
 
+@using(@Html.BeginForm())
+{
+
 <label>Pick a Doctor</label>
 @Html.TextBoxFor(x => x.doctor_id, new { @id = "doc"})
-
+<br />
 <label>Pick a date</label>
 @Html.TextBoxFor(x => x.booking_date, new { @class = "datepicker" })
 <br />
@@ -28,8 +31,10 @@
 <br />
 @Html.LabelFor(x => x.phone )
 @Html.TextBoxFor(x => x.phone)
+<br /><br />
+    <input type="submit" value="submit" />
 
-
+}
 <script>
 
     @*This datepicker api is used from source : http://amsul.ca/pickadate.js/*@

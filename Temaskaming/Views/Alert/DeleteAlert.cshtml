@@ -1,5 +1,26 @@
-﻿@{
+﻿@model Temiskaming.Models.alert
+
+@{
     ViewBag.Title = "DeleteAlert";
 }
 
 <h2>DeleteAlert</h2>
+
+@using (@Html.BeginForm())
+{
+    @Html.LabelFor(x => x.alertTitle)
+    @Html.DisplayFor(x => x.alertTitle)
+    <br />
+    @Html.LabelFor(x => x.alertLevel)
+    @Html.DisplayFor(x => x.alertLevel)
+    <br />
+    @Html.LabelFor(x => x.alertDescription)
+    @Html.DisplayFor(x => x.alertDescription)
+    <br />
+    @Html.LabelFor(x => x.alertTimeline)
+    @Html.DisplayFor(x => x.alertTimeline)
+
+    <input type="submit" value="Confirm Delete" />
+
+
+}

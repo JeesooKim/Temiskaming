@@ -13,19 +13,16 @@
 <fieldset>
     <legend>About Doctor</legend>
     <table>
-        <tr>
-            @*<td>@Html.DisplayNameFor(x => x.status) : </td>*@
+        <tr>            
             <td>Status: </td>
             <td>@Html.DisplayFor(x => x.status)  </td>
         </tr>
-        <tr>
-            @*<td>@Html.DisplayNameFor(x => x.title):</td>*@ 
+        <tr>            
             <td>Title: </td>
             <td>@Html.DisplayFor(x => x.title) </td> 
         </tr>
         <tr>
-            @*<td>@Html.DisplayNameFor(x => x.department):</td>*@
-            <td>Department:</td>
+                       <td>Department:</td>
             <td> @Html.DisplayFor(x => x.department)</td>
         </tr>
         <tr>
@@ -37,8 +34,7 @@
             <td>@Html.DisplayFor(x => x.program)</td>
         </tr>
 
-        <tr>
-            @*<td>@Html.DisplayNameFor(x => x.bio): </td>*@
+        <tr>            
             <td>Brief Bio: </td>
             <td>@Html.DisplayFor(x => x.bio)</td>
         </tr>
@@ -48,23 +44,18 @@
     <legend>Contact Info</legend>
     <table>
         <tr>
-            @*<td>@Html.DisplayNameFor(x => x.email): </td>*@
             <td>Email: </td>
             <td>@Html.DisplayFor(x => x.email)</td></tr>
         <tr>
-            @*<td>@Html.DisplayNameFor(x => x.extension): </td>*@
             <td>Extension: </td>
             <td>@Html.DisplayFor(x => x.extension)</td></tr>
         <tr>
-            @*<td>@Html.DisplayNameFor(x => x.phone): </td>*@
             <td>Phone: </td>
             <td>@Html.DisplayFor(x => x.phone)</td></tr>
         <tr>
-            @*<td>@Html.DisplayNameFor(x => x.office): </td>*@
             <td>Office: Room#. </td>
             <td>@Html.DisplayFor(x => x.office)</td></tr>
         <tr>
-            @*<td>@Html.DisplayNameFor(x => x.office_hr): </td>*@
             <td>Office Hour: </td>
             <td>@Html.DisplayFor(x => x.office_hr)</td></tr>
     </table>
@@ -72,12 +63,12 @@
 <br/>
 
 <p>
-    @Html.ActionLink("Back to List", "Index", "Doctors") 
-    
+    @Html.ActionLink("Back to List", "Index", "Doctors")     
 </p>
 
 @*added on March 18, 2015*@
-@*[Team2]Temiskaming-Hospital website Redesign Project @ Humber college
-    Feature: Find a doctor
+@*[Team2]Temiskaming-Hospital Website Redesign Project @ Humber college
+    Feature: Find a doctor -Public
+    File: Details.cshtml
     Author: Jeesoo Kim
      Feb 17, 2015*@

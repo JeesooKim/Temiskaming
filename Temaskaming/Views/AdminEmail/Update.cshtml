@@ -3,16 +3,16 @@
 @{
     ViewBag.Title = "Update Entry: ";
 }
-@* form for updating reviews *@
+@* form for updating email signups *@
 <div id="email_form">
     @using (Html.BeginForm())
     {
         <table id="emailform">
-            @* hidden field for id of review *@
+            @* hidden field for id of signup *@
 
             @Html.HiddenFor(x => x.Id)
             <tr>
-                @*label, textbox and validation message for resort name*@
+                @*label, textbox and validation message for first name*@
                 <th>
                     @Html.LabelFor(x => x.ename)
                 </th>
@@ -22,7 +22,7 @@
                 </td>
             </tr>
             <tr>
-                @*label, textbox and validation message for country *@
+                @*label, textbox and validation message for last name *@
                 <th>
                     @Html.LabelFor(x => x.elname)
                 </th>
@@ -32,7 +32,7 @@
                 </td>
             </tr>
             <tr>
-                @*label, textbox and validation message for number of days stayed *@
+                @*label, textbox and validation message for email *@
                 <th>
                     @Html.LabelFor(x => x.eemail)
                 </th>
@@ -48,7 +48,7 @@
         @Html.ValidationSummary()
     }
 </div>
-@* link to go back to index page *@
+@* link to go back to admin email signups page *@
 <p>@Html.ActionLink("Back to all signups", "AdminShowSignups", "AdminEmail")</p>
 
 @section Scripts {

@@ -7,12 +7,12 @@
 <h2>Insert New Job Posting</h2>
 @Html.ActionLink("Go back to all Job Postings", "AdminShowJobPostings", "AdminJobPostings")
 
-@* form with controls and validation for them which adds records to review database *@
+@* form with controls and validation for them which adds new job posting *@
 @using (Html.BeginForm())
 {
     <table class="job_post_form">
         <tr>
-            @*label, textbox and validation message for sender *@
+            @*label, textbox and validation message for jobtitle *@
             <th>
                 @Html.LabelFor(model => model.jobtitle)
             </th>
@@ -22,7 +22,7 @@
             </td>
         </tr>
         <tr>
-            @*label, textbox and validation message for receiver *@
+            @*label, textarea and validation message for jobdescription *@
             <th>
                 @Html.LabelFor(model => model.jobdescr)
             </th>
@@ -32,7 +32,7 @@
             </td>
         </tr>
         <tr>
-            @*label, textbox and validation message for number of days stayed *@
+            @*label, textbox and validation message for posted date *@
             <th>
                 @Html.LabelFor(model => model.posteddate)
             </th>
@@ -42,7 +42,7 @@
             </td>
         </tr>
         <tr>
-            @*label, textbox and validation message for number of days stayed *@
+            @*label, textbox and validation message for qualifications *@
             <th>
                 @Html.LabelFor(model => model.qualifications)
             </th>
@@ -52,7 +52,7 @@
             </td>
         </tr>
         <tr>
-            @*label, textbox and validation message for number of days stayed *@
+            @*label, textbox and validation message for duration *@
             <th>
                 @Html.LabelFor(model => model.duration)
             </th>
@@ -66,7 +66,7 @@
             <td style="text-align:right"><input type="submit" value="Create New" /></td>
         </tr>
     </table>
-    @* submit button for inserting new review *@
+    @* submit button for inserting new job posting *@
     <br /> <br />
     @Html.ValidationSummary()
 }

@@ -2,9 +2,11 @@
 @{
     ViewBag.Title = "Edit images";
 }
+@*action link to go back to viewing all ecards*@
 <p>@Html.ActionLink("Go back to viewing Ecards", "AdminShowEcards", "AdminEcard")</p>
 
 <form action="" method="post" enctype="multipart/form-data">
+    @*table for uploading images*@
     <table class="upload_img">
         <tr>
             <td>
@@ -19,7 +21,7 @@
         </tr>
     </table>
 </form>
-
+@*images with links to delete them*@
 @foreach (var x in Model)
 {
     <div class="delete_image">

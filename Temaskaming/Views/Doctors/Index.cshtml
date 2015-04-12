@@ -12,11 +12,9 @@
    2. correction on 'Content/css/jquery.dataTables.css' for responsive table. March23
 *@
 
-@*<link rel="stylesheet" href="~/Content/bootstrap.min.css">*@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <link rel="stylesheet" href="~/Content/doc_style/jquery.dataTables.css" />
 <script type="text/javascript" src="~/Scripts/jquery.dataTables.min.js"></script>
-@*<script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>*@
 }
 
 <h2>Find a Doctor </h2>
@@ -24,7 +22,7 @@
 @using (Html.BeginForm("Index", "Doctors", FormMethod.Get))
 {
     /*Note:"the default BeginForm submits form data with a POST: parameters are passed in the HTTP message body and not in the URL as query strings."
-    *"HTTP Get: the form data is passed in the URL as query strings -> emabling users to bookmart the URL"  
+    *"HTTP Get: the form data is passed in the URL as query strings -> enabling users to bookmark the URL"  
     *"The W3C guidlines for the use of HTTP GET recommend to use GET when the action does not result in an update.
      March 17, 2015 */
     
@@ -66,7 +64,6 @@
         }
     </tbody>    
 </table>
-<br />
 
 <script>
     $(document).ready(function () {
@@ -83,7 +80,8 @@
     The jQuery search function is faster,and convenient because it gives the result simutaneously while the search key is entered. It just gives the result matching with any word at that moment.*@
 
 
-@*[Team2]Temiskaming-Hospital website Dedesign Project @ Humber college
-    Feature: Find a doctor
+@*[Team2]Temiskaming-Hospital Website Rededesign Project @ Humber college
+    Feature: Find a doctor - Public
+    File: Index.cshtml
     Author: Jeesoo Kim
      Feb 17, 2015*@

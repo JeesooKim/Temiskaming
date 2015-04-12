@@ -20,6 +20,7 @@ namespace Temiskaming.Models
     {
         [DisplayName("Patient's name: ")]
         [Required]
+        [StringLength(10, ErrorMessage = "The length of the name cannot exceed 10 characters")]
         public string name { get; set; }
 
 

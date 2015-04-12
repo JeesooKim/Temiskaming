@@ -16,6 +16,7 @@ namespace Temiskaming.Controllers
         // action result that shows all job postings
         public ActionResult AdminShowJobPostings()
         {
+            ViewBag.Group = "Admin";
             var jobpostings = objJob.getJobs();
             return View(jobpostings);
         }
@@ -23,6 +24,7 @@ namespace Temiskaming.Controllers
         // action result which shows all job applications
         public ActionResult ShowJobApp()
         {
+            ViewBag.Group = "Admin";
             var jobapps = objJob.getApplications();
             return View(jobapps);
         }
@@ -30,6 +32,7 @@ namespace Temiskaming.Controllers
         //action result which shows the form for new job posting to be created
         public ActionResult NewJob()
         {
+            ViewBag.Group = "Admin";
             return View();
         }
 
@@ -37,6 +40,7 @@ namespace Temiskaming.Controllers
         [HttpPost]
         public ActionResult NewJob(job validjob)
         {
+            ViewBag.Group = "Admin";
             if (ModelState.IsValid)
             {
                 try
@@ -55,6 +59,7 @@ namespace Temiskaming.Controllers
         //action result which shows selected job posting to be updated
         public ActionResult ViewJobDetails(int id)
         {
+            ViewBag.Group = "Admin";
             var job = objJob.getJobsById(id);
             if (job == null)
             {
@@ -70,6 +75,7 @@ namespace Temiskaming.Controllers
         [HttpPost]
         public ActionResult ViewJobDetails(int id, job validjob)
         {
+            ViewBag.Group = "Admin";
             if (ModelState.IsValid)
             {
                 try
@@ -89,6 +95,7 @@ namespace Temiskaming.Controllers
         [HttpPost]
         public ActionResult ViewDetailsJobApp(int id, jobapplication validjobapp)
         {
+            ViewBag.Group = "Admin";
             if (ModelState.IsValid)
             {
                 try
@@ -107,6 +114,7 @@ namespace Temiskaming.Controllers
         //action result which shows selected job application
         public ActionResult ViewDetailsJobApp(int id)
         {
+            ViewBag.Group = "Admin";
             //setting variables in the viewbag to be used later in hidden fields which don't change when updating the job application
             var jobapplication = objJob.getAppsById(id);
             ViewBag.jobtitle = jobapplication.jobtitle;
@@ -129,6 +137,7 @@ namespace Temiskaming.Controllers
         // action method which deletes job posting from the database based on id 
         public ActionResult DeleteJob(int id)
         {
+            ViewBag.Group = "Admin";
             var job = objJob.getJobsById(id);
             if (job == null)
             {
@@ -144,6 +153,7 @@ namespace Temiskaming.Controllers
         // action method which deletes job application from the database based on id 
         public ActionResult DeleteApp(int id)
         {
+            ViewBag.Group = "Admin";
             var app = objJob.getAppsById(id);
             if (app == null)
             {

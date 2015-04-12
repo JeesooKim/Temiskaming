@@ -3,17 +3,18 @@
 @{
     ViewBag.Title = "Update Ecard: ";
 }
-@* form for updating reviews *@
+
 <div class="thumb1" style="background-image:url('@Url.Content(Model.urlpath)')"></div>
 <div id="ecard_form">
     @using (Html.BeginForm())
-    {
+    {   
+        @*table for updating ecards *@
         <table id="ecard_table">
             @* hidden field for id of review *@
 
             @Html.HiddenFor(x => x.Id)
             <tr>
-                @*label, textbox and validation message for resort name*@
+                @*label, textbox and validation message for name*@
                 <td>
                     @Html.LabelFor(x => x.sname)
                 </td>
@@ -23,7 +24,7 @@
                 </td>
             </tr>
             <tr>
-                @*label, textbox and validation message for country *@
+                @*label, textbox and validation message for receiver name *@
                 <td>
                     @Html.LabelFor(x => x.rname)
                 </td>
@@ -33,7 +34,7 @@
                 </td>
             </tr>
             <tr>
-                @*label, textbox and validation message for number of days stayed *@
+                @*label, textarea and validation message for message *@
                 <td>
                     @Html.LabelFor(x => x.emessage)
                 </td>
@@ -43,7 +44,7 @@
                 </td>
             </tr>
             <tr>
-                @*label, textarea and validation message for review *@
+                @*label, textarea and validation message for date *@
                 <td>
                     @Html.LabelFor(x => x.mdate)
                 </td>
