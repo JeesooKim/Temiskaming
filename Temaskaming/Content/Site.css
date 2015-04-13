@@ -113,12 +113,7 @@ nav li {
     padding-bottom: 50px;
 }
     /*HOMEPAGE STYLING INDEX.ASPX*/
-    #banner {
-        height: 300px;
-        width: 100%;
-        background: url('http://www.temiskaming-hospital.com/media/rokgallery/0/0b115bc6-7699-4d32-b73b-88340e54c986/5e7da87b-3e79-4cd8-834d-18245599a989.jpg') #60cef7 left no-repeat;
-        background-size: cover;
-    }
+    
     /*HOMEPAGE STYLING ENDS*/
     
     /*ASIDE SIDEBAR MASTER BEGINS*/
