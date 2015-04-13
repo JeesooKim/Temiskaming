@@ -6,7 +6,7 @@
 
 <h2>DeleteAlert</h2>
 
-@using (@Html.BeginForm())
+@using (@Html.BeginForm("ConfirmDeleteAlert","Alert"))
 {
     @Html.LabelFor(x => x.alertTitle)
     @Html.DisplayFor(x => x.alertTitle)

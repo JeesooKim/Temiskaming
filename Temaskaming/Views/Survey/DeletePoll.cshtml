@@ -6,7 +6,7 @@
 
 <h2>DeletePoll</h2>
 
-@using (@Html.BeginForm())
+@using (@Html.BeginForm("ConfirmDeletePoll","Survey"))
 {
     @Html.LabelFor(x => x.question)
     @Html.DisplayFor(x => x.question)
