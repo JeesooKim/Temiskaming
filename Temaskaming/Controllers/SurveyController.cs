@@ -50,7 +50,7 @@ namespace Temiskaming.Controllers
 
         public ActionResult PostedPoll()
         {
-            ViewBag.Group = "Admin";
+           
             var onePoll = pollObj.getActivePoll();
             if (onePoll == null)
             {
