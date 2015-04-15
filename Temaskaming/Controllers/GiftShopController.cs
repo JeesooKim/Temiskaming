@@ -25,7 +25,7 @@ namespace Temiskaming.Controllers
         }
 
        
-        public ActionResult AdminGiftShop ()
+        public ActionResult AdminGiftShop()
         {
             ViewBag.Group = "Gift Shop";
             var Gif = objGift.getGifts();

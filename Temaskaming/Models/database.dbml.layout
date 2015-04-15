@@ -69,7 +69,7 @@
         <elementListCompartment Id="102dea85-7ed5-4127-988b-2856e18c1126" absoluteBounds="3.5149999999999997, 7.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(1.031248 : 5.87660970052083); (1.031248 : 6.875); (1.54166666666667 : 6.875 : JumpStart); (1.70833333333333 : 6.875 : JumpEnd); (3 : 6.875); (3 : 8.13544840494792); (3.5 : 8.13544840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(1.031248 : 5.87660970052083); (1.031248 : 6.875); (3 : 6.875); (3 : 8.13544840494792); (3.5 : 8.13544840494792)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/databaseDataContext/doctor/doctor_appointment" />
       <nodes>
         <classShapeMoniker Id="99976909-5af7-4123-9d34-a19403dbc6fb" />
@@ -201,5 +201,11 @@
         <classShapeMoniker Id="ee7dcc58-89f9-4afb-8bb5-753006f3dfd1" />
       </nodes>
     </associationConnector>
+    <classShape Id="b30a27d5-5848-4444-b275-e1558d74702b" absoluteBounds="8.25, 12.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/databaseDataContext/poll" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9473be98-3f0c-42d0-93f4-2179fb42ee7f" absoluteBounds="8.265, 13.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>
