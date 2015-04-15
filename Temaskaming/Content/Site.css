@@ -12,7 +12,28 @@ body {
 p{
     font-size: 1.2em;
 }
+h1 {
+    font-size: 2em;
+    margin: 0;
+}
+h2 {
+    font-size: 1.7em;
+}
+h3 {
+    font-size: 1.5em;
+}
 
+.disclaimer {
+    background-color: rgba(255, 70, 0, 0.63);
+    border-bottom: 1px solid black;
+    padding: 5px 0;
+    margin: 0;
+    margin-bottom: 5px;
+}
+.disclaimer p {
+    text-align: center;
+    margin: 0;
+}
 
 header, footer, nav, section {
     display: block;
@@ -28,9 +49,14 @@ ul{
     margin: 0 auto;
     height: 100%;
 }
-.menu {
+.subMenu {
     position: relative;
     top: 20px;
+}
+
+.subMenu p {
+    margin: 0;
+    display: none;
 }
 
 input[type="submit"]{
@@ -43,7 +69,6 @@ input[type="submit"]{
 /*HEADER MASTER BEGINS*/
 
 header {
-    height: 60px;
     border-bottom: 1px solid #60cef7;
     padding-right: 30px;
 }
@@ -52,18 +77,24 @@ header #logo {
     display: block;
     height: 59px;
     width: 59px;
-    float: left;
+    color: #60cdf6;
+    padding: 0px 0 0 60px;
     margin-left: 30px;
+    margin-bottom: 20px;
     background: #60cef7;
     background: url('Images/logo.png') no-repeat;
     background-size: 59px 59px;
 }
 
 header nav {
+    text-align: center;
     font-size: 150%;
     position: relative;
-    float: right;
-    margin-top: 20px;
+}
+
+.subMenu nav {
+    text-align: left;
+    font-size: 100%;
 }
 
 header a{
@@ -102,11 +133,21 @@ nav li {
     padding-bottom: 50px;
 }
     /*HOMEPAGE STYLING INDEX.ASPX*/
-    #banner {
-        height: 300px;
+    #welcomeIndex h1 {
+    }
+    
+
+    .imgSlider {
+        position: relative;
+        height: 200px;
+    }
+    .imgSlider img{
+        position: absolute;
         width: 100%;
-        background: url('http://www.temiskaming-hospital.com/media/rokgallery/0/0b115bc6-7699-4d32-b73b-88340e54c986/5e7da87b-3e79-4cd8-834d-18245599a989.jpg') #60cef7 left no-repeat;
-        background-size: cover;
+        opacity: 0;
+    }
+    .imgSlider img:first-child{
+        opacity: 1;
     }
     /*HOMEPAGE STYLING ENDS*/
     
@@ -136,6 +177,7 @@ nav li {
     }
     aside h2:hover {
         background: #1c3152;
+        cursor: pointer;
     }
     #alertBox {
         /*display: none;*/
@@ -143,6 +185,9 @@ nav li {
     #alertBox h2{
         height: 30px;
         background: #1c3152;
+    }
+    #alertBox h2:hover {
+        cursor: auto;
     }
 
     aside div {
@@ -152,6 +197,7 @@ nav li {
     #chatbox{
         width: 450px;
     }
+    
 
     #chat {
         position: relative;
@@ -278,7 +324,11 @@ textarea {
         margin: 0 auto;
         height: auto;
     }
-    .menu {
+    .imgSlider {
+        height: 350px;
+    }
+
+    .subMenu {
         text-align: center;
     }
     
@@ -289,10 +339,10 @@ textarea {
         padding: 0;
         margin: 0;
     }
+    header h1 {
+        text-align: left;
+    }
     header #logo {
-        float: none;
-        margin-left: auto;
-        margin-right: auto;
     }
     header nav {
         font-size: 1.5em;
@@ -357,8 +407,16 @@ textarea {
 }
 
 @media only screen and (max-width: 770px) {
+    header #logo {
+        text-align: left;
+        margin: 0;
+    }
+    header h1 {
+        display: none;
+    }
+
     /*SECONDARY NAV*/
-    .menu {
+    .subMenu {
         position: static;
         text-align: left;
     }
@@ -375,7 +433,7 @@ textarea {
     #menuIcon:active {
         background-color: #1c3152;
     }
-    .menu a {
+    .subMenu a {
         display: block;
         width: 100%;
         color: white;
@@ -384,13 +442,13 @@ textarea {
         padding: 10px;
         border-top: 1px dashed white;
     }
-    .menu nav {
+    .subMenu nav {
         display: none;
     }
-    .menu a:active {
+    .subMenu a:active {
         background: #1c3152;
     }
-    .menu li {
+    .subMenu li {
         margin: 0;
         font-size: 1.2em;
         display: list-item;
@@ -422,6 +480,9 @@ textarea {
 
     #chatLog {
         font-size: 1em;
+    }
+    .imgSlider {
+        display: none;
     }
     
 }

@@ -1,0 +1,42 @@
+﻿@model Temiskaming.Models.Gift
+
+@{
+    ViewBag.Title = "UpdateGiftShop";
+}
+
+<h2>UpdatetGiftShop</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.HiddenFor(x=>x.ItemId)<!--Hid id-->
+    </div>
+    <div>
+        <p>Item: </p>
+        @Html.TextBoxFor(x => x.Item)
+        @Html.ValidationMessageFor(x => x.Item, "*")
+
+    </div>
+
+    <div>
+        <p>Description: </p>
+        @Html.TextBoxFor(x => x.Description)
+        @Html.ValidationMessageFor(x => x.Description, "*")
+
+    </div>
+
+    <div>
+        <p>Price: </p>
+        @Html.TextBoxFor(x => x.Price)
+        @Html.ValidationMessageFor(x => x.Price, "*")
+
+    </div>
+    <div>
+        <input type="submit" value="Enter" /> @Html.ActionLink("Cancel", "GiftShopAdmin", "GiftShop")
+    </div>
+   
+}
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqeurtval")
+}

@@ -39,6 +39,27 @@ namespace Temiskaming.Models
             }
         }
 
+        public bool publishAlert(int _id)
+        {
+            using (objAlert)
+            {
+
+                var updateAlert = objAlert.alerts.Single(x => x.alertStatus == true);
+
+                updateAlert.alertStatus = false;
+
+                objAlert.SubmitChanges();
+
+                updateAlert = objAlert.alerts.Single(x => x.alertId == _id);
+
+                updateAlert.alertStatus = true;
+
+                objAlert.SubmitChanges();
+
+                return true;
+
+            }
+        }
 
         public bool commitUpdateAlert(int _id, string _title, string _level, string _description, DateTime _timeline)
         {
