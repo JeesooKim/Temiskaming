@@ -89,13 +89,7 @@ namespace Temiskaming.Models
         [DisplayName("Staff Email")]
         [Required(ErrorMessage = "Please enter staff's e-mail")]
         [RegularExpression(".+\\@.+\\..+", ErrorMessage = "Please enter a valid email")]
-        public string staff_email { get; set; }
-
-        [DisplayName("Staff Department Name")]
-        [Required(ErrorMessage = "Please choose staff's department Name")]
-        //[CompareAttribute("staff_departmentId.Text", ErrorMessage = " Name does not match with Department Id below")]
-        //need a validation to compare the value of the text attribute of departmentID and the value of the name(this)
-        public string staff_departmentName { get; set; }
+        public string staff_email { get; set; }        
 
         [Key]
         [ForeignKey("department")]
