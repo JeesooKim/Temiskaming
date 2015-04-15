@@ -187,7 +187,7 @@ namespace Temiskaming.Controllers
         }
 
         [HttpPost]
-        public ActionResult ThankYou()
+        public ActionResult ThankYou(Order ord)
         {
             return View();
         }
