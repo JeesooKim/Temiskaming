@@ -1051,6 +1051,10 @@
     <Content Include="Views\Survey\DeletePoll.cshtml" />
     <Content Include="Views\Directory\NotFound.cshtml" />
     <Content Include="Views\Directory\NotFound_P.cshtml" />
+    <Content Include="Views\Appointment\Index.cshtml" />
+    <Content Include="Views\Appointment\AllAppointments.cshtml" />
+    <Content Include="Views\Appointment\DeleteAppointment.cshtml" />
+    <Content Include="Views\Appointment\DoctorAppointments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,21 @@
+﻿@model Temiskaming.Models.appointment
+
+@{
+    ViewBag.Title = "Delete Appointment";
+}
+
+<h2>DeleteAppointment</h2>
+
+@using (@Html.BeginForm("ConfirmDeleteAppointment", "Appointment"))
+{
+    @Html.LabelFor(x => x.email)
+    @Html.DisplayFor(x => x.email)
+    <br />
+    @Html.LabelFor(x => x.booking_date)
+    @Html.DisplayFor(x => x.booking_date)
+    <br />
+
+    <input type="submit" value="Confirm Delete" />
+
+
+}
