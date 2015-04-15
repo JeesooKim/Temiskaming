@@ -207,6 +207,17 @@ namespace Temiskaming.Controllers
         public ActionResult Admin_staffInsert()
         {
             ViewBag.Group="Admin";
+
+            IEnumerable<SelectListItem> items =
+            objDir.getDepartments().Select(d =>
+                   new SelectListItem
+                   {
+                       Value = d.d_id.ToString(),
+                       Text = d.d_name
+                   });
+
+            ViewBag.DepartID = items;
+
             return View();
         }
 
@@ -220,15 +231,7 @@ namespace Temiskaming.Controllers
                 {
                     
                     objDir.commitInsertS(s);
-                    //int i= s.staff_id;
-                    //int j = s.staff_departmentId;
-                    //////****//
-                    //////int i = (Int32)objDir.getStaffId(s).First();
-                    //////int j = (Int32)objDir.getDepartmentId(s).First();
-                    ////int i = (Int32)objDir.getStaff().Select(x => x.staff_id).First();                    
-                    ////int j = (Int32)objDir.getStaff().Select(x => x.staff_departmentId).First();
-                    //objDir.commitInsertDNameS(i,j);
-                    //****//
+                    
                     return RedirectToAction("DirectoryAdmin_Staff");
                 }
                 catch
@@ -236,12 +239,33 @@ namespace Temiskaming.Controllers
                     return View();
                 }
             }
+
+            IEnumerable<SelectListItem> items =
+            objDir.getDepartments().Select(d =>
+                   new SelectListItem
+                   {
+                       Value = d.d_id.ToString(),
+                       Text = d.d_name
+                   });
+
+            ViewBag.DepartID = items;
+
             return View();
         }
 
         public ActionResult Admin_staffUpdate(int id)
         {
             ViewBag.Group="Admin";
+
+            IEnumerable<SelectListItem> items =
+            objDir.getDepartments().Select(d =>
+                   new SelectListItem
+                   {
+                       Value = d.d_id.ToString(),
+                       Text = d.d_name
+                   });
+
+            ViewBag.DepartID = items;
 
             var s = objDir.getStaffByID(id);
             if (s == null)
@@ -270,6 +294,17 @@ namespace Temiskaming.Controllers
                     return View();
                 }
             }
+
+            IEnumerable<SelectListItem> items =
+            objDir.getDepartments().Select(d =>
+                   new SelectListItem
+                   {
+                       Value = d.d_id.ToString(),
+                       Text = d.d_name
+                   });
+
+            ViewBag.DepartID = items;
+
             return View();
         }
 

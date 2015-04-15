@@ -44,7 +44,7 @@ namespace Temiskaming.Models
             return alldepartment;
         }
 
-        //method : get the name of the department by its id  ?????
+        //method : get the name of the department by its id  
         public IQueryable<string> getDepartmentNameById(int _id)
         {
             var d_name = objDirectory.departments.Where(x=>x.d_id == _id).Select(x=>x.d_name).Distinct();
@@ -67,8 +67,7 @@ namespace Temiskaming.Models
         {
             using (objDirectory)
             {
-                var objUpD = objDirectory.departments.Single(x => x.d_id == _id);
-                //objUpD.d_id = _id;
+                var objUpD = objDirectory.departments.Single(x => x.d_id == _id);                
                 objUpD.d_name = _name;
                 objUpD.d_phone = _phone;
                 objUpD.d_ext = _ext;
@@ -106,10 +105,22 @@ namespace Temiskaming.Models
             return allstaff;
         }
 
-        public staff getStaffByDepartmentID(int _id)
-        {//returns all staff who belong to the department with ID(parameter)
-            var allstaffInD = objDirectory.staffs.SingleOrDefault(x => x.staff_departmentId == _id);
+        //public staff getStaffByDepartmentID(int _id)
+        //{//returns all staff who belong to the department with ID(parameter)
+        //    var allstaffInD = objDirectory.staffs.SingleOrDefault(x => x.staff_departmentId == _id);
             
+        //    return allstaffInD;
+        //}
+
+        public IQueryable<staff> getStaffByDepartmentID(int _id)
+        {//returns all staff who belong to the department with ID(parameter)
+            //var allstaffInD = objDirectory.staffs.SingleOrDefault(x => x.staff_departmentId == _id);
+            //var allstaffInD = objDirectory.staffs.Where(x => x.staff_departmentId == _id).Select(x => x);
+            var allstaffInD = from s in objDirectory.staffs
+                              where s.staff_departmentId == _id
+                              orderby s.staff_id
+                              select s;
+
             return allstaffInD;
         }
 
@@ -138,61 +149,7 @@ namespace Temiskaming.Models
                 return true;
             }
         }
-
-        //insert department name for the staff ?????
-        //want to insert department name automatically for the selected department id when inserting staff
-        //but..not working yet  _April 3, 2015
-        //public bool commitInsertDNameS(int staffId, int departmentId)
-        //{
-            
-        //    using(objDirectory)
-        //    {
-        //        var objI_Dname = objDirectory.staffs.Single(x => x.staff_id == staffId);
-
-        //        switch (departmentId)
-        //        {
-        //            case 1:
-        //                objI_Dname.staff_departmentName = "Senior Management";
-        //                break;
-        //            case 2:
-        //                objI_Dname.staff_departmentName = "Physicians";
-        //                break;
-        //            case 3:
-        //                objI_Dname.staff_departmentName = "Nursing";
-        //                break;
-        //            case 4:
-        //                objI_Dname.staff_departmentName = "Midwives";
-        //                break;
-        //            case 5:
-        //                objI_Dname.staff_departmentName = "Human Resources";
-        //                break;
-        //            case 6:
-        //                objI_Dname.staff_departmentName = "Patients Relations";
-        //                break;
-        //            case 7:
-        //                objI_Dname.staff_departmentName = "Volunteer";
-        //                break;
-        //            case 8:
-        //                objI_Dname.staff_departmentName = "Finances";
-        //                break;
-        //            case 9:
-        //                objI_Dname.staff_departmentName = "Website Technical Support";
-        //                break;
-        //            case 10:
-        //                objI_Dname.staff_departmentName = "Maintenance";
-        //                break;
-        //            case 11:
-        //                objI_Dname.staff_departmentName = "Physician Recruitment";
-        //                break;
-        //            default:
-        //                objI_Dname.staff_departmentName ="Default";
-        //                break;
-        //        }
-                                
-        //        objDirectory.SubmitChanges();
-        //        return true;
-        //    }
-        //}
+                
 
         //Update method for staff
         public bool commitUpdateS(int _id, string _fname, string _lname, string _position, string _phone, string _ext, string _email, string _departmentName, int _departmentId)
