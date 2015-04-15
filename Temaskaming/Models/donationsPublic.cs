@@ -25,6 +25,7 @@ namespace Temiskaming.Models
         public string email { get; set; }
 
         [Display(Name="Donation Amount: ")]
+        [DisplayFormat(DataFormatString="{0:C}")]
         [Required(ErrorMessage = "Donation amount required.")]
         public Decimal amount { get; set; }
 

@@ -9,20 +9,22 @@
 
 <h2>Nurse Live Chat</h2>
 <p>Reload page to see new chats started by visitors.</p>
-<ul class="chatMenu">
-    @foreach (var x in Model)
-    {
-        <li>
-            @Ajax.ActionLink(x.email, "ShowChat", new { id = x.id }, new AjaxOptions
-    {
-        HttpMethod = "Post",
-        InsertionMode = InsertionMode.Replace,
-        UpdateTargetId = "nchat"
-    })
-    </li>
+<nav id="chatNav">
+    <p>Current Chats</p>
+    <ul class="chatMenu">
+        @foreach (var x in Model)
+        {
+            <li>
+                @Ajax.ActionLink(x.email, "ShowChat", new { id = x.id }, new AjaxOptions
+        {
+            HttpMethod = "Post",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "nchat"
+        })
+        </li>
 
-    }
-</ul>
-
+        }
+    </ul>
+</nav>
 <div id="nchat">
 </div>

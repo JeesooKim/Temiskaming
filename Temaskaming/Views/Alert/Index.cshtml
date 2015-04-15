@@ -4,21 +4,27 @@
     ViewBag.Title = "Alerts List";
 }
 
+<br />
+
+@Html.ActionLink("Click here to add a New Alert", "AddAlert")
+
 <h2>All alerts</h2>
 
 @foreach (var record in Model)
 {
   <h3>@record.alertTitle</h3>
   <p>@Html.DisplayFor(m => record.alertDescription) <strong>@Html.DisplayFor(m => record.alertTimeline)</strong></p>  
-  <p>@Html.DisplayFor(m => record.alertLevel) </p> 
-   
-    if (record.alertStatus.Value == true)
-    {<p>Its active</p> }
-    else
-    {<p>Its de-active</p>  }
- 
+  <p>@Html.DisplayFor(m => record.alertLevel) </p>
+    <p>
+        <strong>
+            @if (record.alertStatus.Value == true)
+            {<span>Its active</span>}
+            else
+            {<span>Its de-active</span>}
+        </strong>
+    </p>
   <br />
-    @Html.ActionLink("Update", "UpdateAlert", new { id = record.alertId})
-                           
-                                                     
+    <button> @Html.ActionLink("Update", "UpdateAlert", new { id = record.alertId }) </button>
+    <button> @Html.ActionLink("Delete", "DeleteAlert", new { id = record.alertId }) </button>
+    <button> @Html.ActionLink("Publish", "PublishAlert", new { id = record.alertId }) </button>
 }

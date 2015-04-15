@@ -13,6 +13,17 @@ p{
     font-size: 1.2em;
 }
 
+.disclaimer {
+    background-color: rgba(255, 70, 0, 0.63);
+    border-bottom: 1px solid black;
+    padding: 5px 0;
+    margin: 0;
+    margin-bottom: 5px;
+}
+.disclaimer p {
+    text-align: center;
+    margin: 0;
+}
 
 header, footer, nav, section {
     display: block;
@@ -102,12 +113,7 @@ nav li {
     padding-bottom: 50px;
 }
     /*HOMEPAGE STYLING INDEX.ASPX*/
-    #banner {
-        height: 300px;
-        width: 100%;
-        background: url('http://www.temiskaming-hospital.com/media/rokgallery/0/0b115bc6-7699-4d32-b73b-88340e54c986/5e7da87b-3e79-4cd8-834d-18245599a989.jpg') #60cef7 left no-repeat;
-        background-size: cover;
-    }
+    
     /*HOMEPAGE STYLING ENDS*/
     
     /*ASIDE SIDEBAR MASTER BEGINS*/
@@ -136,6 +142,7 @@ nav li {
     }
     aside h2:hover {
         background: #1c3152;
+        cursor: pointer;
     }
     #alertBox {
         /*display: none;*/
@@ -143,6 +150,9 @@ nav li {
     #alertBox h2{
         height: 30px;
         background: #1c3152;
+    }
+    #alertBox h2:hover {
+        cursor: auto;
     }
 
     aside div {
@@ -152,6 +162,7 @@ nav li {
     #chatbox{
         width: 450px;
     }
+    
 
     #chat {
         position: relative;

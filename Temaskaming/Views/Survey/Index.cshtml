@@ -1,5 +1,38 @@
-﻿@{
+﻿@model IEnumerable<Temiskaming.Models.poll>
+
+@{
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Polling</h2>
+
+@Html.ActionLink("Click here to add a New Poll", "AddPoll")
+
+@foreach (var record in Model)
+{
+    <h3>@record.question</h3>
+    <p>@Html.DisplayFor(m => record.option1) @Html.DisplayFor(m => record.option2)</p>
+
+    <p>Result for option 1 : @Html.DisplayFor(m => record.choice1) </p>
+    <p>Result for option 2 : @Html.DisplayFor(m => record.choice2) </p>
+
+    <br />
+
+    if ((record.choice1 == 0) && (record.choice2 == 0))
+    {
+        <button>@Html.ActionLink("Update", "UpdatePoll", new { id = record.id })</button>
+    }
+    
+    
+    <button>
+    
+        @Html.ActionLink("Delete", "DeletePoll", new { id = record.id })
+    </button>
+    <button>
+        @Html.ActionLink("Publish", "PublishPoll", new { id = record.id })
+    </button>
+
+
+
+
+}

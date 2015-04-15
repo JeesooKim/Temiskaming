@@ -3,9 +3,11 @@
 @{
     ViewBag.Title = "Details for application";
 }
+@*link to view job applications*@
 @Html.ActionLink("Go back to viewing applications", "ShowJobApp", "AdminJobPostings")
 @using (Html.BeginForm())
-{
+{   
+    @* hidden fields for variables that will not be updated *@
     @Html.HiddenFor(x => x.jobtitle, new { @Value = ViewBag.jobtitle })
     @Html.HiddenFor(x => x.aname, new { @Value = ViewBag.aname })
     @Html.HiddenFor(x => x.aphone, new { @Value = ViewBag.aphone })

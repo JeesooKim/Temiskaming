@@ -7,9 +7,8 @@ namespace Temiskaming.Models
 {
     public class linqemailsClass
     {
-        //creating an instance of LINQ object
         databaseDataContext objSignup = new databaseDataContext();
-        //method which inserts created ecard
+        //method which inserts emails signups into database
         public bool commitInsert(email_signup esignup)
         {
             using (objSignup)
@@ -19,18 +18,19 @@ namespace Temiskaming.Models
                 return true;
             }
         }
+        //method which gets signups from database
         public IQueryable<email_signup> getSignups()
         {
-            //creating anonymous varible with value of instance of LINQ object
             var allSignups = objSignup.email_signups.Select(x => x);
             return allSignups;
         }
+        //method which gets a signup by id from database
         public email_signup getSignupsbyID(int _id)
         {
             var allSignups = objSignup.email_signups.SingleOrDefault(x => x.Id == _id);
             return allSignups;
         }
-        //method which delets a review based on id
+        //method which deletes a signup from database
         public bool commitDelete(int _id)
         {
             using (objSignup)
@@ -41,6 +41,7 @@ namespace Temiskaming.Models
                 return true;
             }
         }
+        //method which updates a signup
         public bool commitUpdate(int _id, string _ename, string _elname, string _eemail)
         {
             using (objSignup)

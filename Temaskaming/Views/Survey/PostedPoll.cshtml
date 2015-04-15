@@ -1,0 +1,30 @@
+﻿@model Temiskaming.Models.poll
+
+@{
+    ViewBag.Title = "PostedPoll";
+}
+
+<h2>PostedPoll</h2>
+
+@using(@Html.BeginForm())
+{ 
+    <h3>@Model.question</h3>
+
+    <input type="submit" class="ans" name="option1" value="@Model.option1"/>
+    <input type="submit" class="ans"  name="option2" value="@Model.option2" />
+}
+
+<script>
+
+    $(document).ready(function () {
+
+        $('.ans').click(function () {
+
+            alert("Thank you for giving your opinion !!!");
+
+        });
+
+    });
+
+
+</script>

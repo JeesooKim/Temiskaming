@@ -4,27 +4,29 @@
     ViewBag.Title = "Directory";
 }
 
-@section css{   
+
+
+@section css{
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script>
         $(function () {
-            $("#accordion").accordion();
+            $("#accordion").accordion({ heightStyle: 'content' }); 
         });
     </script>
 }
+    @*Ref:http://stackoverflow.com/questions/2841075/how-can-you-adjust-the-height-of-a-jquery-ui-accordion*@
 
 <h2>Hospital Directory</h2>
 <div id="accordion">
     @foreach (var item in Model)
     {
-        @*<li>*@
         <h3>
             @Ajax.ActionLink(item.d_name, "_staffIndex", "Directory", new { departmentId = item.d_id }, new AjaxOptions
                  {
                      HttpMethod = "Post",
-                     UpdateTargetId = "staff_detail",
+                     UpdateTargetId = "staff_detail_" + item.d_id,
                      InsertionMode = InsertionMode.Replace
                  })
         </h3>
@@ -34,13 +36,15 @@
                 <br />
                 Extension: @item.d_ext
                 <br />
-                Fax: @item.d_fax                
-            </p>
+                Fax: @item.d_fax
+                <br />
+                <div id="staff_detail_@item.d_id"></div>
+            </p>            
         </div>
-    }
-</div>
-<br />
-<div id="staff_detail"></div>
+    } @*end of foreach()*@
+</div>@*end of #accordion*@
+
+
 @section Scripts{
     @Scripts.Render("~/bundles/jqueryval")
 }

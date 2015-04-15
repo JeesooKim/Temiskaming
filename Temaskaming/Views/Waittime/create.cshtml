@@ -16,6 +16,7 @@
     <br />
     @Html.LabelFor(x=>x.name)
     @Html.TextBoxFor(x=>x.name)
+    @Html.ValidationMessageFor(x=>x.name)
     <br/>
     @Html.HiddenFor(x=>x.time_admit, new {@Value = currentTime})
     <br/>

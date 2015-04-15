@@ -11,7 +11,7 @@ namespace Temiskaming.Models
 
         public IQueryable<navigation> getNav(string _group)
         {
-            var allNav = objNav.navigations.Select(x => x).Where(x => x.group == _group);
+            var allNav = objNav.navigations.Where(x => x.group == _group);
             return allNav;
         }
 
