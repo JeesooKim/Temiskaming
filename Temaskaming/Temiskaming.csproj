@@ -1290,9 +1290,8 @@
     <Content Include="Views\GiftShop\OrderDetail.cshtml" />
     <Content Include="Views\GiftShop\OrderDetailDelete.cshtml" />
     <Content Include="Views\GiftShop\Purchase.cshtml" />
-    <Content Include="Views\GiftShop\Review.cshtml" />
     <Content Include="Views\GiftShop\ThankYou.cshtml" />
-    <Content Include="Views\GiftShop\Review.cshtml" />
+    <Content Include="Views\GiftShop\UpdateGiftShop.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

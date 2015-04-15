@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Temiskaming.Models.Order>
+﻿@model Temiskaming.Models.Order
 
 @{
     ViewBag.Title = "Order";
@@ -8,16 +8,23 @@
 
 <div>
     <ul>
-        @foreach (var x in Model)
-        {
+     
             <li>
-                @Html.DisplayFor(model => x.OrderId);
-                @Html.DisplayFor(model => x.FirstName);
-                @Html.DisplayFor(model => x.LastName);
+                @Html.DisplayFor(x => x.OrderId)
+                @Html.DisplayFor(x =>x.FirstName)
+                @Html.DisplayFor(x=>x.LastName)
+                @Html.DisplayFor(x=>x.Email)
+                <br/>
+                @Html.DisplayFor(x=>x.Item)
+                @Html.DisplayFor(x=>x.Price)
+                @Html.DisplayFor(x =>x.ToPatient)
+                @Html.DisplayFor(x=>x.From)
+                @Html.DisplayFor(x=>x.Message)
+                @Html.DisplayFor(x=>x.OrderDate)
                
                
             </li>
-        }
+        
     </ul>
-    @Html.ActionLink("Back", "Order", "Order")
+    @Html.ActionLink("Back", "Order", "GiftShop")
 </div>

@@ -144,7 +144,7 @@ namespace Temiskaming.Controllers
         public ActionResult Purchase(string PassItem, string PassPrice)
         {
             @ViewBag.PassItem = PassItem;
-            @ViewBag.PassPrice = PassItem;
+            @ViewBag.PassPrice = PassPrice;
             return View();
         }
 
@@ -180,7 +180,61 @@ namespace Temiskaming.Controllers
             return View();
         }
 
+         //ORDER
+        public ActionResult Order()
+        {
+            var Od = objOrder.getOrder();
+            ViewBag.Group = "Gift Shop";
+            return View(Od);
+        }
 
+        //get detail for each entry
+
+        public ActionResult OrderDetail(int OrderId)
+        {
+           
+     
+            ViewBag.Group = "Gift Shop";
+            var Ord = objOrder.getOrderById(OrderId);
+            if(Ord == null)
+            {
+                return View("Order");
+            }
+            else
+            {
+                return View(Ord);
+            }
+        }
+
+        //insert when purchasing
+
+        //Delete
+        public ActionResult OrderDetailDelete(int OrderId)
+        {
+            var Ord = objOrder.getOrderById(OrderId);
+            if(Ord == null)
+            {
+                return View("Order");
+            }
+            else
+            {
+                return View(Ord);
+            }
+        }
+          [HttpPost]
+        public ActionResult OrderDetailDelete(int OrderId, Order Or)
+        {
+            ViewBag.Group = "Gift Shop";
+            try
+            {
+                objOrder.commitDelete(OrderId);
+                return RedirectToAction("Order");
+            }
+              catch
+            {
+                return View();
+            }
+        }
 
 
        }
