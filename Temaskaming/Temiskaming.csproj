@@ -1059,6 +1059,7 @@
     <Content Include="Views\GiftShop\ThankYou.cshtml" />
     <Content Include="Views\GiftShop\Review.cshtml" />
     <Content Include="Views\GiftShop\Order.cshtml" />
+    <Content Include="Views\Volunteers\Admin_Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
