@@ -1038,9 +1038,6 @@
     <Content Include="Views\Story\NotFound.cshtml" />
     <Content Include="Views\Donation\Success.cshtml" />
     <Content Include="Views\JobPostings\Applied.cshtml" />
-    <Content Include="Views\Volunteers\Index.cshtml" />
-    <Content Include="Views\Volunteers\Form.cshtml" />
-    <Content Include="Views\Volunteers\Thanks.cshtml" />
     <Content Include="Views\Directory\_staffIndex.cshtml" />
     <Content Include="Views\Survey\PostedPoll.cshtml" />
     <Content Include="Views\Survey\AddPoll.cshtml" />
