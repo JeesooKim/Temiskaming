@@ -14,12 +14,12 @@ namespace Temiskaming.Controllers
         // GET: /GiftShop/
 
         GiftShopClass objGift = new GiftShopClass();
-        OrderClass objOrder = new OrderClass();
+        
 
 
         public ActionResult Index() 
         {
-            ViewBag.Group = "Gift Shop";
+            ViewBag.Group = "GiftShop";
             var items = objGift.getGifts(); 
             return View(items);
         }
@@ -27,7 +27,7 @@ namespace Temiskaming.Controllers
        
         public ActionResult AdminGiftShop()
         {
-            ViewBag.Group = "Gift Shop";
+            ViewBag.Group = "GiftShop";
             var Gif = objGift.getGifts();
             if(Gif == null)
             {
@@ -49,7 +49,7 @@ namespace Temiskaming.Controllers
         [HttpPost]
         public ActionResult InsertGiftShop(Gift Gt, HttpPostedFileBase file )
        {
-           ViewBag.Group = "Gift Shop";
+           ViewBag.Group = "GiftShop";
            
             if( file !=null)
             {
@@ -93,7 +93,7 @@ namespace Temiskaming.Controllers
         [HttpPost]
         public ActionResult UpdateGiftShop(int ItemId, Gift Gt)
         {
-            ViewBag.Group = "Gift Shop";
+            ViewBag.Group = "GiftShop";
             if(ModelState.IsValid)
             {
                 try
@@ -128,7 +128,7 @@ namespace Temiskaming.Controllers
         [HttpPost]
         public ActionResult DeleteGiftShop(int id, Gift Gif)
         {
-            ViewBag.Group = "Gift Shop";
+            ViewBag.Group = "GiftShop";
             try
             {
                 objGift.commitDelete(id);
@@ -139,6 +139,112 @@ namespace Temiskaming.Controllers
                 return View();
             }//end catch
         }//end deleteitem 
+
+        public ActionResult Order()
+        {
+            var Od = objGift.getOrder();
+            ViewBag.Group = "GiftShop";
+            return View(Od);
+        }
+
+        //get detail for each entry
+
+        public ActionResult OrderDetail(int OrderId)
+        {
+            var allDetail = from i in objGift.getOrder() select i;
+            var getDetail = (from order in objGift.getOrder()
+                             join gift in objGift.getGifts()
+                             on order.itemId equals gift.ItemId
+                             select new
+                             {
+                                 gift.Item,
+                                 gift.Price,
+                                 order.FirstName,
+                                 order.LastName,
+                                 order.ToPatient,
+                                 order.From,
+                                 order.Message
+                             });
+
+
+
+            ViewBag.Group = "Gift Shop";
+            var Ord = objGift.getOrderById(OrderId);
+            if (Ord == null)
+            {
+                return View("Order");
+            }
+            else
+            {
+                return View(Ord);
+            }
+        }
+
+        //insert when purchasing
+
+        //Delete
+        public ActionResult OrderDetailDelete(int OrderId)
+        {
+            var Ord = objGift.getOrderById(OrderId);
+            if (Ord == null)
+            {
+                return View("Order");
+            }
+            else
+            {
+                return View(Ord);
+            }
+        }
+        [HttpPost]
+        public ActionResult OrderDetailDelete(int OrderId, Order Or)
+        {
+            ViewBag.Group = "Gift Shop";
+            try
+            {
+                objGift.CommitDelete(OrderId);
+                return RedirectToAction("Order");
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        public ActionResult Purchase(string PassItem)
+        {
+            @ViewBag.PassItem = PassItem;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Purchase(Order Ord)
+        {
+
+            ViewBag.Group = "Gift Shop";
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    objGift.CommitInsert(Ord);
+                    return RedirectToAction("ThankYou");
+                }
+                catch
+                {
+                    return View("Index");
+                }
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        [HttpPost]
+        public ActionResult ThankYou()
+        {
+            return View();
+        }
+
+
 
        }
 }

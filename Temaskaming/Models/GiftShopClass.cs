@@ -58,7 +58,7 @@ namespace Temiskaming.Models
         }//close commit update
 
         //delete
-
+        //order
         public bool commitDelete(int _id)
         {
             using (objGifts)
@@ -70,6 +70,41 @@ namespace Temiskaming.Models
                 return true; 
             }
         }
+        public IQueryable<Order> getOrder()
+        {
+            var allOrders = from x in objGifts.Orders select x;
+            return allOrders;
+        }//end of get order
+
+        //get the id 
+        public Order getOrderById(int _id)
+        {
+            var allOrders = objGifts.Orders.SingleOrDefault(x => x.OrderId == _id);
+            return allOrders;
+        }//end get order by id
+
+        public bool CommitInsert(Order Ord)
+        {
+            using (objGifts)
+            {
+
+                objGifts.Orders.InsertOnSubmit(Ord);
+                objGifts.SubmitChanges();
+                return true;
+            }
+        }
+
+        public bool CommitDelete(int _id)
+        {
+            using (objGifts)
+            {
+                var ORDDel = objGifts.Orders.Single(x => x.OrderId == _id);
+                objGifts.Orders.DeleteOnSubmit(ORDDel);
+                objGifts.SubmitChanges();
+                return true;
+            }//end using
+
+        }//ending delete
 
 
 
