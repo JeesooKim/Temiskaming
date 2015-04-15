@@ -190,7 +190,6 @@
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\StoryController.cs" />
     <Compile Include="Controllers\SurveyController.cs" />
-    <Compile Include="Controllers\VolunteersController.cs" />
     <Compile Include="Controllers\WaittimeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
