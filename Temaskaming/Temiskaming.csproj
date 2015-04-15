@@ -239,7 +239,6 @@
     <Compile Include="Models\StoryValidationClass.cs" />
     <Compile Include="Models\surveyClass.cs" />
     <Compile Include="Models\surveyValidation.cs" />
-    <Compile Include="Models\volunteersValidation.cs" />
     <Compile Include="Models\WaittimeClass.cs" />
     <Compile Include="Models\WaittimeValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
