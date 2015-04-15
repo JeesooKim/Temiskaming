@@ -1202,7 +1202,6 @@
     <Content Include="Views\Doctors\FindADocDelete.cshtml" />
     <Content Include="Views\Doctors\FindADocDetails.cshtml" />
     <Content Include="Views\CMS\Edit.cshtml" />
-    <Content Include="Views\FAQ\FAQ.cshtml" />
     <Content Include="Views\FAQ\FAQDelete.cshtml" />
     <Content Include="Views\Chat\Index.cshtml" />
     <Content Include="Views\Chat\Chat.cshtml" />
@@ -1292,6 +1291,7 @@
     <Content Include="Views\GiftShop\Purchase.cshtml" />
     <Content Include="Views\GiftShop\ThankYou.cshtml" />
     <Content Include="Views\GiftShop\UpdateGiftShop.cshtml" />
+    <Content Include="Views\FAQ\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

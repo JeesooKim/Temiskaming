@@ -16,17 +16,10 @@ namespace Temiskaming.Controllers
 
 
 
-        public ActionResult FAQ(string searchString)
+        public ActionResult Index(string searchString)
         {
           
-            if(searchString != null)
-            {
-                
-            }
-            else
-            {
-
-            };
+         
             
 
             //REFERENCE http://stackoverflow.com/questions/5374481/like-operator-in-linq

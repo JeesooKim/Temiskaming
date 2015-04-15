@@ -700,6 +700,21 @@ padding:4px;
     
 }
 
+/*FOR GIFT SHOP*/
+
+.gift-thumb {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    border: 3px solid #60cdf6;
+    background-position: center center;
+    background-size: cover;
+}
+
+
+
+
 
 /*for News Feed only*/
 

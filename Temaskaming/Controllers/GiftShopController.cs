@@ -99,7 +99,7 @@ namespace Temiskaming.Controllers
             {
                 try
                 {
-                    objGift.commitUpdate(ItemId, Gt.Item, Gt.Description, Gt.Price, Gt.Image );
+                    objGift.commitUpdate(ItemId, Gt.Item, Gt.Description, Gt.Price );
                     return RedirectToAction("AdminGiftShop"); 
                 }//end try
                 catch
