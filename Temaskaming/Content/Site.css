@@ -44,17 +44,17 @@ ul{
     padding: 0;
 }
 
-#wrapper, #hwrapper, #fwrapper {
+#wrapper, .hwrapper, #fwrapper {
     width: 1050px;
     margin: 0 auto;
     height: 100%;
 }
 .subMenu {
-    margin: 0;
-    padding: 0;
+    font-size: 1.4em;
+    padding: 5px 0;
+    background: #4fa2c1;
 }
 .subMenu nav {
-    margin-left: 20px;
     text-align: left;
     position: relative;
     top: 20px;
@@ -76,7 +76,13 @@ input[type="submit"]{
 
 header {
     border-bottom: 1px solid #60cef7;
-    padding-right: 30px;
+}
+#chosen {
+    background-color: #4fa2c1;
+}
+#chosen a {
+    background-color: #4fa2c1;
+    color: white;
 }
 
 header #logo {
@@ -84,22 +90,33 @@ header #logo {
     height: 59px;
     width: 59px;
     color: #60cdf6;
-    padding: 0px 0 0 60px;
+    padding: 0px 0 0 65px;
     margin-left: 30px;
     margin-bottom: 20px;
     background: #60cef7;
     background: url('Images/logo.png') no-repeat;
     background-size: 59px 59px;
 }
-
+.menu {
+    display: block;
+}
 .navi {
     text-align: center;
     font-size: 150%;
     position: relative;
+    border-bottom: white 1px solid;
 }
 
 .subMenu nav {
+    font-size: 150%;
+}
+.subMenu {
     font-size: 100%;
+}
+.subMenu a {
+    display: block;
+    color: white;
+    width: 100%;
 }
 
 header a{
@@ -108,14 +125,27 @@ header a{
 }
 
 header a:hover {
-    color: #60cef7;
+    color: white;
+}
+
+.navi li {
+    padding: 10px;
+}
+
+.menu {
+    background: #60cef7;
 }
 
 nav li {
     display: inline-block;
     list-style: none;
-    margin-left: 20px;
+    padding: 0 10px;
 }
+
+.subMenu a:hover {
+    color: #a0e2fa;
+}
+
 
 /*HEADER MASTER ENDS*/
 
@@ -324,7 +354,7 @@ textarea {
 /*MEDIA MASTER QUERIES*/
 @media only screen and (max-width: 1100px) {
     
-    #wrapper, #hwrapper, #fwrapper {
+    #wrapper, .hwrapper, #fwrapper {
         width: 100%;
         margin: 0 auto;
         height: auto;
@@ -334,7 +364,7 @@ textarea {
     }
 
     .subMenu {
-        text-align: center;
+        text-align: left;
     }
     
     
@@ -350,23 +380,21 @@ textarea {
     }
     header #logo {
     }
-    header nav {
-        font-size: 1.5em;
+    .navi nav {
         float: none;
         width: 100%;
     }
-    header a {
+    .navi a {
         display: block;
         width: 100%;
         padding: 10px 0;
     }
-    header a:hover {
-    }
+    
     .navi li {
         border-top: 1px dashed #60cef7;
     }
 
-    header nav li:first-child{
+    .navi nav li:first-child{
         margin-left: 0;
     }
 
@@ -425,15 +453,17 @@ textarea {
     
     #menuIcon {
         display: inline-block;
+        text-align: left;
         float: right;
         color: white;
-        width: 200px;
+        width: 150px;
         height: 100%;
         background: url('Images/hamburger.png') no-repeat right;
-        background-size: 40px 40px;
+        background-size: 50px 50px;
         background-color: black;
         margin: 0;
         padding: 0;
+        padding-left: 10px;
     }
     #menuIcon:active {
         background-color: #1c3152;
@@ -446,14 +476,21 @@ textarea {
     
 
     .navi li {
+        text-align: center;
         display: list-item;
         margin-bottom: 10px;
         margin: 0;
         background: #a0e2fa;
     }
+    
     .navi {
         font-size: 1.4em;
-
+    }
+    .subMenu li {
+        color: white;
+    }
+    .subMenu a {
+        color: white;
     }
     .subMenu {
         margin: 0;
@@ -463,6 +500,9 @@ textarea {
     }
     .navi a:active {
         background: #35758e;
+    }
+    .menu {
+        display: none;
     }
     footer nav li {
         display: list-item;

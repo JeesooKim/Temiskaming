@@ -4,8 +4,17 @@
     {
         if (x.viewpath != null && x.controller != "Editable")
         {
-            <li>@Html.ActionLink(x.name, x.viewpath, x.controller)</li>
-        } else if(x.viewpath != null && x.controller == "Editable")
+            if (x.group == "Home" && x.viewpath == "Patients" && ViewBag.Chosen == "Patients")
+            {
+                <li id="chosen">@Html.ActionLink(x.name, x.viewpath, x.controller)</li>
+            }
+            else
+            {
+                <li>@Html.ActionLink(x.name, x.viewpath, x.controller)</li>
+            }
+
+        }
+        else if (x.viewpath != null && x.controller == "Editable")
         {
             <li>@Html.ActionLink(x.name, "Index", x.controller, new { id = x.id }, null)</li>
         }

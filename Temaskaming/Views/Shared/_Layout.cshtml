@@ -22,32 +22,32 @@
     </div>
     
         <header>
-            <div id="hwrapper">
-                <div id="menuIcon">
-                    <p>Menu</p>
+                <div class="hwrapper">
+                    <div id="menuIcon">
+                        <p>Menu</p>
+                    </div>
+                    <a href="~/Home"><div id="logo">
+                        <h1>Temiskaming Hospital</h1>
+                    </div></a>
                 </div>
-                <div id="logo">
-                    <h1>Temiskaming Hospital</h1>
-                </div>
-                
                 <div class="menu">
                     
-                    <nav class="navi">
-                        <ul>
-                            @{Html.RenderAction("Nav", "Home", new { group = "Home" });}
+                    <div class="navi">
+                        <nav>
+                            @{Html.RenderAction("Nav", "Home", new { group = "Home", chosen = ViewBag.Group });}
                             @*Uses partial views to render dynamic menu*@
-                        </ul>
-                    </nav>
+                        </nav>
+                    </div>
 
                         @if (ViewBag.Group != null)
                         {
-                            
-                            <nav class="subMenu">
-                                @{Html.RenderAction("Nav", "Home", new { group = ViewBag.Group });}
-                            </nav>
+                           
+                                <nav class="subMenu hwrapper">
+                                    @{Html.RenderAction("Nav", "Home", new { group = ViewBag.Group });}
+                                </nav>
+                           
                         }
                 </div>
-            </div>
         </header>
     <div id="wrapper">
         
