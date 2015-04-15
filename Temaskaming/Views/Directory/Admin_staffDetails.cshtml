@@ -28,7 +28,50 @@
     </tr>
     <tr>
         <td>Department:</td>
-        <td>@Html.DisplayFor(x => x.staff_departmentName)</td>
+        <td>
+            @{
+                switch (Model.staff_departmentId)
+                {
+                    case 1:
+                        // Use the text block below to separate html elements from code
+                        <text>Senior Management</text>
+                        break;  // Always break each case
+                    case 2:
+                    <text>Physicians</text>
+                        break;
+                    case 3:
+                    <text>Nursing</text>
+                        break;
+                    case 4:
+                    <text>Midwives</text>
+                        break;
+                    case 5:
+                    <text>Human Resources</text>
+                        break;
+                    case 6:
+                    <text>Patients Relations</text>
+                        break;
+                    case 7:
+                    <text>Volunteer</text>
+                        break;
+                    case 8:
+                    <text>Finances</text>
+                        break;
+                    case 9:
+                    <text>Website Technical Support</text>
+                        break;
+                    case 10:
+                    <text>Maintenance</text>
+                        break;
+                    case 11:
+                    <text>Physician Recruitment</text>
+                        break;
+                    default:
+                    <text></text>
+                        break;
+                }
+            }            
+        </td>        
     </tr>
 </table>
 

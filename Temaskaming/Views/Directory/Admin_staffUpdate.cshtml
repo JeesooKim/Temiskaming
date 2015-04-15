@@ -49,48 +49,12 @@
     @Html.ValidationMessageFor(x => x.staff_email)
     <br /><br />
 
-    @Html.LabelFor(x => x.staff_departmentName)
-    <br />
-    @*For now, manually choose the department name as well when updating a new staff
-        Value (department names) are to be the same as the ones(name values) in departments table)*@
-    @Html.DropDownListFor(x => x.staff_departmentName, new[] {
-                            //new SelectListItem(){Text ="Choose" ,Value = "default", Selected= true},
-                            new SelectListItem(){Text="Senior Management(Id=1)", Value= "Senior Management"},
-                            new SelectListItem(){Text="Physicians(Id=2)", Value="Physicians"},
-                            new SelectListItem(){Text="Nursing(Id=3)", Value="Nursing"},
-                            new SelectListItem(){Text="Midwives(Id=4)", Value="Midwives"},
-                            new SelectListItem(){Text="Human Resources(Id=5)", Value="Human Resources"},
-                            new SelectListItem(){Text="Patients Relations(Id=6)", Value="Patient Relations"},
-                            new SelectListItem(){Text="Volunteer(Id=7)", Value="Volunteer"},
-                            new SelectListItem(){Text="Finances(Id=8)", Value="Finances"},
-                            new SelectListItem(){Text="Website Technical Support(Id=9)", Value="Website Technical Support"},
-                            new SelectListItem(){Text="Maintenance(Id=10)", Value="Maintenance"},
-                            new SelectListItem(){Text="Physician Recruitment(Id=11)", Value="Physician Recruitment Coordinator"},
-                            new SelectListItem(){Text="", Value=""}
-                            })
-    @Html.ValidationMessageFor(x => x.staff_departmentName)
-    <br /><br />
-
     @Html.LabelFor(x => x.staff_departmentId)
     <br />
-    @*@Html.TextBoxFor(x => x.staff_departmentId)*@
-    @Html.DropDownListFor(x => x.staff_departmentId, new[] {
-                            new SelectListItem(){Text ="Please Choose the same as the above!!!" ,Value = "", Selected= true},
-                            new SelectListItem(){Text="Senior Management", Value="1"},
-                            new SelectListItem(){Text="Physicians", Value="2"},
-                            new SelectListItem(){Text="Nursing", Value="3"},
-                            new SelectListItem(){Text="Midwives", Value="4"},
-                            new SelectListItem(){Text="Human Resources", Value="5"},
-                            new SelectListItem(){Text="Patients Relations", Value="6"},
-                            new SelectListItem(){Text="Volunteer", Value="7"},
-                            new SelectListItem(){Text="Finances", Value="8"},
-                            new SelectListItem(){Text="Website Technical Support", Value="9"},
-                            new SelectListItem(){Text="Maintenance", Value="10"},
-                            new SelectListItem(){Text="Physician Recruitment", Value="11"},
-                            new SelectListItem(){Text="", Value=""}
-                            })
+    @Html.DropDownList("staff_departmentId", ViewBag.DepartID as IEnumerable<SelectListItem>, String.Empty)
     @Html.ValidationMessageFor(x => x.staff_departmentId)
     <br /><br />
+
 
     <input type="submit" value="Update" />
 }

@@ -1270,15 +1270,11 @@
     <Content Include="Views\Story\NotFound.cshtml" />
     <Content Include="Views\Donation\Success.cshtml" />
     <Content Include="Views\JobPostings\Applied.cshtml" />
-    <Content Include="Views\Volunteers\Index.cshtml" />
-    <Content Include="Views\Volunteers\Form.cshtml" />
-    <Content Include="Views\Volunteers\Thanks.cshtml" />
     <Content Include="Views\Directory\_staffIndex.cshtml" />
     <Content Include="Views\Survey\PostedPoll.cshtml" />
     <Content Include="Views\Survey\AddPoll.cshtml" />
     <Content Include="Views\Survey\UpdatePoll.cshtml" />
     <Content Include="Views\Survey\DeletePoll.cshtml" />
-    <Content Include="Views\Directory\NotFound.cshtml" />
     <Content Include="Views\Directory\NotFound_P.cshtml" />
     <Content Include="Views\GiftShop\AdminGiftShop.cshtml" />
     <Content Include="Views\GiftShop\DeleteGiftShop.cshtml" />
@@ -1295,6 +1291,7 @@
     <Content Include="Views\Appointment\DeleteAppointment.cshtml" />
     <Content Include="Views\Appointment\DoctorAppointments.cshtml" />
     <Content Include="Views\Appointment\Index.cshtml" />
+    <Content Include="Views\Directory\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
