@@ -198,92 +198,18 @@
       <Column Name="published" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.Cart" Member="Carts">
-    <Type Name="Cart">
-      <Column Name="RecordId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="CartId" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ItemId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Count" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="DateCreated" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Association Name="Gift_Cart" Member="Gift" ThisKey="ItemId" OtherKey="ItemId" Type="Gift" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.[Order]" Member="Orders">
-    <Type Name="Order">
-      <Column Name="OrderId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="OrderDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="FirstName" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
-      <Column Name="LastName" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
-      <Column Name="Address" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
-      <Column Name="City" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Province" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="PostalCode" Type="System.String" DbType="VarChar(8) NOT NULL" CanBeNull="false" />
-      <Column Name="Country" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Phone" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
-      <Column Name="Email" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
-      <Column Name="Total" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
-      <Column Name="ToPatient" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
-      <Column Name="[From]" Member="From" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
-      <Column Name="Message" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Association Name="Order_OrderDetail" Member="OrderDetails" ThisKey="OrderId" OtherKey="OrderId" Type="OrderDetail" />
-    </Type>
-  </Table>
-  <Table Name="dbo.OrderDetail" Member="OrderDetails">
-    <Type Name="OrderDetail">
-      <Column Name="OrderDetailId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="OrderId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="ItemId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Quantity" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(5,2) NOT NULL" CanBeNull="false" />
-      <Association Name="Order_OrderDetail" Member="Order" ThisKey="OrderId" OtherKey="OrderId" Type="Order" IsForeignKey="true" />
-      <Association Name="Gift_OrderDetail" Member="Gift" ThisKey="ItemId" OtherKey="ItemId" Type="Gift" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Gifts" Member="Gifts">
-    <Type Name="Gift">
-      <Column Name="ItemId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Item" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="Price" Type="System.Decimal" DbType="Decimal(6,2)" CanBeNull="true" />
-      <Column Name="Image" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="Inventory" Type="System.Decimal" DbType="Decimal(4,0)" CanBeNull="true" />
-      <Association Name="Gift_Cart" Member="Carts" ThisKey="ItemId" OtherKey="ItemId" Type="Cart" />
-      <Association Name="Gift_OrderDetail" Member="OrderDetails" ThisKey="ItemId" OtherKey="ItemId" Type="OrderDetail" />
-    </Type>
-  </Table>
-  <Table Name="temismain.polls" Member="polls">
-    <Type Name="poll">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="question" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="option1" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="option2" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="choice1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="choice2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="published" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
   <Table Name="dbo.volunteer_opportunities" Member="volunteer_opportunities">
     <Type Name="volunteer_opportunity">
       <Column Name="o_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="o_name" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
-      <Column Name="o_date" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="o_start" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="o_end" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="o_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="o_start" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="o_end" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
       <Column Name="o_day" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="o_location" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
       <Column Name="o_description" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Association Name="volunteer_opportunity_volunteer_schedule" Member="volunteer_schedules" ThisKey="o_id" OtherKey="o_id" Type="volunteer_schedule" />
       <Association Name="volunteer_opportunity_volunteer" Member="volunteers" ThisKey="o_id" OtherKey="v_opportunityId" Type="volunteer" />
-    </Type>
-  </Table>
-  <Table Name="dbo.volunteer_schedules" Member="volunteer_schedules">
-    <Type Name="volunteer_schedule">
-      <Column Name="s_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="o_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="v_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="s_status" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="volunteer_opportunity_volunteer_schedule" Member="volunteer_opportunity" ThisKey="o_id" OtherKey="o_id" Type="volunteer_opportunity" IsForeignKey="true" />
-      <Association Name="volunteer_volunteer_schedule" Member="volunteer" ThisKey="v_id" OtherKey="v_id" Type="volunteer" IsForeignKey="true" />
+      <Association Name="volunteer_opportunity_volunteer_schedule" Member="volunteer_schedules" ThisKey="o_id" OtherKey="o_id" Type="volunteer_schedule" />
     </Type>
   </Table>
   <Table Name="dbo.volunteers" Member="volunteers">
@@ -300,6 +226,52 @@
       <Column Name="v_opportunityId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="volunteer_volunteer_schedule" Member="volunteer_schedules" ThisKey="v_id" OtherKey="v_id" Type="volunteer_schedule" />
       <Association Name="volunteer_opportunity_volunteer" Member="volunteer_opportunity" ThisKey="v_opportunityId" OtherKey="o_id" Type="volunteer_opportunity" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.volunteer_schedules" Member="volunteer_schedules">
+    <Type Name="volunteer_schedule">
+      <Column Name="s_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="o_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="v_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="s_status" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="s_detail" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="s_day" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="volunteer_opportunity_volunteer_schedule" Member="volunteer_opportunity" ThisKey="o_id" OtherKey="o_id" Type="volunteer_opportunity" IsForeignKey="true" />
+      <Association Name="volunteer_volunteer_schedule" Member="volunteer" ThisKey="v_id" OtherKey="v_id" Type="volunteer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Gifts" Member="Gifts">
+    <Type Name="Gift">
+      <Column Name="ItemId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Item" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Decimal(6,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Image" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Inventory" Type="System.Decimal" DbType="Decimal(4,0) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="temismain.polls" Member="polls">
+    <Type Name="poll">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="question" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="option1" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="option2" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="choice1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="choice2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="published" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Orders" Member="Orders">
+    <Type Name="Order">
+      <Column Name="OrderId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OrderDate" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="ToPatient" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="[From]" Member="From" Type="System.String" DbType="VarChar(300) NOT NULL" CanBeNull="false" />
+      <Column Name="Message" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="itemId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

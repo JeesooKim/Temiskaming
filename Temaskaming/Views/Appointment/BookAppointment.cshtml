@@ -2,6 +2,11 @@
 
 @{
     ViewBag.Title = "BookAppointment";
+    
+    if(ViewBag.Error != null)
+    { <p>@ViewBag.Error</p>
+        ViewBag.Error = null;
+    }
 }
 
 @section Scripts{
@@ -20,9 +25,8 @@
 @using(@Html.BeginForm())
 {
 
-<label>Pick a Doctor</label>
-@Html.TextBoxFor(x => x.doctor_id, new { @id = "doc"})
-<br />
+ <label>Doctor : <strong>@ViewBag.Name</strong></label>
+    <br />
 <label>Pick a date</label>
 @Html.TextBoxFor(x => x.booking_date, new { @class = "datepicker" })
 <br />

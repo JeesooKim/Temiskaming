@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Temiskaming.Models.Gift>
+
+@{
+    ViewBag.Title = "AdminGiftShop";
+}
+
+
+@{
+    var imagePath = @"~/content/images/GiftShop/";
+}
+
+<h2>Admin Gift Shop</h2>
+
+<div>
+    <h3>@Html.ActionLink("Add new item to gift shop", "InsertGiftShop", "GiftShop")</h3>
+    <h3>@Html.ActionLink("Check Orders", "Order", "GiftShop")</h3>
+    <table>
+        @foreach (var x in Model)
+        {<tr>
+            <th></th>
+            <th>
+                Item
+            </th>
+            <th>Description</th>
+        <th>Price</th>
+        
+        </tr>
+        <tr>
+            <td><div class="thumb" style="background-image:url('@Url.Content( imagePath + x.Image)')"></div></td>
+            <td>@Html.DisplayFor(model => x.Item)</td>
+            <td>@Html.DisplayFor(model =>x.Description)</td>
+            <td>@Html.DisplayFor(model =>x.Price)</td>
+            <td>@Html.ActionLink("Update", "UpdateGiftShop", new {ItemId = x.ItemId})</td>
+            <td>@Html.ActionLink("Delete", "DeleteGiftShop", new { Id = x.ItemId })</td>
+        </tr>
+
+        }</table>
+    </div>

@@ -1,0 +1,62 @@
+﻿@model Temiskaming.Models.Gift
+
+@{
+    ViewBag.Title = "Purchase";
+}
+
+<h2>Purchase</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    <div>
+        @Html.HiddenFor(model =>model.OrderId)
+       @Html.HiddenFor(model => model.itemId, new { @Value = ViewBag.PassItem})
+        
+    </div>
+    <div>
+        @Html.LabelFor(model => model.FirstName, "First Name")
+        @Html.TextBoxFor(model => model.FirstName)
+        @Html.ValidationMessageFor(Model => Model.FirstName, "*")
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.LastName, "Last Name")
+        @Html.TextBoxFor(model => model.LastName)
+        @Html.ValidationMessageFor(Model => Model.LastName, "*")
+    </div>
+   
+    <div>
+        @Html.LabelFor(model => model.Email)
+        @Html.TextBoxFor(model => model.Email)
+        @Html.ValidationMessageFor(Model => Model.Email, "*")
+    </div>
+  
+    <hr/>
+    <div>
+        @Html.LabelFor(model => model.ToPatient, "To Patient")
+        @Html.TextBoxFor(model => model.ToPatient)
+        @Html.ValidationMessageFor(Model => Model.ToPatient, "*")
+    </div>
+    <div>
+        @Html.LabelFor(model => model.From)
+        @Html.TextBoxFor(model => model.From)
+        @Html.ValidationMessageFor(Model => Model.From, "*")
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Message)
+        @Html.TextAreaFor(model => model.Message)
+        @Html.ValidationMessageFor(Model => Model.Message, "*")
+    </div>
+    <div>
+        @Html.LabelFor(model => model.OrderDate, "When To deliver to the Patient")
+        @Html.TextBoxFor(model => model.OrderDate)
+        @Html.ValidationMessageFor(Model => Model.OrderDate, "*")
+    </div>
+    <input type="submit" value="Submit"/>
+}
+
+
+@section Scripts{
+@Scripts.Render("~/bundles/jqueryval")
+}

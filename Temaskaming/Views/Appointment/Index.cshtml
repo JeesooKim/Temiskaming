@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Temiskaming.Models.doctor>
+
+@{
+    ViewBag.Title = "Index";
+    
+    if(ViewBag.Success == true)
+    {
+        <script>alert("The appointment has been booked");</script>
+        
+        ViewBag.Success = false;
+        
+    }
+}
+
+<h2>Pick a Doctors</h2>
+
+@foreach (var record in Model)
+{
+    <div>
+        <span> @Html.DisplayFor(m => record.fname) @Html.DisplayFor(m => record.lname)  </span> 
+        @Html.ActionLink("Make an Appointment", "BookAppointment", new { docID = record.Id })
+        <hr />
+    </div>
+
+}

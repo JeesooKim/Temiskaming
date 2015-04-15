@@ -16,7 +16,7 @@ namespace Temiskaming.Controllers
 
 
 
-        public ActionResult index(string searchString)
+        public ActionResult FAQ(string searchString)
         {
           
             if(searchString != null)

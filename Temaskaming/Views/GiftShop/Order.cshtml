@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Temiskaming.Models.Order>
+
+@{
+    ViewBag.Title = "Order";
+}
+
+<h2>Order</h2>
+
+<div>
+    <ul>
+        @foreach (var x in Model)
+        {
+            <li>
+                @Html.DisplayFor(model => x.OrderId); 
+                @Html.DisplayFor(model => x.FirstName);
+                @Html.DisplayFor(model => x.LastName);
+                @Html.ActionLink("Detail", "OrderDetail", new { id = x.OrderId })
+                @Html.ActionLink("Delete", "OrderDetailDelete", new{ id = x.OrderId})
+
+            </li>
+        }
+    </ul>
+</div>
