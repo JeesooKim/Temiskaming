@@ -9,7 +9,7 @@ using System.Web.Mvc;
 
 namespace Temiskaming.Models
 {
-    public class Ordervalidtion
+    public class OrderValidtion
     {
         public int OrderId { get; set; }
         public DateTime OrderDate { get; set; }
