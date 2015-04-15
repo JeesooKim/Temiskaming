@@ -90,15 +90,7 @@ namespace Temiskaming.Models
     partial void Insertstory(story instance);
     partial void Updatestory(story instance);
     partial void Deletestory(story instance);
-    partial void Insertvolunteer_opportunity(volunteer_opportunity instance);
-    partial void Updatevolunteer_opportunity(volunteer_opportunity instance);
-    partial void Deletevolunteer_opportunity(volunteer_opportunity instance);
-    partial void Insertvolunteer(volunteer instance);
-    partial void Updatevolunteer(volunteer instance);
-    partial void Deletevolunteer(volunteer instance);
-    partial void Insertvolunteer_schedule(volunteer_schedule instance);
-    partial void Updatevolunteer_schedule(volunteer_schedule instance);
-    partial void Deletevolunteer_schedule(volunteer_schedule instance);
+    
     partial void Insertpoll(poll instance);
     partial void Updatepoll(poll instance);
     partial void Deletepoll(poll instance);
