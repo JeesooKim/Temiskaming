@@ -17,7 +17,7 @@ namespace Temiskaming.Controllers
         OrderClass objOrder = new OrderClass();
         
 
-
+        //home page
         public ActionResult Index() 
         {
             ViewBag.Group = "GiftShop";
@@ -25,7 +25,7 @@ namespace Temiskaming.Controllers
             return View(items);
         }
 
-       
+       //admin page
         public ActionResult AdminGiftShop()
         {
             ViewBag.Group = "GiftShop";
@@ -40,6 +40,7 @@ namespace Temiskaming.Controllers
             }
         }
         
+        //insert
         public ActionResult InsertGiftShop()
         {
             return View();
@@ -77,6 +78,8 @@ namespace Temiskaming.Controllers
             return View(); 
        }//end public insert item 
 
+
+        //update
         public ActionResult UpdateGiftShop(int ItemId)
         {
             var Gif = objGift.getGiftsById(ItemId);
@@ -172,6 +175,11 @@ namespace Temiskaming.Controllers
             {
                 return View();
             }
+        }
+
+        public ActionResult ThankYou()
+        {
+            return View();
         }
 
         [HttpPost]

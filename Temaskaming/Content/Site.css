@@ -712,8 +712,20 @@ padding:4px;
     background-size: cover;
 }
 
+/*contact form*/
+.Contact-list{
+     list-style-type: none;
+}
 
+.contact-left{
+width:70px;
+float:left;
+}
 
+.contact-right{
+    width:100%;
+    
+}
 
 
 /*for News Feed only*/
