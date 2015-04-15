@@ -14,7 +14,7 @@ namespace Temiskaming.Controllers
 
 
 
-
+        //start of index(public)
         public ActionResult index()
         {
             return View();
@@ -39,7 +39,7 @@ namespace Temiskaming.Controllers
             }
             return View();
         }
-
+        //end of index (public )
    
    //admin side     
 
