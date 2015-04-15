@@ -631,6 +631,7 @@
     <Content Include="Content\datatables.extensions\TableTools\images\xls_hover.png" />
     <Content Include="Content\Images\slider\temis1.jpg" />
     <Content Include="Content\Images\slider\temis2.jpg" />
+    <Content Include="Content\Images\slider\temis3.jpg" />
     <Content Include="Content\nchat.css" />
     <Content Include="Scripts\datepicker\lib\compressed\legacy.js" />
     <Content Include="Scripts\datepicker\lib\compressed\picker.date.js" />
