@@ -14,6 +14,7 @@ namespace Temiskaming.Controllers
         // GET: /GiftShop/
 
         GiftShopClass objGift = new GiftShopClass();
+        OrderClass objOrder = new OrderClass();
         
 
 
@@ -98,7 +99,7 @@ namespace Temiskaming.Controllers
             {
                 try
                 {
-                    objGift.commitUpdate(ItemId, Gt.Item, Gt.Description, Gt.Price, Gt.Image, Gt.Inventory);
+                    objGift.commitUpdate(ItemId, Gt.Item, Gt.Description, Gt.Price, Gt.Image );
                     return RedirectToAction("AdminGiftShop"); 
                 }//end try
                 catch
@@ -140,91 +141,24 @@ namespace Temiskaming.Controllers
             }//end catch
         }//end deleteitem 
 
-        public ActionResult Order()
-        {
-            var Od = objGift.getOrder();
-            ViewBag.Group = "GiftShop";
-            return View(Od);
-        }
-
-        //get detail for each entry
-
-        public ActionResult OrderDetail(int OrderId)
-        {
-            var allDetail = from i in objGift.getOrder() select i;
-            var getDetail = (from order in objGift.getOrder()
-                             join gift in objGift.getGifts()
-                             on order.itemId equals gift.ItemId
-                             select new
-                             {
-                                 gift.Item,
-                                 gift.Price,
-                                 order.FirstName,
-                                 order.LastName,
-                                 order.ToPatient,
-                                 order.From,
-                                 order.Message
-                             });
-
-
-
-            ViewBag.Group = "Gift Shop";
-            var Ord = objGift.getOrderById(OrderId);
-            if (Ord == null)
-            {
-                return View("Order");
-            }
-            else
-            {
-                return View(Ord);
-            }
-        }
-
-        //insert when purchasing
-
-        //Delete
-        public ActionResult OrderDetailDelete(int OrderId)
-        {
-            var Ord = objGift.getOrderById(OrderId);
-            if (Ord == null)
-            {
-                return View("Order");
-            }
-            else
-            {
-                return View(Ord);
-            }
-        }
-        [HttpPost]
-        public ActionResult OrderDetailDelete(int OrderId, Order Or)
-        {
-            ViewBag.Group = "Gift Shop";
-            try
-            {
-                objGift.CommitDelete(OrderId);
-                return RedirectToAction("Order");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-        public ActionResult Purchase(string PassItem)
+        public ActionResult Purchase(string PassItem, string PassPrice)
         {
             @ViewBag.PassItem = PassItem;
+            @ViewBag.PassPrice = PassItem;
             return View();
         }
 
         [HttpPost]
-        public ActionResult Purchase(Order Ord)
+        public ActionResult Purchase(string PassItem, string PassPrice,  Order Ord)
         {
-
+            ViewBag.PassItem = PassItem;
+            ViewBag.PassPrice = PassPrice;
             ViewBag.Group = "Gift Shop";
             if (ModelState.IsValid)
             {
                 try
                 {
-                    objGift.CommitInsert(Ord);
+                    objOrder.CommitInsert(Ord);
                     return RedirectToAction("ThankYou");
                 }
                 catch
@@ -243,6 +177,7 @@ namespace Temiskaming.Controllers
         {
             return View();
         }
+
 
 
 

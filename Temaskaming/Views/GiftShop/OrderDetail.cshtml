@@ -1,5 +1,23 @@
-﻿@{
-    ViewBag.Title = "OrderDetail";
+﻿@model IEnumerable<Temiskaming.Models.Order>
+
+@{
+    ViewBag.Title = "Order";
 }
 
-<h2>OrderDetail</h2>
+<h2>Order</h2>
+
+<div>
+    <ul>
+        @foreach (var x in Model)
+        {
+            <li>
+                @Html.DisplayFor(model => x.OrderId);
+                @Html.DisplayFor(model => x.FirstName);
+                @Html.DisplayFor(model => x.LastName);
+               
+               
+            </li>
+        }
+    </ul>
+    @Html.ActionLink("Back", "Order", "Order")
+</div>

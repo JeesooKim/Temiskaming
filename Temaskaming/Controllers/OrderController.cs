@@ -31,7 +31,7 @@ namespace Temiskaming.Controllers
             var allDetail = from i in objOrder.getOrder() select i; 
             var getDetail = (from order in objOrder.getOrder()
                             join gift in objGift.getGifts()
-                            on order.itemId equals gift.ItemId
+                            on order.Item equals gift.Item
                             select new { gift.Item,
                                 gift.Price, 
                                 order.FirstName,
@@ -40,7 +40,11 @@ namespace Temiskaming.Controllers
                                 order.From,
                                 order.Message });
 
-           
+           foreach( var Det in getDetail)
+           {
+               Console.WriteLine(Det);
+           }
+           Console.ReadLine();
 
             ViewBag.Group = "Gift Shop";
             var Ord = objOrder.getOrderById(OrderId);
@@ -83,41 +87,6 @@ namespace Temiskaming.Controllers
                 return View();
             }
         }
-          public ActionResult Purchase(string PassItem)
-          {
-              @ViewBag.PassItem = PassItem;
-              return View();
-          }
-
-          [HttpPost]
-          public ActionResult Purchase(Order Ord)
-          {
-              
-              ViewBag.Group = "Gift Shop";
-              if (ModelState.IsValid)
-              {
-                  try
-                  {
-                      objOrder.CommitInsert(Ord);
-                      return RedirectToAction("ThankYou");
-                  }
-                  catch
-                  {
-                      return View("Index");
-                  }
-              }
-              else
-              {
-                  return View();
-              }
-          }
-
-        [HttpPost]
-        public ActionResult ThankYou()
-        {
-            return View();
-        }
-
-
+          
     }
 }

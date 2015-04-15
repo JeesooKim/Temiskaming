@@ -41,7 +41,7 @@ namespace Temiskaming.Models
             }
         }//end of insert
 
-        public bool commitUpdate(int _ItemId, string _Item, string _Description, decimal _Price, string _Image, decimal _Inventory)
+        public bool commitUpdate(int _ItemId, string _Item, string _Description, decimal _Price, string _Image)
         {
             using(objGifts)
             {
@@ -51,7 +51,6 @@ namespace Temiskaming.Models
                 GiftUp.Description = _Description;
                 GiftUp.Price = _Price;
                 GiftUp.Image = _Image;
-                GiftUp.Inventory = _Inventory;
                 objGifts.SubmitChanges();
                 return true; 
             }
@@ -70,43 +69,7 @@ namespace Temiskaming.Models
                 return true; 
             }
         }
-        public IQueryable<Order> getOrder()
-        {
-            var allOrders = from x in objGifts.Orders select x;
-            return allOrders;
-        }//end of get order
-
-        //get the id 
-        public Order getOrderById(int _id)
-        {
-            var allOrders = objGifts.Orders.SingleOrDefault(x => x.OrderId == _id);
-            return allOrders;
-        }//end get order by id
-
-        public bool CommitInsert(Order Ord)
-        {
-            using (objGifts)
-            {
-
-                objGifts.Orders.InsertOnSubmit(Ord);
-                objGifts.SubmitChanges();
-                return true;
-            }
-        }
-
-        public bool CommitDelete(int _id)
-        {
-            using (objGifts)
-            {
-                var ORDDel = objGifts.Orders.Single(x => x.OrderId == _id);
-                objGifts.Orders.DeleteOnSubmit(ORDDel);
-                objGifts.SubmitChanges();
-                return true;
-            }//end using
-
-        }//ending delete
-
-
+       
 
     }//close public class GiftShop Class
 }//close name space

@@ -1053,12 +1053,12 @@
     <Content Include="Views\GiftShop\UpdateGiftShop.cshtml" />
     <None Include="Views\GiftShop\DeleteGiftShop.cshtml" />
     <Content Include="Views\GiftShop\OrderDetail.cshtml" />
-    <Content Include="Views\GiftShop\Order.cshtml" />
     <Content Include="Views\GiftShop\OrderDetailDelete.cshtml" />
     <Content Include="Views\GiftShop\Index.cshtml" />
     <Content Include="Views\GiftShop\Purchase.cshtml" />
     <Content Include="Views\GiftShop\ThankYou.cshtml" />
     <Content Include="Views\GiftShop\Review.cshtml" />
+    <Content Include="Views\GiftShop\Order.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
