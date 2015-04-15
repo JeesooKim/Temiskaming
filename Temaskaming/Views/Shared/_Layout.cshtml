@@ -26,25 +26,26 @@
                 <div id="logo">
                     <h1>Temiskaming Hospital</h1>
                 </div>
+                <div class="menu">
+                    <nav>
+                        <ul>
+                            @{Html.RenderAction("Nav", "Home", new { group = "Home" });}
+                            @*Uses partial views to render dynamic menu*@
+                        </ul>
+                    </nav>
 
-                <nav>
-                    <ul>
-                        @{Html.RenderAction("Nav", "Home", new { group = "Home" });}
-                        @*Uses partial views to render dynamic menu*@
-                    </ul>
-                </nav>
+                    <div class="subMenu">
 
-                <div class="subMenu">
-
-                    @if (ViewBag.Group != null)
-                    {
-                        <div id="menuIcon">
-                            <p>Menu</p>
-                        </div>
-                        <nav>
-                            @{Html.RenderAction("Nav", "Home", new { group = ViewBag.Group });}
-                        </nav>
-                    }
+                        @if (ViewBag.Group != null)
+                        {
+                            <div id="menuIcon">
+                                <p>Menu</p>
+                            </div>
+                            <nav>
+                                @{Html.RenderAction("Nav", "Home", new { group = ViewBag.Group });}
+                            </nav>
+                        }
+                    </div>
                 </div>
             </div>
         </header>

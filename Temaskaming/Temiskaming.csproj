@@ -221,6 +221,9 @@
     <Compile Include="Models\EcardValidation.cs" />
     <Compile Include="Models\FAQClass.cs" />
     <Compile Include="Models\FAQValidation.cs" />
+    <Compile Include="Models\GiftShopClass.cs" />
+    <Compile Include="Models\GiftValidation.cs" />
+    <Compile Include="Models\ItemClass.cs" />
     <Compile Include="Models\jobapplicationValidation.cs" />
     <Compile Include="Models\jobValidation.cs" />
     <Compile Include="Models\linqecardsClass.cs" />
@@ -229,6 +232,8 @@
     <Compile Include="Models\navClass.cs" />
     <Compile Include="Models\NewsClass.cs" />
     <Compile Include="Models\NewsValidation.cs" />
+    <Compile Include="Models\OrderClass.cs" />
+    <Compile Include="Models\OrderValidation.cs" />
     <Compile Include="Models\SignupValidation.cs" />
     <Compile Include="Models\StoryClass.cs" />
     <Compile Include="Models\StoryValidationClass.cs" />
