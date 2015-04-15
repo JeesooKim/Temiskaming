@@ -124,20 +124,7 @@ namespace Temiskaming.Models
             return allstaffInD;
         }
 
-        //method : get the id of the department from staff linq object
-        //public IQueryable<Int32> getDepartmentId()
-        //{
-        //    var departmentId = objDirectory.staffs.Select(x => x.staff_departmentId);
-        //    return departmentId;
-        //}
-
-        ////method : get the id of the staff from staff linq object
-        //public IQueryable<Int32> getStaffId()
-        //{
-        //    var staffId = objDirectory.staffs.Select(x => x.staff_id);
-        //    return staffId;
-        //}
-
+        
         //Insert method with a parameter, staff object
         public bool commitInsertS(staff s)
         {

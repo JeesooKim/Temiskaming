@@ -206,7 +206,7 @@ namespace Temiskaming.Controllers
 
         public ActionResult Admin_staffInsert()
         {
-            ViewBag.Group="Admin";
+            //ViewBag.Group = "Admin";
 
             IEnumerable<SelectListItem> items =
             objDir.getDepartments().Select(d =>
@@ -224,14 +224,13 @@ namespace Temiskaming.Controllers
         [HttpPost]
         public ActionResult Admin_staffInsert(staff s)
         {
-            ViewBag.Group="Admin";
+            //ViewBag.Group = "Admin";
             if (ModelState.IsValid)
             {
                 try
                 {
-                    
-                    objDir.commitInsertS(s);
-                    
+
+                    objDir.commitInsertS(s);                    
                     return RedirectToAction("DirectoryAdmin_Staff");
                 }
                 catch
@@ -253,9 +252,11 @@ namespace Temiskaming.Controllers
             return View();
         }
 
+
+
         public ActionResult Admin_staffUpdate(int id)
         {
-            ViewBag.Group="Admin";
+            ViewBag.Group = "Admin";
 
             IEnumerable<SelectListItem> items =
             objDir.getDepartments().Select(d =>
@@ -281,12 +282,13 @@ namespace Temiskaming.Controllers
         [HttpPost]
         public ActionResult Admin_staffUpdate(int id, staff s)
         {
-            ViewBag.Group="Admin";
+            ViewBag.Group = "Admin";
             if (ModelState.IsValid)
             {
                 try
                 {
                     objDir.commitUpdateS(id, s.staff_fname, s.staff_lname, s.staff_position, s.staff_phone, s.staff_ext, s.staff_email, s.staff_departmentName, s.staff_departmentId);
+
                     return RedirectToAction("Admin_staffDetails/" + id);
                 }
                 catch
@@ -307,6 +309,7 @@ namespace Temiskaming.Controllers
 
             return View();
         }
+
 
 
         public ActionResult Admin_staffDelete(int id)
