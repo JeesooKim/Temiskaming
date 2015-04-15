@@ -24,29 +24,33 @@
         <header>
             <div id="hwrapper">
                 <div id="logo">
-
+                    <h1>Temiskaming Hospital</h1>
                 </div>
-                <nav>
-                    <ul>
-                        @{Html.RenderAction("Nav", "Home", new { group = "Home" });}
-                        @*Uses partial views to render dynamic menu*@
-                    </ul>
-                </nav>
+                <div class="menu">
+                    <nav>
+                        <ul>
+                            @{Html.RenderAction("Nav", "Home", new { group = "Home" });}
+                            @*Uses partial views to render dynamic menu*@
+                        </ul>
+                    </nav>
+
+                    <div class="subMenu">
+
+                        @if (ViewBag.Group != null)
+                        {
+                            <div id="menuIcon">
+                                <p>Menu</p>
+                            </div>
+                            <nav>
+                                @{Html.RenderAction("Nav", "Home", new { group = ViewBag.Group });}
+                            </nav>
+                        }
+                    </div>
+                </div>
             </div>
         </header>
     <div id="wrapper">
-        <div class="menu">
-            
-            @if (ViewBag.Group != null)
-            {
-                <div id="menuIcon">
-                    
-                </div>
-            <nav>
-                @{Html.RenderAction("Nav", "Home", new { group = ViewBag.Group });}
-            </nav>
-            }
-        </div>
+        
         <div id="container">
             @if (ViewBag.Group == "Admin" || ViewBag.Group == "Nurse")
             {

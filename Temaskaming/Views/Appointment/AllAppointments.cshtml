@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Temiskaming.Models.appointment>
+
+@{
+    ViewBag.Title = "All Appointments";
+}
+
+<h2>All Appointments</h2>
+
+@foreach (var x in Model)
+{
+    @Html.DisplayFor(m => x.booking_date)
+    @Html.DisplayFor(m => x.email)
+    @Html.DisplayFor(m => x.phone)  
+    <br />
+    <button> @Html.ActionLink("Cancel Appointment", "DeleteAppointment", new { id = x.id }) </button>
+    <hr />
+
+}

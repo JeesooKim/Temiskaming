@@ -24,6 +24,15 @@ namespace Temiskaming.Models
             return allAppointments;
         }
 
+        public IQueryable<appointment> getAllAppointmentsByID(int docID)
+        {
+            var allAppointments = (from x in objAppointment.appointments
+                                   where x.doctor_id == docID
+                                   select x);
+
+            return allAppointments;
+        }
+
         public appointment getAppointmentByID(int _id)
         {
             var oneAppointment = objAppointment.appointments.SingleOrDefault(x => x.id == _id);
@@ -40,6 +49,7 @@ namespace Temiskaming.Models
                 return true;
             }
         }
+
 
         public bool commitUpdate(int _id, int _docID, DateTime _bookingDate, string _email, string _phone)
         {
