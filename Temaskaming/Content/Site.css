@@ -693,6 +693,33 @@ padding:4px;
     
 }
 
+/*FOR GIFT SHOP*/
+
+.gift-thumb {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    border: 3px solid #60cdf6;
+    background-position: center center;
+    background-size: cover;
+}
+
+/*contact form*/
+.Contact-list{
+     list-style-type: none;
+}
+
+.contact-left{
+width:70px;
+float:left;
+}
+
+.contact-right{
+    width:100%;
+    
+}
+
 
 /*for News Feed only*/
 

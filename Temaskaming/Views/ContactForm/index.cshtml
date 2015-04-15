@@ -8,24 +8,39 @@
 
 @using (Html.BeginForm())
 {
-    <div>
-        @Html.LabelFor(model => model.Name)
-        @Html.TextBoxFor(model => model.Name)
-        @Html.ValidationMessageFor(model => model.Name, "*")
+    <div class="contact-left">
+        <ul class="Contact-list">
+            <li>
+                @Html.LabelFor(model => model.Name)
+            </li>
+            <li>
+                @Html.LabelFor(model => model.Comment)
+                </li>
+          <li>  @Html.LabelFor(model => model.Email)
+        </li>
+        </ul>
     </div>
-    <div>
-        @Html.LabelFor(model => model.Email)
-        @Html.TextBoxFor(model => model.Email)
-        @Html.ValidationMessageFor(model => model.Email, "*")
+    <div class="contact-right">
+        <ul class="Contact-list">
+            <li>
+                @Html.TextBoxFor(model => model.Name, new { @class = "" })
+                @Html.ValidationMessageFor(model => model.Name, "*")
+            </li>
+            <li>
+                @Html.TextBoxFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email, "*")
+            </li>
+            <li>
+                @Html.TextAreaFor(model => model.Comment)
+                @Html.ValidationMessageFor(model => model.Comment, "*")
+            </li>
+            <li>
+                <input type="submit" value="submit" />
+            </li>
+        </ul>
+
     </div>
-    <div>
-        @Html.LabelFor(model => model.Comment)
-        @Html.TextAreaFor(model => model.Comment)
-        @Html.ValidationMessageFor(model => model.Comment, "*")
-    </div>
-    <div>
-        <input type="submit" value="submit" />
-    </div>
+    
 }
 
 @section Scripts{

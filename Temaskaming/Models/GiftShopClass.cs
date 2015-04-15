@@ -41,7 +41,7 @@ namespace Temiskaming.Models
             }
         }//end of insert
 
-        public bool commitUpdate(int _ItemId, string _Item, string _Description, decimal _Price, string _Image)
+        public bool commitUpdate(int _ItemId, string _Item, string _Description, decimal _Price)
         {
             using(objGifts)
             {
@@ -50,7 +50,7 @@ namespace Temiskaming.Models
                 GiftUp.Item = _Item;
                 GiftUp.Description = _Description;
                 GiftUp.Price = _Price;
-                GiftUp.Image = _Image;
+             
                 objGifts.SubmitChanges();
                 return true; 
             }
