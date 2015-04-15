@@ -83,9 +83,9 @@ namespace Temiskaming.Controllers
                 return View();
             }
         }
-          public ActionResult Purchase(string ItemId)
+          public ActionResult Purchase(string PassItem)
           {
-              @ViewBag.valurl = ItemId; 
+              @ViewBag.PassItem = PassItem;
               return View();
           }
 
@@ -103,11 +103,20 @@ namespace Temiskaming.Controllers
                   }
                   catch
                   {
-                      return View("error");
+                      return View("Index");
                   }
               }
-              return View();
+              else
+              {
+                  return View();
+              }
           }
+
+        [HttpPost]
+        public ActionResult ThankYou()
+        {
+            return View();
+        }
 
 
     }

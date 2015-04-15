@@ -9,22 +9,33 @@ using System.Web.Mvc;
 
 namespace Temiskaming.Models
 {
+    [MetadataType(typeof(OrderValidtion))]
+    [Bind(Exclude="OrderId")]
+
+    public partial class Order
+    {
+
+    }
+
     public class OrderValidtion
     {
-        public int OrderId { get; set; }
-        public DateTime OrderDate { get; set; }
+        [Required]
+        public string itemId { get; set; }
+        [Required]
+        public string OrderDate { get; set; }
+        [Required]
         public string FirstName { get; set; }
+        [Required]
         public string Lastname { get; set; }
-        public string Address { get; set; }
-        public string City { get; set; }
-        public string Province { get; set; }
-        public string PostalCode { get; set; }
-        public string Country { get; set; }
-        public string Phone { get; set; }
+        [Required]
         public string Email { get; set; }
+        [Required]
         public string ToPatient { get; set; }
+        [Required]
         public string From { get; set; }
+        [Required]
         public string Message { get; set; }
+     
 
     }
 }
