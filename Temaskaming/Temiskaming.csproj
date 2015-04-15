@@ -232,7 +232,7 @@
     <Compile Include="Models\NewsClass.cs" />
     <Compile Include="Models\NewsValidation.cs" />
     <Compile Include="Models\OrderClass.cs" />
-    <Compile Include="Models\OrderValidtion.cs" />
+    <Compile Include="Models\Ordervalidtion.cs" />
     <Compile Include="Models\SignupValidation.cs" />
     <Compile Include="Models\StoryClass.cs" />
     <Compile Include="Models\StoryValidationClass.cs" />
