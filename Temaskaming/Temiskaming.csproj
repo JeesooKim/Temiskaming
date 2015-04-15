@@ -205,6 +205,7 @@
     <Compile Include="Models\cmsClass.cs" />
     <Compile Include="Models\cmsValidation.cs" />
     <Compile Include="Models\ContactFormClass.cs" />
+    <Compile Include="Models\ContactFormValidation.cs" />
     <Compile Include="Models\database.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -639,6 +640,7 @@
     <Content Include="Content\donation.css" />
     <Content Include="Content\Images\GiftShop\eventsstyle.com_18688.jpg" />
     <Content Include="Content\nchat.css" />
+    <Content Include="Content\themes\ashwin.css" />
     <Content Include="Scripts\datepicker\lib\compressed\legacy.js" />
     <Content Include="Scripts\datepicker\lib\compressed\picker.date.js" />
     <Content Include="Scripts\datepicker\lib\compressed\picker.js" />
@@ -1051,6 +1053,12 @@
     <Content Include="Views\GiftShop\AdminGiftShop.cshtml" />
     <Content Include="Views\GiftShop\InsertGiftShop.cshtml" />
     <Content Include="Views\GiftShop\UpdateGiftShop.cshtml" />
+    <Content Include="Views\Appointment\Index.cshtml" />
+    <Content Include="Views\Appointment\DoctorAppointments.cshtml" />
+    <Content Include="Views\Appointment\DeleteAppointment.cshtml" />
+    <Content Include="Views\Appointment\AllAppointments.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <None Include="Views\GiftShop\DeleteGiftShop.cshtml" />
     <Content Include="Views\GiftShop\OrderDetail.cshtml" />
     <Content Include="Views\GiftShop\Order.cshtml" />

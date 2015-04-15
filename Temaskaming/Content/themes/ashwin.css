@@ -1,0 +1,50 @@
+﻿body {
+}
+
+.buttons {
+    background:#bbecff;
+    color:#fff;
+    padding:10px;
+    border-radius:3px;
+    border:1px solid #000;
+    float:left;
+    cursor:pointer;
+    margin-left:2px;
+}
+
+ .buttons a {
+   font-family:'Times New Roman', Times, serif;
+   font-size:14px;
+   color:#4c4c4c;
+   text-decoration:none;      
+    }
+
+.button {
+    width:80px;
+    background:#bbecff;
+    color:#fff;
+    padding:7px;
+    border-radius:3px;
+    border:1px solid #000;
+    float:left;
+    cursor:pointer;
+    margin-left:2px;
+    
+}
+
+.button a {
+   font-family:'Times New Roman', Times, serif;
+   font-size:14px;
+   color:#4c4c4c;
+   text-decoration:none;
+    }
+
+#alert {
+    float:left;
+    width:500px;
+}
+
+#alert span {
+    color:green; 
+    font-family:'Times New Roman', Times, serif;   
+    }
