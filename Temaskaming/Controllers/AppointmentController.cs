@@ -71,6 +71,7 @@ namespace Temiskaming.Controllers
             return View("Index");
         }
 
+        [Authorize(Roles="Admin")]
         public ActionResult DoctorAppointments()
         {
             var docList = objDoc.getDoctors();

@@ -50,11 +50,17 @@ ul{
     height: 100%;
 }
 .subMenu {
+    margin: 0;
+    padding: 0;
+}
+.subMenu nav {
+    margin-left: 20px;
+    text-align: left;
     position: relative;
     top: 20px;
 }
 
-.subMenu p {
+#menuIcon {
     margin: 0;
     display: none;
 }
@@ -86,14 +92,13 @@ header #logo {
     background-size: 59px 59px;
 }
 
-header nav {
+.navi {
     text-align: center;
     font-size: 150%;
     position: relative;
 }
 
 .subMenu nav {
-    text-align: left;
     font-size: 100%;
 }
 
@@ -332,6 +337,7 @@ textarea {
         text-align: center;
     }
     
+    
     /*HEADER*/
     header {
         text-align: center;
@@ -356,7 +362,7 @@ textarea {
     }
     header a:hover {
     }
-    header nav li {
+    .navi li {
         border-top: 1px dashed #60cef7;
     }
 
@@ -416,15 +422,14 @@ textarea {
     }
 
     /*SECONDARY NAV*/
-    .subMenu {
-        position: static;
-        text-align: left;
-    }
+    
     #menuIcon {
+        display: inline-block;
+        float: right;
         color: white;
-        width: 100%;
-        height: 45px;
-        background: url('Images/hamburger.png') no-repeat center;
+        width: 200px;
+        height: 100%;
+        background: url('Images/hamburger.png') no-repeat right;
         background-size: 40px 40px;
         background-color: black;
         margin: 0;
@@ -433,42 +438,30 @@ textarea {
     #menuIcon:active {
         background-color: #1c3152;
     }
-    .subMenu a {
-        display: block;
-        width: 100%;
-        color: white;
-        text-decoration: none;
-        background: black;
-        padding: 10px;
-        border-top: 1px dashed white;
-    }
-    .subMenu nav {
-        display: none;
-    }
+    
+    
     .subMenu a:active {
         background: #1c3152;
     }
-    .subMenu li {
-        margin: 0;
-        font-size: 1.2em;
-        display: list-item;
-        background: #1c3152;
-        overflow: hidden;
-    }
+    
 
-    header nav li {
+    .navi li {
         display: list-item;
         margin-bottom: 10px;
         margin: 0;
         background: #a0e2fa;
     }
-    header nav {
+    .navi {
         font-size: 1.4em;
+
     }
-    header a:hover {
+    .subMenu {
+        margin: 0;
+    }
+    .navi a:hover {
         color: white;
     }
-    header a:active {
+    .navi a:active {
         background: #35758e;
     }
     footer nav li {

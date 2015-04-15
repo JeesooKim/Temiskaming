@@ -1,10 +1,10 @@
 ﻿$(document).ready(function () {
 
     $("#menuIcon").click(function () {
-        if ($(".menu nav").css('display') == 'none') {
-            $(".menu nav").slideDown();
+        if ($(".menu").css('display') == 'none') {
+            $(".menu").slideDown();
         } else {
-            $(".menu nav").slideUp();
+            $(".menu").slideUp();
         }
     })
 

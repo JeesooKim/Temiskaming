@@ -1292,6 +1292,10 @@
     <Content Include="Views\GiftShop\Purchase.cshtml" />
     <Content Include="Views\GiftShop\ThankYou.cshtml" />
     <Content Include="Views\GiftShop\UpdateGiftShop.cshtml" />
+    <Content Include="Views\Appointment\AllAppointments.cshtml" />
+    <Content Include="Views\Appointment\DeleteAppointment.cshtml" />
+    <Content Include="Views\Appointment\DoctorAppointments.cshtml" />
+    <Content Include="Views\Appointment\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
