@@ -153,6 +153,8 @@ namespace Temiskaming.Controllers
         {
             ViewBag.PassItem = PassItem;
             ViewBag.PassPrice = PassPrice;
+            Ord.Item = PassItem;
+            Ord.Price = Convert.ToDecimal(PassPrice);
             ViewBag.Group = "Gift Shop";
             if (ModelState.IsValid)
             {
