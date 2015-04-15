@@ -183,10 +183,11 @@
     <Compile Include="Controllers\EditableController.cs" />
     <Compile Include="Controllers\EmailSignupController.cs" />
     <Compile Include="Controllers\FAQController.cs" />
+    <Compile Include="Controllers\GiftShopController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobPostingsController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
-    <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\StoryController.cs" />
     <Compile Include="Controllers\SurveyController.cs" />
     <Compile Include="Controllers\VolunteersController.cs" />
@@ -219,6 +220,9 @@
     <Compile Include="Models\EcardValidation.cs" />
     <Compile Include="Models\FAQClass.cs" />
     <Compile Include="Models\FAQValidation.cs" />
+    <Compile Include="Models\GiftShopClass.cs" />
+    <Compile Include="Models\GiftValidation.cs" />
+    <Compile Include="Models\ItemClass.cs" />
     <Compile Include="Models\jobapplicationValidation.cs" />
     <Compile Include="Models\jobValidation.cs" />
     <Compile Include="Models\linqecardsClass.cs" />
@@ -227,6 +231,8 @@
     <Compile Include="Models\navClass.cs" />
     <Compile Include="Models\NewsClass.cs" />
     <Compile Include="Models\NewsValidation.cs" />
+    <Compile Include="Models\OrderClass.cs" />
+    <Compile Include="Models\OrderValidtion.cs" />
     <Compile Include="Models\SignupValidation.cs" />
     <Compile Include="Models\StoryClass.cs" />
     <Compile Include="Models\StoryValidationClass.cs" />
@@ -631,6 +637,7 @@
     <Content Include="Content\doc_style\jquery.dataTables.min.css" />
     <Content Include="Content\doc_style\jquery.dataTables_themeroller.css" />
     <Content Include="Content\donation.css" />
+    <Content Include="Content\Images\GiftShop\eventsstyle.com_18688.jpg" />
     <Content Include="Content\nchat.css" />
     <Content Include="Scripts\datepicker\lib\compressed\legacy.js" />
     <Content Include="Scripts\datepicker\lib\compressed\picker.date.js" />
@@ -1041,6 +1048,16 @@
     <Content Include="Views\Volunteers\Index.cshtml" />
     <Content Include="Views\Volunteers\Form.cshtml" />
     <Content Include="Views\Volunteers\Thanks.cshtml" />
+    <Content Include="Views\GiftShop\AdminGiftShop.cshtml" />
+    <Content Include="Views\GiftShop\InsertGiftShop.cshtml" />
+    <Content Include="Views\GiftShop\UpdateGiftShop.cshtml" />
+    <None Include="Views\GiftShop\DeleteGiftShop.cshtml" />
+    <Content Include="Views\GiftShop\OrderDetail.cshtml" />
+    <Content Include="Views\GiftShop\Order.cshtml" />
+    <Content Include="Views\GiftShop\OrderDetailDelete.cshtml" />
+    <Content Include="Views\GiftShop\Index.cshtml" />
+    <Content Include="Views\GiftShop\Purchase.cshtml" />
+    <Content Include="Views\GiftShop\ThankYou.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
