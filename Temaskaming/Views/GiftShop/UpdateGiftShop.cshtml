@@ -9,7 +9,7 @@
 @using (Html.BeginForm())
 {
     <div>
-        @Html.HiddenFor(x=>x.ItemId)<!--Hid id-->
+        @Html.HiddenFor(x => x.ItemId)<!--Hid id-->
     </div>
     <div>
         <p>Item: </p>
@@ -34,7 +34,7 @@
     <div>
         <input type="submit" value="Enter" /> @Html.ActionLink("Cancel", "GiftShopAdmin", "GiftShop")
     </div>
-   
+
 }
 
 @section Scripts{

@@ -7,7 +7,7 @@
 
 <h2>Purchase</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm(new { PassItem = ViewBag.PassItem, PassPrice = ViewBag.PassPrice }))
 {
     @Html.ValidationSummary()
     <div>

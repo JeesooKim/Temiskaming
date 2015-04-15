@@ -9,13 +9,16 @@ namespace Temiskaming.Models
     {
         databaseDataContext objCF = new databaseDataContext();
 
+
+
+        //get everything from the table
    public IQueryable<ContactForm> getCF()
         {
             var allCF = from x in objCF.ContactForms select x;
             return allCF; 
         }
 
-        //get id 
+        //get values by id 
          public ContactForm getCFById(int _id)
    {
        var AllCF = objCF.ContactForms.SingleOrDefault(x => x.id == _id);
