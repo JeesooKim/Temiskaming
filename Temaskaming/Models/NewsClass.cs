@@ -17,12 +17,14 @@ namespace Temiskaming.Models
             return allnews;
         }
 
+        //get a specific news article by its id
         public news GetNewsByID(int _id)
         {
             var news = objDB.news.SingleOrDefault(x => x.id == _id);
             return news;
         }
 
+        //insert news article of datatype news in database model
         public bool NewsInsert(news news)
         {
             using (objDB)
