@@ -47,8 +47,7 @@
             <td>@Html.LabelFor(model => model.staff_departmentId) * </td>
             <td>
                 @Html.DropDownList("staff_departmentId", ViewBag.DepartID as IEnumerable<SelectListItem>, String.Empty)           
-
-                
+                @*Thanks to Jaden*@                
             </td>
             <td>@Html.ValidationMessageFor(model => model.staff_departmentId, "*")</td>
         </tr>

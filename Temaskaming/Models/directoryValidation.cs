@@ -94,7 +94,7 @@ namespace Temiskaming.Models
         [Key]
         [ForeignKey("department")]
         [DisplayName("Staff Department Id")]
-        [Required(ErrorMessage = "Please choose the department ID as displayed in Name for the staff")]        
+        [Required(ErrorMessage = "Please choose the department ID as its name")]        
         public int staff_departmentId { get; set; }
     }
 

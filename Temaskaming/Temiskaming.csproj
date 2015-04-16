@@ -189,6 +189,7 @@
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\StoryController.cs" />
     <Compile Include="Controllers\SurveyController.cs" />
+    <Compile Include="Controllers\VolunteerController.cs" />
     <Compile Include="Controllers\WaittimeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -237,6 +238,8 @@
     <Compile Include="Models\StoryValidationClass.cs" />
     <Compile Include="Models\surveyClass.cs" />
     <Compile Include="Models\surveyValidation.cs" />
+    <Compile Include="Models\volunteerClass.cs" />
+    <Compile Include="Models\volunteerValidation.cs" />
     <Compile Include="Models\WaittimeClass.cs" />
     <Compile Include="Models\WaittimeValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1292,6 +1295,21 @@
     <Content Include="Views\Appointment\DoctorAppointments.cshtml" />
     <Content Include="Views\Appointment\Index.cshtml" />
     <Content Include="Views\Directory\NotFound.cshtml" />
+    <Content Include="Views\Volunteer\Index.cshtml" />
+    <Content Include="Views\Volunteer\Form.cshtml" />
+    <Content Include="Views\Volunteer\Thanks.cshtml" />
+    <Content Include="Views\Volunteer\VolunteerAdmin_Index.cshtml" />
+    <Content Include="Views\Volunteer\_Admin_oppDetails.cshtml" />
+    <Content Include="Views\Volunteer\Admin_oppInsert.cshtml" />
+    <Content Include="Views\Volunteer\Admin_oppUpdate.cshtml" />
+    <Content Include="Views\Volunteer\Admin_oppDelete.cshtml" />
+    <Content Include="Views\Volunteer\VolunteerAdmin_volIndex.cshtml" />
+    <Content Include="Views\Volunteer\Admin_oppDetails.cshtml" />
+    <Content Include="Views\Volunteer\_Admin_volDetails.cshtml" />
+    <Content Include="Views\Volunteer\Admin_volInsert.cshtml" />
+    <Content Include="Views\Volunteer\Admin_volUpdate.cshtml" />
+    <Content Include="Views\Volunteer\Admin_volDelete.cshtml" />
+    <Content Include="Views\Volunteer\Admin_volDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
