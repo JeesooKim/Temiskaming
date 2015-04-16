@@ -6,7 +6,7 @@
 
 
 @{
-    DateTime currentTime = DateTime.Now;
+    DateTime currentTime = DateTime.Now; //create a variable that holds the current time.
 }
 <h2>create</h2>
 <p>It is now @currentTime</p>
@@ -18,7 +18,7 @@
     @Html.TextBoxFor(x=>x.name)
     @Html.ValidationMessageFor(x=>x.name)
     <br/>
-    @Html.HiddenFor(x=>x.time_admit, new {@Value = currentTime})
+    @Html.HiddenFor(x=>x.time_admit, new {@Value = currentTime}) //create a hidden field whose value is the current time
     <br/>
     
     <input type="submit" value="Create"/>

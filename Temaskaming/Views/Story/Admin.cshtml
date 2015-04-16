@@ -34,6 +34,7 @@
             </td>
             <td>
                 @if (x.published == 0)
+                    //if the story is not published, display the publish link. If published, display unpublish link
                 {
                     @Html.ActionLink("Publish", "publish", new {id = x.id}, new{onclick="return confirm('Confirm to publish this story?')"})
                 }
