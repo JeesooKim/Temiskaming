@@ -23,7 +23,7 @@ namespace Temiskaming.Controllers
         [HttpPost]
         public ActionResult index(ContactForm Cf)
         {
-            ViewBag.Group = "Contact Form";
+            ViewBag.Group = "ContactUs";
 
             if (ModelState.IsValid)
             {
@@ -46,7 +46,7 @@ namespace Temiskaming.Controllers
         public ActionResult contactformAdmin()
         {
             var Cf = objCF.getCF();
-            ViewBag.Group = "contactformAdmin";
+            ViewBag.Group = "Admin";
             return View(Cf);
         }
 
@@ -55,7 +55,7 @@ namespace Temiskaming.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult contactformDetail(int id)
         {
-            ViewBag.Group = "Contact Form";
+            ViewBag.Group = "Admin";
             var Cf = objCF.getCFById(id);
             if (Cf == null)
             {
@@ -71,6 +71,7 @@ namespace Temiskaming.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult contactformDelete(int id)
         {
+            ViewBag.Group = "Admin";
             var Cf = objCF.getCFById(id);
             if (Cf == null)
             {
@@ -87,7 +88,7 @@ namespace Temiskaming.Controllers
         [HttpPost]
         public ActionResult contactformDelete(int id, ContactForm Cf)
         {
-            ViewBag.Group = "Contact Form";
+            ViewBag.Group = "Admin";
             try
             {
                 objCF.CommitDelete(id);
