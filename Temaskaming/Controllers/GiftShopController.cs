@@ -25,127 +25,9 @@ namespace Temiskaming.Controllers
             return View(items);
         }
 
-       //admin page
-        public ActionResult AdminGiftShop()
-        {
-            ViewBag.Group = "GiftShop";
-            var Gif = objGift.getGifts();
-            if(Gif == null)
-            {
-                return View("AdminGiftShop");
-            }
-            else
-            {
-                return View(Gif);
-            }
-        }
-        
-        //insert
-        public ActionResult InsertGiftShop()
-        {
-            return View();
-        }
-
-
-
-        [HttpPost]
-        public ActionResult InsertGiftShop(Gift Gt, HttpPostedFileBase file )
-       {
-           ViewBag.Group = "GiftShop";
-           
-            if( file !=null)
-            {
-                string pic = System.IO.Path.GetFileName(file.FileName);
-                string path = System.IO.Path.Combine(Server.MapPath("~/content/images/GiftShop"), pic);
-            //file is uploaded
-                file.SaveAs(path);
-            }
-           
-            
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    objGift.commitInsert(Gt);
-                    return RedirectToAction("AdminGiftShop");
-                }//end try
-                catch
-                {
-                    return View();
-                }//end catch
-
-            }//end if
-            return View(); 
-       }//end public insert item 
-
-
-        //update
-        public ActionResult UpdateGiftShop(int ItemId)
-        {
-            var Gif = objGift.getGiftsById(ItemId);
-            if (Gif == null)
-            {
-                return View("AdminGiftShop"); 
-            }
-            else
-            {
-                return View(Gif); 
-            }
-        }//end public updateitem 
-
-
-        [HttpPost]
-        public ActionResult UpdateGiftShop(int ItemId, Gift Gt)
-        {
-            ViewBag.Group = "GiftShop";
-            if(ModelState.IsValid)
-            {
-                try
-                {
-                    objGift.commitUpdate(ItemId, Gt.Item, Gt.Description, Gt.Price );
-                    return RedirectToAction("AdminGiftShop"); 
-                }//end try
-                catch
-                {
-                    return View(); 
-                }
-            }//end if
-            return View(); 
-        }//end update item 
-
-        //DELETE
-        public ActionResult DeleteGiftShop(int id)
-        {
-            var Gif = objGift.getGiftsById(id);
-            if (Gif == null)
-            {
-                return View("itemAdmin");
-            }//end if
-            else
-            {
-                return View(Gif);
-            }//end else
-
-        }//end delete item
-
-        //start http post
-        [HttpPost]
-        public ActionResult DeleteGiftShop(int id, Gift Gif)
-        {
-            ViewBag.Group = "GiftShop";
-            try
-            {
-                objGift.commitDelete(id);
-                return RedirectToAction("AdmingiftShop");
-            }//end try
-            catch
-            {
-                return View();
-            }//end catch
-        }//end deleteitem 
-
 
         //PURCHASE
+        [Authorize(Roles = "Admin")]
         public ActionResult Purchase(string PassItem, string PassPrice)
         {
             //Pass the values to the next page
@@ -155,7 +37,7 @@ namespace Temiskaming.Controllers
         }
 
         [HttpPost]
-        public ActionResult Purchase(string PassItem, string PassPrice,  Order Ord)
+        public ActionResult Purchase(string PassItem, string PassPrice, Order Ord)
         {
             //it has pass so assign the values to the table items
             ViewBag.PassItem = PassItem;
@@ -192,7 +74,136 @@ namespace Temiskaming.Controllers
             return View();
         }
 
+
+
+
+       //admin page
+        [Authorize(Roles = "Admin")]
+        public ActionResult AdminGiftShop()
+        {
+            ViewBag.Group = "GiftShop";
+            var Gif = objGift.getGifts();
+            if(Gif == null)
+            {
+                return View("AdminGiftShop");
+            }
+            else
+            {
+                return View(Gif);
+            }
+        }
+        
+        //insert
+        [Authorize(Roles = "Admin")]
+        public ActionResult InsertGiftShop()
+        {
+            return View();
+        }
+
+
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        public ActionResult InsertGiftShop(Gift Gt, HttpPostedFileBase file )
+       {
+           ViewBag.Group = "GiftShop";
+           
+            if( file !=null)
+            {
+                string pic = System.IO.Path.GetFileName(file.FileName);
+                string path = System.IO.Path.Combine(Server.MapPath("~/content/images/GiftShop"), pic);
+            //file is uploaded
+                file.SaveAs(path);
+            }
+           
+            
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    objGift.commitInsert(Gt);
+                    return RedirectToAction("AdminGiftShop");
+                }//end try
+                catch
+                {
+                    return View();
+                }//end catch
+
+            }//end if
+            return View(); 
+       }//end public insert item 
+
+
+        //update
+        [Authorize(Roles = "Admin")]
+        public ActionResult UpdateGiftShop(int ItemId)
+        {
+            var Gif = objGift.getGiftsById(ItemId);
+            if (Gif == null)
+            {
+                return View("AdminGiftShop"); 
+            }
+            else
+            {
+                return View(Gif); 
+            }
+        }//end public updateitem 
+
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        public ActionResult UpdateGiftShop(int ItemId, Gift Gt)
+        {
+            ViewBag.Group = "GiftShop";
+            if(ModelState.IsValid)
+            {
+                try
+                {
+                    objGift.commitUpdate(ItemId, Gt.Item, Gt.Description, Gt.Price );
+                    return RedirectToAction("AdminGiftShop"); 
+                }//end try
+                catch
+                {
+                    return View(); 
+                }
+            }//end if
+            return View(); 
+        }//end update item 
+
+        //DELETE
+        [Authorize(Roles = "Admin")]
+        public ActionResult DeleteGiftShop(int id)
+        {
+            var Gif = objGift.getGiftsById(id);
+            if (Gif == null)
+            {
+                return View("itemAdmin");
+            }//end if
+            else
+            {
+                return View(Gif);
+            }//end else
+
+        }//end delete item
+
+        //start http post
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        public ActionResult DeleteGiftShop(int id, Gift Gif)
+        {
+            ViewBag.Group = "GiftShop";
+            try
+            {
+                objGift.commitDelete(id);
+                return RedirectToAction("AdmingiftShop");
+            }//end try
+            catch
+            {
+                return View();
+            }//end catch
+        }//end deleteitem 
+        //END OF ADMIN SIDE
+
          //ORDER
+        [Authorize(Roles = "Admin")]
         public ActionResult Order()
         {
             var Od = objOrder.getOrder();
@@ -201,7 +212,7 @@ namespace Temiskaming.Controllers
         }
 
         //get detail for each entry
-
+        [Authorize(Roles = "Admin")]
         public ActionResult OrderDetail(int OrderId)
         {
            
@@ -216,9 +227,10 @@ namespace Temiskaming.Controllers
             {
                 return View(Ord);
             }
-        }
+        }//end of order detail
 
         //Delete
+        [Authorize(Roles = "Admin")]
         public ActionResult OrderDetailDelete(int OrderId)
         {
             var Ord = objOrder.getOrderById(OrderId);
@@ -230,7 +242,9 @@ namespace Temiskaming.Controllers
             {
                 return View(Ord);
             }
-        }
+        }//end of delete
+
+        [Authorize(Roles = "Admin")]
           [HttpPost]
         public ActionResult OrderDetailDelete(int OrderId, Order Or)
         {
@@ -244,7 +258,7 @@ namespace Temiskaming.Controllers
             {
                 return View();
             }
-        }
+        }//end of delete
 
 
        }
