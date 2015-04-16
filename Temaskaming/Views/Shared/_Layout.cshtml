@@ -33,7 +33,7 @@
                 <div class="menu">
                     
                     <div class="navi">
-                        <nav>
+                        <nav class="hwrapper">
                             @{Html.RenderAction("Nav", "Home", new { group = "Home", chosen = ViewBag.Group });}
                             @*Uses partial views to render dynamic menu*@
                         </nav>
@@ -41,11 +41,11 @@
 
                         @if (ViewBag.Group != null)
                         {
-                           
-                                <nav class="subMenu hwrapper">
+                            <div class="navi2">
+                                <nav class="hwrapper subMenu">
                                     @{Html.RenderAction("Nav", "Home", new { group = ViewBag.Group });}
                                 </nav>
-                           
+                            </div>
                         }
                 </div>
         </header>
@@ -107,7 +107,6 @@
                         <li>@Html.ActionLink("Newsletter Signup", "EmailSignup", "EmailSignup")</li>
                         <li>@Html.ActionLink("Survey", "PostedPoll", "Survey")</li>
                         <li>@Html.ActionLink("FAQ", "FAQ", "FAQ")</li>
-                        <li><a href="#">Site Map</a></li>
                         <li>@Html.ActionLink("Admin", "Admin", "Home")</li>
                     </ul>
                 </nav>
