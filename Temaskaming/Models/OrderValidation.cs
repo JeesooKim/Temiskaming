@@ -27,12 +27,12 @@ namespace Temiskaming.Models
         [Required]
         public string LastName { get; set; }
         [Required]
+        [RegularExpression(".+\\@.+\\..+", ErrorMessage = "Please enter a valid email address")]
         public string Email { get; set; }
         [Required]
         public string ToPatient { get; set; }
         [Required]
         public string From { get; set; }
-        [Required]
         public string Message { get; set; }
         [Required]
         public decimal Price { get; set; }

@@ -27,7 +27,6 @@ namespace Temiskaming.Controllers
 
 
         //PURCHASE
-        [Authorize(Roles = "Admin")]
         public ActionResult Purchase(string PassItem, string PassPrice)
         {
             //Pass the values to the next page
@@ -54,7 +53,7 @@ namespace Temiskaming.Controllers
                 }
                 catch
                 {
-                    return View("Index");
+                    return View();
                 }
             }
             else//if fails 
@@ -62,6 +61,9 @@ namespace Temiskaming.Controllers
                 return View();
             }
         }
+
+
+
         //thank you page
         public ActionResult ThankYou()
         {
