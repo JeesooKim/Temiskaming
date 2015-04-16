@@ -480,7 +480,7 @@ textarea {
     }
 }
 
-@media only screen and (max-width: 770px) {
+@media only screen and (max-width: 767px) {
     header #logo {
         text-align: left;
         margin: 0;

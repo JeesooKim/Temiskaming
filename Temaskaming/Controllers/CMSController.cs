@@ -17,6 +17,7 @@ namespace Temiskaming.Controllers
             return PartialView();
         }
 
+        [Authorize(Roles="Admin")]
         public ActionResult Index()
         {
             ViewBag.Group = "Admin";
@@ -24,6 +25,7 @@ namespace Temiskaming.Controllers
             return View(nav);
         }
 
+        [Authorize(Roles="Admin")]
         public ActionResult Insert()
         {
             ViewBag.Group = "Admin";
@@ -35,6 +37,7 @@ namespace Temiskaming.Controllers
         
         [HttpPost]
         [ValidateInput(false)]
+        [Authorize(Roles="Admin")]
         public ActionResult Insert(string content, string group, navigation nav)
         {
             ViewBag.Group = "Admin";
@@ -57,6 +60,7 @@ namespace Temiskaming.Controllers
             }
         }
 
+        [Authorize(Roles="Admin")]
         public ActionResult Edit(int Id)
         {
             ViewBag.Group = "Admin";
@@ -69,6 +73,7 @@ namespace Temiskaming.Controllers
 
         [HttpPost]
         [ValidateInput(false)]
+        [Authorize(Roles="Admin")]
         public ActionResult Edit(int id, string content, string name, string grouping)
         {
             ViewBag.Group = "Admin";
@@ -84,6 +89,7 @@ namespace Temiskaming.Controllers
             }
         }
 
+        [Authorize(Roles="Admin")]
         public ActionResult Delete(int Id)
         {
             ViewBag.Group = "Admin";
@@ -92,6 +98,7 @@ namespace Temiskaming.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles="Admin")]
         public ActionResult Delete(string action, int id, string name)
         {
             ViewBag.Group = "Admin";
