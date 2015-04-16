@@ -452,6 +452,9 @@ textarea {
         float: none;
         margin-top: 100%;
     }
+    aside h2:active {
+        background-color: #1c3152;
+    }
     
     /*FOOTER*/
     footer {
@@ -468,8 +471,8 @@ textarea {
         width: 100%;
         padding: 10px 0;
     }
-    footer a:hover {
-        background: #60cef7;
+    footer li:active {
+        background: #d4eff9;
     }
     footer nav li {
         margin-left: 20px;
@@ -514,6 +517,9 @@ textarea {
     }
     #menuIcon:active {
         background-color: #1c3152;
+    }
+    .menu {
+        background: #1c3152;
     }
     .navi2, .subMenu {
         background: none;
