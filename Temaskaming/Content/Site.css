@@ -28,7 +28,6 @@ h3 {
     border-bottom: 1px solid black;
     padding: 5px 0;
     margin: 0;
-    margin-bottom: 5px;
 }
 .disclaimer p {
     text-align: center;
@@ -49,10 +48,13 @@ ul{
     margin: 0 auto;
     height: 100%;
 }
+.navi2 {
+    background: #4fa2c1;
+}
 .subMenu {
     font-size: 1.4em;
     padding: 5px 0;
-    background: #4fa2c1;
+    
 }
 .subMenu nav {
     text-align: left;
@@ -71,6 +73,10 @@ input[type="submit"]{
     border: 1px solid black;
 }
 
+input[type="submit"]{
+    cursor: pointer;
+}
+
 
 /*HEADER MASTER BEGINS*/
 
@@ -79,6 +85,14 @@ header {
 }
 #chosen {
     background-color: #4fa2c1;
+    border-bottom: 1px solid #4fa2c1;
+    margin-bottom: -1px;
+    -webkit-border-top-left-radius: 20px;
+    -webkit-border-top-right-radius: 20px;
+    -moz-border-radius-topleft: 20px;
+    -moz-border-radius-topright: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 #chosen a {
     background-color: #4fa2c1;
@@ -91,30 +105,37 @@ header #logo {
     width: 59px;
     color: #60cdf6;
     padding: 0px 0 0 65px;
-    margin-left: 30px;
-    margin-bottom: 20px;
     background: #60cef7;
     background: url('Images/logo.png') no-repeat;
     background-size: 59px 59px;
 }
 .menu {
+    margin-top: 10px;
     display: block;
 }
 .navi {
-    text-align: center;
-    font-size: 150%;
+    text-align: left;
+    font-size: 120%;
     position: relative;
     border-bottom: white 1px solid;
 }
 
-.subMenu nav {
-    font-size: 150%;
-}
 .subMenu {
-    font-size: 100%;
+    font-size: 110%;
 }
+
+.subMenu li {
+    margin: 5px 0;
+    border-right: 1px solid #d4eff9;
+}
+
+.subMenu li:first-child {
+    border-left: 1px solid #d4eff9;
+}
+
 .subMenu a {
     display: block;
+    padding-bottom: 5px;
     color: white;
     width: 100%;
 }
@@ -133,7 +154,7 @@ header a:hover {
 }
 
 .menu {
-    background: #60cef7;
+    background: #89dffe;
 }
 
 nav li {
@@ -143,7 +164,7 @@ nav li {
 }
 
 .subMenu a:hover {
-    color: #a0e2fa;
+    color: #d6f4ff;
 }
 
 
@@ -362,11 +383,22 @@ textarea {
     .imgSlider {
         height: 350px;
     }
+    .navi li {
+        padding: 0 10px;
+    }
 
-    .subMenu {
-        text-align: left;
+    navi li:active {
+        border: 1px solid blue;
     }
     
+    #chosen {
+        -webkit-border-top-left-radius: 10px;
+        -webkit-border-top-right-radius: 10px;
+        -moz-border-radius-topleft: 10px;
+        -moz-border-radius-topright: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
     
     /*HEADER*/
     header {
@@ -380,6 +412,10 @@ textarea {
     }
     header #logo {
     }
+    .navi {
+        text-align: center;
+        font-size: 1.3em;
+    }
     .navi nav {
         float: none;
         width: 100%;
@@ -389,13 +425,14 @@ textarea {
         width: 100%;
         padding: 10px 0;
     }
-    
-    .navi li {
-        border-top: 1px dashed #60cef7;
-    }
 
     .navi nav li:first-child{
         margin-left: 0;
+    }
+
+    .subMenu {
+        font-size: 1.2em;
+        text-align: center;
     }
 
     /*BODY*/
@@ -415,6 +452,9 @@ textarea {
         float: none;
         margin-top: 100%;
     }
+    aside h2:active {
+        background-color: #1c3152;
+    }
     
     /*FOOTER*/
     footer {
@@ -431,8 +471,8 @@ textarea {
         width: 100%;
         padding: 10px 0;
     }
-    footer a:hover {
-        background: #60cef7;
+    footer li:active {
+        background: #d4eff9;
     }
     footer nav li {
         margin-left: 20px;
@@ -440,13 +480,22 @@ textarea {
     }
 }
 
-@media only screen and (max-width: 770px) {
+@media only screen and (max-width: 767px) {
     header #logo {
         text-align: left;
         margin: 0;
     }
     header h1 {
         display: none;
+        border-top: 1px dashed #4fa2c1;
+    }
+    #chosen {
+        -webkit-border-top-left-radius: 0px;
+        -webkit-border-top-right-radius: 0px;
+        -moz-border-radius-topleft: 0px;
+        -moz-border-radius-topright: 0px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
     }
 
     /*SECONDARY NAV*/
@@ -456,11 +505,12 @@ textarea {
         text-align: left;
         float: right;
         color: white;
+        font-size: 1.2em;
         width: 150px;
-        height: 100%;
+        height: 60px;
         background: url('Images/hamburger.png') no-repeat right;
         background-size: 50px 50px;
-        background-color: black;
+        background-color: #4fa2c1;
         margin: 0;
         padding: 0;
         padding-left: 10px;
@@ -468,14 +518,14 @@ textarea {
     #menuIcon:active {
         background-color: #1c3152;
     }
-    
-    
-    .subMenu a:active {
+    .menu {
         background: #1c3152;
     }
-    
-
-    .navi li {
+    .navi2, .subMenu {
+        background: none;
+        margin: 0;
+    }
+    .navi li{
         text-align: center;
         display: list-item;
         margin-bottom: 10px;
@@ -485,11 +535,25 @@ textarea {
     
     .navi {
         font-size: 1.4em;
+        border: none;
     }
+
+    .subMenu li, .subMenu li:first-child {
+        border-left: none;
+        border-right: none;
+    }
+
     .subMenu li {
+        margin: 0;
+        font-size: 1.2em;
+        text-align: center;
+        display: list-item;
         color: white;
+        background: #1c3152;
+        border-bottom: 1px dashed grey;
     }
     .subMenu a {
+        padding: 10px 0;
         color: white;
     }
     .subMenu {
@@ -498,11 +562,13 @@ textarea {
     .navi a:hover {
         color: white;
     }
-    .navi a:active {
-        background: #35758e;
-    }
     .menu {
+        margin: 0;
+        position: absolute;
         display: none;
+        width: 100%;
+        z-index: 100;
+        padding: 0;
     }
     footer nav li {
         display: list-item;
@@ -516,6 +582,13 @@ textarea {
     }
     .imgSlider {
         display: none;
+    }
+
+    .navi li:active {
+        background: #1c3152;
+    }
+    .subMenu li:active {
+        background: #4fa2c1;
     }
     
 }

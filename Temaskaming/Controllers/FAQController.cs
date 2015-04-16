@@ -35,6 +35,7 @@ namespace Temiskaming.Controllers
 
 
         //Admin page , will hold links to insert, update, delete
+        [Authorize(Roles = "Admin")]
         public ActionResult FAQAdmin()
         {
             ViewBag.Group = "FAQ";
@@ -51,13 +52,14 @@ namespace Temiskaming.Controllers
 
 
         //insert
+        [Authorize(Roles = "Admin")]
         public ActionResult FAQInsert()
         {
             return View();
         }
 
 
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult FAQInsert(FAQ fa)
         {
@@ -81,6 +83,7 @@ namespace Temiskaming.Controllers
         //end of insert
 
         //update 
+        [Authorize(Roles = "Admin")]
         public ActionResult FAQUpdate(int id)
         {
             var fa = objFAQ.getFAQByID(id);
@@ -94,6 +97,7 @@ namespace Temiskaming.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult FAQUpdate(int id, FAQ fa)
         {
@@ -117,6 +121,7 @@ namespace Temiskaming.Controllers
         //end of updatw
 
         //start delete
+        [Authorize(Roles = "Admin")]
         public ActionResult FAQDelete(int id)
         {
 
@@ -130,6 +135,9 @@ namespace Temiskaming.Controllers
                 return View(fa);
             }
         }
+
+
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult FAQDelete(int id, FAQ fa)
         {

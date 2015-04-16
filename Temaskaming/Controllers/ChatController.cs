@@ -184,6 +184,7 @@ namespace Temiskaming.Controllers
         }
 
 
+        [Authorize(Roles="Admin")]
         public ActionResult chatAdmin()
         {
             ViewBag.Group = "Admin";
@@ -191,6 +192,7 @@ namespace Temiskaming.Controllers
             return View(chats);
         }
 
+        [Authorize(Roles="Admin")]
         public ActionResult Delete(int id, string file)
         {
             var path = Server.MapPath("~/chatLogs/" + file + ".txt");

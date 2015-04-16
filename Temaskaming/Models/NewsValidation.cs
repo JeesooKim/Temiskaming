@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace Temiskaming.Models
 {
+    //This is validation class that validates user input of all the fields required to insert and update news articles.
     [MetadataType(typeof(NewsValidation))]
     public partial class news
     {

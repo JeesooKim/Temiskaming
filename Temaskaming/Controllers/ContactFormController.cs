@@ -42,7 +42,7 @@ namespace Temiskaming.Controllers
         //end of index (public )
    
    //admin side     
-
+        [Authorize(Roles = "Admin")]
         public ActionResult contactformAdmin()
         {
             var Cf = objCF.getCF();
@@ -52,6 +52,7 @@ namespace Temiskaming.Controllers
 
 
         //show Detail of each one
+        [Authorize(Roles = "Admin")]
         public ActionResult contactformDetail(int id)
         {
             ViewBag.Group = "Contact Form";
@@ -67,6 +68,7 @@ namespace Temiskaming.Controllers
         }
 
         //Delete
+        [Authorize(Roles = "Admin")]
         public ActionResult contactformDelete(int id)
         {
             var Cf = objCF.getCFById(id);
@@ -81,6 +83,7 @@ namespace Temiskaming.Controllers
         }
         
        //Delete
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult contactformDelete(int id, ContactForm Cf)
         {

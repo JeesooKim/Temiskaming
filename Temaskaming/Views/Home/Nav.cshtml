@@ -4,7 +4,7 @@
     {
         if (x.viewpath != null && x.controller != "Editable")
         {
-            if (x.group == "Home" && x.viewpath == "Patients" && ViewBag.Chosen == "Patients")
+            if (ViewBag.Chosen == x.viewpath)
             {
                 <li id="chosen">@Html.ActionLink(x.name, x.viewpath, x.controller)</li>
             }
