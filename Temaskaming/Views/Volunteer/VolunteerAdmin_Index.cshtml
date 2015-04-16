@@ -3,6 +3,17 @@
     ViewBag.Title = "Volunteer_Admin";
 }
 
+@section css{
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#accordion").accordion({ heightStyle: 'content' });
+        });
+    </script>
+}
+
 <h2>Volunteer Opportunities - Admin Index</h2>
 
 @Html.ActionLink("To Volunteers List", "VolunteerAdmin_volIndex", "Volunteer")&nbsp; | &nbsp;
@@ -10,69 +21,65 @@
 @Html.ActionLink("Insert a New Volunteer Opportunity", "Admin_oppInsert", "Volunteer")
 <br /><br />
 
-<table id="opportunityTable" border="1">
-    <thead>
-        <tr>
-            <th>Name </th>
-            <th>Regular</th>
-            <th>Date </th>
-            <th>Day of Week </th>
-            <th>Start </th>
-            <th>End </th>
-            <th>Location</th>
-            <th>Detail</th>
-            <th>Option </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@Html.ActionLink(item.o_name, "Admin_oppDetails", new { id = item.o_id })</td>
-                @*<td>
-                    @Ajax.ActionLink(item.o_name, "_Admin_oppDetails", "volunteer", new { id = item.o_id }, new AjaxOptions
+<div id="accordion">
+    @foreach (var item in Model)
+    {
+        <h3>@Ajax.ActionLink(item.o_name, "_Admin_volList", "Volunteer", new { oppId = item.o_id }, new AjaxOptions
                     {
                         HttpMethod = "Post",
-                        UpdateTargetId = "oppDetails",
+                        UpdateTargetId = "volList_" + item.o_id,
                         InsertionMode = InsertionMode.Replace
                     })
-                                </td>*@
-                <td>
-                    @{
-            if (item.o_regular == true)
-            { <text> Yes </text>}
-            else
-            { <text>No, Occasional/Special </text>}
-                    }
-                </td>
-                <td>
-                    @{
-            if (item.o_date.HasValue)
-            {
-                @item.o_date.Value.ToShortDateString();
-            }
-            else
-            {
-                <text>N/A</text>
-            }
-                    }
-
-                </td>
-                <td>@item.o_day</td>
-                <td>@item.o_start</td>
-                <td>@item.o_end</td>
-                <td>@item.o_location</td>
-                <td>@item.o_description</td>
-                <td>
-                    @Html.ActionLink("Update", "Admin_oppUpdate", new { id = item.o_id }) |
-                    @Html.ActionLink("Delete", "Admin_oppDelete", new { id = item.o_id })
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
-<br />
-<div id="oppDetails"></div>
+        </h3>
+        <div>
+            <p>                
+                Regular: @{
+                            if (item.o_regular == true)
+                            { <text> Yes </text>}
+                            else
+                            { <text>No, Occasional/Special </text>}
+                                    }
+                <br/>
+                Date: @{
+                        if (item.o_date.HasValue)
+                        {
+                            @item.o_date.Value.ToShortDateString();
+                        }
+                        else
+                        {
+                            <text>N/A</text>
+                        }
+                        }
+                <br/>
+                Day of Week: @{
+                                if (item.o_day == "" || item.o_day == null)
+                                {
+                                    @: N/A
+                                                        }
+                                else
+                                {
+                                    @item.o_day
+                                }
+                            }
+                <br/>
+                Time: @item.o_start  ~   @item.o_end
+                <br/>
+                Location: @item.o_location
+                <br/>
+                Description: @item.o_description
+                <br/>
+                <div id="volList_@item.o_id"></div>
+                <br/><br/>
+                Option: @Html.ActionLink("Update", "Admin_oppUpdate", new { id = item.o_id }) 
+                |
+                @Html.ActionLink("Delete", "Admin_oppDelete", new { id = item.o_id })
+            </p>
+        </div>               
+    }@*end of foreach*@
+</div>@*end of #accordion*@
+  @section Scripts{
+    @Scripts.Render("~/bundles/jquertval")
+}
 
 @*Physiotherapy Department: 10:00 a.m. – 12:00 p.m.<br />
     Emergency Department: 8:00 a.m. – 2:00 p.m.<br />
@@ -80,13 +87,6 @@
     Outpatient Clinics: (days & times will vary depending on outpatient clinic).<br />
     Day Medicine/Cancer Care Department: 9:30 a.m. – 12:30 p.m.<br />
     Long-Term Care Department: 4:00 p.m. – 6:00 p.m.<br />*@
-
-
-
-
-@section Scripts{
-    @Scripts.Render("~/bundles/jquertval")
-}
 
 @*//[Team2]Temiskaming-Hospital website Redesign project @ Humber College
     //Feature: Volunteer - Admin View (Index page)

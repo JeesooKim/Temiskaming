@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Temiskaming.Models.volunteer>
+
+<h2>Volunteers </h2>
+
+
+@foreach (var item in Model)
+{
+    <h4>@*@item.v_fname @item.v_lname*@
+    @Html.ActionLink(item.v_fname + " " + item.v_lname, "Admin_volDetails", new { id = item.v_id })
+    </h4>
+
+    <p>
+        Status: @item.v_status
+        <br />
+        Schedule: @item.v_schedule
+        <br />
+        Email: @item.v_email
+        <br />
+        Phone: @item.v_phone
+        <br /><br/>
+        
+    </p>
+}
+
+@Html.ActionLink("Collapse Details", "VolunteerAdmin_Index", "Volunteer")
+
+@*//[Team2]Temiskaming-Hospital website Redesign project @ Humber College
+    //Feature: Volunteer - Admin View
+    //File : VolunteerAdmin_volIndex.cshtml
+    //Author: Jeesoo Kim
+    //Created: April 7, 2015*@

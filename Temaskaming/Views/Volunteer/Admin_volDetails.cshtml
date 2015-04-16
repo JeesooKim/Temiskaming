@@ -8,11 +8,7 @@
 @Html.ActionLink("To Volunteer Opprtunities List", "VolunteerAdmin_Index", "Volunteer")&nbsp; | &nbsp;
 <hr />
 
-<table>
-    <tr>
-        <td>Participation:</td>
-        <td>@Html.DisplayFor(x => x.v_oppId)</td>
-    </tr>
+<table>    
     <tr>
         <td>Address:</td>
         <td>@Html.DisplayFor(x => x.v_address)</td>
@@ -45,10 +41,10 @@
         <td>Schedule:</td>
         <td>@Html.DisplayFor(x => x.v_schedule)</td>
     </tr>
-    <tr>
+    @*<tr>
         <td>Participation Name:</td>
         @*<td>@Html.DisplayFor(x => x.v_oppId)</td>*@
-        <td>
+       @* <td>
             @{
                 switch (Model.v_oppId)
                 {
@@ -74,12 +70,17 @@
                         break;
                 }
             }
-
-
         </td>
+    </tr>*@
+    <tr>
+        <td>Participation ID:</td>
+        <td>@Html.DisplayFor(x => x.v_oppId)</td>
     </tr>
 </table>
-
+<br/>
+@Html.ActionLink("Update", "Admin_volUpdate", new { id = Model.v_id }) |
+@Html.ActionLink("Delete", "Admin_volDelete", new { id = Model.v_id })
+<hr/>
 @Html.ActionLink("Back To Volunteers List", "VolunteerAdmin_volIndex", "Volunteer")
 
 

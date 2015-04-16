@@ -18,7 +18,7 @@ namespace Temiskaming.Controllers
 
         public ActionResult Index()
         {
-            //ViewBag.Group = "JoinOurTeam";
+            ViewBag.Group = "JoinOurTeam";
 
             //linq query to select the opportunities
             var opportunities = from o in objVol.getOpportunites()
@@ -29,7 +29,7 @@ namespace Temiskaming.Controllers
         public ActionResult Form()
         {//Reference: Course Material - Week 5 
 
-            //ViewBag.Group = "JoinOurTeam";
+            ViewBag.Group = "JoinOurTeam";
 
             var provList = new SelectList(new[] { 
                 "AB", "BC","MB", "NB","NL","NS","NT","NU","ON","PE", "QC","SK","YT",""});            
@@ -40,14 +40,14 @@ namespace Temiskaming.Controllers
 
         public ActionResult Thanks()
         {
-            //ViewBag.Group = "JoinOurTeam";
+            ViewBag.Group = "JoinOurTeam";
             return RedirectToAction("Form");
         }
 
         [HttpPost]
         public ActionResult Thanks(volnunteerValidation valid)
         {
-            //ViewBag.Group = "JoinOurTeam";
+            ViewBag.Group = "JoinOurTeam";
 
             if (ModelState.IsValid)
             {
@@ -73,9 +73,10 @@ namespace Temiskaming.Controllers
         //----------------------------- Admin -------------------------//
         //---------------------opportunities ----------------------//
 
+        [Authorize(Roles = "Admin")]
         public ActionResult VolunteerAdmin_Index()
         {
-            //ViewBag.Group="Join Our Team";
+            ViewBag.Group = "Admin";
 
             //linq query to select the opportunities
             var opportunities = from o in objVol.getOpportunites()
@@ -83,9 +84,30 @@ namespace Temiskaming.Controllers
             return View(opportunities);
         }
 
+        [Authorize(Roles = "Admin")]
+        public ActionResult _Admin_volList(int _oppId)
+        {
+            ViewBag.Group = "Admin";
+
+            var vol = from v in objVol.getVolunteers()
+                      where v.v_oppId == _oppId
+                      orderby v.v_lname
+                      select v;
+            if (vol == null)
+            {
+                return PartialView("_NotFound_P");
+            }
+            else
+            {
+                return PartialView(vol);
+            }
+        }
+
+        [Authorize(Roles = "Admin")]
         public ActionResult _Admin_oppDetails(int id)
         {//parameter id: opportunity ID
-            //ViewBag.Group="Admin";
+
+            ViewBag.Group = "Admin";
 
             var opportunity = objVol.getOpportunityById(id);
 
@@ -99,9 +121,11 @@ namespace Temiskaming.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult Admin_oppDetails(int id)
         {//parameter id: opportunity ID
-            //ViewBag.Group="Admin";
+
+            ViewBag.Group = "Admin";
 
             var opportunity = objVol.getOpportunityById(id);
 
@@ -116,10 +140,10 @@ namespace Temiskaming.Controllers
         }
 
         //============ opportunities RIUD ==================//       
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Admin_oppInsert()
         {
-            //ViewBag.Group="Admin";
+            ViewBag.Group="Admin";
 
             return View();
         }
@@ -127,12 +151,13 @@ namespace Temiskaming.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         //http://www.asp.net/mvc/overview/getting-started/introduction/examining-the-edit-methods-and-edit-view
-        
+
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Admin_oppInsert([Bind(Include = "o_name, o_regular, o_date, o_day, o_start, o_end, o_location, o_description")] volunteer_opportunity o)       
         {
-            //ViewBag.Group="Admin";
+            ViewBag.Group="Admin";
 
             if (ModelState.IsValid)
             {
@@ -150,9 +175,11 @@ namespace Temiskaming.Controllers
         }
 
         //--------------------UPDATE (opportunities )--------------------
+        [Authorize(Roles = "Admin")]
         public ActionResult Admin_oppUpdate(int id)
         {
-            //ViewBag.Group="Admin";
+            ViewBag.Group="Admin";
+
             var opp = objVol.getOpportunityById(id);
             if (opp == null)
             {
@@ -164,11 +191,13 @@ namespace Temiskaming.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Admin_oppUpdate([Bind(Include = "o_name, o_regular,  o_date, o_day, o_start, o_end, o_location, o_description")] int id, volunteer_opportunity opp)
         {
-            //ViewBag.Group="Admin";
+            ViewBag.Group="Admin";
+
             if (ModelState.IsValid)
             {
                 try
@@ -187,9 +216,11 @@ namespace Temiskaming.Controllers
         }
 
         //-----------------------DELETE(opportunities )-------------------------
+        [Authorize(Roles = "Admin")]
         public ActionResult Admin_oppDelete(int id)
         {
-            //ViewBag.Group="Admin";
+            ViewBag.Group="Admin";
+
             var d = objVol.getOpportunityById(id);
             if (d == null)
             {
@@ -201,9 +232,12 @@ namespace Temiskaming.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Admin_oppDelete(int id, volunteer_opportunity opp)
         {
+            ViewBag.Group = "Admin";
+
             try
             {
                 objVol.commitDeleteO(id);
@@ -217,10 +251,10 @@ namespace Temiskaming.Controllers
 
 
         //========================== volunteers ==============================//
-
+        [Authorize(Roles = "Admin")]
         public ActionResult VolunteerAdmin_volIndex()
         {
-            //ViewBag.Group="Join Our Team";
+            ViewBag.Group = "Admin";
 
             //linq query to select the opportunities
             var volunteers = from v in objVol.getVolunteers()
@@ -228,9 +262,11 @@ namespace Temiskaming.Controllers
             return View(volunteers);
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult _Admin_volDetails(int id)
         {//parameter id: volunteer ID
-            //ViewBag.Group="Admin";
+            
+            ViewBag.Group="Admin";
 
             var volunteer = objVol.getVolunteerById(id);
 
@@ -244,9 +280,11 @@ namespace Temiskaming.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult Admin_volDetails(int id)
         {//parameter id: volunteer ID
-            //ViewBag.Group="Admin";
+            
+            ViewBag.Group="Admin";
 
             var volunteer = objVol.getVolunteerById(id);
 
@@ -263,10 +301,10 @@ namespace Temiskaming.Controllers
         //============ volunteers RIUD ==================//
 
 
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Admin_volInsert()
         {
-            //ViewBag.Group="Admin";
+            ViewBag.Group="Admin";
 
             IEnumerable<SelectListItem> items =
             objVol.getOpportunites().Select(o =>
@@ -281,10 +319,11 @@ namespace Temiskaming.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]        
         public ActionResult Admin_volInsert(volunteer v)
         {
-            //ViewBag.Group="Admin";
+            ViewBag.Group="Admin";
 
             if (ModelState.IsValid)
             {
@@ -312,9 +351,10 @@ namespace Temiskaming.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult Admin_volUpdate(int id)
         {
-            //ViewBag.Group="Admin";
+            ViewBag.Group="Admin";
 
             IEnumerable<SelectListItem> items =
             objVol.getOpportunites().Select(o =>
@@ -337,10 +377,12 @@ namespace Temiskaming.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Admin_volUpdate(int id, volunteer vol)
         {
-            //ViewBag.Group="Admin";
+            ViewBag.Group="Admin";
+
             if (ModelState.IsValid)
             {
                 try
@@ -368,10 +410,11 @@ namespace Temiskaming.Controllers
             return View();
         }
 
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Admin_volDelete(int id)
         {
-            //ViewBag.Group="Admin";
+            ViewBag.Group="Admin";
+
             var d = objVol.getVolunteerById(id);
             if (d == null)
             {
@@ -383,10 +426,12 @@ namespace Temiskaming.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Admin_volDelete(int id, volunteer vol)
         {
-            //ViewBag.Group="Admin";
+            ViewBag.Group="Admin";
+
             try
             {
                 objVol.commitDeleteV(id);
