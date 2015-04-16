@@ -99,6 +99,7 @@ namespace Temiskaming.Controllers
             return View();
         }
 
+        [Authorize(Roles="Admin")]
         public ActionResult donationAdmin()
         {
             ViewBag.Group = "Admin";
@@ -119,12 +120,14 @@ namespace Temiskaming.Controllers
             return View(donations);
         }
 
+        [Authorize(Roles="Admin")]
         public ActionResult Delete(int id)
         {
             objDon.deleteDonation(id);
             return RedirectToAction("donationAdmin");
         }
 
+        [Authorize(Roles="Admin")]
         public ActionResult DeleteUnverified()
         {
             objDon.deleteAllUnverified();
