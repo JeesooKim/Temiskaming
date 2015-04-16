@@ -22,16 +22,23 @@
     </div>
     
         <header>
-                <div class="hwrapper">
+                <div class="hwrapper headerTop">
                     <div id="menuIcon">
                         <p>Menu</p>
                     </div>
+
                     <a href="~/Home"><div id="logo">
                         <h1>Temiskaming Hospital</h1>
                     </div></a>
+
+                    
                 </div>
                 <div class="menu">
-                    
+                    <div class="hwrapper">
+                        <div id="donateBox">
+                            <h2>@Html.ActionLink("Donate", "Index", "Donation")</h2>
+                        </div>
+                    </div>
                     <div class="navi">
                         <nav class="hwrapper">
                             @{Html.RenderAction("Nav", "Home", new { group = "Home", chosen = ViewBag.Group });}
@@ -80,9 +87,6 @@
                 </div>
                 <div id="ecard_side">
                     <h2>@Html.ActionLink("Send E-Card","SelectImage", "Ecard")</h2>
-                </div>
-                <div id="donateBox">
-                    <h2>@Html.ActionLink("Donate", "Index", "Donation")</h2>
                 </div>
                 <div id="appointBox">
                     <h2>@Html.ActionLink("Book an Appointment", "Index", "Appointment")</h2>
