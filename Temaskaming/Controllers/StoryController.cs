@@ -13,18 +13,21 @@ namespace Temiskaming.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.Group = "AboutUs";
             var stories = objStory.GetPublishedStories();
             return View(stories);
         }
 
         public ActionResult Submit()
         {
+            ViewBag.Group = "AboutUs";
             return View();
         }
 
 
         public ActionResult SubmitAction()
         {
+            ViewBag.Group = "AboutUs";
             if (!ModelState.IsValid) //isvalid checks everything is correct, ex: email, number
             {
                 return View();
@@ -38,6 +41,7 @@ namespace Temiskaming.Controllers
         [HttpPost]
         public ActionResult SubmitAction(story story)
         {
+            ViewBag.Group = "AboutUs";
             if (ModelState.IsValid)
             {
                 try
