@@ -20,7 +20,7 @@ namespace Temiskaming.Controllers
         //home page
         public ActionResult Index() 
         {
-            ViewBag.Group = "GiftShop";
+            //ViewBag.Group = "GiftShop";
             var items = objGift.getGifts(); 
             return View(items);
         }
@@ -43,7 +43,7 @@ namespace Temiskaming.Controllers
             ViewBag.PassPrice = PassPrice;
             Ord.Item = PassItem;
             Ord.Price = Convert.ToDecimal(PassPrice);
-            ViewBag.Group = "Gift Shop";
+            //ViewBag.Group = "Gift Shop";
             if (ModelState.IsValid)
             {
                 try//try
@@ -83,7 +83,7 @@ namespace Temiskaming.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult AdminGiftShop()
         {
-            ViewBag.Group = "GiftShop";
+            ViewBag.Group = "Admin";
             var Gif = objGift.getGifts();
             if(Gif == null)
             {
@@ -99,6 +99,7 @@ namespace Temiskaming.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult InsertGiftShop()
         {
+            ViewBag.Group = "Admin";
             return View();
         }
 
@@ -107,7 +108,7 @@ namespace Temiskaming.Controllers
         [HttpPost]
         public ActionResult InsertGiftShop(Gift Gt, HttpPostedFileBase file )
        {
-           ViewBag.Group = "GiftShop";
+           ViewBag.Group = "Admin";
            
             if( file !=null)
             {
@@ -139,6 +140,7 @@ namespace Temiskaming.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult UpdateGiftShop(int ItemId)
         {
+            ViewBag.Group = "Admin";
             var Gif = objGift.getGiftsById(ItemId);
             if (Gif == null)
             {
@@ -154,7 +156,7 @@ namespace Temiskaming.Controllers
         [HttpPost]
         public ActionResult UpdateGiftShop(int ItemId, Gift Gt)
         {
-            ViewBag.Group = "GiftShop";
+            ViewBag.Group = "Admin";
             if(ModelState.IsValid)
             {
                 try
@@ -174,6 +176,7 @@ namespace Temiskaming.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult DeleteGiftShop(int id)
         {
+            ViewBag.Group = "Admin";
             var Gif = objGift.getGiftsById(id);
             if (Gif == null)
             {
@@ -191,7 +194,7 @@ namespace Temiskaming.Controllers
         [HttpPost]
         public ActionResult DeleteGiftShop(int id, Gift Gif)
         {
-            ViewBag.Group = "GiftShop";
+            ViewBag.Group = "Admin";
             try
             {
                 objGift.commitDelete(id);
@@ -208,6 +211,7 @@ namespace Temiskaming.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult Order()
         {
+            ViewBag.Group = "Admin";
             var Od = objOrder.getOrder();
             ViewBag.Group = "Gift Shop";
             return View(Od);
@@ -217,9 +221,9 @@ namespace Temiskaming.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult OrderDetail(int OrderId)
         {
-           
-     
-            ViewBag.Group = "Gift Shop";
+
+
+            ViewBag.Group = "Admin";
             var Ord = objOrder.getOrderById(OrderId);
             if(Ord == null)
             {
@@ -235,6 +239,7 @@ namespace Temiskaming.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult OrderDetailDelete(int OrderId)
         {
+            ViewBag.Group = "Admin";
             var Ord = objOrder.getOrderById(OrderId);
             if(Ord == null)
             {
@@ -250,7 +255,7 @@ namespace Temiskaming.Controllers
           [HttpPost]
         public ActionResult OrderDetailDelete(int OrderId, Order Or)
         {
-            ViewBag.Group = "Gift Shop";
+            ViewBag.Group = "Admin";
             try
             {
                 objOrder.commitDelete(OrderId);
