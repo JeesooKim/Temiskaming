@@ -111,10 +111,12 @@ namespace FindADoctor.Controllers
         // Admin index page will be different and added below.
         // Insert, Update, and Delete
 
+        [Authorize(Roles = "Admin")]
         public ActionResult FindADocAdmin(string sortOrder, string currentFilter, string medicalDepartment, string searchString, int? page)
         {//Admin Index page:this action method is basically the same as the public index page 
             //but three more options added, update and delete for each row (doctor), and insert
             ViewBag.Group = "Admin";
+
             ViewBag.currentSort = sortOrder;
             //"ViewBag.currentSort: keep the current sortorder the same while paging"
 
@@ -183,9 +185,11 @@ namespace FindADoctor.Controllers
             return View(doctors);
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult FindADocDetails(int id)
         {
             ViewBag.Group = "Admin";
+
             var doc = objDoc.getDoctorByID(id);
             if (doc == null)
             {
@@ -197,17 +201,22 @@ namespace FindADoctor.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult FindADocInsert()
         {//when firstly Insert page is loaded...this action method is for Admin
+
             ViewBag.Group = "Admin";
+
             return View();
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult FindADocInsert(doctor doc)
         {//when Insert page is working with doc...this action method is for Admin
+
             ViewBag.Group = "Admin";
+
             if (ModelState.IsValid)
             {//when model is valid, try to insert the parameter info into db thru the objDoc object 
                 //Then, return to Index page.
@@ -226,9 +235,11 @@ namespace FindADoctor.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult FindADocUpdate(int id)
         {
             ViewBag.Group = "Admin";
+
             var doc = objDoc.getDoctorByID(id);
             if (doc == null)
             {
@@ -240,10 +251,12 @@ namespace FindADoctor.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult FindADocUpdate(int id, doctor doc)
         {
             ViewBag.Group = "Admin";
+
             if (ModelState.IsValid)
             {
                 try
@@ -259,10 +272,11 @@ namespace FindADoctor.Controllers
             return View();
         }
 
-
+        [Authorize(Roles = "Admin")]
         public ActionResult FindADocDelete(int id)
         {
             ViewBag.Group = "Admin";
+
             var doc = objDoc.getDoctorByID(id);
             if (doc == null)
             {
@@ -274,10 +288,12 @@ namespace FindADoctor.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult FindADocDelete(int id, doctor doc)
         {
             ViewBag.Group = "Admin";
+
             try
             {
                 objDoc.commitDelete(id);

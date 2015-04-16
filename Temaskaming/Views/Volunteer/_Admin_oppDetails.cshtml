@@ -1,15 +1,36 @@
 ﻿@model Temiskaming.Models.volunteer_opportunity
 
-<h2>Admin - Details of the Volunteer Opportunity : @Html.DisplayFor(x => x.o_name)</h2>
+<h2>Details: @Html.DisplayFor(x => x.o_name)</h2>
 
 <table>
     <tr>
         <td>Date:</td>
-        <td>@Html.DisplayFor(x => x.o_date)</td>
+        <td>
+        @{
+            if (Model.o_date.ToString() == "" || Model.o_date.ToString() == null)
+            {
+                @:""
+            }
+            else
+            {
+                @Html.DisplayFor(x => x.o_date)
+            }
+         }
+        </td>
     </tr>
-    <tr>
-        <td>Day:</td>
-        <td>@Html.DisplayFor(x => x.o_day)</td>
+    <tr><td>Day:</td>
+        <td>
+            @{
+                if (Model.o_day.ToString() == "" || Model.o_day.ToString() == null)
+                {
+                    @:""
+            }
+                else
+                {
+                    @Html.DisplayFor(x => x.o_day)
+                }
+            }           
+        </td>
     </tr>
     <tr>
         <td>Start Time:</td>

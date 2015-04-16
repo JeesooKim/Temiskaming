@@ -1,18 +1,22 @@
 ﻿@model IEnumerable<Temiskaming.Models.volunteer>
 @{
-    ViewBag.Title = "Volunteers - Admin";
+    ViewBag.Title = "Volunteer - Admin";
 }
-
+@section css{
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/Content/doc_style/jquery.dataTables.css" />
+    <script type="text/javascript" src="~/Scripts/jquery.dataTables.min.js"></script>
+}
 
 <h2>Volunteers - Admin_volunteers</h2>
 
-@Html.ActionLink("To Volunteer Opprtunities List", "Admin_Index", "volunteer")&nbsp; | &nbsp;
+@Html.ActionLink("To Volunteer Opprtunities List", "VolunteerAdmin_Index", "Volunteer")&nbsp; | &nbsp;
 <hr />
 
-@Html.ActionLink("Insert a New Volunteer", "Admin_volInsert", "volunteer")
+@Html.ActionLink("Insert a New Volunteer", "Admin_volInsert", "Volunteer")
 <br /><br />
 
-<table id="volunteersTable" border="1">
+<table id="volunteersTable" >
     <thead>
         <tr>
             <th>Name </th>
@@ -81,6 +85,11 @@
     </tbody>
 </table>
 
+<script>
+    $(document).ready(function () {
+        $('#volunteersTable').dataTable();
+    });
+</script>
 <br />
 <div id="volDetails"></div>
 
