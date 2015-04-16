@@ -1,0 +1,63 @@
+﻿@model Temiskaming.Models.volunteer_opportunity
+@{
+    ViewBag.Title = "Admin: " + @Model.o_name;
+}
+
+<h2>Admin - Details of the Volunteer Opportunity : @Html.DisplayFor(x => x.o_name)</h2>
+
+@Html.ActionLink("To Volunteers List", "VolunteerAdmin_volIndex", "Volunteer")&nbsp; | &nbsp;
+<hr />
+<table>
+    <tr>
+        <td>Regular:</td>
+        <td>
+            @{
+                if (Model.o_regular == true)
+                { <text> Yes </text>;
+                }
+                else
+                { <text>No, Occasional/Special </text>;
+                }
+            }
+
+        </td>
+    </tr>
+    <tr>
+        <td>Date:</td>
+        <td>
+            @if (Model.o_date.HasValue)
+            {
+                @Model.o_date.Value.ToShortDateString();
+            }
+            else
+            {
+                @Html.Display("N/A");
+            }
+
+        </td>
+    </tr>
+    <tr>
+        <td>Day:</td>
+        <td>@Html.DisplayFor(x => x.o_day)</td>
+    </tr>
+    <tr>
+        <td>Time:</td>
+        <td>@Html.DisplayFor(x => x.o_start) ~ @Html.DisplayFor(x => x.o_end)</td>
+    </tr>
+    <tr>
+        <td>Location:</td>
+        <td>@Html.DisplayFor(x => x.o_location)</td>
+    </tr>
+    <tr>
+        <td>Description:</td>
+        <td>@Html.DisplayFor(x => x.o_description)</td>
+    </tr>
+</table>
+
+<p>@Html.ActionLink("Back to Opportunities List", "VolunteerAdmin_Index", "Volunteer")</p>
+
+@*//[Team2]Temiskaming-Hospital website Redesign Project @ Humber College
+    //Feature: Volunteer-Admin
+    //File: Admin_oppDetails.cshtml
+    //Author: Jeesoo Kim
+    //April 7, 2015*@

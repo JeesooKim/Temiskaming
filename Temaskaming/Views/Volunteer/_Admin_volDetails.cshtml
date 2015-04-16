@@ -1,0 +1,51 @@
+﻿@model Temiskaming.Models.volunteer
+
+<h2>Admin - Details of the Volunteer : @Html.DisplayFor(x => x.v_fname) @Html.DisplayFor(x => x.v_lname)</h2>
+
+<table>
+    <tr>
+        <td>Participation ID:</td>
+        <td>@Html.DisplayFor(x => x.v_oppId)</td>
+    </tr>
+    <tr>
+        <td>Address:</td>
+        <td>@Html.DisplayFor(x => x.v_address)</td>
+    </tr>
+    <tr>
+        <td>City:</td>
+        <td>@Html.DisplayFor(x => x.v_city)</td>
+    </tr>
+    <tr>
+        <td>Province:</td>
+        <td>@Html.DisplayFor(x => x.v_province)</td>
+    </tr>
+    <tr>
+        <td>Postal Code:</td>
+        <td>@Html.DisplayFor(x => x.v_postalCode)</td>
+    </tr>
+    <tr>
+        <td>Phone:</td>
+        <td>@Html.DisplayFor(x => x.v_phone)</td>
+    </tr>
+    <tr>
+        <td>Email:</td>
+        <td>@Html.DisplayFor(x => x.v_email)</td>
+    </tr>
+    <tr>
+        <td>Status:</td>
+        <td>@Html.DisplayFor(x => x.v_status)</td>
+    </tr>
+    <tr>
+        <td>Schedule:</td>
+        <td>@Html.DisplayFor(x => x.v_schedule)</td>
+    </tr>    
+</table>
+
+@Html.ActionLink("Collapse", "VolunteerAdmin_volIndex", "Volunteer")
+
+
+@*//[Team2]Temiskaming-Hospital website Redesign Project @ Humber College
+    //Feature: Volunteer-Admin
+    //File: _Admin_volDetails.cshtml
+    //Author: Jeesoo Kim
+    //April 7, 2015*@

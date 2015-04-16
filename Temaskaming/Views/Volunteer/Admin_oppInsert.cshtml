@@ -1,0 +1,124 @@
+﻿@model Temiskaming.Models.volunteer_opportunity
+@{
+    ViewBag.Title = "Admin_oppInsert";
+}
+
+@section css{
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/i18n/jquery-ui-timepicker-addon-i18n.min.js"></script>
+    <!--script src="//cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/jquery-ui-sliderAccess.js"></!--script-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/jquery-ui-timepicker-addon.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/jquery-ui-timepicker-addon.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(" #datepicker").datepicker({
+                //dateFormat: "d M, yy",
+                dateFormat: "M/d/yy"
+            });
+
+            $('#timeStart').timepicker({
+                controlType :'select' ,
+                //timeFormat: 'h:mm tt',
+                //timeFormat: 'h:mm TT'
+                });
+            $('#timeEnd').timepicker({
+                controlType: 'select',
+                //timeFormat: 'h:mm TT'
+            });
+
+            $.datepicker.setDefaults();
+            $('#datepicker').datepicker();
+            $.timepicker.setDefaults();
+            $('#timeStart').timepicker();
+            $('#timeEnd').timepicker();
+        });
+    </script>
+    @*Ref:http://cdnjs.com/libraries/jquery-ui-timepicker-addon
+        http://timepicker.co/options/*@
+}
+
+<h2>Admin - Insert a New Volunteer Opportunity</h2>
+
+@Html.ActionLink("To Volunteers List", "VolunteerAdmin_volIndex", "Volunteer")&nbsp; | &nbsp;
+<hr />
+* Required
+<br />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <table>
+        <tr>
+            <td>@Html.LabelFor(model => model.o_name) * </td>
+            <td>@Html.TextBoxFor(model => model.o_name)</td>
+            <td>@Html.ValidationMessageFor(model => model.o_name, "*")</td>
+        </tr>
+        <tr>
+            <td>Check ONLY if this is regular opportunity. </td>
+            <td>@Html.CheckBoxFor(model => model.o_regular)</td>
+            <td>@*@Html.ValidationMessageFor(model => model.o_date, "*")*@</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.o_date)  </td>
+            <td>@Html.TextBoxFor(model => model.o_date, "{0:dd/MM/yyyy}", new { @class = "datefield form-control", @placeholder = "Enter for an occasional/special event/opportunity", id = "datepicker" })</td>
+            <td>@*@Html.ValidationMessageFor(model => model.o_date, "*")*@</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.o_day)  </td>
+            <td>
+                @Html.DropDownListFor(model => model.o_day, new[] {
+                            new SelectListItem(){Text ="Monday -Friday" ,Value = "Monday -Friday"},
+                            new SelectListItem(){Text="Monday", Value= "Monday"},
+                            new SelectListItem(){Text="Tuesday", Value="Tuesday"},
+                            new SelectListItem(){Text="Wednesday", Value="Wednesday"},
+                            new SelectListItem(){Text="Thursday", Value="Thursday"},
+                            new SelectListItem(){Text="Friday", Value="Friday"},
+                            new SelectListItem(){Text="Saturday", Value="Saturday"},
+                            new SelectListItem(){Text="Sunday", Value="Sunday"},
+                            new SelectListItem(){Text="", Value="", Selected= true}
+                            })
+            </td>
+            <td>@*@Html.ValidationMessageFor(model => model.o_day, "*")*@</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.o_start) Time  </td>
+            <td>@Html.TextBoxFor(model => model.o_start, new { id = "timeStart" })</td>
+            <td>@*@Html.ValidationMessageFor(model => model.o_start, "*")*@</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.o_end) Time  </td>
+            <td>@Html.TextBoxFor(model => model.o_end, new { id = "timeEnd" })</td>
+            <td>@*@Html.ValidationMessageFor(model => model.o_end, "*")*@</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.o_location) </td>
+            <td>@Html.TextBoxFor(model => model.o_location, new { @placeholder = "location" })</td>
+            <td>@*@Html.ValidationMessageFor(model => model.o_location, "*")*@</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(model => model.o_description) </td>
+            <td>@Html.TextBoxFor(model => model.o_description, new { @placeholder = "description" })</td>
+            <td>@*@Html.ValidationMessageFor(model => model.o_description, "*")*@</td>
+        </tr>
+    </table>
+    <br />
+    <input type="submit" value="Insert" />
+}
+<br />
+
+<p>@Html.ActionLink("Back to Opportunities List", "VolunteerAdmin_Index")</p>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+@*//[Team2]Temiskaming-Hospital website Redesign Project @ Humber College
+    //Feature: Volunteer -Admin
+    //File:Admin_oppInsert.cshtml
+    //Author: Jeesoo Kim
+    //April 7, 2015*@

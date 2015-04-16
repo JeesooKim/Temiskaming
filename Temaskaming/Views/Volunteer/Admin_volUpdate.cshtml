@@ -1,0 +1,149 @@
+﻿@model Temiskaming.Models.volunteer
+
+@{
+    ViewBag.Title = "Admin_volUpdate";
+}
+
+<h2>Admin - Volunteer Update</h2>
+
+@Html.ActionLink("To Volunteer Opprtunities List", "VolutneerAdmin_Index", "Volunteer")&nbsp; | &nbsp;
+
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(x => x.v_id)
+
+
+    @Html.LabelFor(x => x.v_fname)
+    <br />
+    @Html.TextBoxFor(x => x.v_fname)
+    @Html.ValidationMessageFor(x => x.v_fname)
+    <br /><br />
+
+    @Html.LabelFor(x => x.v_lname)
+    <br />
+    @Html.TextBoxFor(x => x.v_lname)
+    @Html.ValidationMessageFor(x => x.v_lname)
+    <br /><br />
+
+
+
+    @Html.LabelFor(x => x.v_address)
+    <br />
+    @Html.TextBoxFor(x => x.v_address)
+    //@Html.ValidationMessageFor(x => x.v_address)
+    <br /><br />
+
+    @Html.LabelFor(x => x.v_city)
+    <br />
+    @Html.TextBoxFor(x => x.v_city)
+    //@Html.ValidationMessageFor(x => x.v_city)
+    <br /><br />
+
+    @Html.LabelFor(x => x.v_province)
+    <br />
+    @Html.DropDownListFor(x => x.v_province, new[] {
+                    new SelectListItem(){Text ="AB", Value="AB"},
+                    new SelectListItem(){Text ="BC", Value="BC"},
+                    new SelectListItem(){Text ="MB", Value="MB"},
+                    new SelectListItem(){Text ="NB", Value="NB"},
+                    new SelectListItem(){Text ="NL", Value="NL"},
+                    new SelectListItem(){Text ="NS", Value="NS"},
+                    new SelectListItem(){Text ="NT", Value="NT"},
+                    new SelectListItem(){Text ="NU", Value="NU"},
+                    new SelectListItem(){Text ="ON", Value="ON"},
+                    new SelectListItem(){Text ="PE", Value="PE"},
+                    new SelectListItem(){Text ="QC", Value="QC"},
+                    new SelectListItem(){Text ="SK", Value="SK"},
+                    new SelectListItem(){Text ="YT", Value="YT"},
+                    new SelectListItem(){Text="", Value=""}
+                            })
+    //@Html.ValidationMessageFor(x => x.v_province)
+    <br /><br />
+
+    @Html.LabelFor(x => x.v_postalCode)
+    <br />
+    @Html.TextBoxFor(x => x.v_postalCode)
+    //@Html.ValidationMessageFor(x => x.v_postalCode)
+    <br /><br />
+
+    @Html.LabelFor(x => x.v_phone)
+    <br />
+    @Html.TextBoxFor(x => x.v_phone)
+    //@Html.ValidationMessageFor(x => x.v_phone)
+    <br /><br />
+
+    @Html.LabelFor(x => x.v_email)
+    <br />
+    @Html.TextBoxFor(x => x.v_email)
+    //@Html.ValidationMessageFor(x => x.v_email)
+    <br /><br />
+
+    @Html.LabelFor(x => x.v_status)
+    <br />
+    @Html.DropDownListFor(model => model.v_status, new[] {
+                    new SelectListItem(){Text ="Active", Value="Active"},
+                    new SelectListItem(){Text ="Approved", Value="Approved"},
+                    new SelectListItem(){Text ="Pending", Value="Pending"},
+                    new SelectListItem(){Text ="Under Review", Value="Under Review"},
+                    new SelectListItem(){Text ="Withdrawn", Value="Withdrawn"},
+                    new SelectListItem(){Text ="Not Available", Value="Not Available"},
+                    new SelectListItem(){Text="", Value="", Selected=true}
+                            })
+
+    //@Html.ValidationMessageFor(x => x.v_status)
+    <br /><br />
+
+    @Html.LabelFor(x => x.v_schedule)
+    @*each opportunity has its own set time slot, so option is to choose the day of the week*@
+    <br />
+    @Html.DropDownListFor(model => model.v_schedule, new[] {
+                            new SelectListItem(){Text ="Monday - Friday" ,Value = "Monday -Friday"},
+                            new SelectListItem(){Text="Monday", Value= "Monday"},
+                            new SelectListItem(){Text="Tuesday", Value="Tuesday"},
+                            new SelectListItem(){Text="Wednesday", Value="Wednesday"},
+                            new SelectListItem(){Text="Thursday", Value="Thursday"},
+                            new SelectListItem(){Text="Friday", Value="Friday"},
+                            new SelectListItem(){Text="Saturday", Value="Saturday"},
+                            new SelectListItem(){Text="Sunday", Value="Sunday"},
+                            new SelectListItem(){Text="", Value="", Selected=true}
+                            })
+    //@Html.ValidationMessageFor(x => x.v_schedule)
+    <br /><br />
+
+    @Html.LabelFor(x => x.v_oppId)
+    <br />
+    @Html.DropDownList("v_oppId", new SelectList(ViewBag.OpportunityID, "Value", "Text"))
+    @*Thanks to Sumeet*@
+    @*@Html.DropDownListFor(x => x.v_oppId, new[] {
+        new SelectListItem(){Text ="Physiotherapy Department", Value="1"},
+        new SelectListItem(){Text ="Emergency Department", Value="2"},
+        new SelectListItem(){Text ="Long-Term Care Activity Room", Value="3"},
+        new SelectListItem(){Text ="Outpatient Clinics", Value="4"},
+        new SelectListItem(){Text ="Day Medicine/Cancer Care Department", Value="5"},
+        new SelectListItem(){Text ="Long-Term Care Department", Value="6"},
+        new SelectListItem(){Text="", Value=""}
+                })*@
+    @Html.ValidationMessageFor(x => x.v_oppId)
+    <br /><br />
+
+    <input type="submit" value="Update" />
+}
+<p>
+    @Html.ActionLink("Back to Volunteers List", "VolunteerAdmin-volIndex", new { id = Model.v_id })
+</p>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@*//[Team2]Temiskaming-Hospital website Redesign Project @ Humber College
+    //Feature: Volunteer-Admin
+    //File: Admin_volUpdate.cshtml
+    //Author: Jeesoo Kim
+    //April 7, 2015*@
+
+

@@ -1,0 +1,36 @@
+﻿@model Temiskaming.Models.volunteer
+@{
+    ViewBag.Title = "Admin_volDelete";
+}
+
+<h2>Admin - Delete Volunteer: @Model.v_fname @Model.v_lname</h2>
+
+@Html.ActionLink("To Volunteer Opprtunities List", "VolunteerAdmin_Index", "Volunteer")&nbsp; | &nbsp;
+<hr />
+
+<h2>Are you sure that you want to delete <em><b>@Model.v_fname @Model.v_lname</b></em>?</h2>
+
+<hr />
+@using (Html.BeginForm())
+{
+    <div>
+        Address : @Html.DisplayFor(x => x.v_address) <br />
+        City: @Html.DisplayFor(x => x.v_city)<br />
+        Province: @Html.DisplayFor(x => x.v_province)<br />
+        Postal Code: @Html.DisplayFor(x => x.v_postalCode)<br />
+        Phone: @Html.DisplayFor(x => x.v_phone)<br />
+        Email: @Html.DisplayFor(x => x.v_email)<br /><br />
+        <input type="submit" value="Delete" />
+    </div>
+}
+
+<br /><br />
+@Html.ActionLink("To Volunteer Details", "Admin_volDetails", new { id = Model.v_id })
+        &nbsp;| &nbsp;
+@Html.ActionLink("Back to Volunteers List", "VolunteerAdmin_volIndex", new { id = Model.v_id })
+
+@*//[Team2]Temiskaming-Hospital website Redesign Project @ Humber College
+    //Feature: Volunteer-Admin
+    //File: Admin_oppDelete.cshtml
+    //Author: Jeesoo Kim
+    //April 7, 2015*@
