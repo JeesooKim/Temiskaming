@@ -45,6 +45,20 @@ namespace Temiskaming.Controllers
 
         }
 
+        public ActionResult PublishAlert(int id)
+        {
+            ViewBag.Group = "Admin";
+            bool result = alertObj.publishAlert(id);
+            if (result == false)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+
         public ActionResult AddAlert()
         {
             ViewBag.Group = "Admin";
@@ -77,8 +91,8 @@ namespace Temiskaming.Controllers
             ViewBag.Group = "Admin";
             alert loadAlert = alertObj.getAlertByID(id);
             if (loadAlert == null)
-            { 
-                return View(); 
+            {
+                return View();
             }
             else
             {
@@ -106,15 +120,26 @@ namespace Temiskaming.Controllers
             return View();
         }
 
-        public ActionResult DeleteAlert()
+        public ActionResult DeleteAlert(int id)
         {
             ViewBag.Group = "Admin";
-            return View();
+            alert loadAlert = alertObj.getAlertByID(id);
+            if (loadAlert == null)
+            {
+                return View();
+            }
+            else
+            {
+                TempData["id"] = id;
+                return View(loadAlert);
+            }
+         
         }
 
         [HttpPost]
-        public ActionResult DeleteAlert(int id)
+        public ActionResult ConfirmDeleteAlert()
         {
+            int id = (int)TempData["id"];
             ViewBag.Group = "Admin";
             if (id > 0)
             {
@@ -131,5 +156,5 @@ namespace Temiskaming.Controllers
 
             return View();
         }
-    }  
+    }
 }

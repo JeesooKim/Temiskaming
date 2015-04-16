@@ -34,9 +34,23 @@ namespace Temiskaming.Controllers
 
         }
 
-        public ActionResult PostedPoll()
+        public ActionResult PublishPoll(int id)
         {
             ViewBag.Group = "Admin";
+            bool result = pollObj.publishPoll(id);
+            if (result == false)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+
+        public ActionResult PostedPoll()
+        {
+           
             var onePoll = pollObj.getActivePoll();
             if (onePoll == null)
             {
@@ -49,11 +63,45 @@ namespace Temiskaming.Controllers
 
         }
 
+        [HttpPost]
+        public ActionResult PostedPoll(FormCollection form)
+        {
+            
+            if(form["option1"] != null)
+            { 
+                try 
+                {
+                    pollObj.setPollChoice(1);
+                    return RedirectToAction("PostedPoll");
+                }
+                catch
+                {
+                    return View();
+                }
+            }
+            else
+            {
+                try
+                {
+                    
+                    pollObj.setPollChoice(0);
+                    return RedirectToAction("PostedPoll");
+                }
+                catch
+                {
+                    return View();
+                }
+            }
+
+  
+        }
+
         public ActionResult AddPoll()
         {
             ViewBag.Group = "Admin";
             return View();
         }
+
 
         [HttpPost]
         public ActionResult AddPoll(poll newPoll)
@@ -110,15 +158,25 @@ namespace Temiskaming.Controllers
             return View();
         }
 
-        public ActionResult DeletePoll()
+        public ActionResult DeletePoll(int id)
         {
             ViewBag.Group = "Admin";
-            return View();
+            poll loadPoll = pollObj.getPollByID(id);
+            if (loadPoll == null)
+            {
+                return View();
+            }
+            else
+            {
+                TempData["id"] = id;
+                return View(loadPoll);
+            }
         }
 
         [HttpPost]
-        public ActionResult DeletePoll(int id)
+        public ActionResult ConfirmDeletePoll()
         {
+            int id = (int)TempData["id"];
             ViewBag.Group = "Admin";
             if (id > 0)
             {

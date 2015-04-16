@@ -12,7 +12,27 @@ body {
 p{
     font-size: 1.2em;
 }
+h1 {
+    font-size: 2em;
+    margin: 0;
+}
+h2 {
+    font-size: 1.7em;
+}
+h3 {
+    font-size: 1.5em;
+}
 
+.disclaimer {
+    background-color: rgba(255, 70, 0, 0.63);
+    border-bottom: 1px solid black;
+    padding: 5px 0;
+    margin: 0;
+}
+.disclaimer p {
+    text-align: center;
+    margin: 0;
+}
 
 header, footer, nav, section {
     display: block;
@@ -23,14 +43,28 @@ ul{
     padding: 0;
 }
 
-#wrapper, #hwrapper, #fwrapper {
+#wrapper, .hwrapper, #fwrapper {
     width: 1050px;
     margin: 0 auto;
     height: 100%;
 }
-.menu {
+.navi2 {
+    background: #4fa2c1;
+}
+.subMenu {
+    font-size: 1.4em;
+    padding: 5px 0;
+    
+}
+.subMenu nav {
+    text-align: left;
     position: relative;
     top: 20px;
+}
+
+#menuIcon {
+    margin: 0;
+    display: none;
 }
 
 input[type="submit"]{
@@ -39,31 +73,71 @@ input[type="submit"]{
     border: 1px solid black;
 }
 
+input[type="submit"]{
+    cursor: pointer;
+}
+
 
 /*HEADER MASTER BEGINS*/
 
 header {
-    height: 60px;
     border-bottom: 1px solid #60cef7;
-    padding-right: 30px;
+}
+#chosen {
+    background-color: #4fa2c1;
+    border-bottom: 1px solid #4fa2c1;
+    margin-bottom: -1px;
+    -webkit-border-top-left-radius: 20px;
+    -webkit-border-top-right-radius: 20px;
+    -moz-border-radius-topleft: 20px;
+    -moz-border-radius-topright: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+#chosen a {
+    background-color: #4fa2c1;
+    color: white;
 }
 
 header #logo {
     display: block;
     height: 59px;
     width: 59px;
-    float: left;
-    margin-left: 30px;
+    color: #60cdf6;
+    padding: 0px 0 0 65px;
     background: #60cef7;
     background: url('Images/logo.png') no-repeat;
     background-size: 59px 59px;
 }
-
-header nav {
-    font-size: 150%;
+.menu {
+    margin-top: 10px;
+    display: block;
+}
+.navi {
+    text-align: left;
+    font-size: 120%;
     position: relative;
-    float: right;
-    margin-top: 20px;
+    border-bottom: white 1px solid;
+}
+
+.subMenu {
+    font-size: 110%;
+}
+
+.subMenu li {
+    margin: 5px 0;
+    border-right: 1px solid #d4eff9;
+}
+
+.subMenu li:first-child {
+    border-left: 1px solid #d4eff9;
+}
+
+.subMenu a {
+    display: block;
+    padding-bottom: 5px;
+    color: white;
+    width: 100%;
 }
 
 header a{
@@ -72,14 +146,27 @@ header a{
 }
 
 header a:hover {
-    color: #60cef7;
+    color: white;
+}
+
+.navi li {
+    padding: 10px;
+}
+
+.menu {
+    background: #89dffe;
 }
 
 nav li {
     display: inline-block;
     list-style: none;
-    margin-left: 20px;
+    padding: 0 10px;
 }
+
+.subMenu a:hover {
+    color: #d6f4ff;
+}
+
 
 /*HEADER MASTER ENDS*/
 
@@ -102,11 +189,21 @@ nav li {
     padding-bottom: 50px;
 }
     /*HOMEPAGE STYLING INDEX.ASPX*/
-    #banner {
-        height: 300px;
+    #welcomeIndex h1 {
+    }
+    
+
+    .imgSlider {
+        position: relative;
+        height: 200px;
+    }
+    .imgSlider img{
+        position: absolute;
         width: 100%;
-        background: url('http://www.temiskaming-hospital.com/media/rokgallery/0/0b115bc6-7699-4d32-b73b-88340e54c986/5e7da87b-3e79-4cd8-834d-18245599a989.jpg') #60cef7 left no-repeat;
-        background-size: cover;
+        opacity: 0;
+    }
+    .imgSlider img:first-child{
+        opacity: 1;
     }
     /*HOMEPAGE STYLING ENDS*/
     
@@ -136,6 +233,7 @@ nav li {
     }
     aside h2:hover {
         background: #1c3152;
+        cursor: pointer;
     }
     #alertBox {
         /*display: none;*/
@@ -143,6 +241,9 @@ nav li {
     #alertBox h2{
         height: 30px;
         background: #1c3152;
+    }
+    #alertBox h2:hover {
+        cursor: auto;
     }
 
     aside div {
@@ -152,6 +253,7 @@ nav li {
     #chatbox{
         width: 450px;
     }
+    
 
     #chat {
         position: relative;
@@ -273,13 +375,29 @@ textarea {
 /*MEDIA MASTER QUERIES*/
 @media only screen and (max-width: 1100px) {
     
-    #wrapper, #hwrapper, #fwrapper {
+    #wrapper, .hwrapper, #fwrapper {
         width: 100%;
         margin: 0 auto;
         height: auto;
     }
-    .menu {
-        text-align: center;
+    .imgSlider {
+        height: 350px;
+    }
+    .navi li {
+        padding: 0 10px;
+    }
+
+    navi li:active {
+        border: 1px solid blue;
+    }
+    
+    #chosen {
+        -webkit-border-top-left-radius: 10px;
+        -webkit-border-top-right-radius: 10px;
+        -moz-border-radius-topleft: 10px;
+        -moz-border-radius-topright: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
     }
     
     /*HEADER*/
@@ -289,29 +407,32 @@ textarea {
         padding: 0;
         margin: 0;
     }
-    header #logo {
-        float: none;
-        margin-left: auto;
-        margin-right: auto;
+    header h1 {
+        text-align: left;
     }
-    header nav {
-        font-size: 1.5em;
+    header #logo {
+    }
+    .navi {
+        text-align: center;
+        font-size: 1.3em;
+    }
+    .navi nav {
         float: none;
         width: 100%;
     }
-    header a {
+    .navi a {
         display: block;
         width: 100%;
         padding: 10px 0;
     }
-    header a:hover {
-    }
-    header nav li {
-        border-top: 1px dashed #60cef7;
+
+    .navi nav li:first-child{
+        margin-left: 0;
     }
 
-    header nav li:first-child{
-        margin-left: 0;
+    .subMenu {
+        font-size: 1.2em;
+        text-align: center;
     }
 
     /*BODY*/
@@ -331,6 +452,9 @@ textarea {
         float: none;
         margin-top: 100%;
     }
+    aside h2:active {
+        background-color: #1c3152;
+    }
     
     /*FOOTER*/
     footer {
@@ -347,8 +471,8 @@ textarea {
         width: 100%;
         padding: 10px 0;
     }
-    footer a:hover {
-        background: #60cef7;
+    footer li:active {
+        background: #d4eff9;
     }
     footer nav li {
         margin-left: 20px;
@@ -356,62 +480,95 @@ textarea {
     }
 }
 
-@media only screen and (max-width: 770px) {
-    /*SECONDARY NAV*/
-    .menu {
-        position: static;
+@media only screen and (max-width: 767px) {
+    header #logo {
         text-align: left;
+        margin: 0;
     }
+    header h1 {
+        display: none;
+        border-top: 1px dashed #4fa2c1;
+    }
+    #chosen {
+        -webkit-border-top-left-radius: 0px;
+        -webkit-border-top-right-radius: 0px;
+        -moz-border-radius-topleft: 0px;
+        -moz-border-radius-topright: 0px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+
+    /*SECONDARY NAV*/
+    
     #menuIcon {
+        display: inline-block;
+        text-align: left;
+        float: right;
         color: white;
-        width: 100%;
-        height: 45px;
-        background: url('Images/hamburger.png') no-repeat center;
-        background-size: 40px 40px;
-        background-color: black;
+        font-size: 1.2em;
+        width: 150px;
+        height: 60px;
+        background: url('Images/hamburger.png') no-repeat right;
+        background-size: 50px 50px;
+        background-color: #4fa2c1;
         margin: 0;
         padding: 0;
+        padding-left: 10px;
     }
     #menuIcon:active {
         background-color: #1c3152;
     }
-    .menu a {
-        display: block;
-        width: 100%;
-        color: white;
-        text-decoration: none;
-        background: black;
-        padding: 10px;
-        border-top: 1px dashed white;
-    }
-    .menu nav {
-        display: none;
-    }
-    .menu a:active {
+    .menu {
         background: #1c3152;
     }
-    .menu li {
+    .navi2, .subMenu {
+        background: none;
         margin: 0;
-        font-size: 1.2em;
-        display: list-item;
-        background: #1c3152;
-        overflow: hidden;
     }
-
-    header nav li {
+    .navi li{
+        text-align: center;
         display: list-item;
         margin-bottom: 10px;
         margin: 0;
         background: #a0e2fa;
     }
-    header nav {
+    
+    .navi {
         font-size: 1.4em;
+        border: none;
     }
-    header a:hover {
+
+    .subMenu li, .subMenu li:first-child {
+        border-left: none;
+        border-right: none;
+    }
+
+    .subMenu li {
+        margin: 0;
+        font-size: 1.2em;
+        text-align: center;
+        display: list-item;
+        color: white;
+        background: #1c3152;
+        border-bottom: 1px dashed grey;
+    }
+    .subMenu a {
+        padding: 10px 0;
         color: white;
     }
-    header a:active {
-        background: #35758e;
+    .subMenu {
+        margin: 0;
+    }
+    .navi a:hover {
+        color: white;
+    }
+    .menu {
+        margin: 0;
+        position: absolute;
+        display: none;
+        width: 100%;
+        z-index: 100;
+        padding: 0;
     }
     footer nav li {
         display: list-item;
@@ -422,6 +579,16 @@ textarea {
 
     #chatLog {
         font-size: 1em;
+    }
+    .imgSlider {
+        display: none;
+    }
+
+    .navi li:active {
+        background: #1c3152;
+    }
+    .subMenu li:active {
+        background: #4fa2c1;
     }
     
 }
@@ -636,6 +803,33 @@ padding:4px;
     h2 {
         text-align: center;
     }
+    
+}
+
+/*FOR GIFT SHOP*/
+
+.gift-thumb {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    border: 3px solid #60cdf6;
+    background-position: center center;
+    background-size: cover;
+}
+
+/*contact form*/
+.Contact-list{
+     list-style-type: none;
+}
+
+.contact-left{
+width:70px;
+float:left;
+}
+
+.contact-right{
+    width:100%;
     
 }
 

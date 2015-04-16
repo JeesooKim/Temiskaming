@@ -5,12 +5,13 @@ using System.Web;
 
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Web.Mvc;
 
 namespace Temiskaming.Models
-{//volunteers.Models => Temiskaming.Models
+{
 
-    [MetadataType(typeof(opportunityValidation))]
+   [MetadataType(typeof(opportunityValidation))]
     public partial class opportunity
     {
     }
@@ -20,10 +21,6 @@ namespace Temiskaming.Models
     {
     }
 
-    [MetadataType(typeof(scheduleValidation))]
-    public partial class schedule
-    {
-    }
 
 
     [Bind(Exclude = "o_id")]
@@ -31,10 +28,26 @@ namespace Temiskaming.Models
     {
         [DisplayName("Opportunity Name")]
         [Required(ErrorMessage = "Please enter opportunity name")]
-        public string o_name { get; set; }
+        public string o_name { get; set; }        
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:mm/dd/yy}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Schedule Date")]
+        public DateTime? o_date { get; set; }
 
+        //[DataType(DataType.Time)]
+        //[DisplayFormat(DataFormatString = "{0:h:mm TT}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Start Time")]
+        public TimeSpan? o_start { get; set; }
+
+        //[DataType(DataType.Time)]
+        //[DisplayFormat(DataFormatString = "{0:h:mm TT}", ApplyFormatInEditMode = true)]
+        [Display(Name = "End Time")]
+        public TimeSpan? o_end { get; set; }
     }
+
+    //Ref: http://stackoverflow.com/questions/17434935/jquery-time-picker-and-mvc-4-validation-the-field-must-be-a-date
+
 
     [Bind(Exclude = "v_id")]
     public partial class volnunteerValidation
@@ -72,21 +85,27 @@ namespace Temiskaming.Models
         [RegularExpression(".+\\@.+\\..+", ErrorMessage = "Please enter a valid email")]
         public string v_email { get; set; }
 
+        [DisplayName("Status")]
+        [Required(ErrorMessage = "Please choose status")]        
+        public string v_status { get; set; }
 
+        //[DisplayName("Schedule")]
+        //[Required(ErrorMessage = "Please choose the day of the week ")]        
+        //public string v_schedule { get; set; }
+
+        [Key]
+        [ForeignKey("volunteer_opportunity")]
+        [DisplayName("Volunteer Opportunity Id")]
+        [Required(ErrorMessage = "Please choose the volunteer opportunity ID as it name")]
+        public int v_oppId { get; set; }
     }
 
-    [Bind(Exclude = "s_id")]
-    public partial class scheduleValidation
-    {
-        [DisplayName("Schedule Status")]
-        [Required(ErrorMessage = "Please choose the status of the schedule")]
-        public string s_status { get; set; }
-    }
+    
 
 
     //[Team2]Temiskaming-Hospital website Redesign project @ Humber College
-    //Feature: Volunteers - Model
-    //File : volunteersValidation.cs
+    //Feature: Volunteer - Model
+    //File : volunteerValidation.cs
     //Author: Jeesoo Kim
     //Created: April 6, 2015
 }

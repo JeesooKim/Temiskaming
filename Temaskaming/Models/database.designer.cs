@@ -90,27 +90,18 @@ namespace Temiskaming.Models
     partial void Insertstory(story instance);
     partial void Updatestory(story instance);
     partial void Deletestory(story instance);
-    partial void InsertCart(Cart instance);
-    partial void UpdateCart(Cart instance);
-    partial void DeleteCart(Cart instance);
-    partial void InsertOrder(Order instance);
-    partial void UpdateOrder(Order instance);
-    partial void DeleteOrder(Order instance);
-    partial void InsertOrderDetail(OrderDetail instance);
-    partial void UpdateOrderDetail(OrderDetail instance);
-    partial void DeleteOrderDetail(OrderDetail instance);
-    partial void InsertGift(Gift instance);
-    partial void UpdateGift(Gift instance);
-    partial void DeleteGift(Gift instance);
     partial void Insertpoll(poll instance);
     partial void Updatepoll(poll instance);
     partial void Deletepoll(poll instance);
+    partial void InsertOrder(Order instance);
+    partial void UpdateOrder(Order instance);
+    partial void DeleteOrder(Order instance);
+    partial void InsertGift(Gift instance);
+    partial void UpdateGift(Gift instance);
+    partial void DeleteGift(Gift instance);
     partial void Insertvolunteer_opportunity(volunteer_opportunity instance);
     partial void Updatevolunteer_opportunity(volunteer_opportunity instance);
     partial void Deletevolunteer_opportunity(volunteer_opportunity instance);
-    partial void Insertvolunteer_schedule(volunteer_schedule instance);
-    partial void Updatevolunteer_schedule(volunteer_schedule instance);
-    partial void Deletevolunteer_schedule(volunteer_schedule instance);
     partial void Insertvolunteer(volunteer instance);
     partial void Updatevolunteer(volunteer instance);
     partial void Deletevolunteer(volunteer instance);
@@ -306,11 +297,11 @@ namespace Temiskaming.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<Cart> Carts
+		public System.Data.Linq.Table<poll> polls
 		{
 			get
 			{
-				return this.GetTable<Cart>();
+				return this.GetTable<poll>();
 			}
 		}
 		
@@ -322,14 +313,6 @@ namespace Temiskaming.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<OrderDetail> OrderDetails
-		{
-			get
-			{
-				return this.GetTable<OrderDetail>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Gift> Gifts
 		{
 			get
@@ -338,27 +321,11 @@ namespace Temiskaming.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<poll> polls
-		{
-			get
-			{
-				return this.GetTable<poll>();
-			}
-		}
-		
 		public System.Data.Linq.Table<volunteer_opportunity> volunteer_opportunities
 		{
 			get
 			{
 				return this.GetTable<volunteer_opportunity>();
-			}
-		}
-		
-		public System.Data.Linq.Table<volunteer_schedule> volunteer_schedules
-		{
-			get
-			{
-				return this.GetTable<volunteer_schedule>();
 			}
 		}
 		
@@ -4026,1109 +3993,6 @@ namespace Temiskaming.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Cart")]
-	public partial class Cart : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _RecordId;
-		
-		private string _CartId;
-		
-		private int _ItemId;
-		
-		private int _Count;
-		
-		private System.DateTime _DateCreated;
-		
-		private EntityRef<Gift> _Gift;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnRecordIdChanging(int value);
-    partial void OnRecordIdChanged();
-    partial void OnCartIdChanging(string value);
-    partial void OnCartIdChanged();
-    partial void OnItemIdChanging(int value);
-    partial void OnItemIdChanged();
-    partial void OnCountChanging(int value);
-    partial void OnCountChanged();
-    partial void OnDateCreatedChanging(System.DateTime value);
-    partial void OnDateCreatedChanged();
-    #endregion
-		
-		public Cart()
-		{
-			this._Gift = default(EntityRef<Gift>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RecordId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int RecordId
-		{
-			get
-			{
-				return this._RecordId;
-			}
-			set
-			{
-				if ((this._RecordId != value))
-				{
-					this.OnRecordIdChanging(value);
-					this.SendPropertyChanging();
-					this._RecordId = value;
-					this.SendPropertyChanged("RecordId");
-					this.OnRecordIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CartId", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string CartId
-		{
-			get
-			{
-				return this._CartId;
-			}
-			set
-			{
-				if ((this._CartId != value))
-				{
-					this.OnCartIdChanging(value);
-					this.SendPropertyChanging();
-					this._CartId = value;
-					this.SendPropertyChanged("CartId");
-					this.OnCartIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemId", DbType="Int NOT NULL")]
-		public int ItemId
-		{
-			get
-			{
-				return this._ItemId;
-			}
-			set
-			{
-				if ((this._ItemId != value))
-				{
-					if (this._Gift.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnItemIdChanging(value);
-					this.SendPropertyChanging();
-					this._ItemId = value;
-					this.SendPropertyChanged("ItemId");
-					this.OnItemIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Count", DbType="Int NOT NULL")]
-		public int Count
-		{
-			get
-			{
-				return this._Count;
-			}
-			set
-			{
-				if ((this._Count != value))
-				{
-					this.OnCountChanging(value);
-					this.SendPropertyChanging();
-					this._Count = value;
-					this.SendPropertyChanged("Count");
-					this.OnCountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateCreated", DbType="DateTime NOT NULL")]
-		public System.DateTime DateCreated
-		{
-			get
-			{
-				return this._DateCreated;
-			}
-			set
-			{
-				if ((this._DateCreated != value))
-				{
-					this.OnDateCreatedChanging(value);
-					this.SendPropertyChanging();
-					this._DateCreated = value;
-					this.SendPropertyChanged("DateCreated");
-					this.OnDateCreatedChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Gift_Cart", Storage="_Gift", ThisKey="ItemId", OtherKey="ItemId", IsForeignKey=true)]
-		public Gift Gift
-		{
-			get
-			{
-				return this._Gift.Entity;
-			}
-			set
-			{
-				Gift previousValue = this._Gift.Entity;
-				if (((previousValue != value) 
-							|| (this._Gift.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Gift.Entity = null;
-						previousValue.Carts.Remove(this);
-					}
-					this._Gift.Entity = value;
-					if ((value != null))
-					{
-						value.Carts.Add(this);
-						this._ItemId = value.ItemId;
-					}
-					else
-					{
-						this._ItemId = default(int);
-					}
-					this.SendPropertyChanged("Gift");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[Order]")]
-	public partial class Order : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _OrderId;
-		
-		private System.DateTime _OrderDate;
-		
-		private string _FirstName;
-		
-		private string _LastName;
-		
-		private string _Address;
-		
-		private string _City;
-		
-		private string _Province;
-		
-		private string _PostalCode;
-		
-		private string _Country;
-		
-		private string _Phone;
-		
-		private string _Email;
-		
-		private System.Nullable<decimal> _Total;
-		
-		private string _ToPatient;
-		
-		private string _From;
-		
-		private string _Message;
-		
-		private EntitySet<OrderDetail> _OrderDetails;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnOrderIdChanging(int value);
-    partial void OnOrderIdChanged();
-    partial void OnOrderDateChanging(System.DateTime value);
-    partial void OnOrderDateChanged();
-    partial void OnFirstNameChanging(string value);
-    partial void OnFirstNameChanged();
-    partial void OnLastNameChanging(string value);
-    partial void OnLastNameChanged();
-    partial void OnAddressChanging(string value);
-    partial void OnAddressChanged();
-    partial void OnCityChanging(string value);
-    partial void OnCityChanged();
-    partial void OnProvinceChanging(string value);
-    partial void OnProvinceChanged();
-    partial void OnPostalCodeChanging(string value);
-    partial void OnPostalCodeChanged();
-    partial void OnCountryChanging(string value);
-    partial void OnCountryChanged();
-    partial void OnPhoneChanging(string value);
-    partial void OnPhoneChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    partial void OnTotalChanging(System.Nullable<decimal> value);
-    partial void OnTotalChanged();
-    partial void OnToPatientChanging(string value);
-    partial void OnToPatientChanged();
-    partial void OnFromChanging(string value);
-    partial void OnFromChanged();
-    partial void OnMessageChanging(string value);
-    partial void OnMessageChanged();
-    #endregion
-		
-		public Order()
-		{
-			this._OrderDetails = new EntitySet<OrderDetail>(new Action<OrderDetail>(this.attach_OrderDetails), new Action<OrderDetail>(this.detach_OrderDetails));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int OrderId
-		{
-			get
-			{
-				return this._OrderId;
-			}
-			set
-			{
-				if ((this._OrderId != value))
-				{
-					this.OnOrderIdChanging(value);
-					this.SendPropertyChanging();
-					this._OrderId = value;
-					this.SendPropertyChanged("OrderId");
-					this.OnOrderIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderDate", DbType="DateTime NOT NULL")]
-		public System.DateTime OrderDate
-		{
-			get
-			{
-				return this._OrderDate;
-			}
-			set
-			{
-				if ((this._OrderDate != value))
-				{
-					this.OnOrderDateChanging(value);
-					this.SendPropertyChanging();
-					this._OrderDate = value;
-					this.SendPropertyChanged("OrderDate");
-					this.OnOrderDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="VarChar(150) NOT NULL", CanBeNull=false)]
-		public string FirstName
-		{
-			get
-			{
-				return this._FirstName;
-			}
-			set
-			{
-				if ((this._FirstName != value))
-				{
-					this.OnFirstNameChanging(value);
-					this.SendPropertyChanging();
-					this._FirstName = value;
-					this.SendPropertyChanged("FirstName");
-					this.OnFirstNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="VarChar(150) NOT NULL", CanBeNull=false)]
-		public string LastName
-		{
-			get
-			{
-				return this._LastName;
-			}
-			set
-			{
-				if ((this._LastName != value))
-				{
-					this.OnLastNameChanging(value);
-					this.SendPropertyChanging();
-					this._LastName = value;
-					this.SendPropertyChanged("LastName");
-					this.OnLastNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
-		public string Address
-		{
-			get
-			{
-				return this._Address;
-			}
-			set
-			{
-				if ((this._Address != value))
-				{
-					this.OnAddressChanging(value);
-					this.SendPropertyChanging();
-					this._Address = value;
-					this.SendPropertyChanged("Address");
-					this.OnAddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_City", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string City
-		{
-			get
-			{
-				return this._City;
-			}
-			set
-			{
-				if ((this._City != value))
-				{
-					this.OnCityChanging(value);
-					this.SendPropertyChanging();
-					this._City = value;
-					this.SendPropertyChanged("City");
-					this.OnCityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Province", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string Province
-		{
-			get
-			{
-				return this._Province;
-			}
-			set
-			{
-				if ((this._Province != value))
-				{
-					this.OnProvinceChanging(value);
-					this.SendPropertyChanging();
-					this._Province = value;
-					this.SendPropertyChanged("Province");
-					this.OnProvinceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PostalCode", DbType="VarChar(8) NOT NULL", CanBeNull=false)]
-		public string PostalCode
-		{
-			get
-			{
-				return this._PostalCode;
-			}
-			set
-			{
-				if ((this._PostalCode != value))
-				{
-					this.OnPostalCodeChanging(value);
-					this.SendPropertyChanging();
-					this._PostalCode = value;
-					this.SendPropertyChanged("PostalCode");
-					this.OnPostalCodeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Country", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Country
-		{
-			get
-			{
-				return this._Country;
-			}
-			set
-			{
-				if ((this._Country != value))
-				{
-					this.OnCountryChanging(value);
-					this.SendPropertyChanging();
-					this._Country = value;
-					this.SendPropertyChanged("Country");
-					this.OnCountryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Phone", DbType="VarChar(25) NOT NULL", CanBeNull=false)]
-		public string Phone
-		{
-			get
-			{
-				return this._Phone;
-			}
-			set
-			{
-				if ((this._Phone != value))
-				{
-					this.OnPhoneChanging(value);
-					this.SendPropertyChanging();
-					this._Phone = value;
-					this.SendPropertyChanged("Phone");
-					this.OnPhoneChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(150) NOT NULL", CanBeNull=false)]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this.OnEmailChanging(value);
-					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total", DbType="Decimal(5,2)")]
-		public System.Nullable<decimal> Total
-		{
-			get
-			{
-				return this._Total;
-			}
-			set
-			{
-				if ((this._Total != value))
-				{
-					this.OnTotalChanging(value);
-					this.SendPropertyChanging();
-					this._Total = value;
-					this.SendPropertyChanged("Total");
-					this.OnTotalChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ToPatient", DbType="VarChar(300) NOT NULL", CanBeNull=false)]
-		public string ToPatient
-		{
-			get
-			{
-				return this._ToPatient;
-			}
-			set
-			{
-				if ((this._ToPatient != value))
-				{
-					this.OnToPatientChanging(value);
-					this.SendPropertyChanging();
-					this._ToPatient = value;
-					this.SendPropertyChanged("ToPatient");
-					this.OnToPatientChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[From]", Storage="_From", DbType="VarChar(300) NOT NULL", CanBeNull=false)]
-		public string From
-		{
-			get
-			{
-				return this._From;
-			}
-			set
-			{
-				if ((this._From != value))
-				{
-					this.OnFromChanging(value);
-					this.SendPropertyChanging();
-					this._From = value;
-					this.SendPropertyChanged("From");
-					this.OnFromChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string Message
-		{
-			get
-			{
-				return this._Message;
-			}
-			set
-			{
-				if ((this._Message != value))
-				{
-					this.OnMessageChanging(value);
-					this.SendPropertyChanging();
-					this._Message = value;
-					this.SendPropertyChanged("Message");
-					this.OnMessageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_OrderDetail", Storage="_OrderDetails", ThisKey="OrderId", OtherKey="OrderId")]
-		public EntitySet<OrderDetail> OrderDetails
-		{
-			get
-			{
-				return this._OrderDetails;
-			}
-			set
-			{
-				this._OrderDetails.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_OrderDetails(OrderDetail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Order = this;
-		}
-		
-		private void detach_OrderDetails(OrderDetail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Order = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.OrderDetail")]
-	public partial class OrderDetail : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _OrderDetailId;
-		
-		private int _OrderId;
-		
-		private int _ItemId;
-		
-		private int _Quantity;
-		
-		private decimal _UnitPrice;
-		
-		private EntityRef<Order> _Order;
-		
-		private EntityRef<Gift> _Gift;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnOrderDetailIdChanging(int value);
-    partial void OnOrderDetailIdChanged();
-    partial void OnOrderIdChanging(int value);
-    partial void OnOrderIdChanged();
-    partial void OnItemIdChanging(int value);
-    partial void OnItemIdChanged();
-    partial void OnQuantityChanging(int value);
-    partial void OnQuantityChanged();
-    partial void OnUnitPriceChanging(decimal value);
-    partial void OnUnitPriceChanged();
-    #endregion
-		
-		public OrderDetail()
-		{
-			this._Order = default(EntityRef<Order>);
-			this._Gift = default(EntityRef<Gift>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderDetailId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int OrderDetailId
-		{
-			get
-			{
-				return this._OrderDetailId;
-			}
-			set
-			{
-				if ((this._OrderDetailId != value))
-				{
-					this.OnOrderDetailIdChanging(value);
-					this.SendPropertyChanging();
-					this._OrderDetailId = value;
-					this.SendPropertyChanged("OrderDetailId");
-					this.OnOrderDetailIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderId", DbType="Int NOT NULL")]
-		public int OrderId
-		{
-			get
-			{
-				return this._OrderId;
-			}
-			set
-			{
-				if ((this._OrderId != value))
-				{
-					if (this._Order.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnOrderIdChanging(value);
-					this.SendPropertyChanging();
-					this._OrderId = value;
-					this.SendPropertyChanged("OrderId");
-					this.OnOrderIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemId", DbType="Int NOT NULL")]
-		public int ItemId
-		{
-			get
-			{
-				return this._ItemId;
-			}
-			set
-			{
-				if ((this._ItemId != value))
-				{
-					if (this._Gift.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnItemIdChanging(value);
-					this.SendPropertyChanging();
-					this._ItemId = value;
-					this.SendPropertyChanged("ItemId");
-					this.OnItemIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int NOT NULL")]
-		public int Quantity
-		{
-			get
-			{
-				return this._Quantity;
-			}
-			set
-			{
-				if ((this._Quantity != value))
-				{
-					this.OnQuantityChanging(value);
-					this.SendPropertyChanging();
-					this._Quantity = value;
-					this.SendPropertyChanged("Quantity");
-					this.OnQuantityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UnitPrice", DbType="Decimal(5,2) NOT NULL")]
-		public decimal UnitPrice
-		{
-			get
-			{
-				return this._UnitPrice;
-			}
-			set
-			{
-				if ((this._UnitPrice != value))
-				{
-					this.OnUnitPriceChanging(value);
-					this.SendPropertyChanging();
-					this._UnitPrice = value;
-					this.SendPropertyChanged("UnitPrice");
-					this.OnUnitPriceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Order_OrderDetail", Storage="_Order", ThisKey="OrderId", OtherKey="OrderId", IsForeignKey=true)]
-		public Order Order
-		{
-			get
-			{
-				return this._Order.Entity;
-			}
-			set
-			{
-				Order previousValue = this._Order.Entity;
-				if (((previousValue != value) 
-							|| (this._Order.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Order.Entity = null;
-						previousValue.OrderDetails.Remove(this);
-					}
-					this._Order.Entity = value;
-					if ((value != null))
-					{
-						value.OrderDetails.Add(this);
-						this._OrderId = value.OrderId;
-					}
-					else
-					{
-						this._OrderId = default(int);
-					}
-					this.SendPropertyChanged("Order");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Gift_OrderDetail", Storage="_Gift", ThisKey="ItemId", OtherKey="ItemId", IsForeignKey=true)]
-		public Gift Gift
-		{
-			get
-			{
-				return this._Gift.Entity;
-			}
-			set
-			{
-				Gift previousValue = this._Gift.Entity;
-				if (((previousValue != value) 
-							|| (this._Gift.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Gift.Entity = null;
-						previousValue.OrderDetails.Remove(this);
-					}
-					this._Gift.Entity = value;
-					if ((value != null))
-					{
-						value.OrderDetails.Add(this);
-						this._ItemId = value.ItemId;
-					}
-					else
-					{
-						this._ItemId = default(int);
-					}
-					this.SendPropertyChanged("Gift");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Gifts")]
-	public partial class Gift : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ItemId;
-		
-		private string _Item;
-		
-		private string _Description;
-		
-		private System.Nullable<decimal> _Price;
-		
-		private string _Image;
-		
-		private System.Nullable<decimal> _Inventory;
-		
-		private EntitySet<Cart> _Carts;
-		
-		private EntitySet<OrderDetail> _OrderDetails;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnItemIdChanging(int value);
-    partial void OnItemIdChanged();
-    partial void OnItemChanging(string value);
-    partial void OnItemChanged();
-    partial void OnDescriptionChanging(string value);
-    partial void OnDescriptionChanged();
-    partial void OnPriceChanging(System.Nullable<decimal> value);
-    partial void OnPriceChanged();
-    partial void OnImageChanging(string value);
-    partial void OnImageChanged();
-    partial void OnInventoryChanging(System.Nullable<decimal> value);
-    partial void OnInventoryChanged();
-    #endregion
-		
-		public Gift()
-		{
-			this._Carts = new EntitySet<Cart>(new Action<Cart>(this.attach_Carts), new Action<Cart>(this.detach_Carts));
-			this._OrderDetails = new EntitySet<OrderDetail>(new Action<OrderDetail>(this.attach_OrderDetails), new Action<OrderDetail>(this.detach_OrderDetails));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ItemId
-		{
-			get
-			{
-				return this._ItemId;
-			}
-			set
-			{
-				if ((this._ItemId != value))
-				{
-					this.OnItemIdChanging(value);
-					this.SendPropertyChanging();
-					this._ItemId = value;
-					this.SendPropertyChanged("ItemId");
-					this.OnItemIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item", DbType="VarChar(150)")]
-		public string Item
-		{
-			get
-			{
-				return this._Item;
-			}
-			set
-			{
-				if ((this._Item != value))
-				{
-					this.OnItemChanging(value);
-					this.SendPropertyChanging();
-					this._Item = value;
-					this.SendPropertyChanged("Item");
-					this.OnItemChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(MAX)")]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this.OnDescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._Description = value;
-					this.SendPropertyChanged("Description");
-					this.OnDescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Decimal(6,2)")]
-		public System.Nullable<decimal> Price
-		{
-			get
-			{
-				return this._Price;
-			}
-			set
-			{
-				if ((this._Price != value))
-				{
-					this.OnPriceChanging(value);
-					this.SendPropertyChanging();
-					this._Price = value;
-					this.SendPropertyChanged("Price");
-					this.OnPriceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarChar(MAX)")]
-		public string Image
-		{
-			get
-			{
-				return this._Image;
-			}
-			set
-			{
-				if ((this._Image != value))
-				{
-					this.OnImageChanging(value);
-					this.SendPropertyChanging();
-					this._Image = value;
-					this.SendPropertyChanged("Image");
-					this.OnImageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Inventory", DbType="Decimal(4,0)")]
-		public System.Nullable<decimal> Inventory
-		{
-			get
-			{
-				return this._Inventory;
-			}
-			set
-			{
-				if ((this._Inventory != value))
-				{
-					this.OnInventoryChanging(value);
-					this.SendPropertyChanging();
-					this._Inventory = value;
-					this.SendPropertyChanged("Inventory");
-					this.OnInventoryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Gift_Cart", Storage="_Carts", ThisKey="ItemId", OtherKey="ItemId")]
-		public EntitySet<Cart> Carts
-		{
-			get
-			{
-				return this._Carts;
-			}
-			set
-			{
-				this._Carts.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Gift_OrderDetail", Storage="_OrderDetails", ThisKey="ItemId", OtherKey="ItemId")]
-		public EntitySet<OrderDetail> OrderDetails
-		{
-			get
-			{
-				return this._OrderDetails;
-			}
-			set
-			{
-				this._OrderDetails.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Carts(Cart entity)
-		{
-			this.SendPropertyChanging();
-			entity.Gift = this;
-		}
-		
-		private void detach_Carts(Cart entity)
-		{
-			this.SendPropertyChanging();
-			entity.Gift = null;
-		}
-		
-		private void attach_OrderDetails(OrderDetail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Gift = this;
-		}
-		
-		private void detach_OrderDetails(OrderDetail entity)
-		{
-			this.SendPropertyChanging();
-			entity.Gift = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="temismain.polls")]
 	public partial class poll : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -5335,6 +4199,442 @@ namespace Temiskaming.Models
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Orders")]
+	public partial class Order : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _OrderId;
+		
+		private string _OrderDate;
+		
+		private string _FirstName;
+		
+		private string _LastName;
+		
+		private string _Email;
+		
+		private string _ToPatient;
+		
+		private string _From;
+		
+		private string _Message;
+		
+		private string _Item;
+		
+		private decimal _Price;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnOrderIdChanging(int value);
+    partial void OnOrderIdChanged();
+    partial void OnOrderDateChanging(string value);
+    partial void OnOrderDateChanged();
+    partial void OnFirstNameChanging(string value);
+    partial void OnFirstNameChanged();
+    partial void OnLastNameChanging(string value);
+    partial void OnLastNameChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnToPatientChanging(string value);
+    partial void OnToPatientChanged();
+    partial void OnFromChanging(string value);
+    partial void OnFromChanged();
+    partial void OnMessageChanging(string value);
+    partial void OnMessageChanged();
+    partial void OnItemChanging(string value);
+    partial void OnItemChanged();
+    partial void OnPriceChanging(decimal value);
+    partial void OnPriceChanged();
+    #endregion
+		
+		public Order()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int OrderId
+		{
+			get
+			{
+				return this._OrderId;
+			}
+			set
+			{
+				if ((this._OrderId != value))
+				{
+					this.OnOrderIdChanging(value);
+					this.SendPropertyChanging();
+					this._OrderId = value;
+					this.SendPropertyChanged("OrderId");
+					this.OnOrderIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderDate", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string OrderDate
+		{
+			get
+			{
+				return this._OrderDate;
+			}
+			set
+			{
+				if ((this._OrderDate != value))
+				{
+					this.OnOrderDateChanging(value);
+					this.SendPropertyChanging();
+					this._OrderDate = value;
+					this.SendPropertyChanged("OrderDate");
+					this.OnOrderDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="VarChar(150) NOT NULL", CanBeNull=false)]
+		public string FirstName
+		{
+			get
+			{
+				return this._FirstName;
+			}
+			set
+			{
+				if ((this._FirstName != value))
+				{
+					this.OnFirstNameChanging(value);
+					this.SendPropertyChanging();
+					this._FirstName = value;
+					this.SendPropertyChanged("FirstName");
+					this.OnFirstNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="VarChar(150) NOT NULL", CanBeNull=false)]
+		public string LastName
+		{
+			get
+			{
+				return this._LastName;
+			}
+			set
+			{
+				if ((this._LastName != value))
+				{
+					this.OnLastNameChanging(value);
+					this.SendPropertyChanging();
+					this._LastName = value;
+					this.SendPropertyChanged("LastName");
+					this.OnLastNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(150) NOT NULL", CanBeNull=false)]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ToPatient", DbType="VarChar(300) NOT NULL", CanBeNull=false)]
+		public string ToPatient
+		{
+			get
+			{
+				return this._ToPatient;
+			}
+			set
+			{
+				if ((this._ToPatient != value))
+				{
+					this.OnToPatientChanging(value);
+					this.SendPropertyChanging();
+					this._ToPatient = value;
+					this.SendPropertyChanged("ToPatient");
+					this.OnToPatientChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[From]", Storage="_From", DbType="VarChar(300) NOT NULL", CanBeNull=false)]
+		public string From
+		{
+			get
+			{
+				return this._From;
+			}
+			set
+			{
+				if ((this._From != value))
+				{
+					this.OnFromChanging(value);
+					this.SendPropertyChanging();
+					this._From = value;
+					this.SendPropertyChanged("From");
+					this.OnFromChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Message", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Message
+		{
+			get
+			{
+				return this._Message;
+			}
+			set
+			{
+				if ((this._Message != value))
+				{
+					this.OnMessageChanging(value);
+					this.SendPropertyChanging();
+					this._Message = value;
+					this.SendPropertyChanged("Message");
+					this.OnMessageChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Item
+		{
+			get
+			{
+				return this._Item;
+			}
+			set
+			{
+				if ((this._Item != value))
+				{
+					this.OnItemChanging(value);
+					this.SendPropertyChanging();
+					this._Item = value;
+					this.SendPropertyChanged("Item");
+					this.OnItemChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Decimal(5,2) NOT NULL")]
+		public decimal Price
+		{
+			get
+			{
+				return this._Price;
+			}
+			set
+			{
+				if ((this._Price != value))
+				{
+					this.OnPriceChanging(value);
+					this.SendPropertyChanging();
+					this._Price = value;
+					this.SendPropertyChanged("Price");
+					this.OnPriceChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Gifts")]
+	public partial class Gift : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ItemId;
+		
+		private string _Item;
+		
+		private string _Description;
+		
+		private decimal _Price;
+		
+		private string _Image;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnItemIdChanging(int value);
+    partial void OnItemIdChanged();
+    partial void OnItemChanging(string value);
+    partial void OnItemChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnPriceChanging(decimal value);
+    partial void OnPriceChanged();
+    partial void OnImageChanging(string value);
+    partial void OnImageChanged();
+    #endregion
+		
+		public Gift()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ItemId
+		{
+			get
+			{
+				return this._ItemId;
+			}
+			set
+			{
+				if ((this._ItemId != value))
+				{
+					this.OnItemIdChanging(value);
+					this.SendPropertyChanging();
+					this._ItemId = value;
+					this.SendPropertyChanged("ItemId");
+					this.OnItemIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item", DbType="VarChar(150) NOT NULL", CanBeNull=false)]
+		public string Item
+		{
+			get
+			{
+				return this._Item;
+			}
+			set
+			{
+				if ((this._Item != value))
+				{
+					this.OnItemChanging(value);
+					this.SendPropertyChanging();
+					this._Item = value;
+					this.SendPropertyChanged("Item");
+					this.OnItemChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Decimal(6,2) NOT NULL")]
+		public decimal Price
+		{
+			get
+			{
+				return this._Price;
+			}
+			set
+			{
+				if ((this._Price != value))
+				{
+					this.OnPriceChanging(value);
+					this.SendPropertyChanging();
+					this._Price = value;
+					this.SendPropertyChanged("Price");
+					this.OnPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this.OnImageChanging(value);
+					this.SendPropertyChanging();
+					this._Image = value;
+					this.SendPropertyChanged("Image");
+					this.OnImageChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.volunteer_opportunities")]
 	public partial class volunteer_opportunity : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -5345,19 +4645,19 @@ namespace Temiskaming.Models
 		
 		private string _o_name;
 		
-		private string _o_date;
+		private bool _o_regular;
 		
-		private string _o_start;
+		private System.Nullable<System.DateTime> _o_date;
 		
-		private string _o_end;
+		private System.Nullable<System.TimeSpan> _o_start;
+		
+		private System.Nullable<System.TimeSpan> _o_end;
 		
 		private string _o_day;
 		
 		private string _o_location;
 		
 		private string _o_description;
-		
-		private EntitySet<volunteer_schedule> _volunteer_schedules;
 		
 		private EntitySet<volunteer> _volunteers;
 		
@@ -5369,11 +4669,13 @@ namespace Temiskaming.Models
     partial void Ono_idChanged();
     partial void Ono_nameChanging(string value);
     partial void Ono_nameChanged();
-    partial void Ono_dateChanging(string value);
+    partial void Ono_regularChanging(bool value);
+    partial void Ono_regularChanged();
+    partial void Ono_dateChanging(System.Nullable<System.DateTime> value);
     partial void Ono_dateChanged();
-    partial void Ono_startChanging(string value);
+    partial void Ono_startChanging(System.Nullable<System.TimeSpan> value);
     partial void Ono_startChanged();
-    partial void Ono_endChanging(string value);
+    partial void Ono_endChanging(System.Nullable<System.TimeSpan> value);
     partial void Ono_endChanged();
     partial void Ono_dayChanging(string value);
     partial void Ono_dayChanged();
@@ -5385,7 +4687,6 @@ namespace Temiskaming.Models
 		
 		public volunteer_opportunity()
 		{
-			this._volunteer_schedules = new EntitySet<volunteer_schedule>(new Action<volunteer_schedule>(this.attach_volunteer_schedules), new Action<volunteer_schedule>(this.detach_volunteer_schedules));
 			this._volunteers = new EntitySet<volunteer>(new Action<volunteer>(this.attach_volunteers), new Action<volunteer>(this.detach_volunteers));
 			OnCreated();
 		}
@@ -5410,7 +4711,7 @@ namespace Temiskaming.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_o_name", DbType="VarChar(150)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_o_name", DbType="VarChar(150) NOT NULL", CanBeNull=false)]
 		public string o_name
 		{
 			get
@@ -5430,8 +4731,28 @@ namespace Temiskaming.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_o_date", DbType="VarChar(50)")]
-		public string o_date
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_o_regular", DbType="Bit NOT NULL")]
+		public bool o_regular
+		{
+			get
+			{
+				return this._o_regular;
+			}
+			set
+			{
+				if ((this._o_regular != value))
+				{
+					this.Ono_regularChanging(value);
+					this.SendPropertyChanging();
+					this._o_regular = value;
+					this.SendPropertyChanged("o_regular");
+					this.Ono_regularChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_o_date", DbType="Date")]
+		public System.Nullable<System.DateTime> o_date
 		{
 			get
 			{
@@ -5450,8 +4771,8 @@ namespace Temiskaming.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_o_start", DbType="VarChar(50)")]
-		public string o_start
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_o_start", DbType="Time")]
+		public System.Nullable<System.TimeSpan> o_start
 		{
 			get
 			{
@@ -5470,8 +4791,8 @@ namespace Temiskaming.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_o_end", DbType="VarChar(50)")]
-		public string o_end
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_o_end", DbType="Time")]
+		public System.Nullable<System.TimeSpan> o_end
 		{
 			get
 			{
@@ -5550,20 +4871,7 @@ namespace Temiskaming.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="volunteer_opportunity_volunteer_schedule", Storage="_volunteer_schedules", ThisKey="o_id", OtherKey="o_id")]
-		public EntitySet<volunteer_schedule> volunteer_schedules
-		{
-			get
-			{
-				return this._volunteer_schedules;
-			}
-			set
-			{
-				this._volunteer_schedules.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="volunteer_opportunity_volunteer", Storage="_volunteers", ThisKey="o_id", OtherKey="v_opportunityId")]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="volunteer_opportunity_volunteer", Storage="_volunteers", ThisKey="o_id", OtherKey="v_oppId")]
 		public EntitySet<volunteer> volunteers
 		{
 			get
@@ -5596,18 +4904,6 @@ namespace Temiskaming.Models
 			}
 		}
 		
-		private void attach_volunteer_schedules(volunteer_schedule entity)
-		{
-			this.SendPropertyChanging();
-			entity.volunteer_opportunity = this;
-		}
-		
-		private void detach_volunteer_schedules(volunteer_schedule entity)
-		{
-			this.SendPropertyChanging();
-			entity.volunteer_opportunity = null;
-		}
-		
 		private void attach_volunteers(volunteer entity)
 		{
 			this.SendPropertyChanging();
@@ -5618,222 +4914,6 @@ namespace Temiskaming.Models
 		{
 			this.SendPropertyChanging();
 			entity.volunteer_opportunity = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.volunteer_schedules")]
-	public partial class volunteer_schedule : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _s_id;
-		
-		private int _o_id;
-		
-		private int _v_id;
-		
-		private string _s_status;
-		
-		private EntityRef<volunteer_opportunity> _volunteer_opportunity;
-		
-		private EntityRef<volunteer> _volunteer;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Ons_idChanging(int value);
-    partial void Ons_idChanged();
-    partial void Ono_idChanging(int value);
-    partial void Ono_idChanged();
-    partial void Onv_idChanging(int value);
-    partial void Onv_idChanged();
-    partial void Ons_statusChanging(string value);
-    partial void Ons_statusChanged();
-    #endregion
-		
-		public volunteer_schedule()
-		{
-			this._volunteer_opportunity = default(EntityRef<volunteer_opportunity>);
-			this._volunteer = default(EntityRef<volunteer>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int s_id
-		{
-			get
-			{
-				return this._s_id;
-			}
-			set
-			{
-				if ((this._s_id != value))
-				{
-					this.Ons_idChanging(value);
-					this.SendPropertyChanging();
-					this._s_id = value;
-					this.SendPropertyChanged("s_id");
-					this.Ons_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_o_id", DbType="Int NOT NULL")]
-		public int o_id
-		{
-			get
-			{
-				return this._o_id;
-			}
-			set
-			{
-				if ((this._o_id != value))
-				{
-					if (this._volunteer_opportunity.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Ono_idChanging(value);
-					this.SendPropertyChanging();
-					this._o_id = value;
-					this.SendPropertyChanged("o_id");
-					this.Ono_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_v_id", DbType="Int NOT NULL")]
-		public int v_id
-		{
-			get
-			{
-				return this._v_id;
-			}
-			set
-			{
-				if ((this._v_id != value))
-				{
-					if (this._volunteer.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onv_idChanging(value);
-					this.SendPropertyChanging();
-					this._v_id = value;
-					this.SendPropertyChanged("v_id");
-					this.Onv_idChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_s_status", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string s_status
-		{
-			get
-			{
-				return this._s_status;
-			}
-			set
-			{
-				if ((this._s_status != value))
-				{
-					this.Ons_statusChanging(value);
-					this.SendPropertyChanging();
-					this._s_status = value;
-					this.SendPropertyChanged("s_status");
-					this.Ons_statusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="volunteer_opportunity_volunteer_schedule", Storage="_volunteer_opportunity", ThisKey="o_id", OtherKey="o_id", IsForeignKey=true)]
-		public volunteer_opportunity volunteer_opportunity
-		{
-			get
-			{
-				return this._volunteer_opportunity.Entity;
-			}
-			set
-			{
-				volunteer_opportunity previousValue = this._volunteer_opportunity.Entity;
-				if (((previousValue != value) 
-							|| (this._volunteer_opportunity.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._volunteer_opportunity.Entity = null;
-						previousValue.volunteer_schedules.Remove(this);
-					}
-					this._volunteer_opportunity.Entity = value;
-					if ((value != null))
-					{
-						value.volunteer_schedules.Add(this);
-						this._o_id = value.o_id;
-					}
-					else
-					{
-						this._o_id = default(int);
-					}
-					this.SendPropertyChanged("volunteer_opportunity");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="volunteer_volunteer_schedule", Storage="_volunteer", ThisKey="v_id", OtherKey="v_id", IsForeignKey=true)]
-		public volunteer volunteer
-		{
-			get
-			{
-				return this._volunteer.Entity;
-			}
-			set
-			{
-				volunteer previousValue = this._volunteer.Entity;
-				if (((previousValue != value) 
-							|| (this._volunteer.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._volunteer.Entity = null;
-						previousValue.volunteer_schedules.Remove(this);
-					}
-					this._volunteer.Entity = value;
-					if ((value != null))
-					{
-						value.volunteer_schedules.Add(this);
-						this._v_id = value.v_id;
-					}
-					else
-					{
-						this._v_id = default(int);
-					}
-					this.SendPropertyChanged("volunteer");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
 		}
 	}
 	
@@ -5861,9 +4941,11 @@ namespace Temiskaming.Models
 		
 		private string _v_email;
 		
-		private int _v_opportunityId;
+		private string _v_status;
 		
-		private EntitySet<volunteer_schedule> _volunteer_schedules;
+		private string _v_schedule;
+		
+		private int _v_oppId;
 		
 		private EntityRef<volunteer_opportunity> _volunteer_opportunity;
 		
@@ -5889,13 +4971,16 @@ namespace Temiskaming.Models
     partial void Onv_phoneChanged();
     partial void Onv_emailChanging(string value);
     partial void Onv_emailChanged();
-    partial void Onv_opportunityIdChanging(int value);
-    partial void Onv_opportunityIdChanged();
+    partial void Onv_statusChanging(string value);
+    partial void Onv_statusChanged();
+    partial void Onv_scheduleChanging(string value);
+    partial void Onv_scheduleChanged();
+    partial void Onv_oppIdChanging(int value);
+    partial void Onv_oppIdChanged();
     #endregion
 		
 		public volunteer()
 		{
-			this._volunteer_schedules = new EntitySet<volunteer_schedule>(new Action<volunteer_schedule>(this.attach_volunteer_schedules), new Action<volunteer_schedule>(this.detach_volunteer_schedules));
 			this._volunteer_opportunity = default(EntityRef<volunteer_opportunity>);
 			OnCreated();
 		}
@@ -6080,44 +5165,71 @@ namespace Temiskaming.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_v_opportunityId", DbType="Int NOT NULL")]
-		public int v_opportunityId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_v_status", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string v_status
 		{
 			get
 			{
-				return this._v_opportunityId;
+				return this._v_status;
 			}
 			set
 			{
-				if ((this._v_opportunityId != value))
+				if ((this._v_status != value))
+				{
+					this.Onv_statusChanging(value);
+					this.SendPropertyChanging();
+					this._v_status = value;
+					this.SendPropertyChanged("v_status");
+					this.Onv_statusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_v_schedule", DbType="VarChar(250) NOT NULL", CanBeNull=false)]
+		public string v_schedule
+		{
+			get
+			{
+				return this._v_schedule;
+			}
+			set
+			{
+				if ((this._v_schedule != value))
+				{
+					this.Onv_scheduleChanging(value);
+					this.SendPropertyChanging();
+					this._v_schedule = value;
+					this.SendPropertyChanged("v_schedule");
+					this.Onv_scheduleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_v_oppId", DbType="Int NOT NULL")]
+		public int v_oppId
+		{
+			get
+			{
+				return this._v_oppId;
+			}
+			set
+			{
+				if ((this._v_oppId != value))
 				{
 					if (this._volunteer_opportunity.HasLoadedOrAssignedValue)
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
-					this.Onv_opportunityIdChanging(value);
+					this.Onv_oppIdChanging(value);
 					this.SendPropertyChanging();
-					this._v_opportunityId = value;
-					this.SendPropertyChanged("v_opportunityId");
-					this.Onv_opportunityIdChanged();
+					this._v_oppId = value;
+					this.SendPropertyChanged("v_oppId");
+					this.Onv_oppIdChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="volunteer_volunteer_schedule", Storage="_volunteer_schedules", ThisKey="v_id", OtherKey="v_id")]
-		public EntitySet<volunteer_schedule> volunteer_schedules
-		{
-			get
-			{
-				return this._volunteer_schedules;
-			}
-			set
-			{
-				this._volunteer_schedules.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="volunteer_opportunity_volunteer", Storage="_volunteer_opportunity", ThisKey="v_opportunityId", OtherKey="o_id", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="volunteer_opportunity_volunteer", Storage="_volunteer_opportunity", ThisKey="v_oppId", OtherKey="o_id", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public volunteer_opportunity volunteer_opportunity
 		{
 			get
@@ -6140,11 +5252,11 @@ namespace Temiskaming.Models
 					if ((value != null))
 					{
 						value.volunteers.Add(this);
-						this._v_opportunityId = value.o_id;
+						this._v_oppId = value.o_id;
 					}
 					else
 					{
-						this._v_opportunityId = default(int);
+						this._v_oppId = default(int);
 					}
 					this.SendPropertyChanged("volunteer_opportunity");
 				}
@@ -6169,18 +5281,6 @@ namespace Temiskaming.Models
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-		
-		private void attach_volunteer_schedules(volunteer_schedule entity)
-		{
-			this.SendPropertyChanging();
-			entity.volunteer = this;
-		}
-		
-		private void detach_volunteer_schedules(volunteer_schedule entity)
-		{
-			this.SendPropertyChanging();
-			entity.volunteer = null;
 		}
 	}
 }

@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Temiskaming.Models.doctor>
+
+@{
+    ViewBag.Title = "Doctor Appointments";
+}
+
+<h2>Doctor Appointments</h2>
+
+@foreach (var record in Model)
+{
+    <div>
+        <span> @Html.DisplayFor(m => record.fname) @Html.DisplayFor(m => record.lname)  </span>
+        @Html.ActionLink("See Appointment", "AllAppointments", new { id = record.Id })
+        <hr />
+    </div>
+
+}

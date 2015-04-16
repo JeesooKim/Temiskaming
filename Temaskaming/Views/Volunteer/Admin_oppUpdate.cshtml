@@ -1,0 +1,120 @@
+﻿@model Temiskaming.Models.volunteer_opportunity
+
+@{
+    ViewBag.Title = "Admin_oppUpdate";
+}
+
+
+
+@section css{
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/i18n/jquery-ui-timepicker-addon-i18n.min.js"></script>
+    <!--script src="//cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/jquery-ui-sliderAccess.js"></!--script-->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/jquery-ui-timepicker-addon.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-ui-timepicker-addon/1.4.5/jquery-ui-timepicker-addon.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(" #datepicker").datepicker({
+                dateFormat: "M/d/yy"
+            });
+
+            $('#timeStart').timepicker({
+                controlType :'select'
+                });
+            $('#timeEnd').timepicker({
+                controlType: 'select'
+            });
+        });
+    </script>
+    @*Ref:http://cdnjs.com/libraries/jquery-ui-timepicker-addon
+        http://timepicker.co/options/*@
+}
+
+<h2>Admin - Volunteer Opportunity Update: @Model.o_name</h2>
+
+@Html.ActionLink("To Volunteers List", "VolunteerAdmin_volIndex", "Volunteer")&nbsp; | &nbsp;
+<hr />
+* Required
+<br />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(x => x.o_id)
+
+
+    @Html.LabelFor(x => x.o_name)
+    <br />
+    @Html.TextBoxFor(x => x.o_name)
+    @Html.ValidationMessageFor(x => x.o_name, "*")
+    <br /><br />
+
+
+    <p>Check ONLY if this is regular opportunity. &nbsp;@Html.CheckBoxFor(x => x.o_regular)</p>
+    <br />
+
+    @Html.LabelFor(x => x.o_date)
+    <br />
+    @Html.TextBoxFor(x => x.o_date, new { @placeholder = "Enter for an occasional/special event/opportunity", id = "datepicker" })
+    @*@Html.ValidationMessageFor(x => x.o_date)*@
+    <br /><br />
+
+    @Html.LabelFor(x => x.o_day)
+    <br />
+    @Html.DropDownListFor(x => x.o_day, new[] {
+                            new SelectListItem(){Text ="Monday -Friday" ,Value = "Monday -Friday", Selected= true},
+                            new SelectListItem(){Text="Monday", Value= "Monday"},
+                            new SelectListItem(){Text="Tuesday", Value="Tuesday"},
+                            new SelectListItem(){Text="Wednesday", Value="Wednesday"},
+                            new SelectListItem(){Text="Thursday", Value="Thursday"},
+                            new SelectListItem(){Text="Friday", Value="Friday"},
+                            new SelectListItem(){Text="Saturday", Value="Saturday"},
+                            new SelectListItem(){Text="Sunday", Value="Sunday"},
+                            new SelectListItem(){Text="", Value=""}
+                            })
+    @*@Html.ValidationMessageFor(x => x.o_day)*@
+    <br /><br />
+
+    @Html.LabelFor(x => x.o_start)
+    <br />
+    @Html.TextBoxFor(model => model.o_start, new { id = "timeStart" })
+    @*@Html.ValidationMessageFor(x => x.o_start)*@
+    <br /><br />
+
+    @Html.LabelFor(x => x.o_end)
+    <br />
+    @Html.TextBoxFor(model => model.o_end, new { id = "timeEnd" })
+    @*@Html.ValidationMessageFor(x => x.o_end)*@
+    <br /><br />
+
+    @Html.LabelFor(x => x.o_location)
+    <br />
+    @Html.TextBoxFor(x => x.o_location)
+    @*@Html.ValidationMessageFor(x => x.o_location)*@
+    <br /><br />
+
+    @Html.LabelFor(x => x.o_description)
+    <br />
+    @Html.TextBoxFor(x => x.o_description)
+    @*@Html.ValidationMessageFor(x => x.o_description)*@
+    <br /><br />
+
+    <input type="submit" value="Update" />
+}
+
+<br />
+<p>
+    @Html.ActionLink("Back to Opportunities List", "VolunteerAdmin_Index", new { id = Model.o_id })
+</p>
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@*//[Team2]Temiskaming-Hospital website Redesign Project @ Humber College
+    //Feature: Volunteer-Admin
+    //File: Admin_oppUpdate.cshtml
+    //Author: Jeesoo Kim
+    //April 7, 2015*@

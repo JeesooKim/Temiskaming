@@ -4,7 +4,9 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Polling</h2>
+
+@Html.ActionLink("Click here to add a New Poll", "AddPoll")
 
 @foreach (var record in Model)
 {
@@ -18,11 +20,19 @@
 
     if ((record.choice1 == 0) && (record.choice2 == 0))
     {
-        @Html.ActionLink("Update", "UpdatePoll", new { id = record.id })
+        <button>@Html.ActionLink("Update", "UpdatePoll", new { id = record.id })</button>
     }
+    
+    
+    <button>
+    
+        @Html.ActionLink("Delete", "DeletePoll", new { id = record.id })
+    </button>
+    <button>
+        @Html.ActionLink("Publish", "PublishPoll", new { id = record.id })
+    </button>
 
-    
-    
+
 
 
 }

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Temiskaming.Models.Gift>
+
+@{
+    ViewBag.Title = "GiftShop";
+}
+
+
+@{
+    var imagePath = @"~/content/images/GiftShop/";
+}
+
+<h2> Gift Shop</h2>
+
+<div>
+    <table>
+        @foreach (var x in Model)
+        {
+        <tr>
+            <th></th>
+            <th>
+                Item
+            </th>
+            <th>Description</th>
+            <th>Price</th>
+
+        </tr>
+            <tr>
+                <td><div class="thumb" style="background-image:url('@Url.Content( imagePath + x.Image)')"></div></td>
+                <td>@Html.DisplayFor(model => x.Item)</td>
+                <td>@Html.DisplayFor(model => x.Description)</td>
+                <td>@Html.DisplayFor(model => x.Price)</td>
+                <td>@Html.ActionLink("Purchase", "Purchase", new { PassItem = x.Item,  PassPrice =x.Price })</td>
+              
+            </tr>
+
+        }
+    </table>
+</div>

@@ -17,35 +17,42 @@
     }
 </head>
 <body>
+    <div class="disclaimer">
+        <p>! This is a student project. The official Temiskaming hospital is located at <a href="http://www.temiskaming-hospital.com">www.temiskaming-hospital.com</a>.</p>
+    </div>
     
         <header>
-            <div id="hwrapper">
-                <div id="logo">
-
+                <div class="hwrapper">
+                    <div id="menuIcon">
+                        <p>Menu</p>
+                    </div>
+                    <a href="~/Home"><div id="logo">
+                        <h1>Temiskaming Hospital</h1>
+                    </div></a>
                 </div>
-                <nav>
-                    <ul>
-                        @{Html.RenderAction("Nav", "Home", new { group = "Home" });}
-                        @*Uses partial views to render dynamic menu*@
-                    </ul>
-                </nav>
-            </div>
+                <div class="menu">
+                    
+                    <div class="navi">
+                        <nav class="hwrapper">
+                            @{Html.RenderAction("Nav", "Home", new { group = "Home", chosen = ViewBag.Group });}
+                            @*Uses partial views to render dynamic menu*@
+                        </nav>
+                    </div>
+
+                        @if (ViewBag.Group != null)
+                        {
+                            <div class="navi2">
+                                <nav class="hwrapper subMenu">
+                                    @{Html.RenderAction("Nav", "Home", new { group = ViewBag.Group });}
+                                </nav>
+                            </div>
+                        }
+                </div>
         </header>
     <div id="wrapper">
-        <div class="menu">
-            
-            @if (ViewBag.Group != null)
-            {
-                <div id="menuIcon">
-                    
-                </div>
-            <nav>
-                @{Html.RenderAction("Nav", "Home", new { group = ViewBag.Group });}
-            </nav>
-            }
-        </div>
+        
         <div id="container">
-            @if (ViewBag.Group == "Admin")
+            @if (ViewBag.Group == "Admin" || ViewBag.Group == "Nurse")
             {
                 
                 <div id="adminContent">
@@ -78,10 +85,10 @@
                     <h2>@Html.ActionLink("Donate", "Index", "Donation")</h2>
                 </div>
                 <div id="appointBox">
-                    <h2>Book an Appointment</h2>
+                    <h2>@Html.ActionLink("Book an Appointment", "Index", "Appointment")</h2>
                 </div>
                 <div id="chatBox">
-
+                    @*Live Chat*@
                     <h2><a>Live Chat</a></h2>
                     <div id="chat">
                         @{Html.RenderAction("Index", "Chat");}
@@ -98,9 +105,8 @@
                 <nav>
                     <ul>
                         <li>@Html.ActionLink("Newsletter Signup", "EmailSignup", "EmailSignup")</li>
-                        <li><a href="#">Survey</a></li>
+                        <li>@Html.ActionLink("Survey", "PostedPoll", "Survey")</li>
                         <li>@Html.ActionLink("FAQ", "FAQ", "FAQ")</li>
-                        <li><a href="#">Site Map</a></li>
                         <li>@Html.ActionLink("Admin", "Admin", "Home")</li>
                     </ul>
                 </nav>

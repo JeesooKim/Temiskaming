@@ -1,0 +1,45 @@
+﻿@model Temiskaming.Models.Gift
+
+@{
+    ViewBag.Title = "InsertGiftShop";
+}
+
+<h2>InsertGiftShop</h2>
+
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(model => model.Item)
+        @Html.TextBoxFor(model => model.Item)
+        @Html.ValidationMessageFor(model => model.Item, "*")
+
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.Description)
+        @Html.TextBoxFor(model => model.Description)
+        @Html.ValidationMessageFor(model => model.Description, "*")
+
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.Price)
+        @Html.TextBoxFor(model => model.Price)
+        @Html.ValidationMessageFor(model => model.Price, "*")
+
+    </div>
+    <div>
+        @Html.Label("Upload Image:") <input type="file" name="image"/>
+        <div id="preview">
+            Preview
+        </div>
+    </div>
+    <div>
+        <input type="submit" value="Enter"/> @Html.ActionLink("Cancel", "AdminGiftShop", "GiftShop")
+    </div>
+}
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqeurtval")
+}

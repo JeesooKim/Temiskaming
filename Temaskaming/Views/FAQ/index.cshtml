@@ -20,28 +20,30 @@
 
 <div>
     <!-- search textbox using string input to sql statement where-->
-  @using (Html.BeginForm("Index", "FAQ", FormMethod.Get))
-  {
-      <p>Search: @Html.TextBox("SearchString")
-      <input type="submit" value="search"/></p>
-  }
-</div>
-
-
-    <!--display for question-->
-   
-<div id="display">
-    <div id="accordion">
-    @foreach (var x in Model)
+    @using (Html.BeginForm("Index", "FAQ", FormMethod.Get))
     {
-        <h3>Question: @Html.DisplayFor(model => x.Question)</h3>
-        <div>
-            <h3>
-               Answer: @Html.DisplayFor(model => x.Answer)
-            </h3>
-           
-        </div>
+        <p>
+            Search: @Html.TextBox("SearchString")
+            <input type="submit" value="search" />
+        </p>
     }
 </div>
+
+
+<!--display for question-->
+
+<div id="display">
+    <div id="accordion">
+        @foreach (var x in Model)
+        {
+            <h3>Question: @Html.DisplayFor(model => x.Question)</h3>
+            <div>
+                <h3>
+                    Answer: @Html.DisplayFor(model => x.Answer)
+                </h3>
+
+            </div>
+        }
+    </div>
 
 </div>

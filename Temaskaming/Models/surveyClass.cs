@@ -23,10 +23,52 @@ namespace Temiskaming.Models
             return onePoll;
         }
 
+        public bool publishPoll(int _id)
+        {
+            using (objPoll)
+            {
+
+                var updatePoll = objPoll.polls.Single(x => x.published == true);
+
+                updatePoll.published = false;
+
+                objPoll.SubmitChanges();
+
+                updatePoll = objPoll.polls.Single(x => x.id == _id);
+
+                updatePoll.published = true;
+
+                objPoll.SubmitChanges();
+
+                return true;
+
+            }
+        }
+
         public poll getActivePoll()
         {
             var onePoll = objPoll.polls.SingleOrDefault(x => x.published == true);
             return onePoll;
+        }
+
+        public bool setPollChoice(int flag)
+        {
+
+            using (objPoll)
+            {
+
+                var updatePoll = objPoll.polls.Single(x => x.published == true);
+
+                if (flag == 1)
+                    updatePoll.choice1++;
+                else
+                    updatePoll.choice2++;
+
+                objPoll.SubmitChanges();
+                return true;
+
+            }
+
         }
 
         public bool commitInsertPoll(poll newPoll)

@@ -1,9 +1,16 @@
 ﻿#nchat {
+    float: right;
     width: 500px;
     height: 500px;
     padding: 20px;
     background: rgba(200,200,255,.2);
     border: 1px black solid;
+}
+#chatNav{
+    float: left;
+}
+#chatNav p{
+    text-decoration: underline;
 }
 
 .chatMenu {
@@ -11,8 +18,22 @@
 }
 
 .chatMenu li{
-    display: inline-block;
-    padding-right: 5px;
+    display: list-item;
+    list-style: circle;
     margin-right: 5px;
-    border-right: 1px solid #aaa;
+}
+
+.chatMenu a {
+    display: block;
+    width: 100%;
+    font-size: 1.3em;
+    color: #0094ff;
+    text-decoration: none;
+    padding: 10px;
+    background-color: rgba(0, 148, 255, 0.18);
+    border-bottom: 1px dashed rgba(0, 148, 255, 0.88);
+}
+
+.chatMenu a:hover {
+    background-color: rgba(0, 148, 255, 0.58);
 }

@@ -20,12 +20,24 @@ namespace Temiskaming.Controllers
         [Authorize]
         public ActionResult Admin()
         {
-            ViewBag.Group = "Admin";
+            if (User.IsInRole("Nurse"))
+            {
+                ViewBag.Group = "Nurse";
+            }
+            else
+            {
+                ViewBag.Group = "Admin";
+            }
+            
             return View();
         }
 
-        public PartialViewResult Nav(string group)
+        public PartialViewResult Nav(string group, string chosen)
         {
+            if (chosen != null)
+            {
+                ViewBag.Chosen = chosen;
+            }
             var nav = objNav.getNav(group);
             return PartialView(nav);
         }
