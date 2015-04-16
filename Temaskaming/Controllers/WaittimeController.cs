@@ -13,6 +13,7 @@ namespace Temiskaming.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.Group = "Patients";
             List<SelectListItem> patientNumList = new List<SelectListItem>();//This creates a list of number for checking wait time of the last 5, 10, 15 patients.
             patientNumList.Add(new SelectListItem
             {Text = "5", Value = "5"});
@@ -30,6 +31,7 @@ namespace Temiskaming.Controllers
         [HttpPost]
         public ActionResult Index(FormCollection form)
         {
+            ViewBag.Group = "Patients";
             List<SelectListItem> patientNumList = new List<SelectListItem>();
             patientNumList.Add(new SelectListItem { Text = "5", Value = "5" });
             patientNumList.Add(new SelectListItem { Text = "10", Value = "10" });
