@@ -639,6 +639,7 @@
     <Content Include="Content\doc_style\jquery.dataTables_themeroller.css" />
     <Content Include="Content\donation.css" />
     <Content Include="Content\Images\ajax-loader.gif" />
+    <Content Include="Content\Images\exit.png" />
     <Content Include="Content\Images\flower1.jpg" />
     <Content Include="Content\Images\flower2.jpg" />
     <Content Include="Content\Images\flower3.jpg" />

@@ -62,7 +62,7 @@ ul{
     top: 20px;
 }
 
-#menuIcon {
+#menuIcon, #menuIconDown {
     margin: 0;
     display: none;
 }
@@ -83,6 +83,7 @@ input[type="submit"]{
 header {
     border-bottom: 1px solid #60cef7;
 }
+
 #chosen {
     background-color: #4fa2c1;
     border-bottom: 1px solid #4fa2c1;
@@ -111,10 +112,10 @@ header #logo {
     background-size: 59px 59px;
 }
 .menu {
-    margin-top: 10px;
     display: block;
 }
 .navi {
+    margin-top: 65px;
     clear: both;
     text-align: left;
     font-size: 120%;
@@ -123,10 +124,35 @@ header #logo {
     background: #89dffe;
 }
 
+#donate{
+    font-weight: bold;
+    font-size: 1.1em;
+}
+#donate a{
+    position: relative;
+    bottom: 1px;
+}
+
 #donateBox {
     position: relative;
     float: right;
-    right: 300px;
+    font-size: 1.2em;
+    top: 20px;
+    right: 100px;
+}
+#donateBox li {
+    list-style: none;
+    float: left;
+    padding: 5px;
+    border-right: 1px dotted black;
+}
+
+#donateBox a {
+    color: #1c3152;
+}
+
+#donateBox a:hover {
+    color: #60cdf6;
 }
 
 .subMenu {
@@ -395,6 +421,10 @@ textarea {
     navi li:active {
         border: 1px solid blue;
     }
+
+    #menuIcon, #menuIconDown {
+        display: none;
+    }
     
     #chosen {
         -webkit-border-top-left-radius: 10px;
@@ -403,6 +433,12 @@ textarea {
         -moz-border-radius-topright: 10px;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
+    }
+    .menu {
+        display: block;
+    }
+    #donateBox{
+        margin-bottom: 45px;
     }
     
     /*HEADER*/
@@ -418,6 +454,7 @@ textarea {
     header #logo {
     }
     .navi {
+        margin-top: 66px;
         text-align: center;
         font-size: 1.3em;
     }
@@ -506,10 +543,26 @@ textarea {
         border-top-left-radius: 0px;
         border-top-right-radius: 0px;
     }
+    #donate a {
+        position: static;
+    }
     #donateBox {
         position: static;
         float: none;
-        background: #d4eff9;
+        margin: 0 auto;
+    }
+    #donateBox li {
+        float: none;
+        display: inline-block;
+        border-right: 1px dotted white;
+        padding-right: 8px;
+        margin-top: 20px;
+    }
+    #donateBox li:last-child {
+        border-right: none;
+    }
+    #donateBox a{
+        color: white;
     }
     /*SECONDARY NAV*/
     
@@ -521,14 +574,27 @@ textarea {
         font-size: 1.2em;
         width: 150px;
         height: 60px;
-        background: url('Images/hamburger.png') no-repeat right;
+        background: #4fa2c1 url('Images/hamburger.png') no-repeat right;
         background-size: 50px 50px;
-        background-color: #4fa2c1;
         margin: 0;
         padding: 0;
         padding-left: 10px;
     }
-    #menuIcon:active {
+    #menuIconDown {
+        display: inline-block;
+        text-align: left;
+        float: right;
+        color: white;
+        font-size: 1.2em;
+        width: 150px;
+        height: 60px;
+        background: #4fa2c1 url('Images/exit.png') no-repeat right;
+        background-size: 50px 50px;
+        margin: 0;
+        padding: 0;
+        padding-left: 10px;
+    }
+    #menuIcon:active, #menuIconDown:active {
         background-color: #1c3152;
     }
     .menu {

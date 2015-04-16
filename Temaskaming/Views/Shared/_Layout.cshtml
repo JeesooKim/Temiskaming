@@ -36,7 +36,11 @@
                 <div class="menu">
                     <div class="hwrapper">
                         <div id="donateBox">
-                            <h2>@Html.ActionLink("Donate", "Index", "Donation")</h2>
+                            <ul>
+                                <li id="donate">@Html.ActionLink("Donate", "Index", "Donation")</li>
+                                <li>@Html.ActionLink("News", "Index", "News")</li>
+                                <li>@Html.ActionLink("Volunteer", "Index", "Volunteer")</li>
+                            </ul>
                         </div>
                     </div>
                     <div class="navi">
