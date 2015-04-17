@@ -34,13 +34,13 @@
         {
             <tr>
                 <td>
-                    @Html.ActionLink(item.o_name, "Admin_volList", new { id = item.o_id })    
-                @*@Ajax.ActionLink(item.o_name, "_Admin_volList", "Volunteer", new { oppId = item.o_id }, new AjaxOptions
+                    @*@Html.ActionLink(item.o_name, "Admin_volList", new { id = item.o_id })*@    
+                @Ajax.ActionLink(item.o_name, "_Admin_volList", "Volunteer", new { oppId=item.o_id }, new AjaxOptions
                     {
                         HttpMethod = "Post",
                         UpdateTargetId = "volList",
                         InsertionMode = InsertionMode.Replace
-                    })*@                      
+                    })                   
                 </td>
                 <td>
                     @{
@@ -94,7 +94,7 @@
     });
 </script>
 
-@*<div id="volList"></div>*@
+<div id="volList"></div>
 
 
     @section Scripts{

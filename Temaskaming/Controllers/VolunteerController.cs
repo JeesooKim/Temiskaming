@@ -271,8 +271,7 @@ namespace Temiskaming.Controllers
             ViewBag.Group = "Admin";
 
             var vol = from v in objVol.getVolunteers()
-                      where v.v_oppId == _oppId
-                      orderby v.v_lname
+                      where v.v_oppId == _oppId                      
                       select v;
             if (vol == null)
             {

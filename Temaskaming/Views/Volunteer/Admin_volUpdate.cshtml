@@ -6,7 +6,7 @@
 
 <h2>Admin - Volunteer Update</h2>
 
-@Html.ActionLink("To Volunteer Opprtunities List", "VolutneerAdmin_Index", "Volunteer")&nbsp; | &nbsp;
+@Html.ActionLink("To Volunteer Opprtunities List", "VolunteerAdmin_Index", "Volunteer")&nbsp; | &nbsp;
 
 <hr />
 
@@ -46,6 +46,7 @@
     @Html.LabelFor(x => x.v_province)
     <br />
     @Html.DropDownListFor(x => x.v_province, new[] {
+                    new SelectListItem(){Text="", Value=""},
                     new SelectListItem(){Text ="AB", Value="AB"},
                     new SelectListItem(){Text ="BC", Value="BC"},
                     new SelectListItem(){Text ="MB", Value="MB"},
@@ -58,8 +59,7 @@
                     new SelectListItem(){Text ="PE", Value="PE"},
                     new SelectListItem(){Text ="QC", Value="QC"},
                     new SelectListItem(){Text ="SK", Value="SK"},
-                    new SelectListItem(){Text ="YT", Value="YT"},
-                    new SelectListItem(){Text="", Value="", Selected=true}
+                    new SelectListItem(){Text ="YT", Value="YT"}                   
                             })
     //@Html.ValidationMessageFor(x => x.v_province)
     <br /><br />
@@ -85,13 +85,13 @@
     @Html.LabelFor(x => x.v_status)
     <br />
     @Html.DropDownListFor(model => model.v_status, new[] {
+                    new SelectListItem(){Text="", Value=""},
                     new SelectListItem(){Text ="Active", Value="Active"},
                     new SelectListItem(){Text ="Approved", Value="Approved"},
                     new SelectListItem(){Text ="Pending", Value="Pending"},
                     new SelectListItem(){Text ="Under Review", Value="Under Review"},
                     new SelectListItem(){Text ="Withdrawn", Value="Withdrawn"},
-                    new SelectListItem(){Text ="Not Available", Value="Not Available"},
-                    new SelectListItem(){Text="", Value="", Selected=true}
+                    new SelectListItem(){Text ="Not Available", Value="Not Available"}                   
                             })
 
     //@Html.ValidationMessageFor(x => x.v_status)
@@ -101,6 +101,7 @@
     @*each opportunity has its own set time slot, so option is to choose the day of the week*@
     <br />
     @Html.DropDownListFor(model => model.v_schedule, new[] {
+                            new SelectListItem(){Text="", Value=""},
                             new SelectListItem(){Text ="Monday - Friday" ,Value = "Monday -Friday"},
                             new SelectListItem(){Text="Monday", Value= "Monday"},
                             new SelectListItem(){Text="Tuesday", Value="Tuesday"},
@@ -108,8 +109,7 @@
                             new SelectListItem(){Text="Thursday", Value="Thursday"},
                             new SelectListItem(){Text="Friday", Value="Friday"},
                             new SelectListItem(){Text="Saturday", Value="Saturday"},
-                            new SelectListItem(){Text="Sunday", Value="Sunday"},
-                            new SelectListItem(){Text="", Value="", Selected=true}
+                            new SelectListItem(){Text="Sunday", Value="Sunday"}                            
                             })
     //@Html.ValidationMessageFor(x => x.v_schedule)
     <br /><br />
@@ -133,9 +133,9 @@
     <input type="submit" value="Update" />
 }
 <p>
-    @Html.ActionLink("Volunteer Details", "Admin_volDetails", new { id = Model.v_id })
-    &nbsp;| &nbsp;
-    @Html.ActionLink("Back to Volunteers List", "VolunteerAdmin-volIndex", new { id = Model.v_id })
+    @*@Html.ActionLink("Volunteer Details", "Admin_volDetails", new { id = Model.v_id })
+    &nbsp;| &nbsp;*@
+    @Html.ActionLink("Back to Volunteers List", "VolunteerAdmin_volIndex")
 </p>
 
 

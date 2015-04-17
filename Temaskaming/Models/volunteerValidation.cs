@@ -94,12 +94,6 @@ namespace Temiskaming.Models
         [Required(ErrorMessage = "Please choose the Available Day of the week")]        
         public string v_schedule { get; set; }
 
-        [DisplayName("Password")]
-        [DataType(DataType.Password)]
-        [Required(ErrorMessage = "Please Enter Password (4 digits)")]
-        [RegularExpression("[0-9]{4}", ErrorMessage = "Please enter 4 digits")]
-        public string v_password { get; set; }
-
         [Key]
         [ForeignKey("volunteer_opportunity")]
         [DisplayName("Volunteer Opportunity Id")]
