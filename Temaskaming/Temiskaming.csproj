@@ -1325,7 +1325,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\editable\" />
-    <Folder Include="Views\Volunteers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

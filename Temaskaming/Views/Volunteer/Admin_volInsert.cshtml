@@ -75,7 +75,7 @@
         </tr>
         <tr>
             <td>@Html.LabelFor(model => model.v_status) * </td>
-            @*<td>@Html.TextBoxFor(model => model.v_status, new { @Value = "Approved" })</td>*@
+            @*<td>@Html.TextBoxFor(model => model.v_status, new { @Value = "N/A" })</td>*@
             <td>
                 @Html.DropDownListFor(model => model.v_status, new[] {                    
                     new SelectListItem(){Text ="Active", Value="Active"},
