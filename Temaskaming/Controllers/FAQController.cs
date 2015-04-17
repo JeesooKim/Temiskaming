@@ -35,9 +35,10 @@ namespace Temiskaming.Controllers
 
 
         //Admin page , will hold links to insert, update, delete
+        [Authorize(Roles = "Admin")]
         public ActionResult FAQAdmin()
         {
-            ViewBag.Group = "FAQ";
+            ViewBag.Group = "Admin";
             var Fa = objFAQ.getFAQ();
             if (Fa == null)
             {
@@ -51,18 +52,20 @@ namespace Temiskaming.Controllers
 
 
         //insert
+        [Authorize(Roles = "Admin")]
         public ActionResult FAQInsert()
         {
+            ViewBag.Group = "Admin";
             return View();
         }
 
 
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult FAQInsert(FAQ fa)
         {
 
-            ViewBag.Group = "FAQ";
+            ViewBag.Group = "Admin";
 
             if (ModelState.IsValid)
             {
@@ -81,8 +84,10 @@ namespace Temiskaming.Controllers
         //end of insert
 
         //update 
+        [Authorize(Roles = "Admin")]
         public ActionResult FAQUpdate(int id)
         {
+            ViewBag.Group = "Admin";
             var fa = objFAQ.getFAQByID(id);
             if (fa == null)
             {
@@ -94,11 +99,12 @@ namespace Temiskaming.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult FAQUpdate(int id, FAQ fa)
         {
 
-            ViewBag.Group = "FAQ";
+            ViewBag.Group = "Admin";
 
             if (ModelState.IsValid)
             {
@@ -117,8 +123,10 @@ namespace Temiskaming.Controllers
         //end of updatw
 
         //start delete
+        [Authorize(Roles = "Admin")]
         public ActionResult FAQDelete(int id)
         {
+            ViewBag.Group = "Admin";
 
             var fa = objFAQ.getFAQByID(id);
             if (fa == null)
@@ -130,11 +138,14 @@ namespace Temiskaming.Controllers
                 return View(fa);
             }
         }
+
+
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult FAQDelete(int id, FAQ fa)
         {
 
-            ViewBag.Group = "FAQ";
+            ViewBag.Group = "Admin";
             try
             {
                 objFAQ.commitDelete(id);

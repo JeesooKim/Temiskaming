@@ -1,0 +1,115 @@
+﻿@model IEnumerable<Temiskaming.Models.volunteer_opportunity>
+@{
+    ViewBag.Title = "Volunteer_Admin";
+}
+
+@section css{
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="~/Content/doc_style/jquery.dataTables.css" />
+    <script type="text/javascript" src="~/Scripts/jquery.dataTables.min.js"></script>
+}
+
+<h2>Volunteer Opportunities - Admin Index</h2>
+
+@Html.ActionLink("To Volunteers List", "VolunteerAdmin_volIndex", "Volunteer")&nbsp; | &nbsp;
+<hr />
+@Html.ActionLink("Insert a New Volunteer Opportunity", "Admin_oppInsert", "Volunteer")
+<br /><br />
+
+<table id="opportunitiesTable">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Regular</th>
+            <th>Date</th>
+            <th>Day of Week</th>
+            <th>Time</th>
+            <th>Location</th>
+            <th>Description</th>
+            <th>Option</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @*@Html.ActionLink(item.o_name, "Admin_volList", new { id = item.o_id })*@    
+                @Ajax.ActionLink(item.o_name, "_Admin_volList", "Volunteer", new { oppId=item.o_id }, new AjaxOptions
+                    {
+                        HttpMethod = "Post",
+                        UpdateTargetId = "volList",
+                        InsertionMode = InsertionMode.Replace
+                    })                   
+                </td>
+                <td>
+                    @{
+                    if (item.o_regular == true)
+                    { <text> Yes </text>}
+                    else
+                    {
+                        <text>No, Occasional/Special </text>}
+                    }
+                </td>
+                <td>
+                    @{
+                        if (item.o_date.HasValue)
+                        {
+                            @item.o_date.Value.ToShortDateString();
+                        }
+                        else
+                        {
+                            <text>N/A</text>
+                        }
+                                }
+                </td>
+                <td>
+                    @{
+                    if (item.o_day == "" || item.o_day == null)
+                    {
+                        @: N/A
+                                                                }
+                    else
+                    {
+                        @item.o_day
+                    }
+                            }
+                </td>
+                <td>
+                    @item.o_start  ~   @item.o_end
+                </td>
+                <td>@item.o_location</td>
+                <td>@item.o_description</td>
+                <td>@Html.ActionLink("Update", "Admin_oppUpdate", new { id = item.o_id })
+                |
+                @Html.ActionLink("Delete", "Admin_oppDelete", new { id = item.o_id })</td>
+            </tr>    
+                 
+        }@*end of foreach*@
+    </tbody>       
+</table>
+<script>
+    $(document).ready(function () {
+        $('#opportunitiesTable').dataTable();
+    });
+</script>
+
+<div id="volList"></div>
+
+
+    @section Scripts{
+        @Scripts.Render("~/bundles/jquertval")
+    }
+
+    @*Physiotherapy Department: 10:00 a.m. – 12:00 p.m.<br />
+        Emergency Department: 8:00 a.m. – 2:00 p.m.<br />
+        Long-Term Care Activity Room: 10:00 a.m. – 2:00 p.m.<br />
+        Outpatient Clinics: (days & times will vary depending on outpatient clinic).<br />
+        Day Medicine/Cancer Care Department: 9:30 a.m. – 12:30 p.m.<br />
+        Long-Term Care Department: 4:00 p.m. – 6:00 p.m.<br />*@
+
+    @*//[Team2]Temiskaming-Hospital website Redesign project @ Humber College
+        //Feature: Volunteer - Admin View (Index page)
+        //File : VolunteerAdmin_Index.cshtml
+        //Author: Jeesoo Kim
+        //Created: April 7, 2015*@

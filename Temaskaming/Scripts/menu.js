@@ -2,9 +2,11 @@
 
     $("#menuIcon").click(function () {
         if ($(".menu").css('display') == 'none') {
-            $(".menu").slideDown();
+            $(".menu").css('display', 'block');
+            $("#menuIcon").attr("id", "menuIconDown");
         } else {
-            $(".menu").slideUp();
+            $(".menu").css('display', 'none');
+            $("#menuIconDown").attr("id", "menuIcon");
         }
     })
 

@@ -1,0 +1,160 @@
+﻿@model IEnumerable<Temiskaming.Models.volunteer_opportunity>
+@{
+    ViewBag.Title = "Volunteer";    
+}
+
+@section css{
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $(".accordion").accordion({ heightStyle: 'content' });
+        });
+    </script>
+}
+@*Ref:http://stackoverflow.com/questions/2841075/how-can-you-adjust-the-height-of-a-jquery-ui-accordion*@
+
+
+<div style="width: auto; background-color:whitesmoke;">
+    @if (Request.IsAuthenticated)
+    {
+        @:Hello, 
+        <strong>@Html.Encode(User.Identity.Name)</strong> @:! | 
+        @Html.ActionLink("Sign Out", "Signout", "Volunteer")
+    }
+    else
+    {
+        @Html.ActionLink("Sign Up", "SignUp", "Volunteer")
+        <span> | </span>
+        @Html.ActionLink("Sign In", "SignIn", "Volunteer")
+    }
+</div>
+<hr/>
+<h2>Volunteering at Temiskaming Hospital</h2>
+
+<br />
+    Temiskaming Hospital is very grateful to our dedicated Volunteers who give freely of their time to enhance the quality of our patient’s stay in this facility. Our patients benefit in many ways from these interactions whether it be on a physical, cognitive, emotional, or spiritual basis. The social interaction enhances ones communication skills and helps develop a sense of belonging. The Volunteers in our building come from all walks of life, male and female, young and old.
+<br />
+
+<br /><br />
+    Students have the opportunity to learn about careers in health care and complete their mandatory volunteer hours.
+<br /><br />
+<fieldset>
+    <legend><b>Volunteer Opportunities:</b></legend>
+    <br />    
+        <fieldset>
+            <legend>Occasional/special Opportunities</legend>
+            <div class="accordion">
+                @foreach (var occItem in Model)
+                {
+                    //if the opportunity is occasional/special for a specific date                    
+                    if (occItem.o_regular != true)
+                    {
+                        <h3>@occItem.o_name</h3>
+                    <div>
+                        <p>
+                            Date: @occItem.o_date.ToString().Substring(0, 11)
+                            <br />
+                            Time: @occItem.o_start - @occItem.o_end
+                            <br />
+                            Location: @occItem.o_location
+                            <br />
+                            Detail: @occItem.o_description
+                        </p>
+                    </div>                        
+                    }
+                }@*end of foreach*@
+            </div>@*end of .accordion*@
+
+                @*Currently No Special Event/Opportunity Available*@
+        </fieldset>
+
+        <fieldset>
+            <legend>Regular : Monday to Friday</legend>
+            <div class="accordion">
+                @foreach (var item in Model)
+                {
+                    //if the opportunity is regular/weekly basis
+
+                    if (item.o_regular == true)
+                    {
+                        if (@item.o_start != null)
+                        {
+                            <h3>@item.o_name : @item.o_start.ToString() - @item.o_end.ToString()</h3>
+                            <div>
+                                <p>
+                                    @item.o_description<br />
+                                    @item.o_location
+                                </p>
+                            </div>                            
+                        }
+                        else
+                        {
+                            <h3>@item.o_name : @item.o_description</h3>
+                            <div>
+                                <p>
+                                    @item.o_location
+                                </p>
+                            </div>                           
+                        }
+                    }
+                }@* end of foreach*@            
+            </div>@*end of .accordion*@
+        </fieldset>    
+</fieldset>
+@*Physiotherapy Department: 10:00 a.m. – 12:00 p.m.<br />
+    Emergency Department: 8:00 a.m. – 2:00 p.m.<br />
+    Long-Term Care Activity Room: 10:00 a.m. – 2:00 p.m.<br />
+    Outpatient Clinics: (days & times will vary depending on outpatient clinic).<br />
+    Day Medicine/Cancer Care Department: 9:30 a.m. – 12:30 p.m.<br />
+    Long-Term Care Department: 4:00 p.m. – 6:00 p.m.<br />*@
+<br /><br />
+
+<b>To become a volunteer you must do the following:</b>
+<br />
+<ol>
+    <li>Complete and return the Volunteer Application Package:</li>
+    <ul>
+        <li>Application</li>
+        <li>Vulnerable Sector/Criminal Check (Required by all applicants 18 years of age and older)</li>
+        <li>Immunization Record</li>
+        <li>Pre-Placement Health Assessment</li>
+    </ul>
+    <br />
+    <b>NOTE</b>: The form for Vulnerable Sector/Criminal Check is to be picked up by the applicant at the volunteer office. A witnessed signature is required. This form is then brought by the applicant to the Temiskaming OPP Department. Applicants should not be asked for payment as the form waives the fee.
+    <br /><br/>
+    <fieldset><legend>Applications can be mailed to:</legend>        
+        Temiskaming Hospital<br/>
+        Volunteer Coordinator<br/>
+        421 Shepherdson Road<br/>
+        New Liskeard, ON<br/>
+        P0J 1P0    
+    </fieldset>    
+
+    <li>Interview</li>
+    <li>General Orientation/Hospital Tour</li>
+    <li>Department Orientation</li>
+</ol>
+
+<br /><br />
+            Applicants must be 14 years of age and older to be accepted in the Volunteer Program at Temiskaming Hospital.
+<br /><br />
+<b>NOTE</b>: To volunteer in the Emergency Department applicants must be 20 years of age or older. To volunteer in the Day Medicine/Cancer Care Department applicants must be 20 years of age or older, and be a cancer survivor or a caregiver to someone (family member/close friend) with cancer.
+<br /><br />
+            We appreciate our Volunteers and consider them an integral part of our health care team.
+<br /><br />
+@*<p>@Html.ActionLink("Sign Up (Approved volunteers)", "SignUp", "Volunteer")</p>
+    <p>@Html.ActionLink("Sign In (Approved volunteers)", "SignIn", "Volunteer")</p>*@
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jquertval")
+}
+
+@*//[Team2]Temiskaming-Hospital website Redesign project @ Humber College
+    //Feature: Volunteers - Public View
+    //File : Index.cshtml
+    //Author: Jeesoo Kim
+    //Created: April 7, 2015*@
+
+

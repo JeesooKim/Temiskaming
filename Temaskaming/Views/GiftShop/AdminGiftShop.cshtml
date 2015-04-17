@@ -10,14 +10,21 @@
 }
 
 <h2>Admin Gift Shop</h2>
-<a href="~/Views/GiftShop/AdminGiftShop.cshtml">~/Views/GiftShop/AdminGiftShop.cshtml</a>
 <div>
     <h3>@Html.ActionLink("Add new item to gift shop", "InsertGiftShop", "GiftShop")</h3>
     <h3>@Html.ActionLink("Check Orders", "Order", "GiftShop")</h3>
-    <table class="gift-table">
+    <table id="giftshop-table">
         @foreach (var x in Model)
         {
-        <tr>
+            <tr>
+                <th></th>
+                <th>
+                    Item
+                </th>
+                <th>Description</th>
+                <th>Price</th>
+                </tr>
+<tr>
             <td><div class="gift-thumb" style="background-image:url('@Url.Content( imagePath + x.Image)')"></div></td>
             <td>@Html.DisplayFor(model => x.Item)</td>
             <td>@Html.DisplayFor(model =>x.Description)</td>

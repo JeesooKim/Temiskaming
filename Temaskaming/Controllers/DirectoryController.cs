@@ -39,7 +39,7 @@ namespace Temiskaming.Controllers
 
             if (staffs == null)
             {
-                return PartialView("NotFound_P");
+                return HttpNotFound();
             }
             else
             {
@@ -51,7 +51,7 @@ namespace Temiskaming.Controllers
 
         //************ Below, action methods for Amind-side ************//
         //Admin Index
-
+        [Authorize(Roles = "Admin")]
         public ActionResult DirectoryAdmin()
         {
             //index page in the admin page for Directory
@@ -64,6 +64,7 @@ namespace Temiskaming.Controllers
             return View(departments);
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult DirectoryAdmin_Staff()
         {
             //Staff index page in the admin page for Directory
@@ -76,6 +77,7 @@ namespace Temiskaming.Controllers
             return View(staffs);
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult Admin_departmentDetails(int id)
         {//parameter id: department ID
             
@@ -85,7 +87,7 @@ namespace Temiskaming.Controllers
 
             if (department == null)
             {
-                return View("NotFound");
+                return HttpNotFound();
             }
             else
             {
@@ -93,6 +95,7 @@ namespace Temiskaming.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult Admin_staffDetails(int id)
         {//parameter id: department ID (foreign Key in staffs table)
             
@@ -102,7 +105,7 @@ namespace Temiskaming.Controllers
 
             if (staff == null)
             {
-                return View("NotFound");
+                return HttpNotFound();
             }
             else
             {
@@ -111,13 +114,14 @@ namespace Temiskaming.Controllers
         }
 
         //******** Department IUD *******//
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Admin_departmentInsert()
         {
             ViewBag.Group="Admin";
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Admin_departmentInsert(department d)
         {
@@ -139,6 +143,7 @@ namespace Temiskaming.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult Admin_departmentUpdate(int id)
         {
             ViewBag.Group="Admin";
@@ -153,6 +158,7 @@ namespace Temiskaming.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Admin_departmentUpdate(int id, department d)
         {
@@ -172,10 +178,11 @@ namespace Temiskaming.Controllers
             return View();
         }
 
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Admin_departmentDelete(int id)
         {
             ViewBag.Group="Admin";
+
             var d = objDir.getDepartmentByID(id);
             if(d==null)
             {
@@ -187,10 +194,12 @@ namespace Temiskaming.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Admin_departmentDelete(int id, department d)
         {
             ViewBag.Group = "Admin";
+
             try
             {
                 objDir.commitDeleteD(id);
@@ -203,32 +212,36 @@ namespace Temiskaming.Controllers
         }
 
         //******** Staff IUD *******//
-
+        [Authorize(Roles = "Admin")]
         public ActionResult Admin_staffInsert()
         {
-            ViewBag.Group="Admin";
+            ViewBag.Group = "Admin";
+
+            IEnumerable<SelectListItem> items =
+            objDir.getDepartments().Select(d =>
+                   new SelectListItem
+                   {
+                       Value = d.d_id.ToString(),
+                       Text = d.d_name
+                   });
+
+            ViewBag.DepartID = items;
+
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Admin_staffInsert(staff s)
         {
-            ViewBag.Group="Admin";
+            ViewBag.Group = "Admin";
+
             if (ModelState.IsValid)
             {
                 try
                 {
-                    
-                    objDir.commitInsertS(s);
-                    //int i= s.staff_id;
-                    //int j = s.staff_departmentId;
-                    //////****//
-                    //////int i = (Int32)objDir.getStaffId(s).First();
-                    //////int j = (Int32)objDir.getDepartmentId(s).First();
-                    ////int i = (Int32)objDir.getStaff().Select(x => x.staff_id).First();                    
-                    ////int j = (Int32)objDir.getStaff().Select(x => x.staff_departmentId).First();
-                    //objDir.commitInsertDNameS(i,j);
-                    //****//
+
+                    objDir.commitInsertS(s);                    
                     return RedirectToAction("DirectoryAdmin_Staff");
                 }
                 catch
@@ -236,12 +249,35 @@ namespace Temiskaming.Controllers
                     return View();
                 }
             }
+
+            IEnumerable<SelectListItem> items =
+            objDir.getDepartments().Select(d =>
+                   new SelectListItem
+                   {
+                       Value = d.d_id.ToString(),
+                       Text = d.d_name
+                   });
+
+            ViewBag.DepartID = items;
+
             return View();
         }
 
+
+        [Authorize(Roles = "Admin")]
         public ActionResult Admin_staffUpdate(int id)
         {
-            ViewBag.Group="Admin";
+            ViewBag.Group = "Admin";
+
+            IEnumerable<SelectListItem> items =
+            objDir.getDepartments().Select(d =>
+                   new SelectListItem
+                   {
+                       Value = d.d_id.ToString(),
+                       Text = d.d_name
+                   });
+
+            ViewBag.DepartID = items;
 
             var s = objDir.getStaffByID(id);
             if (s == null)
@@ -254,15 +290,18 @@ namespace Temiskaming.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Admin_staffUpdate(int id, staff s)
         {
-            ViewBag.Group="Admin";
+            ViewBag.Group = "Admin";
+
             if (ModelState.IsValid)
             {
                 try
                 {
                     objDir.commitUpdateS(id, s.staff_fname, s.staff_lname, s.staff_position, s.staff_phone, s.staff_ext, s.staff_email, s.staff_departmentName, s.staff_departmentId);
+
                     return RedirectToAction("Admin_staffDetails/" + id);
                 }
                 catch
@@ -270,13 +309,26 @@ namespace Temiskaming.Controllers
                     return View();
                 }
             }
+
+            IEnumerable<SelectListItem> items =
+            objDir.getDepartments().Select(d =>
+                   new SelectListItem
+                   {
+                       Value = d.d_id.ToString(),
+                       Text = d.d_name
+                   });
+
+            ViewBag.DepartID = items;
+
             return View();
         }
 
 
+        [Authorize(Roles = "Admin")]
         public ActionResult Admin_staffDelete(int id)
         {
             ViewBag.Group="Admin";
+
             var s = objDir.getStaffByID(id);
             if (s == null)
             {
@@ -288,10 +340,12 @@ namespace Temiskaming.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult Admin_staffDelete(int id, staff s)
         {
             ViewBag.Group = "Admin";
+
             try
             {
                 objDir.commitDeleteS(id);

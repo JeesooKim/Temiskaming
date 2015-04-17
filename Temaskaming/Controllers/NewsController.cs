@@ -12,6 +12,8 @@ namespace Temiskaming.Controllers
     {
 
         NewsClass objNews = new NewsClass();
+
+        
         public ActionResult Index()
         {
             ViewBag.Group = "AboutUs";
@@ -19,20 +21,22 @@ namespace Temiskaming.Controllers
             return View(news);
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult newsadmin()
         {
             ViewBag.Group = "Admin";
-            var news = objNews.getNews();
+            var news = objNews.getNews(); //Get all the news articles from the database.
             return View(news);
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult newsupdate(int id)
         {
             ViewBag.Group = "Admin";
-            var news = objNews.GetNewsByID(id);
+            var news = objNews.GetNewsByID(id); //Get the specific news article by its ID in the database
             if (news == null)
             {
-                return View("NotFound");
+                return View("NotFound"); //If the article not found, return to NotFound page.
             }
             else
             {
@@ -41,8 +45,9 @@ namespace Temiskaming.Controllers
             
         }
 
-        [HttpPost, ValidateInput(false)]
-        public ActionResult newsupdate(int id, news news)
+        [Authorize(Roles = "Admin")]
+        [HttpPost, ValidateInput(false)] //validate input needs to be turned off in order to store text that is edited by CKEditor
+        public ActionResult newsupdate(int id, news news) //update specific news article
         {
             ViewBag.Group = "Admin";
             if (ModelState.IsValid)
@@ -50,7 +55,7 @@ namespace Temiskaming.Controllers
                 try
                 {
                     objNews.NewsUpdate(id, news.title, news.content);
-                    return RedirectToAction("newsadmin");
+                    return RedirectToAction("newsadmin"); //after editing, return to admin page.
                 }
                 catch
                 {
@@ -60,6 +65,7 @@ namespace Temiskaming.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult newsupdatePartial(int id)
         {
             var news = objNews.GetNewsByID(id);
@@ -74,6 +80,7 @@ namespace Temiskaming.Controllers
 
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost, ValidateInput(false)]
         public ActionResult newsupdatePartial(int id, news news)
         {
@@ -92,6 +99,7 @@ namespace Temiskaming.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult newsdelete(int id)
         {
             ViewBag.Group = "Admin";
@@ -107,13 +115,14 @@ namespace Temiskaming.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult newsdelete(int id, news news)
         {
             ViewBag.Group = "Admin";
             try
             {
                 objNews.NewsDelete(id);
-                return RedirectToAction("newsadmin");
+                return RedirectToAction("newsadmin"); //after deleting the news article, return to admin page.
             }
             catch
             {
@@ -121,13 +130,16 @@ namespace Temiskaming.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult newsinsert()
         {
-            return View();
+            ViewBag.Group = "Admin";
+            return View(); //display the page to create new articles
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost, ValidateInput(false)]
-        public ActionResult newsinsert(news news)
+        public ActionResult newsinsert(news news) //store the article into the database
         {
             ViewBag.Group = "Admin";
             if (ModelState.IsValid)
@@ -150,6 +162,7 @@ namespace Temiskaming.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult NotFound()
         {
             ViewBag.Group = "Admin";

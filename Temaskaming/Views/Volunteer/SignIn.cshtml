@@ -1,0 +1,40 @@
+﻿@model Temiskaming.Models.volSignInValidation
+
+@{
+    ViewBag.Title = "SignIn";
+}
+<div style="width: auto; background-color:whitesmoke;">
+    @if (Request.IsAuthenticated)
+    {
+        @:Hello,
+        <strong>@Html.Encode(User.Identity.Name)</strong> @:! |
+        @Html.ActionLink("Sign Out", "Signout", "Volunteer")
+    }
+    else
+    {
+        @Html.ActionLink("Sign Up", "SignUp", "Volunteer")
+        <span> | </span>
+        @Html.ActionLink("Sign In", "SignIn", "Volunteer")
+    }
+</div>
+
+<h2>SignIn-Approved Volunteer</h2>
+
+@using (Html.BeginForm(FormMethod.Post))
+{
+
+
+    <fieldset>
+        <legend>Volunteer Sign In</legend>
+        <br />
+        Email(Login Name): @Html.TextBoxFor(model => model.v_email)
+        @Html.ValidationMessageFor(model => model.v_email)
+        <br />
+        Password: @Html.PasswordFor(model => model.v_password)
+        @Html.ValidationMessageFor(model => model.v_password)
+        <br /><br />
+        <input type="submit" id="submit" value="Sign In" />
+    </fieldset>
+    <br />
+    @Html.ActionLink("Back to Volunteer Home", "Index", "Volunteer")
+}

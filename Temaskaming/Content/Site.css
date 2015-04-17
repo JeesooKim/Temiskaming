@@ -28,7 +28,6 @@ h3 {
     border-bottom: 1px solid black;
     padding: 5px 0;
     margin: 0;
-    margin-bottom: 5px;
 }
 .disclaimer p {
     text-align: center;
@@ -44,23 +43,26 @@ ul{
     padding: 0;
 }
 
-#wrapper, #hwrapper, #fwrapper {
+#wrapper, .hwrapper, #fwrapper {
     width: 1050px;
     margin: 0 auto;
     height: 100%;
 }
+.navi2 {
+    background: #4fa2c1;
+}
 .subMenu {
-    margin: 0;
-    padding: 0;
+    font-size: 1.4em;
+    padding: 5px 0;
+    
 }
 .subMenu nav {
-    margin-left: 20px;
     text-align: left;
     position: relative;
     top: 20px;
 }
 
-#menuIcon {
+#menuIcon, #menuIconDown {
     margin: 0;
     display: none;
 }
@@ -71,35 +73,106 @@ input[type="submit"]{
     border: 1px solid black;
 }
 
+input[type="submit"]{
+    cursor: pointer;
+}
+
 
 /*HEADER MASTER BEGINS*/
 
 header {
     border-bottom: 1px solid #60cef7;
-    padding-right: 30px;
+}
+
+#chosen {
+    background-color: #4fa2c1;
+    border-bottom: 1px solid #4fa2c1;
+    margin-bottom: -1px;
+    -webkit-border-top-left-radius: 20px;
+    -webkit-border-top-right-radius: 20px;
+    -moz-border-radius-topleft: 20px;
+    -moz-border-radius-topright: 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+#chosen a {
+    background-color: #4fa2c1;
+    color: white;
 }
 
 header #logo {
+    float: left;
     display: block;
     height: 59px;
     width: 59px;
     color: #60cdf6;
-    padding: 0px 0 0 60px;
-    margin-left: 30px;
-    margin-bottom: 20px;
+    padding: 0px 0 0 65px;
     background: #60cef7;
     background: url('Images/logo.png') no-repeat;
     background-size: 59px 59px;
 }
-
+.menu {
+    display: block;
+}
 .navi {
-    text-align: center;
-    font-size: 150%;
+    margin-top: 65px;
+    clear: both;
+    text-align: left;
+    font-size: 120%;
     position: relative;
+    border-bottom: white 1px solid;
+    background: #89dffe;
 }
 
-.subMenu nav {
-    font-size: 100%;
+#donate{
+    font-weight: bold;
+    font-size: 1.1em;
+}
+#donate a{
+    position: relative;
+    bottom: 1px;
+}
+
+#donateBox {
+    position: relative;
+    float: right;
+    font-size: 1.2em;
+    top: 20px;
+    right: 100px;
+}
+#donateBox li {
+    list-style: none;
+    float: left;
+    padding: 5px;
+    border-right: 1px dotted black;
+}
+
+#donateBox a {
+    color: #1c3152;
+}
+
+#donateBox a:hover {
+    color: #60cdf6;
+}
+
+.subMenu {
+    font-size: 110%;
+}
+
+.subMenu li {
+    margin: 5px 0;
+    border-right: 1px solid #d4eff9;
+}
+
+.subMenu li:first-child {
+    border-left: 1px solid #d4eff9;
+}
+
+.subMenu a {
+    display: block;
+    padding-bottom: 5px;
+    color: white;
+    width: 100%;
 }
 
 header a{
@@ -108,14 +181,23 @@ header a{
 }
 
 header a:hover {
-    color: #60cef7;
+    color: white;
+}
+
+.navi li {
+    padding: 10px;
 }
 
 nav li {
     display: inline-block;
     list-style: none;
-    margin-left: 20px;
+    padding: 0 10px;
 }
+
+.subMenu a:hover {
+    color: #d6f4ff;
+}
+
 
 /*HEADER MASTER ENDS*/
 
@@ -125,6 +207,10 @@ nav li {
    height: auto;
    height: 100%;
    margin: 30px 30px -150px 30px;
+}
+
+#content h2 {
+    border-bottom: 1px dotted black;
 }
 
 #adminContent {
@@ -324,7 +410,7 @@ textarea {
 /*MEDIA MASTER QUERIES*/
 @media only screen and (max-width: 1100px) {
     
-    #wrapper, #hwrapper, #fwrapper {
+    #wrapper, .hwrapper, #fwrapper {
         width: 100%;
         margin: 0 auto;
         height: auto;
@@ -332,11 +418,32 @@ textarea {
     .imgSlider {
         height: 350px;
     }
+    .navi li {
+        padding: 0 10px;
+    }
 
-    .subMenu {
-        text-align: center;
+    navi li:active {
+        border: 1px solid blue;
+    }
+
+    #menuIcon, #menuIconDown {
+        display: none;
     }
     
+    #chosen {
+        -webkit-border-top-left-radius: 10px;
+        -webkit-border-top-right-radius: 10px;
+        -moz-border-radius-topleft: 10px;
+        -moz-border-radius-topright: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+    .menu {
+        display: block;
+    }
+    #donateBox{
+        margin-bottom: 45px;
+    }
     
     /*HEADER*/
     header {
@@ -350,24 +457,28 @@ textarea {
     }
     header #logo {
     }
-    header nav {
-        font-size: 1.5em;
+    .navi {
+        margin-top: 66px;
+        text-align: center;
+        font-size: 1.3em;
+    }
+    .navi nav {
         float: none;
         width: 100%;
     }
-    header a {
+    .navi a {
         display: block;
         width: 100%;
         padding: 10px 0;
     }
-    header a:hover {
-    }
-    .navi li {
-        border-top: 1px dashed #60cef7;
+
+    .navi nav li:first-child{
+        margin-left: 0;
     }
 
-    header nav li:first-child{
-        margin-left: 0;
+    .subMenu {
+        font-size: 1.2em;
+        text-align: center;
     }
 
     /*BODY*/
@@ -387,6 +498,9 @@ textarea {
         float: none;
         margin-top: 100%;
     }
+    aside h2:active {
+        background-color: #1c3152;
+    }
     
     /*FOOTER*/
     footer {
@@ -403,8 +517,8 @@ textarea {
         width: 100%;
         padding: 10px 0;
     }
-    footer a:hover {
-        background: #60cef7;
+    footer li:active {
+        background: #d4eff9;
     }
     footer nav li {
         margin-left: 20px;
@@ -412,48 +526,118 @@ textarea {
     }
 }
 
-@media only screen and (max-width: 770px) {
+@media only screen and (max-width: 767px) {
     header #logo {
         text-align: left;
         margin: 0;
     }
+    .headerTop {
+        height: 60px;
+        border-bottom: 1px solid #89dffe;
+    }
     header h1 {
         display: none;
+        border-top: 1px dashed #4fa2c1;
     }
-
+    #chosen {
+        -webkit-border-top-left-radius: 0px;
+        -webkit-border-top-right-radius: 0px;
+        -moz-border-radius-topleft: 0px;
+        -moz-border-radius-topright: 0px;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+    #donate a {
+        position: static;
+    }
+    #donateBox {
+        position: static;
+        float: none;
+        margin: 0 auto;
+    }
+    #donateBox li {
+        float: none;
+        display: inline-block;
+        border-right: 1px dotted white;
+        padding-right: 8px;
+        margin-top: 20px;
+    }
+    #donateBox li:last-child {
+        border-right: none;
+    }
+    #donateBox a{
+        color: white;
+    }
     /*SECONDARY NAV*/
     
     #menuIcon {
         display: inline-block;
+        text-align: left;
         float: right;
         color: white;
-        width: 200px;
-        height: 100%;
-        background: url('Images/hamburger.png') no-repeat right;
-        background-size: 40px 40px;
-        background-color: black;
+        font-size: 1.2em;
+        width: 150px;
+        height: 60px;
+        background: #4fa2c1 url('Images/hamburger.png') no-repeat right;
+        background-size: 50px 50px;
         margin: 0;
         padding: 0;
+        padding-left: 10px;
     }
-    #menuIcon:active {
+    #menuIconDown {
+        display: inline-block;
+        text-align: left;
+        float: right;
+        color: white;
+        font-size: 1.2em;
+        width: 150px;
+        height: 60px;
+        background: #4fa2c1 url('Images/exit.png') no-repeat right;
+        background-size: 50px 50px;
+        margin: 0;
+        padding: 0;
+        padding-left: 10px;
+    }
+    #menuIcon:active, #menuIconDown:active {
         background-color: #1c3152;
     }
-    
-    
-    .subMenu a:active {
+    .menu {
         background: #1c3152;
     }
-    
-
-    .navi li {
+    .navi2, .subMenu {
+        background: none;
+        margin: 0;
+    }
+    .navi li{
+        text-align: center;
         display: list-item;
         margin-bottom: 10px;
         margin: 0;
         background: #a0e2fa;
     }
+    
     .navi {
         font-size: 1.4em;
+        border: none;
+    }
 
+    .subMenu li, .subMenu li:first-child {
+        border-left: none;
+        border-right: none;
+    }
+
+    .subMenu li {
+        margin: 0;
+        font-size: 1.2em;
+        text-align: center;
+        display: list-item;
+        color: white;
+        background: #1c3152;
+        border-bottom: 1px dashed grey;
+    }
+    .subMenu a {
+        padding: 10px 0;
+        color: white;
     }
     .subMenu {
         margin: 0;
@@ -461,8 +645,13 @@ textarea {
     .navi a:hover {
         color: white;
     }
-    .navi a:active {
-        background: #35758e;
+    .menu {
+        margin: 0;
+        position: absolute;
+        display: none;
+        width: 100%;
+        z-index: 100;
+        padding: 0;
     }
     footer nav li {
         display: list-item;
@@ -476,6 +665,13 @@ textarea {
     }
     .imgSlider {
         display: none;
+    }
+
+    .navi li:active {
+        background: #1c3152;
+    }
+    .subMenu li:active {
+        background: #4fa2c1;
     }
     
 }
@@ -703,6 +899,13 @@ padding:4px;
     border: 3px solid #60cdf6;
     background-position: center center;
     background-size: cover;
+}
+
+#giftshop_table td {
+    padding: 10px;
+    margin:10px; 
+  
+
 }
 
 /*contact form*/

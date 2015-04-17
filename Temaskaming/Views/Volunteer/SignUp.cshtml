@@ -1,0 +1,127 @@
+﻿@model Temiskaming.Models.volSignUpValidation
+
+@{
+    ViewBag.Title = "SignUp";
+}
+
+<div style="width: auto; background-color:whitesmoke;">
+    @if (Request.IsAuthenticated)
+    {
+        @:Hello,
+        <strong>@Html.Encode(User.Identity.Name)</strong> @:! |
+        @Html.ActionLink("Sign Out", "Signout", "Volunteer")
+    }
+    else
+    {
+        @Html.ActionLink("Sign Up", "SignUp", "Volunteer")
+        <span> | </span>
+        @Html.ActionLink("Sign In", "SignIn", "Volunteer")
+    }
+</div>
+
+<h2>SignUp</h2>
+
+@*Approved volunteer is signing up in the hospital website system so that the cooridnator (or voulunteer oneself later ) can manage the schedule conveniently using the website*@
+
+<fieldset>
+    <legend>Volunteer - Sign Up Form</legend>
+    <div id="signupform">
+        @using (Ajax.BeginForm("Thanks", "Volunteer", new AjaxOptions
+    {
+        //Confirm = "Are you sure?",
+        HttpMethod = "Post",
+        InsertionMode = InsertionMode.Replace,
+        LoadingElementId = "loading",
+        UpdateTargetId = "signupform"
+    }))
+        {
+            @*@Html.ValidationSummary()*@
+
+            <table>
+                <tr>
+                    <td>@Html.DisplayName("Email (Username) * ")</td>
+                    <td>@Html.TextBoxFor(model => model.v_email, new { @placeholder = "*@*.*" })</td>
+                    <td>@Html.ValidationMessageFor(model => model.v_email)</td>
+                </tr>
+
+                <tr>
+                    <td>@Html.DisplayName("Password * ")</td>
+                    <td>@Html.PasswordFor(model => model.v_password)</td>
+                    <td>@Html.ValidationMessageFor(model => model.v_password)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayName("First Name * ")</td>
+                    <td>@Html.TextBoxFor(model => model.v_fname, new { @placeholder = "Please enter lastname" })</td>
+                    <td>@Html.ValidationMessageFor(model => model.v_fname)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayName("Last Name * ")</td>
+                    <td>@Html.TextBoxFor(model => model.v_lname, new { @placeholder = "Please enter lastname" })</td>
+                    <td>@Html.ValidationMessageFor(model => model.v_lname)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayName("Address * ")</td>
+                    <td>@Html.TextBoxFor(model => model.v_address, new { @placeholder = "Please enter address" })</td>
+                    <td>@Html.ValidationMessageFor(model => model.v_address)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayName("City * ")</td>
+                    <td>@Html.TextBoxFor(model => model.v_city, new { @placeholder = "Please enter city" })</td>
+                    <td>@Html.ValidationMessageFor(model => model.v_city)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayName("Province * ")</td>
+                    <td>
+                        @Html.DropDownListFor(model => model.v_province, (SelectList)ViewBag.provList)
+                    </td>
+
+                    <td>@Html.ValidationMessageFor(model => model.v_province)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayName("Postal Code * ")</td>
+                    <td>@Html.TextBoxFor(model => model.v_postalCode, new { @placeholder = "M1M 2P3" })</td>
+                    <td>@Html.ValidationMessageFor(model => model.v_postalCode)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayName("Phone Number * ")</td>
+                    <td>@Html.TextBoxFor(model => model.v_phone)</td>
+                    <td>@Html.ValidationMessageFor(model => model.v_phone)</td>
+                </tr>                
+                <tr>
+                    <td>@Html.DisplayName("Your Available Day * ")</td>
+                    <td>
+                        @Html.DropDownListFor(model => model.v_schedule, (SelectList)ViewBag.availDay)
+                    </td>
+                    <td>@Html.ValidationMessageFor(model => model.v_schedule)</td>
+                </tr>
+                <tr>
+                    <td>@Html.DisplayName("Your Interests * ")</td>
+                    <td>@Html.DropDownList("v_oppId", ViewBag.OpportunityID as IEnumerable<SelectListItem>, String.Empty)</td>
+                    <td>@Html.ValidationMessageFor(model => model.v_oppId)</td>
+                </tr>
+            </table>
+
+            <br /><br />
+            <input type="submit" id="submit" value="Sign Up" />
+        }
+    </div>@*end of #signupform*@
+</fieldset>
+
+<br />
+<div id="loading" style="display:none;">
+    Processing Request ...
+</div>
+<br />
+@Html.ActionLink("Return to Volunteer Home", "Index", "Volunteer")
+
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+@*//[Team2]Temiskaming-Hospital website Redesign project @ Humber College
+    //Feature: Volunteers - Public
+    //File : SignUp.cshtml
+    //Author: Jeesoo Kim
+    //Created: April 16, 2015*@

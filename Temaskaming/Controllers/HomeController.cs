@@ -11,10 +11,13 @@ namespace Temiskaming.Controllers
     public class HomeController : Controller
     {
         navClass objNav = new navClass();
+        
 
         public ActionResult Index()
         {
-            return View();
+            NewsClass objNews = new NewsClass();
+            var news = objNews.getLatestNews();
+            return View(news);
         }
 
         [Authorize]
@@ -32,8 +35,12 @@ namespace Temiskaming.Controllers
             return View();
         }
 
-        public PartialViewResult Nav(string group)
+        public PartialViewResult Nav(string group, string chosen)
         {
+            if (chosen != null)
+            {
+                ViewBag.Chosen = chosen;
+            }
             var nav = objNav.getNav(group);
             return PartialView(nav);
         }

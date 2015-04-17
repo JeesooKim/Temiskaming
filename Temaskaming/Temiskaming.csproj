@@ -58,9 +58,6 @@
       <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.3.4.13329\lib\net40-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Web.Helpers">
-      <HintPath>..\packages\microsoft-web-helpers.2.1.20710.2\lib\net40\Microsoft.Web.Helpers.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Web.WebPages.OAuth, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\lib\net40\Microsoft.Web.WebPages.OAuth.dll</HintPath>
     </Reference>
@@ -82,7 +79,6 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -193,6 +189,7 @@
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\StoryController.cs" />
     <Compile Include="Controllers\SurveyController.cs" />
+    <Compile Include="Controllers\VolunteerController.cs" />
     <Compile Include="Controllers\WaittimeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
@@ -241,6 +238,10 @@
     <Compile Include="Models\StoryValidationClass.cs" />
     <Compile Include="Models\surveyClass.cs" />
     <Compile Include="Models\surveyValidation.cs" />
+    <Compile Include="Models\volSignInValidation.cs" />
+    <Compile Include="Models\volSignUpValidation.cs" />
+    <Compile Include="Models\volunteerClass.cs" />
+    <Compile Include="Models\volunteerValidation.cs" />
     <Compile Include="Models\WaittimeClass.cs" />
     <Compile Include="Models\WaittimeValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -640,6 +641,7 @@
     <Content Include="Content\doc_style\jquery.dataTables_themeroller.css" />
     <Content Include="Content\donation.css" />
     <Content Include="Content\Images\ajax-loader.gif" />
+    <Content Include="Content\Images\exit.png" />
     <Content Include="Content\Images\flower1.jpg" />
     <Content Include="Content\Images\flower2.jpg" />
     <Content Include="Content\Images\flower3.jpg" />
@@ -1058,6 +1060,7 @@
     <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\picker.date.js" />
     <Content Include="Scripts\picker.js" />
+    <Content Include="userPages\Code of Conduct.html" />
     <Content Include="userPages\directions.html" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -1149,6 +1152,8 @@
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="userPages\Programs.html" />
+    <Content Include="userPages\Services.html" />
     <Content Include="Views\Donation\donationAdmin.cshtml">
       <SubType>Code</SubType>
     </Content>
@@ -1274,16 +1279,11 @@
     <Content Include="Views\Story\NotFound.cshtml" />
     <Content Include="Views\Donation\Success.cshtml" />
     <Content Include="Views\JobPostings\Applied.cshtml" />
-    <Content Include="Views\Volunteers\Index.cshtml" />
-    <Content Include="Views\Volunteers\Form.cshtml" />
-    <Content Include="Views\Volunteers\Thanks.cshtml" />
     <Content Include="Views\Directory\_staffIndex.cshtml" />
     <Content Include="Views\Survey\PostedPoll.cshtml" />
     <Content Include="Views\Survey\AddPoll.cshtml" />
     <Content Include="Views\Survey\UpdatePoll.cshtml" />
     <Content Include="Views\Survey\DeletePoll.cshtml" />
-    <Content Include="Views\Directory\NotFound.cshtml" />
-    <Content Include="Views\Directory\NotFound_P.cshtml" />
     <Content Include="Views\GiftShop\AdminGiftShop.cshtml" />
     <Content Include="Views\GiftShop\DeleteGiftShop.cshtml" />
     <Content Include="Views\GiftShop\Index.cshtml" />
@@ -1299,7 +1299,26 @@
     <Content Include="Views\Appointment\DeleteAppointment.cshtml" />
     <Content Include="Views\Appointment\DoctorAppointments.cshtml" />
     <Content Include="Views\Appointment\Index.cshtml" />
-    <Content Include="Views\Survey\DisplayChart.cshtml" />
+    <Content Include="Views\Volunteer\Index.cshtml" />
+    <Content Include="Views\Volunteer\Thanks.cshtml" />
+    <Content Include="Views\Volunteer\VolunteerAdmin_Index.cshtml" />
+    <Content Include="Views\Volunteer\_Admin_oppDetails.cshtml" />
+    <Content Include="Views\Volunteer\Admin_oppInsert.cshtml" />
+    <Content Include="Views\Volunteer\Admin_oppUpdate.cshtml" />
+    <Content Include="Views\Volunteer\Admin_oppDelete.cshtml" />
+    <Content Include="Views\Volunteer\VolunteerAdmin_volIndex.cshtml" />
+    <Content Include="Views\Volunteer\Admin_oppDetails.cshtml" />
+    <Content Include="Views\Volunteer\_Admin_volDetails.cshtml" />
+    <Content Include="Views\Volunteer\Admin_volInsert.cshtml" />
+    <Content Include="Views\Volunteer\Admin_volUpdate.cshtml" />
+    <Content Include="Views\Volunteer\Admin_volDelete.cshtml" />
+    <Content Include="Views\Volunteer\Admin_volDetails.cshtml" />
+    <Content Include="Views\Volunteer\_Admin_volList.cshtml" />
+    <Content Include="Views\Volunteer\SignUp.cshtml" />
+    <Content Include="Views\Volunteer\SignIn.cshtml" />
+    <Content Include="Views\Volunteer\Welcome.cshtml" />
+    <Content Include="Views\Volunteer\SignOut.cshtml" />
+    <Content Include="Views\Volunteer\Admin_volList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1315,9 +1334,6 @@
     <None Include="Models\database.dbml.layout">
       <DependentUpon>database.dbml</DependentUpon>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

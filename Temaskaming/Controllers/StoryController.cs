@@ -13,18 +13,20 @@ namespace Temiskaming.Controllers
 
         public ActionResult Index()
         {
+            ViewBag.Group = "AboutUs";
             var stories = objStory.GetPublishedStories();
             return View(stories);
         }
 
         public ActionResult Submit()
         {
+            ViewBag.Group = "AboutUs";
             return View();
         }
 
-
         public ActionResult SubmitAction()
         {
+            ViewBag.Group = "AboutUs";
             if (!ModelState.IsValid) //isvalid checks everything is correct, ex: email, number
             {
                 return View();
@@ -38,6 +40,7 @@ namespace Temiskaming.Controllers
         [HttpPost]
         public ActionResult SubmitAction(story story)
         {
+            ViewBag.Group = "AboutUs";
             if (ModelState.IsValid)
             {
                 try
@@ -58,6 +61,7 @@ namespace Temiskaming.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult Admin()
         {
             ViewBag.Group = "Admin";
@@ -65,6 +69,7 @@ namespace Temiskaming.Controllers
             return View(stories);
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult edit(int id)
         {
             ViewBag.Group = "Admin";
@@ -79,6 +84,7 @@ namespace Temiskaming.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost, ValidateInput(false)]
         public ActionResult edit(int id, story story)
         {
@@ -98,8 +104,10 @@ namespace Temiskaming.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult delete(int id)
         {
+            ViewBag.Group = "Admin";
             try
             {
                 objStory.DeleteStory(id);
@@ -111,8 +119,10 @@ namespace Temiskaming.Controllers
             }
         }
 
-        public ActionResult publish(int id)
+        [Authorize(Roles = "Admin")]
+        public ActionResult publish(int id) //publish an article
         {
+            ViewBag.Group = "Admin";
             try
             {
                 objStory.PublishStory(id);
@@ -124,8 +134,10 @@ namespace Temiskaming.Controllers
             }
         }
 
-        public ActionResult unpublish(int id)
+        [Authorize(Roles = "Admin")]
+        public ActionResult unpublish(int id) //take a published article off
         {
+            ViewBag.Group = "Admin";
             try
             {
                 objStory.UnpublishStory(id);

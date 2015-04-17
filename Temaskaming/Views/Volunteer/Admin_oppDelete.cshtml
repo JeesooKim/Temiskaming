@@ -1,0 +1,29 @@
+﻿@model Temiskaming.Models.volunteer_opportunity
+@{
+    ViewBag.Title = "Admin_oppDelete";
+}
+
+<h2>Admin - Delete Volunteer Opportunity: @Model.o_name</h2>
+
+@Html.ActionLink("To Volunteers List", "VolunteerAdmin_volIndex", "Volunteer") &nbsp; | &nbsp;
+<hr />
+
+<h2>Are you sure you want to delete the Opportunity <em><b>@Model.o_name </b></em>?</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        <input type="submit" value="Delete" />
+    </div>
+}
+
+<br /><br />
+@Html.ActionLink("To Opportunity Details", "Admin_oppDetails", new { id = Model.o_id })
+        &nbsp;| &nbsp;
+@Html.ActionLink("Back to Opportunities List", "VolunteerAdmin_Index", new { id = Model.o_id })
+
+@*//[Team2]Temiskaming-Hospital website Redesign Project @ Humber College
+    //Feature: Volunteer-Admin
+    //File: Admin_oppDelete.cshtml
+    //Author: Jeesoo Kim
+    //April 7, 2015*@

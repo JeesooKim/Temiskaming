@@ -1,0 +1,94 @@
+﻿@model Temiskaming.Models.volunteer
+@{
+    ViewBag.Title = "Admin -volunteer ";
+}
+
+<h2>Admin - Details of the Volunteer : @Html.DisplayFor(x => x.v_fname) @Html.DisplayFor(x => x.v_lname)</h2>
+
+@Html.ActionLink("To Volunteer Opprtunities List", "VolunteerAdmin_Index", "Volunteer")&nbsp; | &nbsp;
+<hr />
+
+<table>    
+    <tr>
+        <td>Address:</td>
+        <td>@Html.DisplayFor(x => x.v_address)</td>
+    </tr>
+    <tr>
+        <td>City:</td>
+        <td>@Html.DisplayFor(x => x.v_city)</td>
+    </tr>
+    <tr>
+        <td>Province:</td>
+        <td>@Html.DisplayFor(x => x.v_province)</td>
+    </tr>
+    <tr>
+        <td>Postal Code:</td>
+        <td>@Html.DisplayFor(x => x.v_postalCode)</td>
+    </tr>
+    <tr>
+        <td>Phone:</td>
+        <td>@Html.DisplayFor(x => x.v_phone)</td>
+    </tr>
+    <tr>
+        <td>Email:</td>
+        <td>@Html.DisplayFor(x => x.v_email)</td>
+    </tr>
+    <tr>
+        <td>Status:</td>
+        <td>@Html.DisplayFor(x => x.v_status)</td>
+    </tr>
+    <tr>
+        <td>Schedule:</td>
+        <td>@Html.DisplayFor(x => x.v_schedule)</td>
+    </tr>
+    @*<tr>
+        <td>Participation Name:</td>
+        @*<td>@Html.DisplayFor(x => x.v_oppId)</td>*@
+       @* <td>
+            @{
+                switch (Model.v_oppId)
+                {
+                    case 1:
+                        @Html.ActionLink("Physiotherapy Department(1)", "Admin_oppDetails", new { id = Model.v_oppId })
+                        break;
+                    case 2:
+                    @Html.ActionLink("Emergency Department(2)", "Admin_oppDetails", new { id = Model.v_oppId })
+                        break;
+                    case 3:
+                    @Html.ActionLink("Long-Term Care Activity Room(3)", "Admin_oppDetails", new { id = Model.v_oppId })
+                        break;
+                    case 4:
+                    @Html.ActionLink("Outpatient Clinics(4)", "Admin_oppDetails", new { id = Model.v_oppId })
+                        break;
+                    case 5:
+                    @Html.ActionLink("Day Medicine/Cancer Care Department(5)", "Admin_oppDetails", new { id = Model.v_oppId })
+                        break;
+                    case 6:
+                    @Html.ActionLink("Long-Term Care Department(6)", "Admin_oppDetails", new { id = Model.v_oppId })
+                        break;
+                    default:
+                        break;
+                }
+            }
+        </td>
+    </tr>*@
+    <tr>
+        <td>Participation ID:</td>
+        <td>@Html.DisplayFor(x => x.v_oppId)</td>
+    </tr>
+</table>
+<p>
+@Html.ActionLink("Back To Volunteers List", "VolunteerAdmin_volIndex", "Volunteer")
+    &nbsp;|&nbsp;
+@Html.ActionLink("Update", "Admin_volUpdate", new { id = Model.v_id }) 
+    &nbsp;|&nbsp;
+@Html.ActionLink("Delete", "Admin_volDelete", new { id = Model.v_id })
+</p>
+
+
+
+@*//[Team2]Temiskaming-Hospital website Redesign Project @ Humber College
+    //Feature: Volunteer-Admin
+    //File: Admin_volDetails.cshtml
+    //Author: Jeesoo Kim
+    //April 7, 2015*@

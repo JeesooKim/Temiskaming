@@ -4,6 +4,8 @@
     ViewBag.Title = "newsinsert";
 }
 
+
+@*import files necessary to CKEditor*@
 <script type="text/javascript" src="@Url.Content("~/content/ckeditor/ckeditor.js")"></script>
 <script type="text/javascript" src="@Url.Content("~/content/ckeditor/adapters/jquery.js")"></script>
 <h2>Publish News Article</h2>
@@ -22,7 +24,7 @@
     
     @Html.LabelFor(x=>x.content)
     <br/>
-    @Html.TextAreaFor(x => x.content, new { @class = "adminRichText" })
+    @Html.TextAreaFor(x => x.content, new { @class = "adminRichText" }) @*Create a new class for the text area*@
     @Html.ValidationMessageFor(x=>x.content)
 
     <br/><br/>
@@ -35,5 +37,5 @@
 }
 
 <script language="javascript" type="text/javascript">
-    jQuery(".adminRichText").ckeditor();
+    jQuery(".adminRichText").ckeditor(); @*replace the text area with CKEDitor*@
 </script>
