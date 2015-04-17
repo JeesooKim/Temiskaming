@@ -30,6 +30,12 @@
 
     </div>
     <div>
+        @Html.Label("Upload Image:") <input type="file" name="image"/>
+        <div id="preview">
+            Preview
+        </div>
+    </div>
+    <div>
         <input type="submit" value="Enter"/> @Html.ActionLink("Cancel", "AdminGiftShop", "GiftShop")
     </div>
 }
