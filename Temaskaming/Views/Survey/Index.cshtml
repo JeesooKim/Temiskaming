@@ -29,13 +29,16 @@
         {
             <button class="survey-button">@Html.ActionLink("Update", "UpdatePoll", new { id = record.id })</button>
         }
-        <button class="survey-button">
+        
+        @if((record.published != true ))
+        {<button class="survey-button">
 
             @Html.ActionLink("Delete", "DeletePoll", new { id = record.id })
         </button>
     <button class="survey-button">
         @Html.ActionLink("Publish", "PublishPoll", new { id = record.id })
     </button>
+        }
 
             </div>
 

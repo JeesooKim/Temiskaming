@@ -161,11 +161,11 @@ header #logo {
 
 .subMenu li {
     margin: 5px 0;
-    border-right: 1px solid #d4eff9;
+    border-left: 1px solid #d4eff9;
 }
 
-.subMenu li:first-child {
-    border-left: 1px solid #d4eff9;
+.subMenu li:last-child {
+    border-right: 1px solid #d4eff9;
 }
 
 .subMenu a {

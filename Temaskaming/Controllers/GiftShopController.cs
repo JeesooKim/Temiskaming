@@ -106,11 +106,16 @@ namespace Temiskaming.Controllers
 
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public ActionResult InsertGiftShop(Gift Gt, HttpPostedFileBase file )
+        public ActionResult InsertGiftShop(Gift Gt )
        {
            ViewBag.Group = "Admin";
-           
-            if( file !=null)
+
+           HttpPostedFileBase file = Request.Files["fileuploadImage"];
+            
+            if (ModelState.IsValid)
+            {
+                
+                if( file !=null)
             {
                 var pic = System.IO.Path.GetFileName(file.FileName);
                 var path = System.IO.Path.Combine(Server.MapPath("~/Content/Images/GiftShop/"), pic);
@@ -118,9 +123,6 @@ namespace Temiskaming.Controllers
                 file.SaveAs(path);
             }
            
-            
-            if (ModelState.IsValid)
-            {
                 try
                 {
                     objGift.commitInsert(Gt);
