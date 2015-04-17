@@ -249,6 +249,8 @@
   <Table Name="dbo.volunteers" Member="volunteers">
     <Type Name="volunteer">
       <Column Name="v_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="v_email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="v_password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="v_fname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="v_lname" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="v_address" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
@@ -256,7 +258,6 @@
       <Column Name="v_province" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="v_postalCode" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="v_phone" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="v_email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="v_status" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="v_schedule" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
       <Column Name="v_oppId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />

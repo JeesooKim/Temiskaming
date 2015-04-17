@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 using Temiskaming.Models;
 
@@ -26,17 +27,220 @@ namespace Temiskaming.Controllers
             return View(opportunities);
         }
 
-        public ActionResult Form()
-        {//Reference: Course Material - Week 5 
+        //************* added on April 17 ***********************//
+        //-----------Public Login ---------//
+        //login page
+        //after login page to request schedule change similar to  volunteer update
+        //logout page
 
-            ViewBag.Group = "JoinOurTeam";
+        //*********************** Volunteer Sign Up/Sign In ****************************************//
+        //Ref1: http://geekswithblogs.net/dotNETvinz/archive/2011/06/03/asp.net-mvc-3-creating-a-simple-sign-up-form.aspx
+        //Ref2:  http://geekswithblogs.net/dotNETvinz/archive/2011/12/30/asp.net-mvc-3---creating-a-simple-log-in-form.aspx
 
+        //GET
+        public ActionResult SignUp()
+        {
             var provList = new SelectList(new[] { 
-                "AB", "BC","MB", "NB","NL","NS","NT","NU","ON","PE", "QC","SK","YT",""});            
-
+                "", "AB", "BC","MB", "NB","NL","NS","NT","NU","ON","PE", "QC","SK","YT"});
             ViewBag.provList = provList;
+
+            var availDay = new SelectList(new[]{
+                "", "Monday - Friday", "Monday","Tuesday","Wednesday", "Thursday","Friday","Saturday","Sunday"});
+            ViewBag.availDay =availDay;
+
+            IEnumerable<SelectListItem> items =
+            objVol.getOpportunites().Select(o =>
+                   new SelectListItem
+                   {
+                       Value = o.o_id.ToString(),
+                       Text = o.o_name
+                   });
+            ViewBag.OpportunityID = items;
+
+            return View("SignUp");
+        }
+
+
+        //POST
+        [HttpPost]
+        public ActionResult SignUp(volunteer v)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    //volunteerClass userManager = new volunteerClass();
+
+                    if (!objVol.IsUserLoginIDExist(v.v_email))
+                    {
+                        objVol.Add(v);
+                        FormsAuthentication.SetAuthCookie(v.v_fname, false);
+                        //return RedirectToAction("Welcome", "Home");
+                        return View();
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "LogID already taken");
+                    }
+                }
+                catch
+                {
+                    return View(v);
+                }
+            }
+
+            IEnumerable<SelectListItem> items =
+            objVol.getOpportunites().Select(o =>
+                   new SelectListItem
+                   {
+                       Value = o.o_id.ToString(),
+                       Text = o.o_name
+                   });
+
+            ViewBag.OpportunityID = items;
+
+            return View(v);
+        }
+
+        //Sign In//
+        //GET
+        public ActionResult SignIn()
+        {
             return View();
         }
+
+        // POST: 
+        [HttpPost]
+        //public ActionResult SignIn(UserSignIn model, string returnUrl)
+        public ActionResult SignIn(volSignInValidation model, string returnUrl)
+        {
+            if (ModelState.IsValid)
+            {
+                //UserManager userManager = new UserManager();
+                volunteerClass vol = new volunteerClass();
+                var v = (from vv in vol.getVolunteers()
+                         where vv.v_email == model.v_email
+                         select vv.v_id).FirstOrDefault();
+
+                string password = objVol.GetUserPassword(model.v_email);
+
+                if (string.IsNullOrEmpty(password))
+                {
+
+                    ModelState.AddModelError("", "The user login or password provided is incorrect.");
+                }
+
+                if (model.v_password == password)
+                {
+                    FormsAuthentication.SetAuthCookie(model.v_email, false);
+
+                    if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
+                        && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                    {
+                        return Redirect(returnUrl);
+                    }
+                    else
+                    {
+                        //return RedirectToAction("Admin_volDetails/" + vol.v_id,"Volunteer");
+
+                        return RedirectToAction("Welcome/" + v, "Volunteer");
+                        //return RedirectToAction("Welcome/"+ model.v_id, "Volunteer");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("", "The password provided is incorrect.");
+                }
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
+        [Authorize]
+        public ActionResult Welcome(int id)
+        {
+            IEnumerable<SelectListItem> items =
+            objVol.getOpportunites().Select(o =>
+                   new SelectListItem
+                   {
+                       Value = o.o_id.ToString(),
+                       Text = o.o_name
+                   });
+
+            ViewBag.OpportunityID = items;
+
+            var vol = objVol.getVolunteerById(id);
+
+            if (vol == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                return View(vol);
+            }
+        }
+        
+
+        [Authorize]
+        [HttpPost]
+        public ActionResult Welcome(int id, volunteer vol)
+        {
+
+            //ViewBag.Group="Admin";
+            if (ModelState.IsValid)
+            {
+
+                try
+                {
+                    objVol.commitUpdateScheduleV(id, vol.v_fname, vol.v_lname, vol.v_address, vol.v_city, vol.v_province, vol.v_postalCode, vol.v_phone, vol.v_email, vol.v_schedule, vol.v_oppId);
+
+                    //return RedirectToAction("Admin_volDetails/" + id);
+                    return RedirectToAction("Welcome/" + id);
+                }
+                catch
+                {
+                    return View();
+                }
+            }
+
+            IEnumerable<SelectListItem> items =
+            objVol.getOpportunites().Select(o =>
+                   new SelectListItem
+                   {
+                       Value = o.o_id.ToString(),
+                       Text = o.o_name
+                   });
+
+            ViewBag.OpportunityID = items.ToList();
+
+            return View();
+        }
+
+
+        // GET: /Sign Out
+        public ActionResult SignOut()
+        {
+            FormsAuthentication.SignOut();
+
+            return RedirectToAction("Index", "Volunteer");
+        }
+
+        //-------------------------------------------//
+
+        //*******************************************************//
+        //public ActionResult Form()
+        //{//Reference: Course Material - Week 5 
+
+        //    ViewBag.Group = "JoinOurTeam";
+
+        //    var provList = new SelectList(new[] { 
+        //        "AB", "BC","MB", "NB","NL","NS","NT","NU","ON","PE", "QC","SK","YT",""});            
+
+        //    ViewBag.provList = provList;
+        //    return View();
+        //}
 
         public ActionResult Thanks()
         {

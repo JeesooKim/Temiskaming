@@ -94,6 +94,61 @@ namespace Temiskaming.Models
             return volunteers;
         }
 
+
+        //*********************** Volunteer Sign Up/Sign In ****************************************//
+        //Ref1: http://geekswithblogs.net/dotNETvinz/archive/2011/06/03/asp.net-mvc-3-creating-a-simple-sign-up-form.aspx
+        //Ref2:  http://geekswithblogs.net/dotNETvinz/archive/2011/12/30/asp.net-mvc-3---creating-a-simple-log-in-form.aspx
+
+        public void Add(volunteer user)
+        {//same method as commitInsertV
+            using (objVolunteers)
+            {
+                objVolunteers.volunteers.InsertOnSubmit(user);
+                objVolunteers.SubmitChanges();
+            }
+        }
+
+        public bool IsUserLoginIDExist(string userLogIn)
+        {
+            return (from v in objVolunteers.volunteers where v.v_email == userLogIn select v).Any();
+        }
+        //check if user login ID, here EMAIL, does exist
+        ////////////////////
+
+        public string GetUserPassword(string userInput)
+        {
+            var user = from v in objVolunteers.volunteers where v.v_email == userInput select v;
+            if (user.ToList().Count > 0)
+                return user.First().v_password;
+            else
+                return string.Empty;
+        }
+
+        //method: Update by a volunteer
+        public bool commitUpdateScheduleV(int _id, string _fname, string _lname, string _address, string _city, string _prov, string _postal, string _phone, string _email, string _schedule, int _oppId)
+        {
+            using (objVolunteers)
+            {
+                var objUpVol = objVolunteers.volunteers.SingleOrDefault(x => x.v_id == _id);
+                objUpVol.v_fname = _fname;
+                objUpVol.v_lname = _lname;
+                objUpVol.v_address = _address;
+                objUpVol.v_city = _city;
+                objUpVol.v_province = _prov;
+                objUpVol.v_postalCode = _postal;
+                objUpVol.v_phone = _phone;
+                objUpVol.v_email = _email;
+                objUpVol.v_schedule = _schedule;
+                objUpVol.v_oppId = _oppId;
+
+                objVolunteers.SubmitChanges();
+                return true;
+            }
+        }
+
+        //******************************************************************************//
+
+
         //method: Insert a New Volunteer
         public bool commitInsertV(volunteer v)
         {

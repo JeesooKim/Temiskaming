@@ -1,0 +1,158 @@
+﻿@model Temiskaming.Models.volunteer
+@{
+    ViewBag.Title = "Volunteer";    
+}
+
+<div style="width: auto; background-color:whitesmoke;">
+    @if (Request.IsAuthenticated)
+    {
+        @:Hello,
+        <strong>@Html.Encode(User.Identity.Name)</strong> @:! |
+        @Html.ActionLink("Sign Out", "Signout", "Volunteer")
+    }
+    else
+    {
+        @Html.ActionLink("Sign Up", "SignUp", "Volunteer")
+        <span> | </span>
+        @Html.ActionLink("Sign In", "SignIn", "Volunteer")
+    }
+</div>
+
+<h2>Welcome</h2>
+
+<h2>Hi <b>@Context.User.Identity.Name</b>!</h2>
+You are logged in now.
+
+<fieldset>
+    <legend>Your Current Schedule</legend>
+    Participation:@Html.DisplayFor(x => x.v_oppId)
+    <br />
+    Status:@Html.DisplayFor(x => x.v_status)<br />
+    Schedule:@Html.DisplayFor(x => x.v_schedule)
+</fieldset>
+
+<fieldset>
+    <legend>Your Profile</legend>
+    Address:@Html.DisplayFor(x => x.v_address)
+    <br />
+    City:@Html.DisplayFor(x => x.v_city)
+    <br />
+    Province:@Html.DisplayFor(x => x.v_province)
+    <br />
+    Postal Code:@Html.DisplayFor(x => x.v_postalCode)
+    <br />
+    Phone:@Html.DisplayFor(x => x.v_phone)
+    <br />
+    Email:@Html.DisplayFor(x => x.v_email)
+</fieldset>
+
+
+Please contact Volunteer Coordinator if you want or need to <br />
+(1) update your profile,<br />
+and/or<br />
+(2) change your schedule.<br />
+
+
+@*<fieldset>
+    <legend>Update</legend>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.HiddenFor(x => x.v_id)
+        @Html.HiddenFor(x => x.v_status)
+
+
+        @Html.LabelFor(x => x.v_fname) @:
+        @Html.TextBoxFor(x => x.v_fname)
+        @Html.ValidationMessageFor(x => x.v_fname)
+        <br />
+
+        @Html.LabelFor(x => x.v_lname) @:
+        @Html.TextBoxFor(x => x.v_lname)
+        @Html.ValidationMessageFor(x => x.v_lname)
+        <br />
+
+        @Html.LabelFor(x => x.v_address) @:
+        @Html.TextBoxFor(x => x.v_address)
+        //@Html.ValidationMessageFor(x => x.v_address)
+        <br />
+
+        @Html.LabelFor(x => x.v_city) @:
+        @Html.TextBoxFor(x => x.v_city)
+        //@Html.ValidationMessageFor(x => x.v_city)
+        <br />
+
+        @Html.LabelFor(x => x.v_province) @:
+        @Html.DropDownListFor(x => x.v_province, new[] {
+                    new SelectListItem(){Text ="AB", Value="AB"},
+                    new SelectListItem(){Text ="BC", Value="BC"},
+                    new SelectListItem(){Text ="MB", Value="MB"},
+                    new SelectListItem(){Text ="NB", Value="NB"},
+                    new SelectListItem(){Text ="NL", Value="NL"},
+                    new SelectListItem(){Text ="NS", Value="NS"},
+                    new SelectListItem(){Text ="NT", Value="NT"},
+                    new SelectListItem(){Text ="NU", Value="NU"},
+                    new SelectListItem(){Text ="ON", Value="ON"},
+                    new SelectListItem(){Text ="PE", Value="PE"},
+                    new SelectListItem(){Text ="QC", Value="QC"},
+                    new SelectListItem(){Text ="SK", Value="SK"},
+                    new SelectListItem(){Text ="YT", Value="YT"},
+                    new SelectListItem(){Text="", Value=""}
+                            })
+        //@Html.ValidationMessageFor(x => x.v_province)
+        <br />
+
+        @Html.LabelFor(x => x.v_postalCode) @:
+        @Html.TextBoxFor(x => x.v_postalCode)
+        //@Html.ValidationMessageFor(x => x.v_postalCode)
+        <br />
+
+        @Html.LabelFor(x => x.v_phone) @:
+        @Html.TextBoxFor(x => x.v_phone)
+        //@Html.ValidationMessageFor(x => x.v_phone)
+        <br />
+
+        @Html.LabelFor(x => x.v_email) @:
+        @Html.TextBoxFor(x => x.v_email)
+        //@Html.ValidationMessageFor(x => x.v_email)
+        <br />
+
+        <text>Your Interests:</text>
+        @:Volunteer Coordinator will review your Interests. Please check the status above.
+        <br/>
+        @Html.LabelFor(x => x.v_schedule)
+        @*each opportunity has its own set time slot, so option is to choose the day of the week*@
+@*<br />
+            @Html.DropDownListFor(model => model.v_schedule, new[] {
+                                new SelectListItem(){Text ="Monday - Friday" ,Value = "Monday - Friday"},
+                                new SelectListItem(){Text="Monday", Value= "Monday"},
+                                new SelectListItem(){Text="Tuesday", Value="Tuesday"},
+                                new SelectListItem(){Text="Wednesday", Value="Wednesday"},
+                                new SelectListItem(){Text="Thursday", Value="Thursday"},
+                                new SelectListItem(){Text="Friday", Value="Friday"},
+                                new SelectListItem(){Text="Saturday", Value="Saturday"},
+                                new SelectListItem(){Text="Sunday", Value="Sunday"},
+                                new SelectListItem(){Text="", Value=""}
+                                })
+            //@Html.ValidationMessageFor(x => x.v_schedule)
+            <br /><br />
+
+            @Html.LabelFor(x => x.v_oppId)
+            <br />
+            @Html.DropDownList("v_oppId", new SelectList(ViewBag.OpportunityID, "Value", "Text"))
+            @Html.ValidationMessageFor(x => x.v_oppId)
+            <br /><br />
+
+            <input type="submit" value="Update" />
+        }
+    </fieldset>*@
+<br /><br />
+@Html.ActionLink("Back to Volunteer Home", "Index", "Volunteer") |
+@*@Html.ActionLink("Sign out", "SignOut", "Volunteer")*@
+
+@*//[Team2]Temiskaming-Hospital website Redesign project @ Humber College
+    //Feature: Volunteer - Public (SignedIn)
+    //File : Welcome.cshtml
+    //Author: Jeesoo Kim
+    //Created: April 16, 2015*@

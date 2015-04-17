@@ -73,30 +73,37 @@ namespace Temiskaming.Models
         public string v_province { get; set; }
 
         [DisplayName("Postal Code")]
-        [Required(ErrorMessage = "Please enter the first name")]
+        [Required(ErrorMessage = "Please enter Postal code")]
+        [RegularExpression("[ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ] ?[0-9][ABCEGHJKLMNPRSTVWXYZ][0-9]", ErrorMessage = "Please enter a VALID Canadian postal code")]
         public string v_postalCode { get; set; }
 
         [DisplayName("Phone Number")]
-        [Required(ErrorMessage = "Please enter the first name")]
+        [Required(ErrorMessage = "Please enter Phone Number")]
         public string v_phone { get; set; }
 
         [DisplayName("Email Address")]
-        [Required(ErrorMessage = "Please enter email address")]
-        [RegularExpression(".+\\@.+\\..+", ErrorMessage = "Please enter a valid email")]
+        [Required(ErrorMessage = "Please enter Email Address")]
+        [RegularExpression(".+\\@.+\\..+", ErrorMessage = "Please enter a VALID email")]
         public string v_email { get; set; }
 
-        [DisplayName("Status")]
-        [Required(ErrorMessage = "Please choose status")]        
-        public string v_status { get; set; }
+        //[DisplayName("Status")]
+        //[Required(ErrorMessage = "Please choose status")]        
+        //public string v_status { get; set; }
 
-        //[DisplayName("Schedule")]
-        //[Required(ErrorMessage = "Please choose the day of the week ")]        
-        //public string v_schedule { get; set; }
+        [DisplayName("Schedule")]
+        [Required(ErrorMessage = "Please choose the Available Day of the week")]        
+        public string v_schedule { get; set; }
+
+        [DisplayName("Password")]
+        [DataType(DataType.Password)]
+        [Required(ErrorMessage = "Please Enter Password (4 digits)")]
+        [RegularExpression("[0-9]{4}", ErrorMessage = "Please enter 4 digits")]
+        public string v_password { get; set; }
 
         [Key]
         [ForeignKey("volunteer_opportunity")]
         [DisplayName("Volunteer Opportunity Id")]
-        [Required(ErrorMessage = "Please choose the volunteer opportunity ID as it name")]
+        [Required(ErrorMessage = "Please choose Interested Opportunity")]
         public int v_oppId { get; set; }
     }
 

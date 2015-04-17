@@ -238,6 +238,7 @@
     <Compile Include="Models\StoryValidationClass.cs" />
     <Compile Include="Models\surveyClass.cs" />
     <Compile Include="Models\surveyValidation.cs" />
+    <Compile Include="Models\volSignInValidation.cs" />
     <Compile Include="Models\volunteerClass.cs" />
     <Compile Include="Models\volunteerValidation.cs" />
     <Compile Include="Models\WaittimeClass.cs" />
@@ -1313,6 +1314,10 @@
     <Content Include="Views\Volunteer\Admin_volDetails.cshtml" />
     <Content Include="Views\Volunteer\_NotFound_P.cshtml" />
     <Content Include="Views\Volunteer\_Admin_volList.cshtml" />
+    <Content Include="Views\Volunteer\SignUp.cshtml" />
+    <Content Include="Views\Volunteer\SignIn.cshtml" />
+    <Content Include="Views\Volunteer\Welcome.cshtml" />
+    <Content Include="Views\Volunteer\SignOut.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

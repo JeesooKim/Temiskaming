@@ -1,20 +1,23 @@
 ﻿@model IEnumerable<Temiskaming.Models.volunteer_opportunity>
 @{
-    ViewBag.Title = "Volunteer";
+    ViewBag.Title = "Volunteer";    
 }
 
-@section css{
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <script>
-        $(function () {
-            $(".accordion").accordion();
-        });
-    </script>
-}
-
-
+<div style="width: auto; background-color:whitesmoke;">
+    @if (Request.IsAuthenticated)
+    {
+        @:Hello, 
+        <strong>@Html.Encode(User.Identity.Name)</strong> @:! | 
+        @Html.ActionLink("Sign Out", "Signout", "Volunteer")
+    }
+    else
+    {
+        @Html.ActionLink("Sign Up", "SignUp", "Volunteer")
+        <span> | </span>
+        @Html.ActionLink("Sign In", "SignIn", "Volunteer")
+    }
+</div>
+<hr/>
 <h2>Volunteering at Temiskaming Hospital</h2>
 
 <br />
@@ -27,9 +30,9 @@
 <fieldset>
     <legend><b>Volunteer Opportunities:</b></legend>
     <br />
-    <fieldset>
-        <legend>Occasional/special Opportunities</legend>
-        <div class="accordion">
+    <div style="float:left;">
+        <fieldset>
+            <legend>Occasional/special Opportunities</legend>
             @foreach (var occItem in Model)
             {
                 //if the opportunity is occasional/special for a specific date
@@ -37,27 +40,26 @@
                 if (occItem.o_regular != true)
                 {
                     <h3>@occItem.o_name</h3>
-                    <div>
-                        <p>
-                            Date: @occItem.o_date.ToString().Substring(0, 11)
-                            <br />
-                            Time: @occItem.o_start - @occItem.o_end
-                            <br />
-                            Location: @occItem.o_location
-                            <br />
-                            Detail: @occItem.o_description
-                        </p>
-                    </div>
+                    <p>
+                        Date: @occItem.o_date.ToString().Substring(0, 11)
+                        <br />
+                        Time: @occItem.o_start - @occItem.o_end
+                        <br />
+                        Location: @occItem.o_location
+                        <br />
+                        Detail: @occItem.o_description
+                    </p>
                 }
             }
-        </div>
 
-    </fieldset>
-
-    <fieldset>
-        <legend>Regular : Monday to Friday</legend>
-        <br />
-        <div class="accordion">
+            @*Currently No Special Event/Opportunity Available*@
+        </fieldset>
+    </div>
+    
+    <div style="float:right;">
+        <fieldset>
+            <legend>Regular : Monday to Friday</legend>
+            <br />
             @foreach (var item in Model)
             {
                 //if the opportunity is regular/weekly basis
@@ -66,29 +68,21 @@
                 {
                     if (@item.o_start != null)
                     {
-                        <h3>@item.o_name : @item.o_start.ToString() - @item.o_end.ToString()</h3>
-                        <div>
-                            <p>
-                                @item.o_description<br />
-                                @item.o_location
-                            </p>
-                        </div>
+                        <h4>@item.o_name : @item.o_start.ToString() - @item.o_end.ToString()</h4>
+                        @item.o_description<br />
+                        @item.o_location
                     }
                     else
                     {
-                        <h3>@item.o_name : @item.o_description</h3>
-                        <div>
-                            <p>
-                                <br />
-                                @item.o_location
-                            </p>
-                        </div>
+                        <h4>@item.o_name : @item.o_description</h4>
+                        @item.o_location
                     }
                 }
             }
-        </div>
-    </fieldset>
+        </fieldset>
 
+    </div>
+    <div style="clear:both;"></div>
 </fieldset>
 @*Physiotherapy Department: 10:00 a.m. – 12:00 p.m.<br />
     Emergency Department: 8:00 a.m. – 2:00 p.m.<br />
@@ -125,16 +119,15 @@
 <br /><br />
             We appreciate our Volunteers and consider them an integral part of our health care team.
 <br /><br />
-
-@Html.ActionLink("Sign Up (Approved volunteers)", "Form", "volunteer")
-
+@*<p>@Html.ActionLink("Sign Up (Approved volunteers)", "SignUp", "Volunteer")</p>
+    <p>@Html.ActionLink("Sign In (Approved volunteers)", "SignIn", "Volunteer")</p>*@
 
 @section Scripts{
     @Scripts.Render("~/bundles/jquertval")
 }
 
 @*//[Team2]Temiskaming-Hospital website Redesign project @ Humber College
-    //Feature: Volunteer - Public View
+    //Feature: Volunteers - Public View
     //File : Index.cshtml
     //Author: Jeesoo Kim
     //Created: April 7, 2015*@
