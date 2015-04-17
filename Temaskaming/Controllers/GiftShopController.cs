@@ -113,7 +113,7 @@ namespace Temiskaming.Controllers
             if( file !=null)
             {
                 var pic = System.IO.Path.GetFileName(file.FileName);
-                var path = System.IO.Path.Combine(Server.MapPath("~/Content/Images/GiftShop"), pic);
+                var path = System.IO.Path.Combine(Server.MapPath("~/Content/Images/GiftShop/"), pic);
             //file is uploaded
                 file.SaveAs(path);
             }
