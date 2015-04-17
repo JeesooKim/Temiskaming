@@ -58,5 +58,11 @@ namespace Temiskaming.Models
             }
         }
 
+        public news getLatestNews()
+        {
+            var news = objDB.news.OrderByDescending(x => x.id).First();
+            return news;
+        }
+
     }
 }

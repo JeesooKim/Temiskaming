@@ -1,4 +1,4 @@
-﻿
+﻿@model Temiskaming.Models.news
 @{
     ViewBag.Title = "Temiskaming Hospital";
 }
@@ -10,6 +10,13 @@
         <img src="~/content/images/slider/temis1.jpg" />
         <img src="~/Content/Images/slider/temis2.jpg" />
     </div>
+
+    <h2>Latest News</h2>
+
+    <h3>@Model.title</h3>
+    
+    @Html.Raw(Model.content)
+
 </article>
 
 @section scripts{

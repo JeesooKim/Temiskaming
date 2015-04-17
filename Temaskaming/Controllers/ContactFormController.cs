@@ -17,6 +17,7 @@ namespace Temiskaming.Controllers
         //start of index(public)
         public ActionResult index()
         {
+            ViewBag.Group = "ContactUs";
             return View();
         }
 
