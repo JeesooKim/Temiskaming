@@ -7,8 +7,8 @@
 <h2>InsertGiftShop</h2>
 
 
-
-@using (Html.BeginForm())
+@using (Html.BeginForm(FormMethod.Post,
+                        new { enctype = "multipart/form-data" }))
 {
     <div>
         @Html.LabelFor(model => model.Item)
@@ -30,28 +30,17 @@
         @Html.ValidationMessageFor(model => model.Price, "*")
 
     </div>
- 
-}
-<div>
-<form action="" method="post" enctype="multipart/form-data">
-    @*table for uploading images*@
-    <table class="upload_img">
-        <tr>
-            <td>
-                <label for="file">Choose a file to add:</label>
-            </td>
-            <td>
-                <input type="file" name="file" id="file" />
-            </td>
-            <td>
-                <input type="submit" value="Insert" />
-            </td>
-        </tr>
-    </table>
-</form>
-
-@Html.ActionLink("Cancel", "AdminGiftShop", "GiftShop")
+    <div>
+        @Html.Label("Upload Image:") <input type="file" name="image"/>
+        <div id="preview">
+            Preview
+        </div>
     </div>
+    <div>
+        <input type="submit" value="Enter"/> @Html.ActionLink("Cancel", "AdminGiftShop", "GiftShop")
+    </div>
+}
+
 @section Scripts{
     @Scripts.Render("~/bundles/jqeurtval")
 }
