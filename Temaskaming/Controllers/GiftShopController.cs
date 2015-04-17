@@ -110,10 +110,10 @@ namespace Temiskaming.Controllers
        {
            ViewBag.Group = "Admin";
            
-            if( file !=null)
+            if( file != null)
             {
                 string pic = System.IO.Path.GetFileName(file.FileName);
-                string path = System.IO.Path.Combine(Server.MapPath("~/content/images/GiftShop"), pic);
+                string path = System.IO.Path.Combine(Server.MapPath("~/Content/Images/GiftShop/"), pic);
             //file is uploaded
                 file.SaveAs(path);
             }
