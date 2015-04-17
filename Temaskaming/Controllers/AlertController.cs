@@ -15,7 +15,6 @@ namespace Temiskaming.Controllers
 
         //
         // GET: /Alert/
-        [Authorize(Roles = "Admin")]
         public ActionResult Index()                         // get : admin page, shows a list of all alerts
         {
             ViewBag.Group = "Admin";
