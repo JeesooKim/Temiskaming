@@ -29,8 +29,7 @@ namespace Temiskaming.Controllers
             }
 
         }
-
-        [Authorize(Roles = "Admin")]                        // get : admin page, shows that alert that has been posted
+                    // get : admin page, shows that alert that has been posted
         public ActionResult ActiveAlert()                   // only one alert can be active at a time
         {
             var oneAlert = alertObj.getActiveAlert();
