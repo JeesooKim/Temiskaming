@@ -62,7 +62,7 @@ Jaimi Gillespie, Volunteer Coordinator<br/>
 Telephone: 705-647-1088 Ext.2520<br/>
 E-mail: <a href="mailto:jgillespie@temiskaming-hospital.com?Subject=VolunteerInquiry">Jaimi Gillespie</a>
 
-@*<fieldset>
+<fieldset>
     <legend>Update</legend>
     @using (Html.BeginForm())
     {
@@ -72,6 +72,18 @@ E-mail: <a href="mailto:jgillespie@temiskaming-hospital.com?Subject=VolunteerInq
         @Html.HiddenFor(x => x.v_status)
 
 
+        @Html.LabelFor(x => x.v_email) @:
+        @Html.TextBoxFor(x => x.v_email)
+        //@Html.ValidationMessageFor(x => x.v_email)
+        <br />
+
+
+        //@Html.LabelFor(x => x.v_password) @:
+        @: Password: Contact Web master to change the password (will be updated)
+        //@Html.PasswordFor(x => x.v_password)
+        //@Html.ValidationMessageFor(model => model.v_password)
+        <br />
+        
         @Html.LabelFor(x => x.v_fname) @:
         @Html.TextBoxFor(x => x.v_fname)
         @Html.ValidationMessageFor(x => x.v_fname)
@@ -121,18 +133,14 @@ E-mail: <a href="mailto:jgillespie@temiskaming-hospital.com?Subject=VolunteerInq
         @Html.TextBoxFor(x => x.v_phone)
         //@Html.ValidationMessageFor(x => x.v_phone)
         <br />
-
-        @Html.LabelFor(x => x.v_email) @:
-        @Html.TextBoxFor(x => x.v_email)
-        //@Html.ValidationMessageFor(x => x.v_email)
-        <br />
+               
 
         <text>Your Interests:</text>
         @:Volunteer Coordinator will review your Interests. Please check the status above.
         <br/>
         @Html.LabelFor(x => x.v_schedule)
         @*each opportunity has its own set time slot, so option is to choose the day of the week*@
-@*<br />
+<br />
             @Html.DropDownListFor(model => model.v_schedule, new[] {
                                 new SelectListItem(){Text ="Monday - Friday" ,Value = "Monday - Friday"},
                                 new SelectListItem(){Text="Monday", Value= "Monday"},
@@ -155,10 +163,10 @@ E-mail: <a href="mailto:jgillespie@temiskaming-hospital.com?Subject=VolunteerInq
 
             <input type="submit" value="Update" />
         }
-    </fieldset>*@
+    </fieldset>
 <br /><br />
 @Html.ActionLink("Back to Volunteer Home", "Index", "Volunteer") |
-@*@Html.ActionLink("Sign out", "SignOut", "Volunteer")*@
+@Html.ActionLink("Sign out", "SignOut", "Volunteer")
 
 @*//[Team2]Temiskaming-Hospital website Redesign project @ Humber College
     //Feature: Volunteer - Public (SignedIn)

@@ -1,30 +1,33 @@
 ﻿@model IEnumerable<Temiskaming.Models.alert>
 
 @{
+    
     ViewBag.Title = "Alerts List";
 }
-
+<link rel="stylesheet" href="../Content/themes/ashwin.css" />
 <br />
+<div id="alert">
+    <button class="buttons">@Html.ActionLink("Click here to add a New Alert", "AddAlert")</button>
+    <br /><br />
 
-@Html.ActionLink("Click here to add a New Alert", "AddAlert")
+    <h2>All alerts</h2>
 
-<h2>All alerts</h2>
-
-@foreach (var record in Model)
-{
-  <h3>@record.alertTitle</h3>
-  <p>@Html.DisplayFor(m => record.alertDescription) <strong>@Html.DisplayFor(m => record.alertTimeline)</strong></p>  
-  <p>@Html.DisplayFor(m => record.alertLevel) </p>
-    <p>
-        <strong>
-            @if (record.alertStatus.Value == true)
-            {<span>Its active</span>}
-            else
-            {<span>Its de-active</span>}
-        </strong>
-    </p>
-  <br />
-    <button> @Html.ActionLink("Update", "UpdateAlert", new { id = record.alertId }) </button>
-    <button> @Html.ActionLink("Delete", "DeleteAlert", new { id = record.alertId }) </button>
-    <button> @Html.ActionLink("Publish", "PublishAlert", new { id = record.alertId }) </button>
-}
+    @foreach (var record in Model)
+    {
+        <h3>@record.alertTitle</h3>
+        <p>@Html.DisplayFor(m => record.alertDescription) <strong>@Html.DisplayFor(m => record.alertTimeline)</strong></p>
+        <p>@Html.DisplayFor(m => record.alertLevel) </p>
+        <p>
+            <strong>
+                @if (record.alertStatus.Value == true)
+                {<span>Its active</span>}
+                else
+                {<span>Its de-active</span>}
+            </strong>
+        </p>
+        <br />
+        <button class="button"> @Html.ActionLink("Update", "UpdateAlert", new { id = record.alertId }) </button>
+        <button class="button"> @Html.ActionLink("Delete", "DeleteAlert", new { id = record.alertId }) </button>
+        <button class="button"> @Html.ActionLink("Publish", "PublishAlert", new { id = record.alertId }) </button>
+    }
+</div>

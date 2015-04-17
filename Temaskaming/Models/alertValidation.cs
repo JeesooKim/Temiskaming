@@ -16,21 +16,30 @@ namespace Temiskaming.Models
     }
 
 
-    [Bind(Exclude = "alertId")]    
-    public class alertValidation
+    [Bind(Exclude = "alertId")]
+    public class alertValidation                // Validation Model for Alert model
     {
 
-        public int alertId;
+        public int alertId { get; set; }
 
-        public string alertTitle;
+        [DisplayName("Alert Title")]
+        [Required(ErrorMessage = "Please enter the title")]
+        public string alertTitle { get; set; }
 
-        public string alertDescription;
+        [DisplayName("Description")]
+        [Required(ErrorMessage = "Please enter the description")]
+        public string alertDescription { get; set; }
 
-        public string alertLevel;
+        [DisplayName("Level")]
+        [Required(ErrorMessage = "Please enter alert level")]
+        public string alertLevel { get; set; }
 
-        public DateTime alertTimeline;
+        [DisplayName("TimeLine")]
+        [Required(ErrorMessage = "Please pick a date")]
+        public DateTime alertTimeline { get; set; }
 
-        public bool alertStatus;
+        [Required]
+        public bool alertStatus { get; set; }
 
     }
 }
