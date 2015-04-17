@@ -76,7 +76,7 @@ namespace Temiskaming.Controllers
                         objVol.Add(v);
                         FormsAuthentication.SetAuthCookie(v.v_fname, false);
                         //return RedirectToAction("Welcome", "Home");
-                        return View();
+                        return PartialView("Thanks", v);
                     }
                     else
                     {

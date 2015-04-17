@@ -103,6 +103,7 @@ namespace Temiskaming.Models
         {//same method as commitInsertV
             using (objVolunteers)
             {
+                user.v_status = "Under Review";
                 objVolunteers.volunteers.InsertOnSubmit(user);
                 objVolunteers.SubmitChanges();
             }
