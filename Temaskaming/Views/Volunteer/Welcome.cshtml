@@ -62,7 +62,7 @@ Jaimi Gillespie, Volunteer Coordinator<br/>
 Telephone: 705-647-1088 Ext.2520<br/>
 E-mail: <a href="mailto:jgillespie@temiskaming-hospital.com?Subject=VolunteerInquiry">Jaimi Gillespie</a>
 
-@*<fieldset>
+<fieldset>
     <legend>Update</legend>
     @using (Html.BeginForm())
     {
@@ -132,7 +132,7 @@ E-mail: <a href="mailto:jgillespie@temiskaming-hospital.com?Subject=VolunteerInq
         <br/>
         @Html.LabelFor(x => x.v_schedule)
         @*each opportunity has its own set time slot, so option is to choose the day of the week*@
-@*<br />
+<br />
             @Html.DropDownListFor(model => model.v_schedule, new[] {
                                 new SelectListItem(){Text ="Monday - Friday" ,Value = "Monday - Friday"},
                                 new SelectListItem(){Text="Monday", Value= "Monday"},
@@ -158,7 +158,7 @@ E-mail: <a href="mailto:jgillespie@temiskaming-hospital.com?Subject=VolunteerInq
     </fieldset>*@
 <br /><br />
 @Html.ActionLink("Back to Volunteer Home", "Index", "Volunteer") |
-@*@Html.ActionLink("Sign out", "SignOut", "Volunteer")*@
+@Html.ActionLink("Sign out", "SignOut", "Volunteer")
 
 @*//[Team2]Temiskaming-Hospital website Redesign project @ Humber College
     //Feature: Volunteer - Public (SignedIn)
