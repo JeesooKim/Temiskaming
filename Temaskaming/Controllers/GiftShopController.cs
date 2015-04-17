@@ -81,10 +81,11 @@ namespace Temiskaming.Controllers
 
 
        //admin page
-   
+   [Authorize(Roles = "Admin")]
         public ActionResult AdminGiftShop()
         {
             ViewBag.Group = "Admin";
+       //get values from table 
             var Gif = objGift.getGifts();
             if(Gif == null)
             {
@@ -97,30 +98,40 @@ namespace Temiskaming.Controllers
         }
         
         //insert
-        
+        [Authorize(Roles = "Admin")]
         public ActionResult InsertGiftShop()
         {
             ViewBag.Group = "Admin";
+            //return the view for this action result
             return View();
         }
 
-
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public ActionResult InsertGiftShop(HttpPostedFileBase file, Gift Gt)
         {
             ViewBag.Group = "GiftShop";
-
+            //if this file is not null
             if (file != null)
             {
+
+                //REFERENCE FOR IMAGE UPLOAD 
+                //http://www.mikesdotnetting.com/article/259/asp-net-mvc-5-with-ef-6-working-with-files
+                //get the file name!
                 var pic =Path.GetFileName(file.FileName);
+                //put it into this location
                 var path = Path.Combine(Server.MapPath("~/content/images/GiftShop"), pic);
                 //file is uploaded
                 file.SaveAs(path);
+                //get pic value this varible
                 var imagename = pic; 
+                //in the table the image will get the value of varible imagename
                 Gt.Image = imagename;
+                //commit insert it will save onto the table
                     objGift.commitInsert(Gt);
+                //redirect to the admin page
                     return RedirectToAction("AdminGiftShop");
-            }//end if
+            }// if theres a problem redirect to 
             else
                 return RedirectToAction("AdminGiftShop"); 
        }//end public insert item 
@@ -131,7 +142,9 @@ namespace Temiskaming.Controllers
         public ActionResult UpdateGiftShop(int ItemId)
         {
             ViewBag.Group = "Admin";
+            //ge the value by its id
             var Gif = objGift.getGiftsById(ItemId);
+            //if its null
             if (Gif == null)
             {
                 return View("AdminGiftShop"); 

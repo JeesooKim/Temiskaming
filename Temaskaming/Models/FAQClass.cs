@@ -17,7 +17,7 @@ namespace Temiskaming.Models
         }
 
 
-        //get id(delete if not needed)
+        //get id
         public FAQ getFAQByID(int _id)
         {
             var allFAQ = objFAQ.FAQs.SingleOrDefault(x => x.Id == _id);

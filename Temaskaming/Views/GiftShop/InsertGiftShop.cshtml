@@ -9,6 +9,7 @@
 
 @using (Html.BeginForm("InsertGiftShop", "GiftShop", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
+    //item name 
     <div>
         @Html.LabelFor(model => model.Item)
         @Html.TextBoxFor(model => model.Item)
@@ -16,6 +17,7 @@
 
     </div>
 
+    //description 
     <div>
         @Html.LabelFor(model => model.Description)
         @Html.TextBoxFor(model => model.Description)
@@ -23,17 +25,20 @@
 
     </div>
 
+    //price has to be decimal ex: 2.00
     <div>
         @Html.LabelFor(model => model.Price)
         @Html.TextBoxFor(model => model.Price)
         @Html.ValidationMessageFor(model => model.Price, "*")
 
     </div>
+    //image uploader
     <div>
         @Html.Label("Upload Image:") <input type="file" name="file" />
      
        
     </div>
+    //submit into database or cancel return back home to admin side
     <div>
         <input type="submit" value="Enter" /> @Html.ActionLink("Cancel", "AdminGiftShop", "GiftShop")
     </div>

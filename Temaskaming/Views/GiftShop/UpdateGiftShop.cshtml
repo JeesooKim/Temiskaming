@@ -12,6 +12,7 @@
         @Html.HiddenFor(x => x.ItemId)<!--Hid id-->
     </div>
     <div>
+        @*UPDATE THIS ITEM*@
         <p>Item: </p>
         @Html.TextBoxFor(x => x.Item)
         @Html.ValidationMessageFor(x => x.Item, "*")
