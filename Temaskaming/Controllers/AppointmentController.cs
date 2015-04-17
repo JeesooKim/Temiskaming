@@ -74,6 +74,8 @@ namespace Temiskaming.Controllers
         [Authorize(Roles="Admin")]
         public ActionResult DoctorAppointments()   // get : admin page, displays a list of doctors and an option to see their appointments
         {
+            ViewBag.Group = "Admin";
+
             var docList = objDoc.getDoctors();
             if (docList == null)
             {
@@ -89,6 +91,8 @@ namespace Temiskaming.Controllers
         [Authorize(Roles = "Admin")]
         public ActionResult AllAppointments(int id)        // get : admin page, shows a particular doctor with a list of his appointments 
         {
+
+            ViewBag.Group = "Admin";
             var allApp = objApp.getAllAppointmentsByID(id);
 
             return View(allApp);
