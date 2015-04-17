@@ -72,6 +72,17 @@ E-mail: <a href="mailto:jgillespie@temiskaming-hospital.com?Subject=VolunteerInq
         @Html.HiddenFor(x => x.v_status)
 
 
+        @Html.LabelFor(x => x.v_email) @:
+        @Html.TextBoxFor(x => x.v_email)
+        //@Html.ValidationMessageFor(x => x.v_email)
+        <br />
+
+
+        @Html.LabelFor(x=>x.v_password) @:
+        @Html.PasswordFor(x=>x.v_password)
+        //@Html.ValidationMessageFor(model => model.v_password)
+        <br />
+        
         @Html.LabelFor(x => x.v_fname) @:
         @Html.TextBoxFor(x => x.v_fname)
         @Html.ValidationMessageFor(x => x.v_fname)
@@ -121,11 +132,7 @@ E-mail: <a href="mailto:jgillespie@temiskaming-hospital.com?Subject=VolunteerInq
         @Html.TextBoxFor(x => x.v_phone)
         //@Html.ValidationMessageFor(x => x.v_phone)
         <br />
-
-        @Html.LabelFor(x => x.v_email) @:
-        @Html.TextBoxFor(x => x.v_email)
-        //@Html.ValidationMessageFor(x => x.v_email)
-        <br />
+               
 
         <text>Your Interests:</text>
         @:Volunteer Coordinator will review your Interests. Please check the status above.
@@ -155,7 +162,7 @@ E-mail: <a href="mailto:jgillespie@temiskaming-hospital.com?Subject=VolunteerInq
 
             <input type="submit" value="Update" />
         }
-    </fieldset>*@
+    </fieldset>
 <br /><br />
 @Html.ActionLink("Back to Volunteer Home", "Index", "Volunteer") |
 @Html.ActionLink("Sign out", "SignOut", "Volunteer")
