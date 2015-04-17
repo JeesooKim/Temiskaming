@@ -19,9 +19,11 @@
     @Html.TextBoxFor(x => x.option1)
     <br />
     @Html.LabelFor(x => x.option2)
-    @Html.TextAreaFor(x => x.option2)
+    @Html.TextBoxFor(x => x.option2)
     <br />
     
     <input type="submit" value="ADD" />
 
 }
+
+@Html.ActionLink("Back", "Index")

@@ -30,7 +30,7 @@ namespace Temiskaming.Models
 
         [DisplayName("Phone")]
         [Required(ErrorMessage="Enter a phone number")]
-        [RegularExpression("^(\\([0-9]{3}\\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$",ErrorMessage="Enter a valid phone number")]
+       // [RegularExpression("^(\\([0-9]{3}\\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$",ErrorMessage="Enter a valid phone number")]
         public string phone { get; set; }
     }
 

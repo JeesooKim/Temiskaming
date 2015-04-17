@@ -85,6 +85,9 @@ namespace Temiskaming.Controllers
 
         public ActionResult Display(string file)
         {
+            /*
+             * Displays the chat log on load
+             * */
             if (file != "")
             {
                 ViewBag.FileName = file;
@@ -97,9 +100,12 @@ namespace Temiskaming.Controllers
             }
         }
 
-        public ActionResult Send(chatSendModel model)
+        public ActionResult Send()
         {
-            return PartialView(model);
+            /*
+             * 
+             * */
+            return PartialView();
         }
 
         [HttpPost]
@@ -149,10 +155,10 @@ namespace Temiskaming.Controllers
 
 
 
-        public ActionResult nSend(string file, chatSendModel model)
+        public ActionResult nSend(string file)
         {
             ViewBag.File = file;
-            return PartialView(model);
+            return PartialView();
         }
 
         [HttpPost]
@@ -161,7 +167,7 @@ namespace Temiskaming.Controllers
             if (ModelState.IsValid)
             {
                 var date = DateTime.Now;
-                string lineToWrite = "<!--" + date.ToString("yyyy-MM-dd hh:mm:ss tt") + "--> <span class='nmessage'>(" +User.Identity.Name+ "NURSE" + ")</span> : " + message + "<br />";
+                string lineToWrite = "<!--" + date.ToString("yyyy-MM-dd hh:mm:ss tt") + "--> <span class='nmessage'>(" + User.Identity.Name + ")</span> : " + message + "<br />";
                 string fileString = file;
                 var path = Server.MapPath("~/chatLogs/" + fileString + ".txt");
                 objChat.writeChat(lineToWrite, path);
