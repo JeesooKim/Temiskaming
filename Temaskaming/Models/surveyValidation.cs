@@ -25,21 +25,21 @@ namespace Temiskaming.Models
 
         [DisplayName("Question")]
         [Required(ErrorMessage = "Please enter the question")]
-        public string question;
+        public string question {get; set;}
 
         [DisplayName("Option 1")]
         [Required(ErrorMessage = "Please enter first option")]
-        public string option1;
+        public string option1 { get; set; }
 
         [DisplayName("Option 2")]
         [Required(ErrorMessage = "Please enter second option")]
-        public string option2;
+        public string option2 { get; set; }
 
-        public int choice1;
+        public int choice1 { get; set; }
 
-        public int choice2;
+        public int choice2 { get; set; }
 
-        public bool published;
+        public bool published { get; set; }
     
     }
 }

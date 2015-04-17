@@ -20,25 +20,26 @@ namespace Temiskaming.Models
     public class alertValidation                // Validation Model for Alert model
     {
 
-        public int alertId;
+        public int alertId { get; set; }
 
         [DisplayName("Alert Title")]
         [Required(ErrorMessage = "Please enter the title")]
-        public string alertTitle;
+        public string alertTitle { get; set; }
 
         [DisplayName("Description")]
         [Required(ErrorMessage = "Please enter the description")]
-        public string alertDescription;
+        public string alertDescription { get; set; }
 
         [DisplayName("Level")]
         [Required(ErrorMessage = "Please enter alert level")]
-        public string alertLevel;
+        public string alertLevel { get; set; }
 
         [DisplayName("TimeLine")]
         [Required(ErrorMessage = "Please pick a date")]
-        public DateTime alertTimeline;
+        public DateTime alertTimeline { get; set; }
 
-        public bool alertStatus;
+        [Required]
+        public bool alertStatus { get; set; }
 
     }
 }

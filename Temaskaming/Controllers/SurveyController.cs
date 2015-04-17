@@ -210,15 +210,15 @@ namespace Temiskaming.Controllers
 
            // var myChart = new Chart();
 
-            var myChart = new Chart(width: 600, height: 400)
-       .AddTitle("Employees")
-       .AddSeries(chartType: "pie",
-          xValue: new[] { "Peter", "Andrew", "Julie", "Mary", "Dave" },
-          yValues: new[] { "2", "6", "4", "5", "3" });
+       //     var myChart = new Chart(width: 600, height: 400)
+       //.AddTitle("Employees")
+       //.AddSeries(chartType: "pie",
+       //   xValue: new[] { "Peter", "Andrew", "Julie", "Mary", "Dave" },
+       //   yValues: new[] { "2", "6", "4", "5", "3" });
 
-            ViewBag.Chart = myChart;
+       //     ViewBag.Chart = myChart;
 
-            return PartialView();
+           return View();
 
         }
 
