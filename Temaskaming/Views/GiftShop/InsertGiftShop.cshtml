@@ -7,52 +7,39 @@
 <h2>InsertGiftShop</h2>
 
 
+@using (Html.BeginForm(new {enctype = "multipart/form-data" }))
+{
+    <div>
+        @Html.LabelFor(model => model.Item)
+        @Html.TextBoxFor(model => model.Item)
+        @Html.ValidationMessageFor(model => model.Item, "*")
 
-<form action="" method="post" enctype="multipart/form-data">
-    @*table for uploading images*@
-    <table class="upload_img">
-        <tr>
-            <td>
-                <label for="file">Choose a file to add:</label>
-            </td>
-            <td>
-                <input type="file" name="file" id="file" />
-            </td>
-            <td>
-                <input type="submit" value="Add" />
-            </td>
-        </tr>
-    </table>
-    </form>
+    </div>
 
-    @using (Html.BeginForm())
-    {
-        <div>
-            @Html.LabelFor(model => model.Item)
-            @Html.TextBoxFor(model => model.Item)
-            @Html.ValidationMessageFor(model => model.Item, "*")
+    <div>
+        @Html.LabelFor(model => model.Description)
+        @Html.TextBoxFor(model => model.Description)
+        @Html.ValidationMessageFor(model => model.Description, "*")
 
+    </div>
+
+    <div>
+        @Html.LabelFor(model => model.Price)
+        @Html.TextBoxFor(model => model.Price)
+        @Html.ValidationMessageFor(model => model.Price, "*")
+
+    </div>
+    <div>
+        @Html.Label("Upload Image:") <input type="file" name="image"/>
+        <div id="preview">
+            Preview
         </div>
+    </div>
+    <div>
+        <input type="submit" value="Enter"/> @Html.ActionLink("Cancel", "AdminGiftShop", "GiftShop")
+    </div>
+}
 
-        <div>
-            @Html.LabelFor(model => model.Description)
-            @Html.TextBoxFor(model => model.Description)
-            @Html.ValidationMessageFor(model => model.Description, "*")
-
-        </div>
-
-        <div>
-            @Html.LabelFor(model => model.Price)
-            @Html.TextBoxFor(model => model.Price)
-            @Html.ValidationMessageFor(model => model.Price, "*")
-
-        </div>
-
-        <div>
-            <input type="submit" value="Enter" /> @Html.ActionLink("Cancel", "AdminGiftShop", "GiftShop")
-        </div>
-    }
-
-    @section Scripts{
-        @Scripts.Render("~/bundles/jqeurtval")
-    }
+@section Scripts{
+    @Scripts.Render("~/bundles/jqeurtval")
+}
