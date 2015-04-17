@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "InsertImage";
+}
+
+<h2>InsertImage</h2>
+
+
+<form action="" method="post" enctype="multipart/form-data">
+    @*table for uploading images*@
+    <table class="upload_img">
+        <tr>
+            <td>
+                <label for="file">Choose a file to add:</label>
+            </td>
+            <td>
+                <input type="file" name="file" id="file" />
+            </td>
+            <td>
+                <input type="submit" value="Add" />
+            </td>
+        </tr>
+    </table>
+</form>
