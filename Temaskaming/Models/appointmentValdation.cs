@@ -14,20 +14,23 @@ namespace Temiskaming.Models
     { }
 
     [Bind(Exclude="id")]
-    public class appointmentValdation
+    public class appointmentValdation           // Validation Model for appointment model
     {
         [Required]
         public int doctor_id;
-         
-        [Required]
-        public System.DateTime booking_date;
 
-        [Required]
+        [DisplayName("Appointment Date")]
+        [Required(ErrorMessage = "Please choose a date")]
+        public System.DateTime booking_date;                   
+
+        [DisplayName("Email")]
+        [Required(ErrorMessage = "Please enter email")]
         [RegularExpression(".+\\@.+\\..+", ErrorMessage = "Please enter a valid email")]
         public string email;
 
-        [Required]
-       // [RegularExpression("")]
+        [DisplayName("Phone")]
+        [Required(ErrorMessage="Enter a phone number")]
+        [RegularExpression("^(\\([0-9]{3}\\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$",ErrorMessage="Enter a valid phone number")]
         public string phone;
     }
 
