@@ -79,6 +79,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -1319,10 +1320,12 @@
     <Content Include="Views\Volunteer\Welcome.cshtml" />
     <Content Include="Views\Volunteer\SignOut.cshtml" />
     <Content Include="Views\Volunteer\Admin_volList.cshtml" />
+    <Content Include="Views\Survey\DisplayChart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\editable\" />
+    <Folder Include="Views\Volunteers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
