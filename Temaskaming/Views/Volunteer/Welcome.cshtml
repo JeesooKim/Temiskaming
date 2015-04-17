@@ -18,24 +18,35 @@
     }
 </div>
 
-<h2>Welcome</h2>
+<h2>Welcome, @Html.DisplayFor(x => x.v_fname)  @Html.DisplayFor(x => x.v_lname)</h2>
 
 @*<h2>Hi <b>@Context.User.Identity.Name</b>!</h2>
 You are logged in now.*@
 
 <fieldset>
-    <legend>Your Current Schedule</legend>
-    Participation: @Html.DisplayFor(x => x.v_oppId)
-    <br/>
+    <legend>Your Current Interests</legend>
+    Participation : @Html.DisplayFor(x => x.v_oppId)
+    @*Next: how to display the name dynamically?*@   
+    <br />
+    Available Day : @Html.DisplayFor(x => x.v_schedule)
+    @*Status:   @Html.DisplayFor(x => x.v_status)*@
     
-    <br />
-    Status:   @Html.DisplayFor(x => x.v_status)
-    <br />
-    Schedule: @Html.DisplayFor(x => x.v_schedule)
+    
 </fieldset>
+<hr/>
+<h2>Please contact Volunteer Coordinator if you want to change your schedule.</h2>
+<h4>Volunteer Department</h4>
+Hours: 8h00 am to 4h00 pm
+<br/>
+Jaimi Gillespie, Volunteer Coordinator<br/>
+Telephone: 705-647-1088 Ext.2520<br/>
+E-mail: <a href="mailto:jgillespie@temiskaming-hospital.com?Subject=VolunteerInquiry">Jaimi Gillespie</a>
+<br /><br/>
 
 <fieldset>
     <legend>Your Profile</legend>
+    Name:@Html.DisplayFor(x => x.v_fname)  @Html.DisplayFor(x => x.v_lname)
+    <br />
     Address: @Html.DisplayFor(x => x.v_address)
     <br />
     City: @Html.DisplayFor(x => x.v_city)
@@ -47,23 +58,9 @@ You are logged in now.*@
     Phone: @Html.DisplayFor(x => x.v_phone)
     <br />
     Email: @Html.DisplayFor(x => x.v_email)
-</fieldset>
-
-
-Please contact Volunteer Coordinator if you want or need to <br />
-(1) update your profile,<br />
-and/or<br />
-(2) change your schedule.<br />
-<br/>
-<h4>Volunteer Department</h4>
-Hours: 8h00 am to 4h00 pm
-<br/>
-Jaimi Gillespie, Volunteer Coordinator<br/>
-Telephone: 705-647-1088 Ext.2520<br/>
-E-mail: <a href="mailto:jgillespie@temiskaming-hospital.com?Subject=VolunteerInquiry">Jaimi Gillespie</a>
-
+</fieldset><br/>
 <fieldset>
-    <legend>Update</legend>
+    <legend>Edit Your Profile</legend>
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
@@ -72,7 +69,7 @@ E-mail: <a href="mailto:jgillespie@temiskaming-hospital.com?Subject=VolunteerInq
         @Html.HiddenFor(x => x.v_status)
 
 
-        @Html.LabelFor(x => x.v_email) @:
+        @Html.LabelFor(x => x.v_email) @:(LoginName)
         @Html.TextBoxFor(x => x.v_email)
         //@Html.ValidationMessageFor(x => x.v_email)
         <br />
@@ -132,16 +129,16 @@ E-mail: <a href="mailto:jgillespie@temiskaming-hospital.com?Subject=VolunteerInq
         @Html.LabelFor(x => x.v_phone) @:
         @Html.TextBoxFor(x => x.v_phone)
         //@Html.ValidationMessageFor(x => x.v_phone)
-        <br />
+        <br /><br/>
                
-
-        <text>Your Interests:</text>
-        @:Volunteer Coordinator will review your Interests. Please check the status above.
-        <br/>
-        @Html.LabelFor(x => x.v_schedule)
-        @*each opportunity has its own set time slot, so option is to choose the day of the week*@
-<br />
-            @Html.DropDownListFor(model => model.v_schedule, new[] {
+        <fieldset>
+            <legend>Your Interests:</legend>
+            Volunteer Coordinator will review your Interests. 
+            <br />
+            Available Day:
+            @*each opportunity has its own set time slot, so option is to choose the day of the week*@
+            <br />
+           @Html.DropDownListFor(model => model.v_schedule, new[] {
                                 new SelectListItem(){Text ="Monday - Friday" ,Value = "Monday - Friday"},
                                 new SelectListItem(){Text="Monday", Value= "Monday"},
                                 new SelectListItem(){Text="Tuesday", Value="Tuesday"},
@@ -152,19 +149,23 @@ E-mail: <a href="mailto:jgillespie@temiskaming-hospital.com?Subject=VolunteerInq
                                 new SelectListItem(){Text="Sunday", Value="Sunday"},
                                 new SelectListItem(){Text="", Value=""}
                                 })
-            //@Html.ValidationMessageFor(x => x.v_schedule)
-            <br /><br />
+            @*@Html.ValidationMessageFor(x => x.v_schedule)*@
 
-            @Html.LabelFor(x => x.v_oppId)
+            <br /><br />
+            Choose the Volunteer Opportunity interested
             <br />
             @Html.DropDownList("v_oppId", new SelectList(ViewBag.OpportunityID, "Value", "Text"))
-            @Html.ValidationMessageFor(x => x.v_oppId)
-            <br /><br />
-
+            @*@Html.ValidationMessageFor(x => x.v_oppId)*@           
+        </fieldset>
+         <br /><br />
+        
             <input type="submit" value="Update" />
         }
     </fieldset>
 <br /><br />
+@*@Html.ActionLink("EditProilfe", "Update_Profile", new { id = Model.v_id }) 
+<br/>
+<br/>*@
 @Html.ActionLink("Back to Volunteer Home", "Index", "Volunteer") |
 @Html.ActionLink("Sign out", "SignOut", "Volunteer")
 

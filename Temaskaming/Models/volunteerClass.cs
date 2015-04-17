@@ -126,7 +126,7 @@ namespace Temiskaming.Models
         }
 
         //method: Update by a volunteer
-        public bool commitUpdateScheduleV(int _id, string _fname, string _lname, string _address, string _city, string _prov, string _postal, string _phone, string _email, string _schedule, int _oppId)
+        public bool commitUpdateProfileV(int _id, string _fname, string _lname, string _address, string _city, string _prov, string _postal, string _phone, string _email, string _schedule, int _oppId)
         {
             using (objVolunteers)
             {
