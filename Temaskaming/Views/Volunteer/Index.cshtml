@@ -20,7 +20,7 @@
     @if (Request.IsAuthenticated)
     {
         @:Hello, 
-        <strong>@Html.Encode(User.Identity.Name)</strong> @:! | 
+        <strong>@Html.Encode(User.Identity.Name)</strong> @:! |        
         @Html.ActionLink("Sign Out", "Signout", "Volunteer")
     }
     else

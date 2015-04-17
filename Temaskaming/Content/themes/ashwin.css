@@ -103,7 +103,7 @@
 }
 
 #survey {
-    
+
 }
 
     #survey h2 {
@@ -119,9 +119,19 @@
 
     #ques h3 {
         font-family:Arial;
-        font-weight:300;       
+        font-weight:300;
+        font-size:25px;       
     }
 
+    #ques h4 {
+    font-family:Arial;
+    font-weight:200;
+    font-size:18px;
+    }
+
+#option p{
+    font-weight:200;
+}
 .survey-button {
     width:100px;
     height:25px;
@@ -134,5 +144,10 @@
     cursor:pointer;
     margin-left:5px;
     padding-left:10px;
+}
+
+#posted-poll {
+    padding:10px;
+    border:1px solid #000;
 }
     

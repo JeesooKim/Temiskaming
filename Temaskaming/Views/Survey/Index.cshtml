@@ -17,13 +17,17 @@
         <br/><br /><br />
         <div id="ques">
             <h3>@record.question</h3>
-            <p>@Html.DisplayFor(m => record.option1) @Html.DisplayFor(m => record.option2)</p>
+            <div id="option">
+                <p>Option 1: @Html.DisplayFor(m => record.option1)</p>
+                <p>Option 2:  @Html.DisplayFor(m => record.option2)</p>
+            </div>
+            <div id="result">
+                <h4>Result For</h4>
 
-            <p>Result for option 1 : @Html.DisplayFor(m => record.choice1) </p>
-            <p>Result for option 2 : @Html.DisplayFor(m => record.choice2) </p>
-
-            <br /><br/>
-        
+                <p> @record.option1 -  @Html.DisplayFor(m => record.choice1)</p>
+                <p> @record.option2 - @Html.DisplayFor(m => record.choice2)</p>
+            </div>
+            <br /><br/>        
 
         @if ((record.choice1 == 0) && (record.choice2 == 0))
         {
@@ -39,10 +43,8 @@
         @Html.ActionLink("Publish", "PublishPoll", new { id = record.id })
     </button>
         }
-
             </div>
-
-
     }
+    
 </div>
 

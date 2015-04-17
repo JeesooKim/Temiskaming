@@ -15,24 +15,24 @@
 
     <table>
         <tr>
-            <td>@Html.LabelFor(model => model.v_fname) * </td>
+            <td>First Name * </td>
             <td>@Html.TextBoxFor(model => model.v_fname)</td>
             <td>@Html.ValidationMessageFor(model => model.v_fname, "*")</td>
         </tr>
         <tr>
-            <td>@Html.LabelFor(model => model.v_lname)  </td>
+            <td>LastName * </td>
             <td>@Html.TextBoxFor(model => model.v_lname, new { @Value = "lastname" })</td>
             <td>@Html.ValidationMessageFor(model => model.v_lname, "*")</td>
         </tr>
 
         <tr>
-            <td>@Html.LabelFor(model => model.v_address)  </td>
+            <td>Address </td>
             <td>@Html.TextBoxFor(model => model.v_address, new { @Value = "# address Street/Avenue/..." })</td>
             <td>@Html.ValidationMessageFor(model => model.v_address, "*")</td>
         </tr>
 
         <tr>
-            <td>@Html.LabelFor(model => model.v_city)  </td>
+            <td>City </td>
             <td>@Html.TextBoxFor(model => model.v_city, new { @Value = "city" })</td>
             <td>@Html.ValidationMessageFor(model => model.v_city, "*")</td>
         </tr>
@@ -59,22 +59,22 @@
             <td>@Html.ValidationMessageFor(model => model.v_province, "*")</td>
         </tr>
         <tr>
-            <td>@Html.LabelFor(model => model.v_postalCode)  </td>
+            <td>Postal Code</td>
             <td>@Html.TextBoxFor(model => model.v_postalCode, new { @Value = "A1A 2B2" })</td>
             <td>@Html.ValidationMessageFor(model => model.v_postalCode, "*")</td>
         </tr>
         <tr>
-            <td>@Html.LabelFor(model => model.v_phone) * </td>
+            <td>Phone * </td>
             <td>@Html.TextBoxFor(model => model.v_phone, new { @Value = "(416) 123-4567" })</td>
             <td>@Html.ValidationMessageFor(model => model.v_phone, "*")</td>
         </tr>
         <tr>
-            <td>@Html.LabelFor(model => model.v_email) * </td>
+            <td>Email * </td>
             <td>@Html.TextBoxFor(model => model.v_email, new { @Value = "*@*.*" })</td>
             <td>@Html.ValidationMessageFor(model => model.v_email, "*")</td>
         </tr>
         <tr>
-            <td>@Html.LabelFor(model => model.v_status) * </td>
+            <td>Status * </td>
             @*<td>@Html.TextBoxFor(model => model.v_status, new { @Value = "N/A" })</td>*@
             <td>
                 @Html.DropDownListFor(model => model.v_status, new[] { 
@@ -90,7 +90,7 @@
             <td>@Html.ValidationMessageFor(model => model.v_status, "*")</td>
         </tr>
         <tr>
-            <td>@Html.LabelFor(model => model.v_schedule) * </td>
+            <td>Schedule * </td>
             @*each opportunity has its own set time slot, so option is to choose the day of the week*@
             <td>
                 @Html.DropDownListFor(model => model.v_schedule, new[] {
@@ -108,7 +108,7 @@
         <td></td>
     </tr>
     <tr>
-        <td>@Html.LabelFor(model => model.v_oppId) </td>
+        <td>OpportunityID(Name) </td>
         <td>
             @Html.DropDownList("v_oppId", ViewBag.OpportunityID as IEnumerable<SelectListItem>, String.Empty)
         </td>

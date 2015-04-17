@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -51,6 +50,7 @@ namespace Temiskaming.Models
 
         [DisplayName("Phone Number")]
         [Required(ErrorMessage = "Please enter Phone Number")]
+        [RegularExpression("\\d{10}", ErrorMessage = "Enter a 10 digit Canadian phone number without space")]
         public string v_phone { get; set; }
 
         [DisplayName("Schedule")]
