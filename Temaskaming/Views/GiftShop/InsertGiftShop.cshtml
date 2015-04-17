@@ -7,8 +7,7 @@
 <h2>InsertGiftShop</h2>
 
 
-@using (Html.BeginForm(FormMethod.Post,
-                        new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm())
 {
     <div>
         @Html.LabelFor(model => model.Item)
@@ -29,12 +28,6 @@
         @Html.TextBoxFor(model => model.Price)
         @Html.ValidationMessageFor(model => model.Price, "*")
 
-    </div>
-    <div>
-        @Html.Label("Upload Image:") <input type="file" name="image"/>
-        <div id="preview">
-            Preview
-        </div>
     </div>
     <div>
         <input type="submit" value="Enter"/> @Html.ActionLink("Cancel", "AdminGiftShop", "GiftShop")

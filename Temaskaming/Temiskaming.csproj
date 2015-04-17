@@ -1321,6 +1321,7 @@
     <Content Include="Views\Volunteer\SignOut.cshtml" />
     <Content Include="Views\Volunteer\Admin_volList.cshtml" />
     <Content Include="Views\Survey\DisplayChart.cshtml" />
+    <Content Include="Views\GiftShop\InsertImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
