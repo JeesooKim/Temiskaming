@@ -77,14 +77,14 @@
             <td>@Html.LabelFor(model => model.v_status) * </td>
             @*<td>@Html.TextBoxFor(model => model.v_status, new { @Value = "N/A" })</td>*@
             <td>
-                @Html.DropDownListFor(model => model.v_status, new[] {                    
+                @Html.DropDownListFor(model => model.v_status, new[] { 
+                    new SelectListItem(){Text="", Value="", Selected=true},                  
                     new SelectListItem(){Text ="Active", Value="Active"},
                     new SelectListItem(){Text ="Approved", Value="Approved"},
                     new SelectListItem(){Text ="Pending", Value="Pending"},
                     new SelectListItem(){Text ="Under Review", Value="Under Review"},
                     new SelectListItem(){Text ="Withdrawn", Value="Withdrawn"},
-                    new SelectListItem(){Text ="Not Available", Value="Not Available"},
-                    new SelectListItem(){Text="", Value="", Selected=true}
+                    new SelectListItem(){Text ="Not Available", Value="Not Available"}                    
                             })
             </td>
             <td>@Html.ValidationMessageFor(model => model.v_status, "*")</td>
