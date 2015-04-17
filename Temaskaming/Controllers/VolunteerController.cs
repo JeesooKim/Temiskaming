@@ -126,7 +126,6 @@ namespace Temiskaming.Controllers
 
                 if (string.IsNullOrEmpty(password))
                 {
-
                     ModelState.AddModelError("", "The user login or password provided is incorrect.");
                 }
 
@@ -181,7 +180,7 @@ namespace Temiskaming.Controllers
                 return View(vol);
             }
         }
-        
+
 
         [Authorize]
         [HttpPost]
@@ -194,9 +193,8 @@ namespace Temiskaming.Controllers
 
                 try
                 {
-                    objVol.commitUpdateScheduleV(id, vol.v_fname, vol.v_lname, vol.v_address, vol.v_city, vol.v_province, vol.v_postalCode, vol.v_phone, vol.v_email, vol.v_schedule, vol.v_oppId);
+                    objVol.commitUpdateProfileV(id, vol.v_fname, vol.v_lname, vol.v_address, vol.v_city, vol.v_province, vol.v_postalCode, vol.v_phone, vol.v_email, vol.v_schedule, vol.v_oppId);
 
-                    //return RedirectToAction("Admin_volDetails/" + id);
                     return RedirectToAction("Welcome/" + id);
                 }
                 catch
@@ -217,7 +215,8 @@ namespace Temiskaming.Controllers
 
             return View();
         }
-
+        
+       
 
         // GET: /Sign Out
         public ActionResult SignOut()
@@ -440,7 +439,7 @@ namespace Temiskaming.Controllers
             try
             {
                 objVol.commitDeleteO(id);
-                return RedirectToAction("VolutneerAdmin_Index");
+                return RedirectToAction("VolunteerAdmin_Index");
             }
             catch
             {
@@ -471,7 +470,7 @@ namespace Temiskaming.Controllers
 
             if (volunteer == null)
             {
-                return PartialView("NotFound");
+                return HttpNotFound();
             }
             else
             {
