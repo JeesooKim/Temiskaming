@@ -12,7 +12,7 @@
 <h2> Gift Shop</h2>
 
 <div>
-    <table>
+    <table id="giftshop_table">
         @foreach (var x in Model)
         {
         <tr>
@@ -25,7 +25,7 @@
 
         </tr>
             <tr>
-                <td><div class="thumb" style="background-image:url('@Url.Content( imagePath + x.Image)')"></div></td>
+                <td><div class="gift-thumb" style="background-image:url('@Url.Content( imagePath + x.Image)')"></div></td>
                 <td>@Html.DisplayFor(model => x.Item)</td>
                 <td>@Html.DisplayFor(model => x.Description)</td>
                 <td>@Html.DisplayFor(model => x.Price)</td>
