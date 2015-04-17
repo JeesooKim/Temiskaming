@@ -9,7 +9,7 @@
     var imagePath = @"~/content/images/GiftShop/";
 }
 
-<h2>Admin Gift Shop</h2>
+<h2> Gift Shop</h2>
 
 <div>
     <table>
@@ -29,7 +29,7 @@
                 <td>@Html.DisplayFor(model => x.Item)</td>
                 <td>@Html.DisplayFor(model => x.Description)</td>
                 <td>@Html.DisplayFor(model => x.Price)</td>
-                <td>@Html.ActionLink("Purchase", "Purchase", new { PassItem = x.ItemId })</td>
+                <td>@Html.ActionLink("Purchase", "Purchase", new { PassItem = x.Item,  PassPrice =x.Price })</td>
               
             </tr>
 

@@ -99,12 +99,15 @@ namespace Temiskaming.Models
     partial void Insertvolunteer_schedule(volunteer_schedule instance);
     partial void Updatevolunteer_schedule(volunteer_schedule instance);
     partial void Deletevolunteer_schedule(volunteer_schedule instance);
-    partial void InsertGift(Gift instance);
-    partial void UpdateGift(Gift instance);
-    partial void DeleteGift(Gift instance);
     partial void Insertpoll(poll instance);
     partial void Updatepoll(poll instance);
     partial void Deletepoll(poll instance);
+    partial void InsertOrder(Order instance);
+    partial void UpdateOrder(Order instance);
+    partial void DeleteOrder(Order instance);
+    partial void InsertGift(Gift instance);
+    partial void UpdateGift(Gift instance);
+    partial void DeleteGift(Gift instance);
     #endregion
 		
 		public databaseDataContext() : 
@@ -321,14 +324,6 @@ namespace Temiskaming.Models
 			}
 		}
 		
-		public System.Data.Linq.Table<Gift> Gifts
-		{
-			get
-			{
-				return this.GetTable<Gift>();
-			}
-		}
-		
 		public System.Data.Linq.Table<poll> polls
 		{
 			get
@@ -342,6 +337,14 @@ namespace Temiskaming.Models
 			get
 			{
 				return this.GetTable<Order>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Gift> Gifts
+		{
+			get
+			{
+				return this.GetTable<Gift>();
 			}
 		}
 	}
@@ -4898,188 +4901,6 @@ namespace Temiskaming.Models
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Gifts")]
-	public partial class Gift : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ItemId;
-		
-		private string _Item;
-		
-		private string _Description;
-		
-		private decimal _Price;
-		
-		private string _Image;
-		
-		private decimal _Inventory;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnItemIdChanging(int value);
-    partial void OnItemIdChanged();
-    partial void OnItemChanging(string value);
-    partial void OnItemChanged();
-    partial void OnDescriptionChanging(string value);
-    partial void OnDescriptionChanged();
-    partial void OnPriceChanging(decimal value);
-    partial void OnPriceChanged();
-    partial void OnImageChanging(string value);
-    partial void OnImageChanged();
-    partial void OnInventoryChanging(decimal value);
-    partial void OnInventoryChanged();
-    #endregion
-		
-		public Gift()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ItemId
-		{
-			get
-			{
-				return this._ItemId;
-			}
-			set
-			{
-				if ((this._ItemId != value))
-				{
-					this.OnItemIdChanging(value);
-					this.SendPropertyChanging();
-					this._ItemId = value;
-					this.SendPropertyChanged("ItemId");
-					this.OnItemIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item", DbType="VarChar(150) NOT NULL", CanBeNull=false)]
-		public string Item
-		{
-			get
-			{
-				return this._Item;
-			}
-			set
-			{
-				if ((this._Item != value))
-				{
-					this.OnItemChanging(value);
-					this.SendPropertyChanging();
-					this._Item = value;
-					this.SendPropertyChanged("Item");
-					this.OnItemChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this.OnDescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._Description = value;
-					this.SendPropertyChanged("Description");
-					this.OnDescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Decimal(6,2) NOT NULL")]
-		public decimal Price
-		{
-			get
-			{
-				return this._Price;
-			}
-			set
-			{
-				if ((this._Price != value))
-				{
-					this.OnPriceChanging(value);
-					this.SendPropertyChanging();
-					this._Price = value;
-					this.SendPropertyChanged("Price");
-					this.OnPriceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string Image
-		{
-			get
-			{
-				return this._Image;
-			}
-			set
-			{
-				if ((this._Image != value))
-				{
-					this.OnImageChanging(value);
-					this.SendPropertyChanging();
-					this._Image = value;
-					this.SendPropertyChanged("Image");
-					this.OnImageChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Inventory", DbType="Decimal(4,0) NOT NULL")]
-		public decimal Inventory
-		{
-			get
-			{
-				return this._Inventory;
-			}
-			set
-			{
-				if ((this._Inventory != value))
-				{
-					this.OnInventoryChanging(value);
-					this.SendPropertyChanging();
-					this._Inventory = value;
-					this.SendPropertyChanged("Inventory");
-					this.OnInventoryChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="temismain.polls")]
 	public partial class poll : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -5287,8 +5108,10 @@ namespace Temiskaming.Models
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Orders")]
-	public partial class Order
+	public partial class Order : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _OrderId;
 		
@@ -5306,13 +5129,42 @@ namespace Temiskaming.Models
 		
 		private string _Message;
 		
-		private int _itemId;
+		private string _Item;
+		
+		private decimal _Price;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnOrderIdChanging(int value);
+    partial void OnOrderIdChanged();
+    partial void OnOrderDateChanging(string value);
+    partial void OnOrderDateChanged();
+    partial void OnFirstNameChanging(string value);
+    partial void OnFirstNameChanged();
+    partial void OnLastNameChanging(string value);
+    partial void OnLastNameChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnToPatientChanging(string value);
+    partial void OnToPatientChanged();
+    partial void OnFromChanging(string value);
+    partial void OnFromChanged();
+    partial void OnMessageChanging(string value);
+    partial void OnMessageChanged();
+    partial void OnItemChanging(string value);
+    partial void OnItemChanged();
+    partial void OnPriceChanging(decimal value);
+    partial void OnPriceChanged();
+    #endregion
 		
 		public Order()
 		{
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderId", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int OrderId
 		{
 			get
@@ -5323,7 +5175,11 @@ namespace Temiskaming.Models
 			{
 				if ((this._OrderId != value))
 				{
+					this.OnOrderIdChanging(value);
+					this.SendPropertyChanging();
 					this._OrderId = value;
+					this.SendPropertyChanged("OrderId");
+					this.OnOrderIdChanged();
 				}
 			}
 		}
@@ -5339,7 +5195,11 @@ namespace Temiskaming.Models
 			{
 				if ((this._OrderDate != value))
 				{
+					this.OnOrderDateChanging(value);
+					this.SendPropertyChanging();
 					this._OrderDate = value;
+					this.SendPropertyChanged("OrderDate");
+					this.OnOrderDateChanged();
 				}
 			}
 		}
@@ -5355,7 +5215,11 @@ namespace Temiskaming.Models
 			{
 				if ((this._FirstName != value))
 				{
+					this.OnFirstNameChanging(value);
+					this.SendPropertyChanging();
 					this._FirstName = value;
+					this.SendPropertyChanged("FirstName");
+					this.OnFirstNameChanged();
 				}
 			}
 		}
@@ -5371,7 +5235,11 @@ namespace Temiskaming.Models
 			{
 				if ((this._LastName != value))
 				{
+					this.OnLastNameChanging(value);
+					this.SendPropertyChanging();
 					this._LastName = value;
+					this.SendPropertyChanged("LastName");
+					this.OnLastNameChanged();
 				}
 			}
 		}
@@ -5387,7 +5255,11 @@ namespace Temiskaming.Models
 			{
 				if ((this._Email != value))
 				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
 					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
 				}
 			}
 		}
@@ -5403,7 +5275,11 @@ namespace Temiskaming.Models
 			{
 				if ((this._ToPatient != value))
 				{
+					this.OnToPatientChanging(value);
+					this.SendPropertyChanging();
 					this._ToPatient = value;
+					this.SendPropertyChanged("ToPatient");
+					this.OnToPatientChanged();
 				}
 			}
 		}
@@ -5419,7 +5295,11 @@ namespace Temiskaming.Models
 			{
 				if ((this._From != value))
 				{
+					this.OnFromChanging(value);
+					this.SendPropertyChanging();
 					this._From = value;
+					this.SendPropertyChanged("From");
+					this.OnFromChanged();
 				}
 			}
 		}
@@ -5435,24 +5315,230 @@ namespace Temiskaming.Models
 			{
 				if ((this._Message != value))
 				{
+					this.OnMessageChanging(value);
+					this.SendPropertyChanging();
 					this._Message = value;
+					this.SendPropertyChanged("Message");
+					this.OnMessageChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_itemId", DbType="Int NOT NULL")]
-		public int itemId
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Item
 		{
 			get
 			{
-				return this._itemId;
+				return this._Item;
 			}
 			set
 			{
-				if ((this._itemId != value))
+				if ((this._Item != value))
 				{
-					this._itemId = value;
+					this.OnItemChanging(value);
+					this.SendPropertyChanging();
+					this._Item = value;
+					this.SendPropertyChanged("Item");
+					this.OnItemChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Decimal(5,2) NOT NULL")]
+		public decimal Price
+		{
+			get
+			{
+				return this._Price;
+			}
+			set
+			{
+				if ((this._Price != value))
+				{
+					this.OnPriceChanging(value);
+					this.SendPropertyChanging();
+					this._Price = value;
+					this.SendPropertyChanged("Price");
+					this.OnPriceChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Gifts")]
+	public partial class Gift : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ItemId;
+		
+		private string _Item;
+		
+		private string _Description;
+		
+		private decimal _Price;
+		
+		private string _Image;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnItemIdChanging(int value);
+    partial void OnItemIdChanged();
+    partial void OnItemChanging(string value);
+    partial void OnItemChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnPriceChanging(decimal value);
+    partial void OnPriceChanged();
+    partial void OnImageChanging(string value);
+    partial void OnImageChanged();
+    #endregion
+		
+		public Gift()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ItemId
+		{
+			get
+			{
+				return this._ItemId;
+			}
+			set
+			{
+				if ((this._ItemId != value))
+				{
+					this.OnItemIdChanging(value);
+					this.SendPropertyChanging();
+					this._ItemId = value;
+					this.SendPropertyChanged("ItemId");
+					this.OnItemIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Item", DbType="VarChar(150) NOT NULL", CanBeNull=false)]
+		public string Item
+		{
+			get
+			{
+				return this._Item;
+			}
+			set
+			{
+				if ((this._Item != value))
+				{
+					this.OnItemChanging(value);
+					this.SendPropertyChanging();
+					this._Item = value;
+					this.SendPropertyChanged("Item");
+					this.OnItemChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Decimal(6,2) NOT NULL")]
+		public decimal Price
+		{
+			get
+			{
+				return this._Price;
+			}
+			set
+			{
+				if ((this._Price != value))
+				{
+					this.OnPriceChanging(value);
+					this.SendPropertyChanging();
+					this._Price = value;
+					this.SendPropertyChanged("Price");
+					this.OnPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this.OnImageChanging(value);
+					this.SendPropertyChanging();
+					this._Image = value;
+					this.SendPropertyChanged("Image");
+					this.OnImageChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

@@ -14,9 +14,10 @@ namespace Temiskaming.Controllers
         // GET: /GiftShop/
 
         GiftShopClass objGift = new GiftShopClass();
+        OrderClass objOrder = new OrderClass();
         
 
-
+        //home page
         public ActionResult Index() 
         {
             ViewBag.Group = "GiftShop";
@@ -24,7 +25,7 @@ namespace Temiskaming.Controllers
             return View(items);
         }
 
-       
+       //admin page
         public ActionResult AdminGiftShop()
         {
             ViewBag.Group = "GiftShop";
@@ -39,6 +40,7 @@ namespace Temiskaming.Controllers
             }
         }
         
+        //insert
         public ActionResult InsertGiftShop()
         {
             return View();
@@ -76,6 +78,8 @@ namespace Temiskaming.Controllers
             return View(); 
        }//end public insert item 
 
+
+        //update
         public ActionResult UpdateGiftShop(int ItemId)
         {
             var Gif = objGift.getGiftsById(ItemId);
@@ -98,7 +102,7 @@ namespace Temiskaming.Controllers
             {
                 try
                 {
-                    objGift.commitUpdate(ItemId, Gt.Item, Gt.Description, Gt.Price, Gt.Image, Gt.Inventory);
+                    objGift.commitUpdate(ItemId, Gt.Item, Gt.Description, Gt.Price );
                     return RedirectToAction("AdminGiftShop"); 
                 }//end try
                 catch
@@ -140,91 +144,30 @@ namespace Temiskaming.Controllers
             }//end catch
         }//end deleteitem 
 
-        public ActionResult Order()
+
+        //PURCHASE
+        public ActionResult Purchase(string PassItem, string PassPrice)
         {
-            var Od = objGift.getOrder();
-            ViewBag.Group = "GiftShop";
-            return View(Od);
-        }
-
-        //get detail for each entry
-
-        public ActionResult OrderDetail(int OrderId)
-        {
-            var allDetail = from i in objGift.getOrder() select i;
-            var getDetail = (from order in objGift.getOrder()
-                             join gift in objGift.getGifts()
-                             on order.itemId equals gift.ItemId
-                             select new
-                             {
-                                 gift.Item,
-                                 gift.Price,
-                                 order.FirstName,
-                                 order.LastName,
-                                 order.ToPatient,
-                                 order.From,
-                                 order.Message
-                             });
-
-
-
-            ViewBag.Group = "Gift Shop";
-            var Ord = objGift.getOrderById(OrderId);
-            if (Ord == null)
-            {
-                return View("Order");
-            }
-            else
-            {
-                return View(Ord);
-            }
-        }
-
-        //insert when purchasing
-
-        //Delete
-        public ActionResult OrderDetailDelete(int OrderId)
-        {
-            var Ord = objGift.getOrderById(OrderId);
-            if (Ord == null)
-            {
-                return View("Order");
-            }
-            else
-            {
-                return View(Ord);
-            }
-        }
-        [HttpPost]
-        public ActionResult OrderDetailDelete(int OrderId, Order Or)
-        {
-            ViewBag.Group = "Gift Shop";
-            try
-            {
-                objGift.CommitDelete(OrderId);
-                return RedirectToAction("Order");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-        public ActionResult Purchase(string PassItem)
-        {
+            //Pass the values to the next page
             @ViewBag.PassItem = PassItem;
+            @ViewBag.PassPrice = PassPrice;
             return View();
         }
 
         [HttpPost]
-        public ActionResult Purchase(Order Ord)
+        public ActionResult Purchase(string PassItem, string PassPrice,  Order Ord)
         {
-
+            //it has pass so assign the values to the table items
+            ViewBag.PassItem = PassItem;
+            ViewBag.PassPrice = PassPrice;
+            Ord.Item = PassItem;
+            Ord.Price = Convert.ToDecimal(PassPrice);
             ViewBag.Group = "Gift Shop";
             if (ModelState.IsValid)
             {
-                try
+                try//try
                 {
-                    objGift.CommitInsert(Ord);
+                    objOrder.CommitInsert(Ord);
                     return RedirectToAction("ThankYou");
                 }
                 catch
@@ -232,18 +175,76 @@ namespace Temiskaming.Controllers
                     return View("Index");
                 }
             }
-            else
+            else//if fails 
             {
                 return View();
             }
         }
-
-        [HttpPost]
+        //thank you page
         public ActionResult ThankYou()
         {
             return View();
         }
 
+        [HttpPost]
+        public ActionResult ThankYou(Order ord)
+        {
+            return View();
+        }
+
+         //ORDER
+        public ActionResult Order()
+        {
+            var Od = objOrder.getOrder();
+            ViewBag.Group = "Gift Shop";
+            return View(Od);
+        }
+
+        //get detail for each entry
+
+        public ActionResult OrderDetail(int OrderId)
+        {
+           
+     
+            ViewBag.Group = "Gift Shop";
+            var Ord = objOrder.getOrderById(OrderId);
+            if(Ord == null)
+            {
+                return View("Order");
+            }
+            else
+            {
+                return View(Ord);
+            }
+        }
+
+        //Delete
+        public ActionResult OrderDetailDelete(int OrderId)
+        {
+            var Ord = objOrder.getOrderById(OrderId);
+            if(Ord == null)
+            {
+                return View("Order");
+            }
+            else
+            {
+                return View(Ord);
+            }
+        }
+          [HttpPost]
+        public ActionResult OrderDetailDelete(int OrderId, Order Or)
+        {
+            ViewBag.Group = "Gift Shop";
+            try
+            {
+                objOrder.commitDelete(OrderId);
+                return RedirectToAction("Order");
+            }
+              catch
+            {
+                return View();
+            }
+        }
 
 
        }

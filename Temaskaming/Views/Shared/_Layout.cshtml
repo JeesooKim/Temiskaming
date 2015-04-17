@@ -23,30 +23,34 @@
     
         <header>
             <div id="hwrapper">
-                <div id="logo">
-
+                <div id="menuIcon">
+                    <p>Menu</p>
                 </div>
-                <nav>
-                    <ul>
-                        @{Html.RenderAction("Nav", "Home", new { group = "Home" });}
-                        @*Uses partial views to render dynamic menu*@
-                    </ul>
-                </nav>
+                <div id="logo">
+                    <h1>Temiskaming Hospital</h1>
+                </div>
+                
+                <div class="menu">
+                    
+                    <nav class="navi">
+                        <ul>
+                            @{Html.RenderAction("Nav", "Home", new { group = "Home" });}
+                            @*Uses partial views to render dynamic menu*@
+                        </ul>
+                    </nav>
+
+                        @if (ViewBag.Group != null)
+                        {
+                            
+                            <nav class="subMenu">
+                                @{Html.RenderAction("Nav", "Home", new { group = ViewBag.Group });}
+                            </nav>
+                        }
+                </div>
             </div>
         </header>
     <div id="wrapper">
-        <div class="menu">
-            
-            @if (ViewBag.Group != null)
-            {
-                <div id="menuIcon">
-                    
-                </div>
-            <nav>
-                @{Html.RenderAction("Nav", "Home", new { group = ViewBag.Group });}
-            </nav>
-            }
-        </div>
+        
         <div id="container">
             @if (ViewBag.Group == "Admin" || ViewBag.Group == "Nurse")
             {
@@ -81,10 +85,10 @@
                     <h2>@Html.ActionLink("Donate", "Index", "Donation")</h2>
                 </div>
                 <div id="appointBox">
-                    <h2>Book an Appointment</h2>
+                    <h2>@Html.ActionLink("Book an Appointment", "Index", "Appointment")</h2>
                 </div>
                 <div id="chatBox">
-
+                    @*Live Chat*@
                     <h2><a>Live Chat</a></h2>
                     <div id="chat">
                         @{Html.RenderAction("Index", "Chat");}

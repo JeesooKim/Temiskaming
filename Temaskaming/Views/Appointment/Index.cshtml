@@ -12,14 +12,17 @@
     }
 }
 
-<h2>Pick a Doctors</h2>
+<link rel="stylesheet" href="../Content/Themes/ashwin.css" />
+<div id="app">
+    <h2>Pick a Doctors</h2>
 
-@foreach (var record in Model)
-{
-    <div>
-        <span> @Html.DisplayFor(m => record.fname) @Html.DisplayFor(m => record.lname)  </span> 
-        @Html.ActionLink("Make an Appointment", "BookAppointment", new { docID = record.Id })
-        <hr />
-    </div>
+    @foreach (var record in Model)
+    {
+        <div id="subapp">
+            <span> @Html.DisplayFor(m => record.fname) @Html.DisplayFor(m => record.lname)  </span>
+            <button class="buttonApp"> @Html.ActionLink("Make an Appointment", "BookAppointment", new { docID = record.Id })</button>
+            <br/>
+        </div>
 
-}
+    }
+</div>

@@ -12,7 +12,7 @@
     margin-left:2px;
 }
 
- .buttons a {
+ .buttons a,     .survey-button a {
    font-family:'Times New Roman', Times, serif;
    font-size:14px;
    color:#4c4c4c;
@@ -45,6 +45,94 @@
 }
 
 #alert span {
+    font-size:18px;
     color:green; 
     font-family:'Times New Roman', Times, serif;   
     }
+
+.update_alert {
+    border:2px solid #000;
+
+}
+
+#alertDiv {
+    border:2px solid #000;
+    background-color:#00ffff;
+    font-family:'Times New Roman', Times, serif;
+    width:274px;
+    color:red;
+}
+
+#alertDiv h3 {
+    font-size:25px;
+    font-weight:600;
+    color:blue;    
+}
+
+#alertDiv p{
+   font-size:20px;
+}
+
+.buttonApp {
+    padding:3px;
+    width:150px;
+    height:30px;
+    background:#bbecff;
+    color:#fff;
+    padding:7px;
+    border-radius:3px;
+    border:1px solid #000;
+    float:right;
+    cursor:pointer;
+    margin-left:2px;
+}
+
+    .buttonApp a {
+        text-decoration:none;
+        color:#4c4c4c;
+    }
+
+ #subapp span {
+     width:100px;
+     float:left;
+    }
+
+#subapp {
+    width:300px;
+    margin-bottom:25px;
+}
+
+#survey {
+    
+}
+
+    #survey h2 {
+        font-family:Arial;
+        font-weight:500;
+        margin-left:2px;
+    }
+
+#ques {
+    
+    margin-left:10px;
+}
+
+    #ques h3 {
+        font-family:Arial;
+        font-weight:300;       
+    }
+
+.survey-button {
+    width:100px;
+    height:25px;
+     background:#bbecff;
+    color:#fff;
+    
+    border-radius:3px;
+    border:1px solid #000;
+    float:left;
+    cursor:pointer;
+    margin-left:5px;
+    padding-left:10px;
+}
+    

@@ -10,23 +10,22 @@ using System.Web.Mvc;
 namespace Temiskaming.Models
 {
     [MetadataType(typeof(OrderValidtion))]
-    [Bind(Exclude="OrderId")]
-
     public partial class Order
     {
 
     }
-
+    
+    [Bind(Exclude="OrderId")]
     public class OrderValidtion
     {
         [Required]
-        public string itemId { get; set; }
+        public string Item { get; set; }
         [Required]
         public string OrderDate { get; set; }
         [Required]
         public string FirstName { get; set; }
         [Required]
-        public string Lastname { get; set; }
+        public string LastName { get; set; }
         [Required]
         public string Email { get; set; }
         [Required]
@@ -35,7 +34,9 @@ namespace Temiskaming.Models
         public string From { get; set; }
         [Required]
         public string Message { get; set; }
-     
+        [Required]
+        public decimal Price { get; set; }
+
 
     }
 }

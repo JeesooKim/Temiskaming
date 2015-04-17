@@ -12,6 +12,16 @@ body {
 p{
     font-size: 1.2em;
 }
+h1 {
+    font-size: 2em;
+    margin: 0;
+}
+h2 {
+    font-size: 1.7em;
+}
+h3 {
+    font-size: 1.5em;
+}
 
 .disclaimer {
     background-color: rgba(255, 70, 0, 0.63);
@@ -39,9 +49,20 @@ ul{
     margin: 0 auto;
     height: 100%;
 }
-.menu {
+.subMenu {
+    margin: 0;
+    padding: 0;
+}
+.subMenu nav {
+    margin-left: 20px;
+    text-align: left;
     position: relative;
     top: 20px;
+}
+
+#menuIcon {
+    margin: 0;
+    display: none;
 }
 
 input[type="submit"]{
@@ -54,7 +75,6 @@ input[type="submit"]{
 /*HEADER MASTER BEGINS*/
 
 header {
-    height: 60px;
     border-bottom: 1px solid #60cef7;
     padding-right: 30px;
 }
@@ -63,18 +83,23 @@ header #logo {
     display: block;
     height: 59px;
     width: 59px;
-    float: left;
+    color: #60cdf6;
+    padding: 0px 0 0 60px;
     margin-left: 30px;
+    margin-bottom: 20px;
     background: #60cef7;
     background: url('Images/logo.png') no-repeat;
     background-size: 59px 59px;
 }
 
-header nav {
+.navi {
+    text-align: center;
     font-size: 150%;
     position: relative;
-    float: right;
-    margin-top: 20px;
+}
+
+.subMenu nav {
+    font-size: 100%;
 }
 
 header a{
@@ -113,7 +138,22 @@ nav li {
     padding-bottom: 50px;
 }
     /*HOMEPAGE STYLING INDEX.ASPX*/
+    #welcomeIndex h1 {
+    }
     
+
+    .imgSlider {
+        position: relative;
+        height: 200px;
+    }
+    .imgSlider img{
+        position: absolute;
+        width: 100%;
+        opacity: 0;
+    }
+    .imgSlider img:first-child{
+        opacity: 1;
+    }
     /*HOMEPAGE STYLING ENDS*/
     
     /*ASIDE SIDEBAR MASTER BEGINS*/
@@ -289,9 +329,14 @@ textarea {
         margin: 0 auto;
         height: auto;
     }
-    .menu {
+    .imgSlider {
+        height: 350px;
+    }
+
+    .subMenu {
         text-align: center;
     }
+    
     
     /*HEADER*/
     header {
@@ -300,10 +345,10 @@ textarea {
         padding: 0;
         margin: 0;
     }
+    header h1 {
+        text-align: left;
+    }
     header #logo {
-        float: none;
-        margin-left: auto;
-        margin-right: auto;
     }
     header nav {
         font-size: 1.5em;
@@ -317,7 +362,7 @@ textarea {
     }
     header a:hover {
     }
-    header nav li {
+    .navi li {
         border-top: 1px dashed #60cef7;
     }
 
@@ -368,16 +413,23 @@ textarea {
 }
 
 @media only screen and (max-width: 770px) {
-    /*SECONDARY NAV*/
-    .menu {
-        position: static;
+    header #logo {
         text-align: left;
+        margin: 0;
     }
+    header h1 {
+        display: none;
+    }
+
+    /*SECONDARY NAV*/
+    
     #menuIcon {
+        display: inline-block;
+        float: right;
         color: white;
-        width: 100%;
-        height: 45px;
-        background: url('Images/hamburger.png') no-repeat center;
+        width: 200px;
+        height: 100%;
+        background: url('Images/hamburger.png') no-repeat right;
         background-size: 40px 40px;
         background-color: black;
         margin: 0;
@@ -386,42 +438,30 @@ textarea {
     #menuIcon:active {
         background-color: #1c3152;
     }
-    .menu a {
-        display: block;
-        width: 100%;
-        color: white;
-        text-decoration: none;
-        background: black;
-        padding: 10px;
-        border-top: 1px dashed white;
-    }
-    .menu nav {
-        display: none;
-    }
-    .menu a:active {
+    
+    
+    .subMenu a:active {
         background: #1c3152;
     }
-    .menu li {
-        margin: 0;
-        font-size: 1.2em;
-        display: list-item;
-        background: #1c3152;
-        overflow: hidden;
-    }
+    
 
-    header nav li {
+    .navi li {
         display: list-item;
         margin-bottom: 10px;
         margin: 0;
         background: #a0e2fa;
     }
-    header nav {
+    .navi {
         font-size: 1.4em;
+
     }
-    header a:hover {
+    .subMenu {
+        margin: 0;
+    }
+    .navi a:hover {
         color: white;
     }
-    header a:active {
+    .navi a:active {
         background: #35758e;
     }
     footer nav li {
@@ -433,6 +473,9 @@ textarea {
 
     #chatLog {
         font-size: 1em;
+    }
+    .imgSlider {
+        display: none;
     }
     
 }
@@ -647,6 +690,33 @@ padding:4px;
     h2 {
         text-align: center;
     }
+    
+}
+
+/*FOR GIFT SHOP*/
+
+.gift-thumb {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    border: 3px solid #60cdf6;
+    background-position: center center;
+    background-size: cover;
+}
+
+/*contact form*/
+.Contact-list{
+     list-style-type: none;
+}
+
+.contact-left{
+width:70px;
+float:left;
+}
+
+.contact-right{
+    width:100%;
     
 }
 

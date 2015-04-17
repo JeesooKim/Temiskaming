@@ -16,20 +16,14 @@ namespace Temiskaming.Controllers
 
 
 
-        public ActionResult FAQ(string searchString)
+        public ActionResult Index(string searchString)
         {
           
-            if(searchString != null)
-            {
-                
-            }
-            else
-            {
-
-            };
+         
             
 
             //REFERENCE http://stackoverflow.com/questions/5374481/like-operator-in-linq
+            //how to search within the table if the question contains these value narrow it down 
             var Fa = from q in objFAQ.getFAQ() select q; 
 
             if(!string.IsNullOrEmpty(searchString))
@@ -39,6 +33,8 @@ namespace Temiskaming.Controllers
             return View(Fa);
         }
 
+
+        //Admin page , will hold links to insert, update, delete
         public ActionResult FAQAdmin()
         {
             ViewBag.Group = "FAQ";
@@ -53,6 +49,8 @@ namespace Temiskaming.Controllers
             }
         }
 
+
+        //insert
         public ActionResult FAQInsert()
         {
             return View();
@@ -80,6 +78,9 @@ namespace Temiskaming.Controllers
             }
             return View();
         }
+        //end of insert
+
+        //update 
         public ActionResult FAQUpdate(int id)
         {
             var fa = objFAQ.getFAQByID(id);
@@ -113,14 +114,16 @@ namespace Temiskaming.Controllers
             }
             return View();
         }
+        //end of updatw
 
+        //start delete
         public ActionResult FAQDelete(int id)
         {
 
             var fa = objFAQ.getFAQByID(id);
             if (fa == null)
             {
-                return View("Not Found");
+                return View("FAQAdmin");
             }
             else
             {
@@ -142,9 +145,7 @@ namespace Temiskaming.Controllers
                 return View();
             }
         }
-        public ActionResult NotFound()
-        {
-            return View();
-        }
+        //end of delete
+
     }
 }
