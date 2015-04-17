@@ -20,30 +20,32 @@
 
 <h2>Welcome</h2>
 
-<h2>Hi <b>@Context.User.Identity.Name</b>!</h2>
-You are logged in now.
+@*<h2>Hi <b>@Context.User.Identity.Name</b>!</h2>
+You are logged in now.*@
 
 <fieldset>
     <legend>Your Current Schedule</legend>
-    Participation:@Html.DisplayFor(x => x.v_oppId)
+    Participation: @Html.DisplayFor(x => x.v_oppId)
+    <br/>
+    @for(var i= 0 )
     <br />
-    Status:@Html.DisplayFor(x => x.v_status)<br />
-    Schedule:@Html.DisplayFor(x => x.v_schedule)
+    Status:   @Html.DisplayFor(x => x.v_status)<br />
+    Schedule: @Html.DisplayFor(x => x.v_schedule)
 </fieldset>
 
 <fieldset>
     <legend>Your Profile</legend>
-    Address:@Html.DisplayFor(x => x.v_address)
+    Address: @Html.DisplayFor(x => x.v_address)
     <br />
-    City:@Html.DisplayFor(x => x.v_city)
+    City: @Html.DisplayFor(x => x.v_city)
     <br />
-    Province:@Html.DisplayFor(x => x.v_province)
+    Province: @Html.DisplayFor(x => x.v_province)
     <br />
-    Postal Code:@Html.DisplayFor(x => x.v_postalCode)
+    Postal Code: @Html.DisplayFor(x => x.v_postalCode)
     <br />
-    Phone:@Html.DisplayFor(x => x.v_phone)
+    Phone: @Html.DisplayFor(x => x.v_phone)
     <br />
-    Email:@Html.DisplayFor(x => x.v_email)
+    Email: @Html.DisplayFor(x => x.v_email)
 </fieldset>
 
 
@@ -51,7 +53,13 @@ Please contact Volunteer Coordinator if you want or need to <br />
 (1) update your profile,<br />
 and/or<br />
 (2) change your schedule.<br />
-
+<br/>
+<h4>Volunteer Department</h4>
+Hours: 8h00 am to 4h00 pm
+<br/>
+Jaimi Gillespie, Volunteer Coordinator<br/>
+Telephone: 705-647-1088 Ext.2520<br/>
+E-mail: jgillespie@temiskaming-hospital.com
 
 @*<fieldset>
     <legend>Update</legend>

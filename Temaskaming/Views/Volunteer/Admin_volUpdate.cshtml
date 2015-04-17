@@ -59,7 +59,7 @@
                     new SelectListItem(){Text ="QC", Value="QC"},
                     new SelectListItem(){Text ="SK", Value="SK"},
                     new SelectListItem(){Text ="YT", Value="YT"},
-                    new SelectListItem(){Text="", Value=""}
+                    new SelectListItem(){Text="", Value="", Selected=true}
                             })
     //@Html.ValidationMessageFor(x => x.v_province)
     <br /><br />
@@ -133,8 +133,11 @@
     <input type="submit" value="Update" />
 }
 <p>
+    @Html.ActionLink("Volunteer Details", "Admin_volDetails", new { id = Model.v_id })
+    &nbsp;| &nbsp;
     @Html.ActionLink("Back to Volunteers List", "VolunteerAdmin-volIndex", new { id = Model.v_id })
 </p>
+
 
 @section Scripts{
     @Scripts.Render("~/bundles/jqueryval")

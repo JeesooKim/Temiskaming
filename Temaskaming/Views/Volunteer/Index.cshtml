@@ -3,6 +3,19 @@
     ViewBag.Title = "Volunteer";    
 }
 
+@section css{
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $(".accordion").accordion({ heightStyle: 'content' });
+        });
+    </script>
+}
+@*Ref:http://stackoverflow.com/questions/2841075/how-can-you-adjust-the-height-of-a-jquery-ui-accordion*@
+
+
 <div style="width: auto; background-color:whitesmoke;">
     @if (Request.IsAuthenticated)
     {
@@ -29,60 +42,66 @@
 <br /><br />
 <fieldset>
     <legend><b>Volunteer Opportunities:</b></legend>
-    <br />
-    <div style="float:left;">
+    <br />    
         <fieldset>
             <legend>Occasional/special Opportunities</legend>
-            @foreach (var occItem in Model)
-            {
-                //if the opportunity is occasional/special for a specific date
-
-                if (occItem.o_regular != true)
+            <div class="accordion">
+                @foreach (var occItem in Model)
                 {
-                    <h3>@occItem.o_name</h3>
-                    <p>
-                        Date: @occItem.o_date.ToString().Substring(0, 11)
-                        <br />
-                        Time: @occItem.o_start - @occItem.o_end
-                        <br />
-                        Location: @occItem.o_location
-                        <br />
-                        Detail: @occItem.o_description
-                    </p>
-                }
-            }
+                    //if the opportunity is occasional/special for a specific date                    
+                    if (occItem.o_regular != true)
+                    {
+                        <h3>@occItem.o_name</h3>
+                    <div>
+                        <p>
+                            Date: @occItem.o_date.ToString().Substring(0, 11)
+                            <br />
+                            Time: @occItem.o_start - @occItem.o_end
+                            <br />
+                            Location: @occItem.o_location
+                            <br />
+                            Detail: @occItem.o_description
+                        </p>
+                    </div>                        
+                    }
+                }@*end of foreach*@
+            </div>@*end of .accordion*@
 
-            @*Currently No Special Event/Opportunity Available*@
+                @*Currently No Special Event/Opportunity Available*@
         </fieldset>
-    </div>
-    
-    <div style="float:right;">
+
         <fieldset>
             <legend>Regular : Monday to Friday</legend>
-            <br />
-            @foreach (var item in Model)
-            {
-                //if the opportunity is regular/weekly basis
-
-                if (item.o_regular == true)
+            <div class="accordion">
+                @foreach (var item in Model)
                 {
-                    if (@item.o_start != null)
-                    {
-                        <h4>@item.o_name : @item.o_start.ToString() - @item.o_end.ToString()</h4>
-                        @item.o_description<br />
-                        @item.o_location
-                    }
-                    else
-                    {
-                        <h4>@item.o_name : @item.o_description</h4>
-                        @item.o_location
-                    }
-                }
-            }
-        </fieldset>
+                    //if the opportunity is regular/weekly basis
 
-    </div>
-    <div style="clear:both;"></div>
+                    if (item.o_regular == true)
+                    {
+                        if (@item.o_start != null)
+                        {
+                            <h3>@item.o_name : @item.o_start.ToString() - @item.o_end.ToString()</h3>
+                            <div>
+                                <p>
+                                    @item.o_description<br />
+                                    @item.o_location
+                                </p>
+                            </div>                            
+                        }
+                        else
+                        {
+                            <h3>@item.o_name : @item.o_description</h3>
+                            <div>
+                                <p>
+                                    @item.o_location
+                                </p>
+                            </div>                           
+                        }
+                    }
+                }@* end of foreach*@            
+            </div>@*end of .accordion*@
+        </fieldset>    
 </fieldset>
 @*Physiotherapy Department: 10:00 a.m. – 12:00 p.m.<br />
     Emergency Department: 8:00 a.m. – 2:00 p.m.<br />
@@ -104,8 +123,14 @@
     </ul>
     <br />
     <b>NOTE</b>: The form for Vulnerable Sector/Criminal Check is to be picked up by the applicant at the volunteer office. A witnessed signature is required. This form is then brought by the applicant to the Temiskaming OPP Department. Applicants should not be asked for payment as the form waives the fee.
-    <br />
-    <br />
+    <br /><br/>
+    <fieldset><legend>Applications can be mailed to:</legend>        
+        Temiskaming Hospital<br/>
+        Volunteer Coordinator<br/>
+        421 Shepherdson Road<br/>
+        New Liskeard, ON<br/>
+        P0J 1P0    
+    </fieldset>    
 
     <li>Interview</li>
     <li>General Orientation/Hospital Tour</li>

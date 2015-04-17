@@ -3,6 +3,20 @@
 @{
     ViewBag.Title = "SignIn";
 }
+<div style="width: auto; background-color:whitesmoke;">
+    @if (Request.IsAuthenticated)
+    {
+        @:Hello,
+        <strong>@Html.Encode(User.Identity.Name)</strong> @:! |
+        @Html.ActionLink("Sign Out", "Signout", "Volunteer")
+    }
+    else
+    {
+        @Html.ActionLink("Sign Up", "SignUp", "Volunteer")
+        <span> | </span>
+        @Html.ActionLink("Sign In", "SignIn", "Volunteer")
+    }
+</div>
 
 <h2>SignIn-Approved Volunteer</h2>
 

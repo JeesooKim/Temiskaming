@@ -39,7 +39,7 @@ namespace Temiskaming.Controllers
 
             if (staffs == null)
             {
-                return PartialView("NotFound_P");
+                return HttpNotFound();
             }
             else
             {
@@ -87,7 +87,7 @@ namespace Temiskaming.Controllers
 
             if (department == null)
             {
-                return View("NotFound");
+                return HttpNotFound();
             }
             else
             {
@@ -105,7 +105,7 @@ namespace Temiskaming.Controllers
 
             if (staff == null)
             {
-                return View("NotFound");
+                return HttpNotFound();
             }
             else
             {

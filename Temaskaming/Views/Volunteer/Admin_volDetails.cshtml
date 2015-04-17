@@ -77,11 +77,14 @@
         <td>@Html.DisplayFor(x => x.v_oppId)</td>
     </tr>
 </table>
-<br/>
-@Html.ActionLink("Update", "Admin_volUpdate", new { id = Model.v_id }) |
-@Html.ActionLink("Delete", "Admin_volDelete", new { id = Model.v_id })
-<hr/>
+<p>
 @Html.ActionLink("Back To Volunteers List", "VolunteerAdmin_volIndex", "Volunteer")
+    &nbsp;|&nbsp;
+@Html.ActionLink("Update", "Admin_volUpdate", new { id = Model.v_id }) 
+    &nbsp;|&nbsp;
+@Html.ActionLink("Delete", "Admin_volDelete", new { id = Model.v_id })
+</p>
+
 
 
 @*//[Team2]Temiskaming-Hospital website Redesign Project @ Humber College

@@ -227,20 +227,6 @@ namespace Temiskaming.Controllers
             return RedirectToAction("Index", "Volunteer");
         }
 
-        //-------------------------------------------//
-
-        //*******************************************************//
-        //public ActionResult Form()
-        //{//Reference: Course Material - Week 5 
-
-        //    ViewBag.Group = "JoinOurTeam";
-
-        //    var provList = new SelectList(new[] { 
-        //        "AB", "BC","MB", "NB","NL","NS","NT","NU","ON","PE", "QC","SK","YT",""});            
-
-        //    ViewBag.provList = provList;
-        //    return View();
-        //}
 
         public ActionResult Thanks()
         {
@@ -262,20 +248,11 @@ namespace Temiskaming.Controllers
                 return PartialView();
             }
         }
+        //-----------------------End of  Public ------------------------------//
+        
 
-        //-----------Public Login ---------//
-        //login page
-        //after login page to request schedule change similar to  volunteer update
-        //logout page
-
-
-        public ActionResult Schedule()
-        {
-            return View();
-        }
-
-        //----------------------------- Admin -------------------------//
-        //---------------------opportunities ----------------------//
+        //-------------------Below,   Admin  (START) -------------------------//
+        //-------------------------opportunities ----------------------//
 
         [Authorize(Roles = "Admin")]
         public ActionResult VolunteerAdmin_Index()
@@ -299,11 +276,30 @@ namespace Temiskaming.Controllers
                       select v;
             if (vol == null)
             {
-                return PartialView("_NotFound_P");
+                return HttpNotFound();
             }
             else
             {
                 return PartialView(vol);
+            }
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult Admin_volList(int _oppId)
+        {
+            ViewBag.Group = "Admin";
+
+            var vol = from v in objVol.getVolunteers()
+                      where v.v_oppId == _oppId
+                      orderby v.v_lname
+                      select v;
+            if (vol == null)
+            {
+                return HttpNotFound();
+            }
+            else
+            {
+                return View(vol);
             }
         }
 
@@ -317,7 +313,7 @@ namespace Temiskaming.Controllers
 
             if (opportunity == null)
             {
-                return PartialView("NotFound");
+                return HttpNotFound();
             }
             else
             {
@@ -335,7 +331,7 @@ namespace Temiskaming.Controllers
 
             if (opportunity == null)
             {
-                return View("NotFound");
+                return HttpNotFound();
             }
             else
             {
@@ -494,7 +490,7 @@ namespace Temiskaming.Controllers
 
             if (volunteer == null)
             {
-                return View("NotFound");
+                return HttpNotFound();
             }
             else
             {

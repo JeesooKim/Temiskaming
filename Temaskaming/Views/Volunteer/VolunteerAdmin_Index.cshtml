@@ -33,7 +33,8 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@Html.ActionLink(item.o_name, "Admin_volList", "Volunteer", new { oppId = item.o_id })    
+                <td>
+                    @Html.ActionLink(item.o_name, "Admin_volList", new { id = item.o_id })    
                 @*@Ajax.ActionLink(item.o_name, "_Admin_volList", "Volunteer", new { oppId = item.o_id }, new AjaxOptions
                     {
                         HttpMethod = "Post",

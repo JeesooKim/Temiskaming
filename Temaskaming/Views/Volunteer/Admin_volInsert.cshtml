@@ -53,7 +53,7 @@
                     new SelectListItem(){Text ="QC", Value="QC"},
                     new SelectListItem(){Text ="SK", Value="SK"},
                     new SelectListItem(){Text ="YT", Value="YT"},
-                    new SelectListItem(){Text="", Value=""}
+                    new SelectListItem(){Text="", Value="",Selected=true}
                             })
             </td>
             <td>@Html.ValidationMessageFor(model => model.v_province, "*")</td>
@@ -122,7 +122,7 @@
 }
 <br />
 
-<p>@Html.ActionLink("Back to Volunteers List", "VolutneerAdmin_volIndex")</p>
+<p>@Html.ActionLink("Back to Volunteers List", "VoluntneerAdmin_volIndex")</p>
 
 @section Scripts{
     @Scripts.Render("~/bundles/jqueryval")

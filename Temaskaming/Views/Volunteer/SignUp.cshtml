@@ -4,6 +4,21 @@
     ViewBag.Title = "SignUp";
 }
 
+<div style="width: auto; background-color:whitesmoke;">
+    @if (Request.IsAuthenticated)
+    {
+        @:Hello,
+        <strong>@Html.Encode(User.Identity.Name)</strong> @:! |
+        @Html.ActionLink("Sign Out", "Signout", "Volunteer")
+    }
+    else
+    {
+        @Html.ActionLink("Sign Up", "SignUp", "Volunteer")
+        <span> | </span>
+        @Html.ActionLink("Sign In", "SignIn", "Volunteer")
+    }
+</div>
+
 <h2>SignUp</h2>
 
 @*Approved volunteer is signing up in the hospital website system so that the cooridnator (or voulunteer oneself later ) can manage the schedule conveniently using the website*@
@@ -64,7 +79,7 @@
                 </tr>
                 <tr>
                     <td>@Html.DisplayName("Postal Code * ")</td>
-                    <td>@Html.TextBoxFor(model => model.v_postalCode, new { @placeholder = "please enter postal code" })</td>
+                    <td>@Html.TextBoxFor(model => model.v_postalCode, new { @placeholder = "M1M 2P3" })</td>
                     <td>@Html.ValidationMessageFor(model => model.v_postalCode)</td>
                 </tr>
                 <tr>
