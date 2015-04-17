@@ -15,8 +15,8 @@ namespace Temiskaming.Controllers
 
         //
         // GET: /Alert/
-
-        public ActionResult Index()
+        [Authorize(Roles = "Admin")]
+        public ActionResult Index()                         // get : admin page, shows a list of all alerts
         {
             ViewBag.Group = "Admin";
             var allAlerts = alertObj.getAllAlerts();
@@ -31,7 +31,8 @@ namespace Temiskaming.Controllers
 
         }
 
-        public ActionResult ActiveAlert()
+        [Authorize(Roles = "Admin")]                        // get : admin page, shows that alert that has been posted
+        public ActionResult ActiveAlert()                   // only one alert can be active at a time
         {
             var oneAlert = alertObj.getActiveAlert();
             if (oneAlert == null)
@@ -40,13 +41,14 @@ namespace Temiskaming.Controllers
             }
             else
             {
-                return PartialView(oneAlert);
-            }
-
+                return PartialView(oneAlert);               // returns a partial view, so that it can be renedered in the public page 
+            }                                               // to be displayed on the right side column
+                                                                
         }
 
-        public ActionResult PublishAlert(int id)
-        {
+        [Authorize(Roles = "Admin")]                        // get : admin page
+        public ActionResult PublishAlert(int id)            // changes the value of the publish column to true for a particular id
+        {                                                   // any alert which is already published, value is set to false.
             ViewBag.Group = "Admin";
             bool result = alertObj.publishAlert(id);
             if (result == false)
@@ -59,15 +61,16 @@ namespace Temiskaming.Controllers
             }
         }
 
-        public ActionResult AddAlert()
+        public ActionResult AddAlert()          // get : admin page, shows a form to add an alert and pick a date 
         {
             ViewBag.Group = "Admin";
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
-        public ActionResult AddAlert(alert newAlert)
-        {
+        public ActionResult AddAlert(alert newAlert)        // post : admin page, form values are insertrd in the database
+        {                                                   // the alert status by default is set to false
             newAlert.alertStatus = false;
             ViewBag.Group = "Admin";
             if (ModelState.IsValid)
@@ -86,8 +89,9 @@ namespace Temiskaming.Controllers
             return View();
         }
 
-        public ActionResult UpdateAlert(int id)
-        {
+        [Authorize(Roles = "Admin")]                
+        public ActionResult UpdateAlert(int id)                      // get: admin page
+        {                                                            //  shows a form to update a alert
             ViewBag.Group = "Admin";
             alert loadAlert = alertObj.getAlertByID(id);
             if (loadAlert == null)
@@ -100,8 +104,9 @@ namespace Temiskaming.Controllers
             }
         }
 
-        [HttpPost]
-        public ActionResult UpdateAlert(int id, alert updAlert)
+        [Authorize(Roles = "Admin")]                                // post : admin page
+        [HttpPost]                                                                      
+        public ActionResult UpdateAlert(int id, alert updAlert)       // form values are sent to db to be updated
         {
             ViewBag.Group = "Admin";
             if (ModelState.IsValid)
@@ -120,8 +125,9 @@ namespace Temiskaming.Controllers
             return View();
         }
 
-        public ActionResult DeleteAlert(int id)
-        {
+        [Authorize(Roles = "Admin")]
+        public ActionResult DeleteAlert(int id)                 // get : admin page
+        {                                                       // shows the record that has been requested to be deleted
             ViewBag.Group = "Admin";
             alert loadAlert = alertObj.getAlertByID(id);
             if (loadAlert == null)
@@ -136,9 +142,11 @@ namespace Temiskaming.Controllers
          
         }
 
+
+        [Authorize(Roles = "Admin")]
         [HttpPost]
-        public ActionResult ConfirmDeleteAlert()
-        {
+        public ActionResult ConfirmDeleteAlert()        // post : admin page
+        {                                               // when admin confirms the deletion, record is deleted from db
             int id = (int)TempData["id"];
             ViewBag.Group = "Admin";
             if (id > 0)

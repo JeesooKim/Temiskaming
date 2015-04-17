@@ -3,24 +3,25 @@
 @{
     ViewBag.Title = "UpdateAlert";
 }
+<link rel="stylesheet" href="../Content/themes/ashwin.css" />
+<div id="update_alert">
 
-<h2>Update Alert</h2>
-
-@using(@Html.BeginForm())
-{ 
-    @Html.LabelFor(x => x.alertTitle)
-    @Html.TextBoxFor(x => x.alertTitle)
-    <br />
-    @Html.LabelFor(x => x.alertLevel)
-    @Html.TextBoxFor(x => x.alertLevel)
-    <br />
-    @Html.LabelFor(x => x.alertDescription)
-    @Html.TextAreaFor(x => x.alertDescription)
-    <br />
-    @Html.LabelFor(x => x.alertTimeline)
-    @Html.TextAreaFor(x => x.alertTimeline)
+    <h2>Update Alert</h2>
     
-    <input type="submit" value="submit" />
+    @using (@Html.BeginForm())
+    {
+        @Html.LabelFor(x => x.alertTitle)
+        @Html.TextBoxFor(x => x.alertTitle)
+        <br />
+        @Html.LabelFor(x => x.alertLevel)
+        @Html.TextBoxFor(x => x.alertLevel)
+        <br />
+        @Html.LabelFor(x => x.alertDescription)
+        @Html.TextAreaFor(x => x.alertDescription)
+        <br />
+        @Html.LabelFor(x => x.alertTimeline)
+        @Html.TextAreaFor(x => x.alertTimeline)
 
-
-}
+        <input type="submit" value="submit" />
+    }
+</div>
