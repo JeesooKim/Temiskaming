@@ -1059,6 +1059,7 @@
     <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\picker.date.js" />
     <Content Include="Scripts\picker.js" />
+    <Content Include="userPages\Code of Conduct.html" />
     <Content Include="userPages\directions.html" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
@@ -1150,6 +1151,8 @@
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\_references.js" />
+    <Content Include="userPages\Programs.html" />
+    <Content Include="userPages\Services.html" />
     <Content Include="Views\Donation\donationAdmin.cshtml">
       <SubType>Code</SubType>
     </Content>

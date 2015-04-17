@@ -11,10 +11,13 @@ namespace Temiskaming.Controllers
     public class HomeController : Controller
     {
         navClass objNav = new navClass();
+        
 
         public ActionResult Index()
         {
-            return View();
+            NewsClass objNews = new NewsClass();
+            var news = objNews.getLatestNews();
+            return View(news);
         }
 
         [Authorize]
