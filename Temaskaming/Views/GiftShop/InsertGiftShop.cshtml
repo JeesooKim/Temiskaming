@@ -7,10 +7,7 @@
 <h2>InsertGiftShop</h2>
 
 
-@using (Html.BeginForm(null,
-                        null,
-                        FormMethod.Post,
-                        new { enctype = "multipart/form-data" }))
+@using (Html.BeginForm("InsertGiftShop", "GiftShop", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     <div>
         @Html.LabelFor(model => model.Item)
@@ -33,11 +30,12 @@
 
     </div>
     <div>
-        @Html.Label("Upload Image:") <input type="file" name="fileuploadImage" id="file" />
-      
+        @Html.Label("Upload Image:") <input type="file" name="file" />
+     
+       
     </div>
     <div>
-        <input type="submit" value="Enter"/> @Html.ActionLink("Cancel", "AdminGiftShop", "GiftShop")
+        <input type="submit" value="Enter" /> @Html.ActionLink("Cancel", "AdminGiftShop", "GiftShop")
     </div>
 }
 

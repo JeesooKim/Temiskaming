@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -80,7 +81,7 @@ namespace Temiskaming.Controllers
 
 
        //admin page
-        [Authorize(Roles = "Admin")]
+   
         public ActionResult AdminGiftShop()
         {
             ViewBag.Group = "Admin";
@@ -96,7 +97,7 @@ namespace Temiskaming.Controllers
         }
         
         //insert
-        [Authorize(Roles = "Admin")]
+        
         public ActionResult InsertGiftShop()
         {
             ViewBag.Group = "Admin";
@@ -104,37 +105,24 @@ namespace Temiskaming.Controllers
         }
 
 
-        [Authorize(Roles = "Admin")]
         [HttpPost]
-        public ActionResult InsertGiftShop(Gift Gt )
-       {
-           ViewBag.Group = "Admin";
+        public ActionResult InsertGiftShop(HttpPostedFileBase file, Gift Gt)
+        {
+            ViewBag.Group = "GiftShop";
 
-           HttpPostedFileBase file = Request.Files["fileuploadImage"];
-            
-            if (ModelState.IsValid)
+            if (file != null)
             {
-                
-                if( file !=null)
-            {
-                var pic = System.IO.Path.GetFileName(file.FileName);
-                var path = System.IO.Path.Combine(Server.MapPath("~/Content/Images/GiftShop/"), pic);
-            //file is uploaded
+                var pic =Path.GetFileName(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/content/images/GiftShop"), pic);
+                //file is uploaded
                 file.SaveAs(path);
-            }
-           
-                try
-                {
+                var imagename = pic; 
+                Gt.Image = imagename;
                     objGift.commitInsert(Gt);
                     return RedirectToAction("AdminGiftShop");
-                }//end try
-                catch
-                {
-                    return View();
-                }//end catch
-
             }//end if
-            return View(); 
+            else
+                return RedirectToAction("AdminGiftShop"); 
        }//end public insert item 
 
 
