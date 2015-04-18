@@ -17,22 +17,24 @@
 
 <h2>AddAlert</h2>
 
+@Html.ValidationSummary()
+
 @using (Html.BeginForm())
 {
     
 <br />
 @Html.LabelFor(x => x.alertTitle )
 @Html.TextBoxFor(x => x.alertTitle )
-<br />
+<br /><br />
 @Html.LabelFor(x => x.alertLevel)
 @Html.TextBoxFor(x => x.alertLevel)
-<br />
+<br /><br />
 @Html.LabelFor(x => x.alertDescription)
 @Html.TextAreaFor(x => x.alertDescription)
-<br />
+<br /><br />
 @Html.LabelFor(x => x.alertTimeline)
 @Html.TextBoxFor(x => x.alertTimeline, new { @class = "datepicker" })
-<br />    
+<br /><br />  
 <input type="submit"  value="ADD"/>
 
 }

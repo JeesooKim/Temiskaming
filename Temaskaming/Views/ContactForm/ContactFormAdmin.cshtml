@@ -11,10 +11,14 @@
         @foreach (var x in Model)
         {
             <li>
+                @*Display name *@
                 @Html.DisplayFor(model => x.Name)
+                @*Dsplay Email*@
                 @Html.DisplayFor(model => x.Email)
 
+                @*Show detail fo the comment*@
                 @Html.ActionLink("Details", "contactformDetail", new { id = x.id })
+                @*Delete*@
                 @Html.ActionLink("Delete", "ContactFormDelete", new { id = x.id })
             </li>
         }

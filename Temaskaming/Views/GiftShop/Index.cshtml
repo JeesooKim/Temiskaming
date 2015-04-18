@@ -16,6 +16,7 @@
         @foreach (var x in Model)
         {
         <tr>
+            @* image header *@
             <th></th>
             <th>
                 Item
@@ -25,10 +26,15 @@
 
         </tr>
             <tr>
+                @* display image *@
                 <td><div class="gift-thumb" style="background-image:url('@Url.Content( imagePath + x.Image)')"></div></td>
+                @* display item name *@
                 <td>@Html.DisplayFor(model => x.Item)</td>
+                @* display description *@
                 <td>@Html.DisplayFor(model => x.Description)</td>
+                @* display price *@
                 <td>@Html.DisplayFor(model => x.Price)</td>
+                @* purchase this item, if clicked redirect to purchase page *@
                 <td>@Html.ActionLink("Purchase", "Purchase", new { PassItem = x.Item,  PassPrice =x.Price })</td>
               
             </tr>

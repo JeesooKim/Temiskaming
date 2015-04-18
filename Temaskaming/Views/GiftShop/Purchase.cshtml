@@ -9,9 +9,12 @@
 
 @using (Html.BeginForm(new { PassItem = ViewBag.PassItem, PassPrice = ViewBag.PassPrice }))
 {
+    //purchase the item
     @Html.ValidationSummary()
     <div>
+        @*item name *@
        @Html.HiddenFor(model => model.Item, new { @Value = ViewBag.PassItem })
+        @*item price *@
         @Html.HiddenFor(model => model.Price, new { @Value = ViewBag.PassPrice })
         @Html.ViewBag.PassItem
         @Html.ViewBag.PassPrice
