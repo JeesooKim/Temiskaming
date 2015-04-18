@@ -31,18 +31,18 @@
     <br />
 <label>Pick a date</label>
 @Html.TextBoxFor(x => x.booking_date, new { @class = "datepicker" })
-<br />
+<br /><br />
 <label>Enter email</label>
 @Html.TextBoxFor(x => x.email)
-<br />
+<br /><br />
 @Html.LabelFor(x => x.phone )
 @Html.TextBoxFor(x => x.phone)
 <br /><br />
     <input type="submit" value="submit" />
 
 }
-
-@Html.ActionLink("Back", "AllAppointments")
+<br />
+@Html.ActionLink("Back", "Index")
 
 <script>
 
