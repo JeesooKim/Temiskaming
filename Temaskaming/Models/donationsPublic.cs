@@ -7,6 +7,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Temiskaming.Models
 {
+    /*
+     * View model for donation index view with validation
+     * */
+
     public class donationsPublic
     {
         public int? id { get; set; }
