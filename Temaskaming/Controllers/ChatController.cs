@@ -103,7 +103,7 @@ namespace Temiskaming.Controllers
         public ActionResult Send()
         {
             /*
-             * 
+             * Partial view used to send messages
              * */
             return PartialView();
         }
@@ -111,6 +111,9 @@ namespace Temiskaming.Controllers
         [HttpPost]
         public ActionResult Send(string message, string file, chatSendModel model)
         {
+            /*
+             * If message isn't empty, write into log file with appropriate date and user tags
+             * */
             if (ModelState.IsValid)
             {
                 var date = DateTime.Now;
@@ -128,6 +131,9 @@ namespace Temiskaming.Controllers
 
         public ActionResult Exit(string file)
         {
+            /*
+             * Upon exiting chat, write out exit message in chat and abandon session
+             * */
             string lineToWrite = " <em>(" + Session["email"] + ") has left chat</em> <br />";
             var path = Server.MapPath("~/chatLogs/" + file + ".txt");
             objChat.writeChat(lineToWrite, path);
@@ -138,6 +144,9 @@ namespace Temiskaming.Controllers
         [Authorize(Roles="Nurse")]
         public ActionResult nChat()
         {
+            /*
+             * Upon page load, grab all chats not yet closed by nurse
+             * */
             ViewBag.Group = "Nurse";
             var chats = objChat.getWaitingChats();
             return View(chats);
@@ -145,9 +154,12 @@ namespace Temiskaming.Controllers
 
         public ActionResult ShowChat(int id)
         {
+            /*
+             * Upon nurse entering chat, sends message to chat room.
+             * */
             var chat = objChat.getChat(id);
             DateTime date = DateTime.Now;
-            string lineToWrite = date.ToString("yyyy-MM-dd hh:mm:ss tt") + " <em><b>(" + User.Identity.Name + " NURSE)</b> " + " has entered chat.</em><br />";
+            string lineToWrite = date.ToString("yyyy-MM-dd hh:mm:ss tt") + " <em><b>(" + User.Identity.Name + ")</b> " + " has entered chat.</em><br />";
             var path = Server.MapPath("~/chatLogs/" + chat.log_file + ".txt");
             objChat.writeChat(lineToWrite, path);
             return PartialView(chat);
@@ -157,6 +169,9 @@ namespace Temiskaming.Controllers
 
         public ActionResult nSend(string file)
         {
+            /*
+             * Sets up nurse's send field
+             * */
             ViewBag.File = file;
             return PartialView();
         }
@@ -164,6 +179,10 @@ namespace Temiskaming.Controllers
         [HttpPost]
         public ActionResult nSend(string message, string file, chatSendModel model)
         {
+            /*
+             * IF message is not empty string, send to chat room
+             * */
+            
             if (ModelState.IsValid)
             {
                 var date = DateTime.Now;
@@ -181,6 +200,9 @@ namespace Temiskaming.Controllers
 
         public ActionResult nExit(int id, string file)
         {
+            /*
+             * Upon exitting chat, write exit line, and close chat by updating database Nurse column
+             * */
             string lineToWrite = "<em><b>(" + User.Identity.Name + ")</b> has left chat.</em> <br />";
             string fileString = file;
             var path = Server.MapPath("~/chatLogs/" + fileString + ".txt");
@@ -193,6 +215,9 @@ namespace Temiskaming.Controllers
         [Authorize(Roles="Admin")]
         public ActionResult chatAdmin()
         {
+            /*
+             * Grabs all chats that been conducted
+             * */
             ViewBag.Group = "Admin";
             var chats = objChat.getAllChats();
             return View(chats);
@@ -201,6 +226,10 @@ namespace Temiskaming.Controllers
         [Authorize(Roles="Admin")]
         public ActionResult Delete(int id, string file)
         {
+            /*
+             * Deletes specific chat file and information from database
+             * 
+             * */
             var path = Server.MapPath("~/chatLogs/" + file + ".txt");
             objChat.deleteChat(id, path);
             return RedirectToAction("chatAdmin");
