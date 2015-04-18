@@ -16,7 +16,7 @@ namespace Temiskaming.Models
     [Bind(Exclude="id")]
     public class appointmentValdation           // Validation Model for appointment model
     {
-        [Required]
+        
         public int doctor_id { get; set; }
 
         [DisplayName("Appointment Date")]
@@ -25,7 +25,7 @@ namespace Temiskaming.Models
 
         [DisplayName("Email")]
         [Required(ErrorMessage = "Please enter email")]
-        [RegularExpression(".+\\@.+\\..+", ErrorMessage = "Please enter a valid email")]
+        //[RegularExpression(".+\\@.+\\..+", ErrorMessage = "Please enter a valid email")]
         public string email { get; set; }
 
         [DisplayName("Phone")]

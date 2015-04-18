@@ -38,7 +38,7 @@ namespace Temiskaming.Models
         [Required(ErrorMessage = "Please pick a date")]
         public DateTime alertTimeline { get; set; }
 
-        [Required]
+        
         public bool alertStatus { get; set; }
 
     }
