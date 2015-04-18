@@ -91,16 +91,6 @@
       <Association Name="doctor_doctor_schedule" Member="doctor" ThisKey="doctor_id" OtherKey="Id" Type="doctor" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="temismain.appointments" Member="appointments">
-    <Type Name="appointment">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="doctor_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="booking_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="phone" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Association Name="doctor_appointment" Member="doctor" ThisKey="doctor_id" OtherKey="Id" Type="doctor" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.waittime" Member="waittimes">
     <Type Name="waittime">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -262,6 +252,16 @@
       <Column Name="v_schedule" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
       <Column Name="v_oppId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="volunteer_opportunity_volunteer" Member="volunteer_opportunity" ThisKey="v_oppId" OtherKey="o_id" Type="volunteer_opportunity" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="temismain.appointments" Member="appointments">
+    <Type Name="appointment">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="doctor_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="booking_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="phone" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="doctor_appointment" Member="doctor" ThisKey="doctor_id" OtherKey="Id" Type="doctor" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

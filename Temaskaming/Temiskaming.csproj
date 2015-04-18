@@ -869,6 +869,7 @@
     <Content Include="Content\jquery.mobile.theme-1.4.5.css" />
     <Content Include="Content\jquery.mobile.theme-1.4.5.min.css" />
     <Content Include="Content\nchat.css" />
+    <Content Include="Content\themes\ashwin.css" />
     <Content Include="Scripts\datepicker\lib\compressed\legacy.js" />
     <Content Include="Scripts\datepicker\lib\compressed\picker.date.js" />
     <Content Include="Scripts\datepicker\lib\compressed\picker.js" />
