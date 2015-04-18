@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -80,10 +81,11 @@ namespace Temiskaming.Controllers
 
 
        //admin page
-        [Authorize(Roles = "Admin")]
+   [Authorize(Roles = "Admin")]
         public ActionResult AdminGiftShop()
         {
             ViewBag.Group = "Admin";
+       //get values from table 
             var Gif = objGift.getGifts();
             if(Gif == null)
             {
@@ -100,41 +102,38 @@ namespace Temiskaming.Controllers
         public ActionResult InsertGiftShop()
         {
             ViewBag.Group = "Admin";
+            //return the view for this action result
             return View();
         }
 
-
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public ActionResult InsertGiftShop(Gift Gt )
-       {
-           ViewBag.Group = "Admin";
+        public ActionResult InsertGiftShop(HttpPostedFileBase file, Gift Gt)
+        {
+            ViewBag.Group = "GiftShop";
+            //if this file is not null
+            if (file != null)
+            {
 
-           HttpPostedFileBase file = Request.Files["fileuploadImage"];
-            
-            if (ModelState.IsValid)
-            {
-                
-                if( file !=null)
-            {
-                var pic = System.IO.Path.GetFileName(file.FileName);
-                var path = System.IO.Path.Combine(Server.MapPath("~/Content/Images/GiftShop/"), pic);
-            //file is uploaded
+                //REFERENCE FOR IMAGE UPLOAD 
+                //http://www.mikesdotnetting.com/article/259/asp-net-mvc-5-with-ef-6-working-with-files
+                //get the file name!
+                var pic =Path.GetFileName(file.FileName);
+                //put it into this location
+                var path = Path.Combine(Server.MapPath("~/content/images/GiftShop"), pic);
+                //file is uploaded
                 file.SaveAs(path);
-            }
-           
-                try
-                {
+                //get pic value this varible
+                var imagename = pic; 
+                //in the table the image will get the value of varible imagename
+                Gt.Image = imagename;
+                //commit insert it will save onto the table
                     objGift.commitInsert(Gt);
+                //redirect to the admin page
                     return RedirectToAction("AdminGiftShop");
-                }//end try
-                catch
-                {
-                    return View();
-                }//end catch
-
-            }//end if
-            return View(); 
+            }// if theres a problem redirect to 
+            else
+                return RedirectToAction("AdminGiftShop"); 
        }//end public insert item 
 
 
@@ -143,7 +142,9 @@ namespace Temiskaming.Controllers
         public ActionResult UpdateGiftShop(int ItemId)
         {
             ViewBag.Group = "Admin";
+            //ge the value by its id
             var Gif = objGift.getGiftsById(ItemId);
+            //if its null
             if (Gif == null)
             {
                 return View("AdminGiftShop"); 
