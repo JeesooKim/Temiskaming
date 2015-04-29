@@ -39,14 +39,17 @@ namespace Temiskaming.Models
 
         [DisplayName("Department Phone")]
         [Required(ErrorMessage = "Please enter department phone")]
+        [RegularExpression("(705-)[1-9]\\d{2}\\-\\d{4}", ErrorMessage = "Please enter valid phone number")]
         public string d_phone { get; set; }
 
         [DisplayName("Department Extension")]
-        [Required(ErrorMessage = "Please enter department extension")]
+        [Required(ErrorMessage = "Please enter department extension")]        
+        [RegularExpression("[x]+\\d{4}", ErrorMessage = "Please enter a four digit number after 'x' ")]
         public string d_ext { get; set; }
 
         [DisplayName("Department Fax")]
         [Required(ErrorMessage = "Please enter department fax")]
+        [RegularExpression("(705-)[1-9]\\d{2}\\-\\d{4}", ErrorMessage = "Please enter valid fax number")]
         public string d_fax { get; set; }
     }
 
@@ -80,10 +83,12 @@ namespace Temiskaming.Models
 
         [DisplayName("Staff Phone")]
         [Required(ErrorMessage = "Please enter staff's phone")]
+        [RegularExpression("(705-)[1-9]\\d{2}\\-\\d{4}", ErrorMessage = "Please enter valid phone number")]
         public string staff_phone { get; set; }
 
         [DisplayName("Staff Extension")]
         [Required(ErrorMessage = "Please enter staff's extension")]
+        [RegularExpression("[x]+\\d{4}", ErrorMessage = "Please enter a four digit number after 'x' ")]
         public string staff_ext { get; set; }
 
         [DisplayName("Staff Email")]

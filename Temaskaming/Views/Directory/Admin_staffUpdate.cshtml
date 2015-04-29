@@ -8,51 +8,54 @@
 
 @Html.ActionLink("To Admin-Department List", "DirectoryAdmin")
 <br /><hr />
+* Required
+<br/><br/>
 
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(x => x.staff_id)
+    @Html.ValidationSummary();
 
-    @Html.LabelFor(x => x.staff_fname)
+    @Html.LabelFor(x => x.staff_fname) @:*
     <br />
     @Html.TextBoxFor(x => x.staff_fname)
-    @Html.ValidationMessageFor(x => x.staff_fname)
+    @Html.ValidationMessageFor(x => x.staff_fname,"*")
     <br /><br />
 
-    @Html.LabelFor(x => x.staff_lname)
+    @Html.LabelFor(x => x.staff_lname) @:*
     <br />
     @Html.TextBoxFor(x => x.staff_lname)
-    @Html.ValidationMessageFor(x => x.staff_lname)
+    @Html.ValidationMessageFor(x => x.staff_lname, "*")
     <br /><br />
 
-    @Html.LabelFor(x => x.staff_position)
+    @Html.LabelFor(x => x.staff_position) @:*
     <br />
     @Html.TextBoxFor(x => x.staff_position)
-    @Html.ValidationMessageFor(x => x.staff_position)
+    @Html.ValidationMessageFor(x => x.staff_position, "*")
     <br /><br />
 
-    @Html.LabelFor(x => x.staff_phone)
+    @Html.LabelFor(x => x.staff_phone) @:*
     <br />
     @Html.TextBoxFor(x => x.staff_phone)
-    @Html.ValidationMessageFor(x => x.staff_phone)
+    @Html.ValidationMessageFor(x => x.staff_phone, "*")
     <br /><br />
 
-    @Html.LabelFor(x => x.staff_ext)
+    @Html.LabelFor(x => x.staff_ext) @:*
     <br />
     @Html.TextBoxFor(x => x.staff_ext)
-    @Html.ValidationMessageFor(x => x.staff_ext)
+    @Html.ValidationMessageFor(x => x.staff_ext, "*")
     <br /><br />
 
-    @Html.LabelFor(x => x.staff_email)
+    @Html.LabelFor(x => x.staff_email) @:*
     <br />
     @Html.TextBoxFor(x => x.staff_email)
-    @Html.ValidationMessageFor(x => x.staff_email)
+    @Html.ValidationMessageFor(x => x.staff_email, "*")
     <br /><br />
 
-    @Html.LabelFor(x => x.staff_departmentId)
+    @Html.LabelFor(x => x.staff_departmentId) @:*
     <br />
     @Html.DropDownList("staff_departmentId", ViewBag.DepartID as IEnumerable<SelectListItem>, String.Empty)
-    @Html.ValidationMessageFor(x => x.staff_departmentId)
+    @Html.ValidationMessageFor(x => x.staff_departmentId, "*")
     <br /><br />
 
 

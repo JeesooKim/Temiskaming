@@ -44,8 +44,9 @@
 
 @Html.ActionLink("To Volunteers List", "VolunteerAdmin_volIndex", "Volunteer")&nbsp; | &nbsp;
 <hr />
+<br/>
 * Required
-<br />
+<br /><br/>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -53,7 +54,7 @@
 
     <table>
         <tr>
-            <td>@Html.LabelFor(model => model.o_name) * </td>
+            <td>Opportunity Name * </td>
             <td>@Html.TextBoxFor(model => model.o_name)</td>
             <td>@Html.ValidationMessageFor(model => model.o_name, "*")</td>
         </tr>
@@ -63,12 +64,12 @@
             <td>@*@Html.ValidationMessageFor(model => model.o_date, "*")*@</td>
         </tr>
         <tr>
-            <td>@Html.LabelFor(model => model.o_date)  </td>
+            <td>Date </td>
             <td>@Html.TextBoxFor(model => model.o_date, "{0:dd/MM/yyyy}", new { @class = "datefield form-control", @placeholder = "Enter for an occasional/special event/opportunity", id = "datepicker" })</td>
             <td>@*@Html.ValidationMessageFor(model => model.o_date, "*")*@</td>
         </tr>
         <tr>
-            <td>@Html.LabelFor(model => model.o_day)  </td>
+            <td>Day of Week  </td>
             <td>
                 @Html.DropDownListFor(model => model.o_day, new[] {
                             new SelectListItem(){Text ="Monday -Friday" ,Value = "Monday - Friday"},
@@ -85,22 +86,22 @@
             <td>@*@Html.ValidationMessageFor(model => model.o_day, "*")*@</td>
         </tr>
         <tr>
-            <td>@Html.LabelFor(model => model.o_start) Time  </td>
+            <td>Start Time  </td>
             <td>@Html.TextBoxFor(model => model.o_start, new { id = "timeStart" })</td>
             <td>@*@Html.ValidationMessageFor(model => model.o_start, "*")*@</td>
         </tr>
         <tr>
-            <td>@Html.LabelFor(model => model.o_end) Time  </td>
+            <td>End Time  </td>
             <td>@Html.TextBoxFor(model => model.o_end, new { id = "timeEnd" })</td>
             <td>@*@Html.ValidationMessageFor(model => model.o_end, "*")*@</td>
         </tr>
         <tr>
-            <td>@Html.LabelFor(model => model.o_location) </td>
+            <td>Location </td>
             <td>@Html.TextBoxFor(model => model.o_location, new { @placeholder = "location" })</td>
             <td>@*@Html.ValidationMessageFor(model => model.o_location, "*")*@</td>
         </tr>
         <tr>
-            <td>@Html.LabelFor(model => model.o_description) </td>
+            <td>Details </td>
             <td>@Html.TextBoxFor(model => model.o_description, new { @placeholder = "description" })</td>
             <td>@*@Html.ValidationMessageFor(model => model.o_description, "*")*@</td>
         </tr>

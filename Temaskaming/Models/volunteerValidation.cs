@@ -74,12 +74,12 @@ namespace Temiskaming.Models
 
         [DisplayName("Postal Code")]
         [Required(ErrorMessage = "Please enter Postal code")]
-        [RegularExpression("[ABCEGHJKLMNPRSTVXY][0-9][ABCEGHJKLMNPRSTVWXYZ] ?[0-9][ABCEGHJKLMNPRSTVWXYZ][0-9]", ErrorMessage = "Please enter a VALID Canadian postal code")]
+        [RegularExpression("[A-Za-z][0-9][A-Za-z] ?[0-9][A-Za-z][0-9]", ErrorMessage = "Please enter a VALID Canadian postal code")]
         public string v_postalCode { get; set; }
 
         [DisplayName("Phone Number")]
         [Required(ErrorMessage = "Please enter Phone Number")]
-        [RegularExpression("\\d{10}", ErrorMessage="Enter a 10 digit Canadian phone number without space")]
+        [RegularExpression("(705-)[1-9]\\d{2}\\-\\d{4}", ErrorMessage = "Please enter valid phone number")]
         public string v_phone { get; set; }
 
         [DisplayName("Email Address")]
@@ -87,13 +87,20 @@ namespace Temiskaming.Models
         [RegularExpression(".+\\@.+\\..+", ErrorMessage = "Please enter a VALID email")]
         public string v_email { get; set; }
 
+        [DisplayName("Password")]
+        [Required(ErrorMessage = "Plese enter default Password 1234")]
+        [RegularExpression("\\d{4}", ErrorMessage = "Enter a 4 digit password")]
+        public string v_password { get; set; }
+        //default password is set for when the admin(coordinator) is to register a new volunteer, otherwise, password is set by a volunteer oneself when one signs up
+        
+
         //[DisplayName("Status")]
         //[Required(ErrorMessage = "Please choose status")]        
         //public string v_status { get; set; }
 
-        [DisplayName("Schedule")]
-        [Required(ErrorMessage = "Please choose the Available Day of the week")]        
-        public string v_schedule { get; set; }
+        //[DisplayName("Schedule")]
+        //[Required(ErrorMessage = "Please choose the Available Day of the week")]        
+        //public string v_schedule { get; set; }
 
         [Key]
         [ForeignKey("volunteer_opportunity")]

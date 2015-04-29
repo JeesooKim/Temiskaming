@@ -5,37 +5,40 @@
 }
 
 <h2>Admin - Department Update: @Model.d_name</h2>
-
+<br/>
+* Required
+<br/><br/>
 @Html.ActionLink("To Admin-Staff List", "DirectoryAdmin_Staff")
 <br /><hr />
 
 @using (Html.BeginForm())
 {
     @Html.HiddenFor(x => x.d_id)
+    @Html.ValidationSummary()
 
 
-    @Html.LabelFor(x => x.d_name)
+    @Html.LabelFor(x => x.d_name) @:*
     <br />
     @Html.TextBoxFor(x => x.d_name)
-    @Html.ValidationMessageFor(x => x.d_name)
+    @Html.ValidationMessageFor(x => x.d_name,"*")
     <br /><br />
 
-    @Html.LabelFor(x => x.d_phone)
+    @Html.LabelFor(x => x.d_phone) @:*
     <br />
     @Html.TextBoxFor(x => x.d_phone)
-    @Html.ValidationMessageFor(x => x.d_phone)
+    @Html.ValidationMessageFor(x => x.d_phone,"*")
     <br /><br />
 
-    @Html.LabelFor(x => x.d_ext)
+    @Html.LabelFor(x => x.d_ext) @:*
     <br />
     @Html.TextBoxFor(x => x.d_ext)
-    @Html.ValidationMessageFor(x => x.d_ext)
+    @Html.ValidationMessageFor(x => x.d_ext,"*")
     <br /><br />
 
-    @Html.LabelFor(x => x.d_fax)
+    @Html.LabelFor(x => x.d_fax) @:*
     <br />
     @Html.TextBoxFor(x => x.d_fax)
-    @Html.ValidationMessageFor(x => x.d_fax)
+    @Html.ValidationMessageFor(x => x.d_fax,"*")
     <br /><br />
 
     <input type="submit" value="Update" />

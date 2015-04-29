@@ -52,12 +52,12 @@ namespace Temiskaming.Models
 
         [DisplayName("Extension")]
         [Required(ErrorMessage = "Please enter extension")]
-        //[RegularExpression("\d{4}", ErrorMessage = "Please enter a four digit extension")]
+        [RegularExpression("[x]+\\d{4}", ErrorMessage = "Please enter a four digit number after 'x' ")]
         public string extension { get; set; }
 
         [DisplayName("Phone")]
-        //[Required(ErrorMessage = "Please enter phone number")]
-        //[RegularExpression("\d{4}", ErrorMessage = "Please enter a phone number")]
+        [Required(ErrorMessage = "Please enter phone number")]
+        [RegularExpression("(705-)[1-9]\\d{2}\\-\\d{4}", ErrorMessage = "Please enter valid phone number")]
         public string phone { get; set; }
 
         [DisplayName("Office")]

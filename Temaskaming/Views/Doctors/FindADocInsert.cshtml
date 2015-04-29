@@ -4,8 +4,9 @@
 }
 
 <h2>Register a New Doctor - Admin</h2>
-
-
+<br/>
+* Required
+<br/><br/>
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary()
@@ -24,66 +25,66 @@
             <td>Status</td>            
             <td>
                 @Html.DropDownListFor(model => model.status, new[] {
-                            //new SelectListItem(){Text ="Choose" ,Value = "default", Selected= true},
+                            new SelectListItem(){Text ="Choose" ,Value = "", Selected= true},
                             new SelectListItem(){Text="ACTIVE", Value= "ACTIVE"},
                             new SelectListItem(){Text="Associate", Value="Associate"},
                             new SelectListItem(){Text="Courtesy", Value="Courtesy"},
                             new SelectListItem(){Text="LOCUM TENENS", Value="LOCUM TENENS"},
-                            new SelectListItem(){Text="", Value=""}
+                            //new SelectListItem(){Text="", Value=""}
                             })
             </td>
-            <td>@Html.ValidationMessageFor(model => model.status, "*")</td>
+            @*@Html.ValidationMessageFor(model => model.status, "*") Not required*@
         </tr>
         <tr>
             <td>@Html.LabelFor(model => model.title)* </td>
-            <td>@Html.TextBoxFor(model => model.title, new { @Value = "Physician" })</td>
+            <td>@Html.TextBoxFor(model => model.title, new { @placeholder = "Physician" })</td>
             <td>@Html.ValidationMessageFor(model => model.title, "*")</td>
         </tr>
         <tr>
             <td>@Html.LabelFor(model => model.department)*</td>
-            <td>@Html.TextBoxFor(model => model.department, new { @Value = "General" })</td>
+            <td>@Html.TextBoxFor(model => model.department, new { @placeholder = "General" })</td>
             <td>@Html.ValidationMessageFor(model => model.department, "*")</td>
         </tr>
         <tr>
             <td>@Html.LabelFor(model => model.role)</td>
             <td>@Html.TextBoxFor(model => model.role)</td>
-            <td>@Html.ValidationMessageFor(model => model.role, "*")</td>
+            @*@Html.ValidationMessageFor(model => model.role, "*") Not required*@
         </tr>
         <tr>
             <td>@Html.LabelFor(model => model.program)</td>
             <td>@Html.TextBoxFor(model => model.program)</td>
-            <td>@Html.ValidationMessageFor(model => model.program, "*")</td>
+            @*@Html.ValidationMessageFor(model => model.program, "*") Not required*@
         </tr>
 
         <tr>
             <td>@Html.LabelFor(model => model.email)*</td>
-            <td>@Html.TextBoxFor(model => model.email, new { @Value = "*@temiskaming-hospital.com" })</td>     @*new { @Value = "12",@type="hidden" }*@
+            <td>@Html.TextBoxFor(model => model.email, new { @Value = "*@temiskaming-hospital.com" })</td>    
             <td>@Html.ValidationMessageFor(model => model.email, "*")</td>
         </tr>
         <tr>
             <td>@Html.LabelFor(model => model.extension)*</td>
-            <td>@Html.TextBoxFor(model => model.extension)</td>
+            <td>@Html.TextBoxFor(model => model.extension, new { @Placeholder = "x1234" })</td>
             <td>@Html.ValidationMessageFor(model => model.extension, "*")</td>
         </tr>
         <tr>
-            <td>@Html.LabelFor(model => model.phone)</td>
-            <td>@Html.TextBoxFor(model => model.phone)</td>
+            <td>@Html.LabelFor(model => model.phone)*</td>
+            <td>@Html.TextBoxFor(model => model.phone, new { @Placeholder = "705-647-1088" })</td>
             <td>@Html.ValidationMessageFor(model => model.phone, "*")</td>
         </tr>
         <tr>
             <td>@Html.LabelFor(model => model.office)</td>
             <td>@Html.TextBoxFor(model => model.office)</td>
-            <td>@Html.ValidationMessageFor(model => model.office, "*")</td>
+            @*@Html.ValidationMessageFor(model => model.office, "*") not required*@
         </tr>
         <tr>
             <td>@Html.LabelFor(model => model.office_hr)</td>
             <td>@Html.TextBoxFor(model => model.office_hr)</td>
-            <td>@Html.ValidationMessageFor(model => model.office_hr, "*")</td>
+            @*@Html.ValidationMessageFor(model => model.office_hr, "*") not required*@
         </tr>
         <tr>
             <td>@Html.LabelFor(model => model.bio)</td>
             <td>@Html.TextAreaFor(model => model.bio)</td>
-            <td>@Html.ValidationMessageFor(model => model.bio, "*")</td>
+            @*@Html.ValidationMessageFor(model => model.bio, "*") not required*@
         </tr>
     </table>
 

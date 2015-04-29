@@ -22,8 +22,8 @@
             });
 
             $('#timeStart').timepicker({
-                controlType :'select'
-                });
+                controlType: 'select'
+            });
             $('#timeEnd').timepicker({
                 controlType: 'select'
             });
@@ -37,15 +37,17 @@
 
 @Html.ActionLink("To Volunteers List", "VolunteerAdmin_volIndex", "Volunteer")&nbsp; | &nbsp;
 <hr />
-* Required
 <br />
+* Required
+<br /><br />
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     @Html.HiddenFor(x => x.o_id)
+    @Html.ValidationSummary()
 
 
-    @Html.LabelFor(x => x.o_name)
+    @: Opportunity Name *:
     <br />
     @Html.TextBoxFor(x => x.o_name)
     @Html.ValidationMessageFor(x => x.o_name, "*")
@@ -55,14 +57,12 @@
     <p>Check ONLY if this is regular opportunity. &nbsp;@Html.CheckBoxFor(x => x.o_regular)</p>
     <br />
 
-    @Html.LabelFor(x => x.o_date)
-    <br />
+    @: Date of an occasional/special event/opportunity :   
     @Html.TextBoxFor(x => x.o_date, new { @placeholder = "Enter for an occasional/special event/opportunity", id = "datepicker" })
     @*@Html.ValidationMessageFor(x => x.o_date)*@
     <br /><br />
 
-    @Html.LabelFor(x => x.o_day)
-    <br />
+    @: Day of Week (Regular opportunity) :
     @Html.DropDownListFor(x => x.o_day, new[] {
                             new SelectListItem(){Text ="Monday -Friday" ,Value = "Monday -Friday"},
                             new SelectListItem(){Text="Monday", Value= "Monday"},
@@ -77,25 +77,25 @@
     @*@Html.ValidationMessageFor(x => x.o_day)*@
     <br /><br />
 
-    @Html.LabelFor(x => x.o_start)
+    @:Start Time :
     <br />
     @Html.TextBoxFor(model => model.o_start, new { id = "timeStart" })
     @*@Html.ValidationMessageFor(x => x.o_start)*@
     <br /><br />
 
-    @Html.LabelFor(x => x.o_end)
+    @:End Time :
     <br />
     @Html.TextBoxFor(model => model.o_end, new { id = "timeEnd" })
     @*@Html.ValidationMessageFor(x => x.o_end)*@
     <br /><br />
 
-    @Html.LabelFor(x => x.o_location)
+    @:Location : 
     <br />
     @Html.TextBoxFor(x => x.o_location)
     @*@Html.ValidationMessageFor(x => x.o_location)*@
     <br /><br />
 
-    @Html.LabelFor(x => x.o_description)
+    @:Details :
     <br />
     @Html.TextBoxFor(x => x.o_description)
     @*@Html.ValidationMessageFor(x => x.o_description)*@

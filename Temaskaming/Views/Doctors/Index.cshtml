@@ -64,24 +64,26 @@
         }
     </tbody>    
 </table>
-
-<script>
+<br/>
+<br/>
+<a href="http://www.cpso.on.ca/public-register/all-doctors-search" target="_blank">Extermal link: All Doctors Search (The College of Physicians and Surgeons of Ontario)</a>
+    <script>
     $(document).ready(function () {
         $('#doctorTable').dataTable();
     });
-</script>
+    </script>
 
-@*updated on March 17, 2015
-    Ref1:http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
-    Ref2:http://www.codeproject.com/Tips/823490/Bootstrap-Table-With-Sorting-Searching-and-Paging*@
-@*It was not intended to have two search functions. Before implementing jQuery dataTables plugin (responsive, sorting, and pagination functionality), the main functionality, "Searching", for this feature has already been built in. In order to set this feature to be responsive, jQuery is plugged in now. Decide to keep two search functions because of each one's pros.
-   * With the programmed search function in the Controller, we can search for doctors with two parameters, last name and department, while the results are displayed only after the search button is clicked.
-    This gives a user more option to use more search keywords, which would narrow down the way to find a doctor in question.
-    The jQuery search function is faster,and convenient because it gives the result simutaneously while the search key is entered. It just gives the result matching with any word at that moment.*@
+    @*updated on March 17, 2015
+        Ref1:http://www.asp.net/mvc/overview/getting-started/getting-started-with-ef-using-mvc/sorting-filtering-and-paging-with-the-entity-framework-in-an-asp-net-mvc-application
+        Ref2:http://www.codeproject.com/Tips/823490/Bootstrap-Table-With-Sorting-Searching-and-Paging*@
+    @*It was not intended to have two search functions. Before implementing jQuery dataTables plugin (responsive, sorting, and pagination functionality), the main functionality, "Searching", for this feature has already been built in. In order to set this feature to be responsive, jQuery is plugged in now. Decide to keep two search functions because of each one's pros.
+        * With the programmed search function in the Controller, we can search for doctors with two parameters, last name and department, while the results are displayed only after the search button is clicked.
+         This gives a user more option to use more search keywords, which would narrow down the way to find a doctor in question.
+         The jQuery search function is faster,and convenient because it gives the result simutaneously while the search key is entered. It just gives the result matching with any word at that moment.*@
 
 
-@*[Team2]Temiskaming-Hospital Website Rededesign Project @ Humber college
-    Feature: Find a doctor - Public
-    File: Index.cshtml
-    Author: Jeesoo Kim
-     Feb 17, 2015*@
+    @*[Team2]Temiskaming-Hospital Website Rededesign Project @ Humber college
+        Feature: Find a doctor - Public
+        File: Index.cshtml
+        Author: Jeesoo Kim
+         Feb 17, 2015*@
