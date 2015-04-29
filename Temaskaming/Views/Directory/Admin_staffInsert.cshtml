@@ -7,7 +7,8 @@
 
 @Html.ActionLink("To Admin-Department List", "DirectoryAdmin")
 <br /><hr />
-
+* Required
+<br/><br/>
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary();
@@ -30,12 +31,12 @@
         </tr>
         <tr>
             <td>@Html.LabelFor(model => model.staff_phone) * </td>
-            <td>@Html.TextBoxFor(model => model.staff_phone, new { @Value = "(705) 647-1088" })</td>
+            <td>@Html.TextBoxFor(model => model.staff_phone, new { @Placeholder = "705-647-1088" })</td>
             <td>@Html.ValidationMessageFor(model => model.staff_phone, "*")</td>
         </tr>
         <tr>
             <td>@Html.LabelFor(model => model.staff_ext) * </td>
-            <td>@Html.TextBoxFor(model => model.staff_ext, new { @Value = "x" })</td>
+            <td>@Html.TextBoxFor(model => model.staff_ext, new { @Placeholder = "x1234" })</td>
             <td>@Html.ValidationMessageFor(model => model.staff_ext, "*")</td>
         </tr>
         <tr>

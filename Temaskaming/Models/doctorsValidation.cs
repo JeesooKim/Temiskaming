@@ -57,7 +57,7 @@ namespace Temiskaming.Models
 
         [DisplayName("Phone")]
         [Required(ErrorMessage = "Please enter phone number")]
-        [RegularExpression("\\d{10}", ErrorMessage = "Enter a 10 digit Canadian phone number without space")]
+        [RegularExpression("(705-)[1-9]\\d{2}\\-\\d{4}", ErrorMessage = "Please enter valid phone number")]
         public string phone { get; set; }
 
         [DisplayName("Office")]

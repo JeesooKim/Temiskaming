@@ -8,7 +8,8 @@
 
 @Html.ActionLink("To Admin-Staff List", "DirectoryAdmin_Staff")
 <br /><hr />
-
+* Required
+<br/><br/>
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary()
@@ -21,17 +22,17 @@
         </tr>
         <tr>
             <td>@Html.LabelFor(model => model.d_phone) * </td>
-            <td>@Html.TextBoxFor(model => model.d_phone, new { @Value = "(705) 647-1088" })</td>
+            <td>@Html.TextBoxFor(model => model.d_phone, new { @Placeholder = "705-647-1088" })</td>
             <td>@Html.ValidationMessageFor(model => model.d_phone, "*")</td>
         </tr>
         <tr>
             <td>@Html.LabelFor(model => model.d_ext) * </td>
-            <td>@Html.TextBoxFor(model => model.d_ext, new { @Value = "x" })</td>
+            <td>@Html.TextBoxFor(model => model.d_ext, new { @Placeholder = "x1234" })</td>
             <td>@Html.ValidationMessageFor(model => model.d_ext, "*")</td>
         </tr>
         <tr>
             <td>@Html.LabelFor(model => model.d_fax) * </td>
-            <td>@Html.TextBoxFor(model => model.d_fax, new { @Value = "(705) 647-5800" })</td>
+            <td>@Html.TextBoxFor(model => model.d_fax, new { @Placeholder = "705-647-5800" })</td>
             <td>@Html.ValidationMessageFor(model => model.d_fax, "*")</td>
         </tr>
     </table>
