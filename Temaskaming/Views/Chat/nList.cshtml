@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Temiskaming.Models.chat>
+<ul class="chatMenu">
+    @foreach (var x in Model)
+    {
+        <li>
+            @Ajax.ActionLink(x.email, "ShowChat", new { id = x.id }, new AjaxOptions
+        {
+            HttpMethod = "Post",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "nchat"
+        })
+        </li>
+
+    }
+</ul>

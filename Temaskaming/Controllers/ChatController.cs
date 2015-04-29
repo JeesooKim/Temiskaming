@@ -148,8 +148,7 @@ namespace Temiskaming.Controllers
              * Upon page load, grab all chats not yet closed by nurse
              * */
             ViewBag.Group = "Nurse";
-            var chats = objChat.getWaitingChats();
-            return View(chats);
+            return View();
         }
 
         public ActionResult ShowChat(int id)
@@ -211,6 +210,11 @@ namespace Temiskaming.Controllers
             return RedirectToAction("nChat");
         }
 
+        public PartialViewResult nList()
+        {
+            var chats = objChat.getWaitingChats();
+            return PartialView(chats);
+        }
 
         [Authorize(Roles="Admin")]
         public ActionResult chatAdmin()
