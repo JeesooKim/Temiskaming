@@ -58,50 +58,54 @@ E-mail: <a href="mailto:jgillespie@temiskaming-hospital.com?Subject=VolunteerInq
     Phone: @Html.DisplayFor(x => x.v_phone)
     <br />
     Email: @Html.DisplayFor(x => x.v_email)
+    <br/>
+    Password: @Html.DisplayFor(x=>x.v_password)
 </fieldset><br/>
 <fieldset>
     <legend>Edit Your Profile</legend>
+    <br />
+    * Required
+    <br /><br />
     @using (Html.BeginForm())
     {
-        @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()        
 
         @Html.HiddenFor(x => x.v_id)
         @Html.HiddenFor(x => x.v_status)
+        @Html.ValidationSummary()
 
 
-        @Html.LabelFor(x => x.v_email) @:(LoginName)
+        @Html.LabelFor(x => x.v_email) @:(LoginName)*
         @Html.TextBoxFor(x => x.v_email)
-        //@Html.ValidationMessageFor(x => x.v_email)
+        @Html.ValidationMessageFor(x => x.v_email,"*")
         <br />
 
-
-        //@Html.LabelFor(x => x.v_password) @:
-        @: Password: Contact Web master to change the password (will be updated)
-        //@Html.PasswordFor(x => x.v_password)
-        //@Html.ValidationMessageFor(model => model.v_password)
+        @: Password *: 
+        @Html.PasswordFor(x => x.v_password)
+        @Html.ValidationMessageFor(model => model.v_password,"*")
         <br />
         
-        @Html.LabelFor(x => x.v_fname) @:
+        @:First Name *:
         @Html.TextBoxFor(x => x.v_fname)
-        @Html.ValidationMessageFor(x => x.v_fname)
+        @Html.ValidationMessageFor(x => x.v_fname,"*")
         <br />
 
-        @Html.LabelFor(x => x.v_lname) @:
+        @:Last Name *:
         @Html.TextBoxFor(x => x.v_lname)
-        @Html.ValidationMessageFor(x => x.v_lname)
+        @Html.ValidationMessageFor(x => x.v_lname,"*")
         <br />
 
-        @Html.LabelFor(x => x.v_address) @:
+        @:Address *:
         @Html.TextBoxFor(x => x.v_address)
-        //@Html.ValidationMessageFor(x => x.v_address)
+        @Html.ValidationMessageFor(x => x.v_address,"*")
         <br />
 
-        @Html.LabelFor(x => x.v_city) @:
+        @:City *:
         @Html.TextBoxFor(x => x.v_city)
-        //@Html.ValidationMessageFor(x => x.v_city)
+        @Html.ValidationMessageFor(x => x.v_city,"*")
         <br />
 
-        @Html.LabelFor(x => x.v_province) @:
+        @:Province *:
         @Html.DropDownListFor(x => x.v_province, new[] {
                     new SelectListItem(){Text ="AB", Value="AB"},
                     new SelectListItem(){Text ="BC", Value="BC"},
@@ -118,17 +122,17 @@ E-mail: <a href="mailto:jgillespie@temiskaming-hospital.com?Subject=VolunteerInq
                     new SelectListItem(){Text ="YT", Value="YT"},
                     new SelectListItem(){Text="", Value=""}
                             })
-        //@Html.ValidationMessageFor(x => x.v_province)
+        @Html.ValidationMessageFor(x => x.v_province,"*")
         <br />
 
-        @Html.LabelFor(x => x.v_postalCode) @:
+        @:Postal Code *:
         @Html.TextBoxFor(x => x.v_postalCode)
-        //@Html.ValidationMessageFor(x => x.v_postalCode)
+        @Html.ValidationMessageFor(x => x.v_postalCode,"*")
         <br />
 
-        @Html.LabelFor(x => x.v_phone) @:
+        @:Phone Number *:
         @Html.TextBoxFor(x => x.v_phone)
-        //@Html.ValidationMessageFor(x => x.v_phone)
+        @Html.ValidationMessageFor(x => x.v_phone,"*")
         <br /><br/>
                
         <fieldset>

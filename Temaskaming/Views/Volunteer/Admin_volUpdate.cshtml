@@ -7,44 +7,39 @@
 <h2>Admin - Volunteer Update</h2>
 
 @Html.ActionLink("To Volunteer Opprtunities List", "VolunteerAdmin_Index", "Volunteer")&nbsp; | &nbsp;
-
 <hr />
-
+<br />
+* Required
+<br /><br />
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     @Html.HiddenFor(x => x.v_id)
+    @Html.ValidationSummary()
 
-
-    @Html.LabelFor(x => x.v_fname)
-    <br />
+    <br/>
+    @:First Name *:
     @Html.TextBoxFor(x => x.v_fname)
-    @Html.ValidationMessageFor(x => x.v_fname)
+    @Html.ValidationMessageFor(x => x.v_fname,"*")
     <br /><br />
 
-    @Html.LabelFor(x => x.v_lname)
-    <br />
+    @:Last Name *:
     @Html.TextBoxFor(x => x.v_lname)
-    @Html.ValidationMessageFor(x => x.v_lname)
+    @Html.ValidationMessageFor(x => x.v_lname,"*")
     <br /><br />
-
-
-
-    @Html.LabelFor(x => x.v_address)
-    <br />
+    
+    @:Address *:
     @Html.TextBoxFor(x => x.v_address)
-    //@Html.ValidationMessageFor(x => x.v_address)
+    @Html.ValidationMessageFor(x => x.v_address,"*")
     <br /><br />
 
-    @Html.LabelFor(x => x.v_city)
-    <br />
+    @:City *:
     @Html.TextBoxFor(x => x.v_city)
-    //@Html.ValidationMessageFor(x => x.v_city)
+    @Html.ValidationMessageFor(x => x.v_city,"*")
     <br /><br />
 
-    @Html.LabelFor(x => x.v_province)
-    <br />
+    @:Province *:
     @Html.DropDownListFor(x => x.v_province, new[] {
                     new SelectListItem(){Text="", Value=""},
                     new SelectListItem(){Text ="AB", Value="AB"},
@@ -61,45 +56,44 @@
                     new SelectListItem(){Text ="SK", Value="SK"},
                     new SelectListItem(){Text ="YT", Value="YT"}                   
                             })
-    //@Html.ValidationMessageFor(x => x.v_province)
+    @Html.ValidationMessageFor(x => x.v_province,"*")
     <br /><br />
 
-    @Html.LabelFor(x => x.v_postalCode)
-    <br />
+    @:Postal Code *:
     @Html.TextBoxFor(x => x.v_postalCode)
-    //@Html.ValidationMessageFor(x => x.v_postalCode)
+    @Html.ValidationMessageFor(x => x.v_postalCode,"*")
     <br /><br />
 
-    @Html.LabelFor(x => x.v_phone)
-    <br />
+    @:Phone number *:
     @Html.TextBoxFor(x => x.v_phone)
-    //@Html.ValidationMessageFor(x => x.v_phone)
+    @Html.ValidationMessageFor(x => x.v_phone,"*")
     <br /><br />
 
-    @Html.LabelFor(x => x.v_email)
-    <br />
+    @:Email *:
     @Html.TextBoxFor(x => x.v_email)
-    //@Html.ValidationMessageFor(x => x.v_email)
+    @Html.ValidationMessageFor(x => x.v_email,"*")
     <br /><br />
 
-    @Html.LabelFor(x => x.v_status)
-    <br />
+    @:Password *:
+    @Html.TextBoxFor(x=>x.v_password)
+    @Html.ValidationMessageFor(x=>x.v_password, "*")
+    <br/><br/>
+    
+    @:Status :
     @Html.DropDownListFor(model => model.v_status, new[] {
-                    new SelectListItem(){Text="", Value=""},
+                    new SelectListItem(){Text="", Value="",Selected=true},
                     new SelectListItem(){Text ="Active", Value="Active"},
                     new SelectListItem(){Text ="Approved", Value="Approved"},
                     new SelectListItem(){Text ="Pending", Value="Pending"},
                     new SelectListItem(){Text ="Under Review", Value="Under Review"},
                     new SelectListItem(){Text ="Withdrawn", Value="Withdrawn"},
-                    new SelectListItem(){Text ="Not Available", Value="Not Available", Selected=true}                   
+                    new SelectListItem(){Text ="Not Available", Value="Not Available"}                  
                             })
-
     //@Html.ValidationMessageFor(x => x.v_status)
     <br /><br />
 
-    @Html.LabelFor(x => x.v_schedule)
-    @*each opportunity has its own set time slot, so option is to choose the day of the week*@
-    <br />
+    @:Available DayOfWeek:
+    @*each opportunity has its own set time slot, so option is to choose the day of the week*@    
     @Html.DropDownListFor(model => model.v_schedule, new[] {
                             new SelectListItem(){Text="", Value=""},
                             new SelectListItem(){Text ="Monday - Friday" ,Value = "Monday -Friday"},
@@ -114,8 +108,7 @@
     //@Html.ValidationMessageFor(x => x.v_schedule)
     <br /><br />
 
-    @Html.LabelFor(x => x.v_oppId)
-    <br />
+    @: opportunity ID:
     @Html.DropDownList("v_oppId", new SelectList(ViewBag.OpportunityID, "Value", "Text"))
     @*Thanks to Sumeet*@
     @*@Html.DropDownListFor(x => x.v_oppId, new[] {
@@ -127,7 +120,7 @@
         new SelectListItem(){Text ="Long-Term Care Department", Value="6"},
         new SelectListItem(){Text="", Value=""}
                 })*@
-    @Html.ValidationMessageFor(x => x.v_oppId)
+    @Html.ValidationMessageFor(x => x.v_oppId,"*")
     <br /><br />
 
     <input type="submit" value="Update" />

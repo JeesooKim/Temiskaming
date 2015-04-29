@@ -7,8 +7,9 @@
 
 @Html.ActionLink("To Volunteer Opprtunities List", "VolunteerAdmin_Index", "Volunteer")&nbsp; | &nbsp;
 <hr />
-
 <br />
+* Required
+<br /><br />
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary()
@@ -26,18 +27,18 @@
         </tr>
 
         <tr>
-            <td>Address </td>
-            <td>@Html.TextBoxFor(model => model.v_address, new { @Value = "# address Street/Avenue/..." })</td>
+            <td>Address *</td>
+            <td>@Html.TextBoxFor(model => model.v_address, new { @Placeholder = "# address Street/Avenue/..." })</td>
             <td>@Html.ValidationMessageFor(model => model.v_address, "*")</td>
         </tr>
 
         <tr>
-            <td>City </td>
-            <td>@Html.TextBoxFor(model => model.v_city, new { @Value = "city" })</td>
+            <td>City *</td>
+            <td>@Html.TextBoxFor(model => model.v_city, new { @Placeholder = "Temiskaming" })</td>
             <td>@Html.ValidationMessageFor(model => model.v_city, "*")</td>
         </tr>
         <tr>
-            <td>@Html.LabelFor(model => model.v_province)  </td>
+            <td>Province * </td>
             <td>
                 @Html.DropDownListFor(model => model.v_province, new[] {
                     new SelectListItem(){Text ="AB", Value="AB"},
@@ -59,41 +60,48 @@
             <td>@Html.ValidationMessageFor(model => model.v_province, "*")</td>
         </tr>
         <tr>
-            <td>Postal Code</td>
-            <td>@Html.TextBoxFor(model => model.v_postalCode, new { @Value = "A1A 2B2" })</td>
+            <td>Postal Code *</td>
+            <td>@Html.TextBoxFor(model => model.v_postalCode, new { @Placeholder = "A1A 2B2" })</td>
             <td>@Html.ValidationMessageFor(model => model.v_postalCode, "*")</td>
         </tr>
         <tr>
             <td>Phone * </td>
-            <td>@Html.TextBoxFor(model => model.v_phone, new { @Value = "(416) 123-4567" })</td>
+            <td>@Html.TextBoxFor(model => model.v_phone, new { @Placeholder = "705-123-4567" })</td>
             <td>@Html.ValidationMessageFor(model => model.v_phone, "*")</td>
         </tr>
         <tr>
             <td>Email * </td>
-            <td>@Html.TextBoxFor(model => model.v_email, new { @Value = "*@*.*" })</td>
+            <td>@Html.TextBoxFor(model => model.v_email, new { @Placeholder = "*@*.*" })</td>
             <td>@Html.ValidationMessageFor(model => model.v_email, "*")</td>
         </tr>
         <tr>
-            <td>Status * </td>
+            <td>Password * (this is to be updated by a volunteer when one signs in)</td>
+            <td>@Html.TextBoxFor(model => model.v_password, new { @Value = "1234" })</td>
+            <td>@Html.ValidationMessageFor(model => model.v_password, "*")</td>
+        </tr>
+        <tr>
+            <td>Status  </td>
             @*<td>@Html.TextBoxFor(model => model.v_status, new { @Value = "N/A" })</td>*@
             <td>
-                @Html.DropDownListFor(model => model.v_status, new[] { 
-                    new SelectListItem(){Text="", Value="", Selected=true},                  
+                @Html.DropDownListFor(model => model.v_status, new[] {
+                    new SelectListItem(){Text="", Value="", Selected=true},
                     new SelectListItem(){Text ="Active", Value="Active"},
                     new SelectListItem(){Text ="Approved", Value="Approved"},
                     new SelectListItem(){Text ="Pending", Value="Pending"},
                     new SelectListItem(){Text ="Under Review", Value="Under Review"},
                     new SelectListItem(){Text ="Withdrawn", Value="Withdrawn"},
-                    new SelectListItem(){Text ="Not Available", Value="Not Available"}                    
+                    new SelectListItem(){Text ="Not Available", Value="Not Available"}
                             })
             </td>
-            <td>@Html.ValidationMessageFor(model => model.v_status, "*")</td>
+            <td></td>
+            @*<td>@Html.ValidationMessageFor(model => model.v_status, "*")</td>*@
         </tr>
         <tr>
-            <td>Schedule * </td>
+            <td>Available Day </td>
             @*each opportunity has its own set time slot, so option is to choose the day of the week*@
             <td>
                 @Html.DropDownListFor(model => model.v_schedule, new[] {
+                            new SelectListItem(){Text="", Value="", Selected= true},
                             new SelectListItem(){Text ="Monday - Friday" ,Value = "Monday -Friday"},
                             new SelectListItem(){Text="Monday", Value= "Monday"},
                             new SelectListItem(){Text="Tuesday", Value="Tuesday"},
@@ -101,22 +109,21 @@
                             new SelectListItem(){Text="Thursday", Value="Thursday"},
                             new SelectListItem(){Text="Friday", Value="Friday"},
                             new SelectListItem(){Text="Saturday", Value="Saturday"},
-                            new SelectListItem(){Text="Sunday", Value="Sunday"},
-                            new SelectListItem(){Text="", Value="", Selected= true}
-                            })
-        </td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>OpportunityID(Name) </td>
-        <td>
-            @Html.DropDownList("v_oppId", ViewBag.OpportunityID as IEnumerable<SelectListItem>, String.Empty)
-        </td>
-        <td>@Html.ValidationMessageFor(model => model.v_oppId, "*")</td>
-    </tr>
+                            new SelectListItem(){Text="Sunday", Value="Sunday"}
+           })
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>OpportunityID(Name) </td>
+            <td>
+                @Html.DropDownList("v_oppId", ViewBag.OpportunityID as IEnumerable<SelectListItem>, String.Empty)
+            </td>
+            <td>@Html.ValidationMessageFor(model => model.v_oppId, "*")</td>
+        </tr>
 
 
-</table>
+    </table>
     <br />
     <input type="submit" value="Insert" />
 }
