@@ -223,7 +223,7 @@ namespace FindADoctor.Controllers
                 try
                 {
                     objDoc.commitInsert(doc);
-                    return RedirectToAction("Index");
+                    return RedirectToAction("FindADocDetails/" + doc.Id); //corrected April28
                 }
                 catch
                 {//exception handling...return to Insert page
@@ -297,7 +297,7 @@ namespace FindADoctor.Controllers
             try
             {
                 objDoc.commitDelete(id);
-                return RedirectToAction("Index");
+                return RedirectToAction("FindADocAdmin"); //corrected on April 28
             }
             catch
             {
