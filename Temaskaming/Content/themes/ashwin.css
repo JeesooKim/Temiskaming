@@ -39,7 +39,7 @@
    text-decoration:none;
     }
 
-#alert {
+/*#alert {
     float:left;
     width:500px;
 }
@@ -48,14 +48,14 @@
     font-size:18px;
     color:green; 
     font-family:'Times New Roman', Times, serif;   
-    }
+    }*/
 
 .update_alert {
     border:2px solid #000;
 
 }
 
-#alertDiv {
+/*#alertDiv {
     border:2px solid #000;
     background-color:#00ffff;
     font-family:'Times New Roman', Times, serif;
@@ -71,7 +71,7 @@
 
 #alertDiv p{
    font-size:20px;
-}
+}*/
 
 .buttonApp {
     padding:3px;
