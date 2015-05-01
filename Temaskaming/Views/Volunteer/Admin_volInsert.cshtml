@@ -22,7 +22,7 @@
         </tr>
         <tr>
             <td>LastName * </td>
-            <td>@Html.TextBoxFor(model => model.v_lname, new { @Value = "lastname" })</td>
+            <td>@Html.TextBoxFor(model => model.v_lname, new { @Placeholder = "lastname" })</td>
             <td>@Html.ValidationMessageFor(model => model.v_lname, "*")</td>
         </tr>
 
@@ -76,7 +76,7 @@
         </tr>
         <tr>
             <td>Password * (this is to be updated by a volunteer when one signs in)</td>
-            <td>@Html.TextBoxFor(model => model.v_password, new { @Value = "1234" })</td>
+            <td>@Html.PasswordFor(model => model.v_password, new { @Value = "1234" })</td>
             <td>@Html.ValidationMessageFor(model => model.v_password, "*")</td>
         </tr>
         <tr>

@@ -126,7 +126,7 @@ namespace Temiskaming.Models
         }
 
         //method: Update by a volunteer
-        public bool commitUpdateProfileV(int _id, string _fname, string _lname, string _address, string _city, string _prov, string _postal, string _phone, string _email, string _schedule, int _oppId)
+        public bool commitUpdateProfileV(int _id, string _fname, string _lname, string _address, string _city, string _prov, string _postal, string _phone, string _email, string _pw, string _schedule, int _oppId)
         {
             using (objVolunteers)
             {
@@ -139,6 +139,7 @@ namespace Temiskaming.Models
                 objUpVol.v_postalCode = _postal;
                 objUpVol.v_phone = _phone;
                 objUpVol.v_email = _email;
+                objUpVol.v_password = _pw;
                 objUpVol.v_schedule = _schedule;
                 objUpVol.v_oppId = _oppId;
 
@@ -163,7 +164,7 @@ namespace Temiskaming.Models
 
         //method: Update a volunteer selected
         public bool commitUpdateV(int _id, string _fname, string _lname, string _address,  string _city, string _prov, string _postal, string _phone, string _email,string _status, string _schedule, int _oppId)
-        {
+        {//volunteer's password is not updated by this function, which is to be used by the admin(coordinator)
             using (objVolunteers)
             {
                 var objUpVol = objVolunteers.volunteers.SingleOrDefault(x => x.v_id == _id);

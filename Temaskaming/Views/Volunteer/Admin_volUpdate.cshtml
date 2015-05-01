@@ -16,6 +16,7 @@
     @Html.AntiForgeryToken()
 
     @Html.HiddenFor(x => x.v_id)
+    @Html.HiddenFor(x => x.v_password)
     @Html.ValidationSummary()
 
     <br/>
@@ -73,12 +74,7 @@
     @Html.TextBoxFor(x => x.v_email)
     @Html.ValidationMessageFor(x => x.v_email,"*")
     <br /><br />
-
-    @:Password *:
-    @Html.TextBoxFor(x=>x.v_password)
-    @Html.ValidationMessageFor(x=>x.v_password, "*")
-    <br/><br/>
-    
+            
     @:Status :
     @Html.DropDownListFor(model => model.v_status, new[] {
                     new SelectListItem(){Text="", Value="",Selected=true},

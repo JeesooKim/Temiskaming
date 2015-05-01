@@ -193,8 +193,8 @@ namespace Temiskaming.Controllers
 
                 try
                 {
-                    objVol.commitUpdateProfileV(id, vol.v_fname, vol.v_lname, vol.v_address, vol.v_city, vol.v_province, vol.v_postalCode, vol.v_phone, vol.v_email, vol.v_schedule, vol.v_oppId);
-
+                    objVol.commitUpdateProfileV(id, vol.v_fname, vol.v_lname, vol.v_address, vol.v_city, vol.v_province, vol.v_postalCode, vol.v_phone, vol.v_email, vol.v_password, vol.v_schedule, vol.v_oppId);
+                    //vol.v_password is added on april 30, 2015
                     return RedirectToAction("Welcome/" + id);
                 }
                 catch
@@ -551,7 +551,7 @@ namespace Temiskaming.Controllers
 
         [Authorize(Roles = "Admin")]
         public ActionResult Admin_volUpdate(int id)
-        {
+        {//parameter id:volunteer's id
             ViewBag.Group="Admin";
 
             IEnumerable<SelectListItem> items =
@@ -586,7 +586,7 @@ namespace Temiskaming.Controllers
                 try
                 {
                     objVol.commitUpdateV(id, vol.v_fname, vol.v_lname, vol.v_address, vol.v_city, vol.v_province, vol.v_postalCode, vol.v_phone, vol.v_email, vol.v_status, vol.v_schedule, vol.v_oppId);
-                    
+                    //password is not to be updated by admin, so there is no parameter of password
                     return RedirectToAction("Admin_volDetails/" + id);                    
                 }
                 catch
