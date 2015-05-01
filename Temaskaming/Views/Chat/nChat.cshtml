@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Temiskaming.Models.chat>
+﻿
 
 @{
     ViewBag.Title = "Temiskaming - Nurse Chat";
@@ -8,23 +8,28 @@
 }
 
 <h2>Nurse Live Chat</h2>
-<p>Reload page to see new chats started by visitors.</p>
+
 <nav id="chatNav">
     <p>Current Chats</p>
-    <ul class="chatMenu">
-        @foreach (var x in Model)
-        {
-            <li>
-                @Ajax.ActionLink(x.email, "ShowChat", new { id = x.id }, new AjaxOptions
-        {
-            HttpMethod = "Post",
-            InsertionMode = InsertionMode.Replace,
-            UpdateTargetId = "nchat"
-        })
-        </li>
+    
+    <div id="nMenu">
 
-        }
-    </ul>
+    </div>
 </nav>
 <div id="nchat">
 </div>
+
+<script type="text/javascript">
+    function loadMenu() {
+        var menuUrl = "/Chat/nList"
+        $.ajax({
+            url: menuUrl,
+            cache: false,
+            success: function (html) {
+                $("#nMenu").html(html);
+            }
+        })
+    }
+    loadMenu();
+    setInterval(loadMenu, 5000);
+</script>
