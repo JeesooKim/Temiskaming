@@ -246,6 +246,11 @@
     <Compile Include="Models\WaittimeClass.cs" />
     <Compile Include="Models\WaittimeValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="chatLogs\01_04_20155_56_23PMtest_test.ca.txt" />
@@ -1042,6 +1047,10 @@
     <Content Include="Scripts\datepicker\lib\themes-source\_variables.less" />
     <Content Include="Scripts\datepicker\lib\translations\FORMATTING.md" />
     <Content Include="Scripts\datepicker\lib\translations\NAMING.md" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\datatables.extensions\Scroller\js\dataTables.scroller.js" />
     <Content Include="Scripts\datatables.extensions\Scroller\js\dataTables.scroller.min.js" />

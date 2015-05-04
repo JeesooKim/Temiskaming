@@ -108,7 +108,7 @@ namespace Temiskaming.Models
     #endregion
 		
 		public databaseDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["TemiskamingConnectionString"].ConnectionString, mappingSource)
+				base(global::Temiskaming.Properties.Settings.Default.TemiskamingConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
