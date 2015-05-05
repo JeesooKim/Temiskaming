@@ -107,8 +107,8 @@ namespace Temiskaming.Models
     partial void Deleteappointment(appointment instance);
     #endregion
 		
-		public databaseDataContext() : 
-				base(global::Temiskaming.Properties.Settings.Default.TemiskamingConnectionString, mappingSource)
+		public databaseDataContext() :
+        base(global::System.Configuration.ConfigurationManager.ConnectionStrings["TemiskamingProject"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
