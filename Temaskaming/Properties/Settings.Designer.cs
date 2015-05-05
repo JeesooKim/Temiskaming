@@ -26,11 +26,11 @@ namespace Temiskaming.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=WOAD.arvixe.com;Initial Catalog=Temiskaming;Persist Security Info=Tru" +
-            "e;User ID=temismain")]
-        public string TemiskamingConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MANDRAKE.arvixe.com;Initial Catalog=Temiskaming;Persist Security Info" +
+            "=True;User ID=dbtemis")]
+        public string TemiskamingProject {
             get {
-                return ((string)(this["TemiskamingConnectionString"]));
+                return ((string)(this["TemiskamingProject"]));
             }
         }
     }

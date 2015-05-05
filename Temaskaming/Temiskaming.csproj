@@ -1047,6 +1047,7 @@
     <Content Include="Scripts\datepicker\lib\themes-source\_variables.less" />
     <Content Include="Scripts\datepicker\lib\translations\FORMATTING.md" />
     <Content Include="Scripts\datepicker\lib\translations\NAMING.md" />
+    <None Include="Properties\PublishProfiles\temiskaming.ijeesoo.com - Web Deploy.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -1145,8 +1146,6 @@
     <Content Include="Content\ckeditor\samples\plugins\htmlwriter\assets\outputforflash\outputforflash.fla" />
     <Content Include="Content\ckeditor\samples\sample_posteddata.php" />
     <Content Include="Content\ckeditor\skins\moono\readme.md" />
-    <None Include="Properties\PublishProfiles\temis.sumeetb.com - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\Temiskaming.pubxml" />
     <Content Include="Scripts\chat.js" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Scripts\jquery.mobile-1.4.5.min.map" />
