@@ -38,7 +38,7 @@ namespace Temiskaming.Filters
                         }
                     }
 
-                    WebSecurity.InitializeDatabaseConnection("TemiskamingConnectionString", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+                    WebSecurity.InitializeDatabaseConnection("TemiskamingProject", "UserProfile", "UserId", "UserName", autoCreateTables: true);
                 }
                 catch (Exception ex)
                 {
