@@ -8,25 +8,12 @@
         <elementListCompartment Id="25460433-1ba5-466a-90c3-1438307ab1c5" absoluteBounds="0.515, 0.96, 1.9700000000000002, 2.941609700520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="acbfca25-cd0a-4847-a4d1-9e6a8272cc31" absoluteBounds="0.5, 6.5, 2, 2.5401025390624996">
-      <DataClassMoniker Name="/databaseDataContext/volunteer_opportunity" />
-      <nestedChildShapes>
-        <elementListCompartment Id="4f3c0326-c39f-4237-805f-491e7d64f4eb" absoluteBounds="0.51500000000000012, 6.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="424e4335-7112-4acc-8ce5-9f664167344e" absoluteBounds="2.875, 5.625, 2, 3.3093082682291666">
       <DataClassMoniker Name="/databaseDataContext/volunteer" />
       <nestedChildShapes>
         <elementListCompartment Id="a7b60fd9-8c1e-4502-9006-1861fc5da6a3" absoluteBounds="2.8899999999999997, 6.085, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.5 : 7.71715413411458); (2.875 : 7.71715413411458)]" fixedFrom="NotFixed" fixedTo="NotFixed">
-      <AssociationMoniker Name="/databaseDataContext/volunteer_opportunity/volunteer_opportunity_volunteer" />
-      <nodes>
-        <classShapeMoniker Id="acbfca25-cd0a-4847-a4d1-9e6a8272cc31" />
-        <classShapeMoniker Id="424e4335-7112-4acc-8ce5-9f664167344e" />
-      </nodes>
-    </associationConnector>
     <classShape Id="7c06f570-5a7a-4ca2-81be-b9ec97609269" absoluteBounds="5.125, 11.625, 2, 1.5785953776041666">
       <DataClassMoniker Name="/databaseDataContext/ContactForm" />
       <nestedChildShapes>
@@ -173,11 +160,24 @@
         <elementListCompartment Id="55ec3788-9de5-44de-aee5-8813bb038ea6" absoluteBounds="3.39, 3.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.5 : 3.31330485026042); (3.375 : 3.31330485026042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(2.5 : 3.31330485026042); (3.375 : 3.31330485026042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/databaseDataContext/doctor/doctor_doctor_schedule" />
       <nodes>
         <classShapeMoniker Id="6ac8e8cf-1a20-4ec6-b748-9b84b71094ff" />
         <classShapeMoniker Id="bbd3e574-17ea-46ae-92ea-a039077ac481" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="bcc7ff75-4587-45ca-b025-864f4a891d16" absoluteBounds="0.5, 6.5, 2, 2.5401025390625">
+      <DataClassMoniker Name="/databaseDataContext/volunteer_opportunity" />
+      <nestedChildShapes>
+        <elementListCompartment Id="057d1619-bade-458b-b1d5-8b0d6ac03969" absoluteBounds="0.51500000000000012, 6.96, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 7.71715413411458); (2.875 : 7.71715413411458)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/databaseDataContext/volunteer_opportunity/volunteer_opportunity_volunteer" />
+      <nodes>
+        <classShapeMoniker Id="bcc7ff75-4587-45ca-b025-864f4a891d16" />
+        <classShapeMoniker Id="424e4335-7112-4acc-8ce5-9f664167344e" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

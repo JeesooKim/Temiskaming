@@ -20,20 +20,6 @@
       <Association Name="doctor_doctor_schedule" Member="doctor_schedules" ThisKey="Id" OtherKey="doctor_id" Type="doctor_schedule" />
     </Type>
   </Table>
-  <Table Name="dbo.volunteer_opportunities" Member="volunteer_opportunities">
-    <Type Name="volunteer_opportunity">
-      <Column Name="o_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="o_name" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
-      <Column Name="o_regular" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="o_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="o_start" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
-      <Column Name="o_end" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
-      <Column Name="o_day" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="o_location" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
-      <Column Name="o_description" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Association Name="volunteer_opportunity_volunteer" Member="volunteers" ThisKey="o_id" OtherKey="v_oppId" Type="volunteer" />
-    </Type>
-  </Table>
   <Table Name="dbo.volunteers" Member="volunteers">
     <Type Name="volunteer">
       <Column Name="v_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -262,6 +248,20 @@
       <Column Name="end_time" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
       <Column Name="patient_limit" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="doctor_doctor_schedule" Member="doctor" ThisKey="doctor_id" OtherKey="Id" Type="doctor" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.volunteer_opportunities" Member="volunteer_opportunities">
+    <Type Name="volunteer_opportunity">
+      <Column Name="o_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="o_name" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="o_regular" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="o_date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="o_start" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="o_end" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="o_day" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="o_location" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="o_description" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Association Name="volunteer_opportunity_volunteer" Member="volunteers" ThisKey="o_id" OtherKey="v_oppId" Type="volunteer" />
     </Type>
   </Table>
 </Database>
