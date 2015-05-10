@@ -1043,6 +1043,11 @@
     <Content Include="Scripts\datepicker\lib\themes-source\_variables.less" />
     <Content Include="Scripts\datepicker\lib\translations\FORMATTING.md" />
     <Content Include="Scripts\datepicker\lib\translations\NAMING.md" />
+    <Content Include="Models\database.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>database.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Properties\PublishProfiles\temiskaming.ijeesoo.com - Web Deploy %282%29.pubxml" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\datatables.extensions\Scroller\js\dataTables.scroller.js" />
@@ -1122,11 +1127,6 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\database.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>database.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Content\ckeditor\CHANGES.md" />
     <Content Include="Content\ckeditor\LICENSE.md" />
     <Content Include="Content\ckeditor\plugins\scayt\LICENSE.md" />
