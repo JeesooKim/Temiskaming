@@ -40,7 +40,7 @@ namespace Temiskaming.Models
 
         //method: Update an opportunity selected
         //public bool commitUpdateO(int _id, string _name, DateTime _date, TimeSpan _start, TimeSpan _end, string _day, string _location, string _description)
-        public bool commitUpdateO(int _id, string _name, bool _regular, DateTime? _date, TimeSpan? _start, TimeSpan? _end, string _day, string _location, string _description)
+        public bool commitUpdateO(int _id, string _name, bool? _regular, DateTime? _date, TimeSpan? _start, TimeSpan? _end, string _day, string _location, string _description)
         {
             using(objVolunteers){
                 var objUpOpp = objVolunteers.volunteer_opportunities.SingleOrDefault(x => x.o_id == _id);

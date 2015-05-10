@@ -392,7 +392,8 @@ namespace Temiskaming.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Admin_oppUpdate([Bind(Include = "o_name, o_regular,  o_date, o_day, o_start, o_end, o_location, o_description")] int id, volunteer_opportunity opp)
+        public ActionResult Admin_oppUpdate([Bind(Include = "o_name, o_regular,  o_date,  o_start, o_end, o_day, o_location, o_description")] int id, volunteer_opportunity opp)
+       
         {
             ViewBag.Group="Admin";
 

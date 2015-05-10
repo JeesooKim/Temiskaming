@@ -30,20 +30,20 @@ namespace Temiskaming.Models
         [Required(ErrorMessage = "Please enter opportunity name")]
         public string o_name { get; set; }        
 
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:mm/dd/yy}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Schedule Date")]
-        public DateTime? o_date { get; set; }
+        //[DataType(DataType.Date)]
+        //[DisplayFormat(DataFormatString = "{0:mm/dd/yy}", ApplyFormatInEditMode = true)]
+        //[Display(Name = "Schedule Date")]
+        //public DateTime? o_date { get; set; }
+
+        ////[DataType(DataType.Time)]
+        ////[DisplayFormat(DataFormatString = "{0:h:mm TT}", ApplyFormatInEditMode = true)]
+        //[Display(Name = "Start Time")]
+        //public TimeSpan? o_start { get; set; }
 
         //[DataType(DataType.Time)]
         //[DisplayFormat(DataFormatString = "{0:h:mm TT}", ApplyFormatInEditMode = true)]
-        [Display(Name = "Start Time")]
-        public TimeSpan? o_start { get; set; }
-
-        //[DataType(DataType.Time)]
-        //[DisplayFormat(DataFormatString = "{0:h:mm TT}", ApplyFormatInEditMode = true)]
-        [Display(Name = "End Time")]
-        public TimeSpan? o_end { get; set; }
+        //[Display(Name = "End Time")]
+        //public TimeSpan? o_end { get; set; }
     }
 
     //Ref: http://stackoverflow.com/questions/17434935/jquery-time-picker-and-mvc-4-validation-the-field-must-be-a-date
