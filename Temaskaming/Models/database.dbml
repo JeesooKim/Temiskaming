@@ -20,27 +20,6 @@
       <Association Name="doctor_doctor_schedule" Member="doctor_schedules" ThisKey="Id" OtherKey="doctor_id" Type="doctor_schedule" />
     </Type>
   </Table>
-  <Table Name="dbo.appointments" Member="appointments">
-    <Type Name="appointment">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="doctor_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="booking_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="phone" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Association Name="doctor_appointment" Member="doctor" ThisKey="doctor_id" OtherKey="Id" Type="doctor" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbtemis.doctor_schedules" Member="doctor_schedules">
-    <Type Name="doctor_schedule">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="doctor_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="day" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
-      <Column Name="start_time" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
-      <Column Name="end_time" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
-      <Column Name="patient_limit" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Association Name="doctor_doctor_schedule" Member="doctor" ThisKey="doctor_id" OtherKey="Id" Type="doctor" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.volunteer_opportunities" Member="volunteer_opportunities">
     <Type Name="volunteer_opportunity">
       <Column Name="o_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -79,17 +58,6 @@
       <Column Name="Name" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
       <Column Name="Email" Type="System.String" DbType="VarChar(250) NOT NULL" CanBeNull="false" />
       <Column Name="Comment" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbtemis.polls" Member="polls">
-    <Type Name="poll">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="question" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="option1" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="option2" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
-      <Column Name="choice1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="choice2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="published" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.waittime" Member="waittimes">
@@ -171,52 +139,11 @@
       <Column Name="pass" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbtemis.ecards" Member="ecards">
-    <Type Name="ecard">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="sname" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="rname" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="mdate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="urlpath" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="emessage" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
   <Table Name="dbo.FAQ" Member="FAQs">
     <Type Name="FAQ">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Question" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="Answer" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbtemis.chat" Member="chats">
-    <Type Name="chat">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="log_file" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="nurse" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="log_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbtemis.alerts" Member="alerts">
-    <Type Name="alert">
-      <Column Name="alertId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="alertTitle" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
-      <Column Name="alertDescription" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Column Name="alertLevel" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="alertTimeline" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="alertStatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbtemis.donation" Member="donations">
-    <Type Name="donation">
-      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="first_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="last_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="email" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
-      <Column Name="amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
-      <Column Name="message" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
-      <Column Name="donation_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="verify" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.story" Member="stories">
@@ -243,7 +170,44 @@
       <Column Name="Price" Type="System.Decimal" DbType="Decimal(5,2) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbtemis.email_signups" Member="email_signups">
+  <Table Name="temismain.chat" Member="chats">
+    <Type Name="chat">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="log_file" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="nurse" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="log_date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="temismain.donation" Member="donations">
+    <Type Name="donation">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="first_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="last_name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="email" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
+      <Column Name="amount" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="message" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="donation_date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="verify" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="temismain.ecardimages" Member="ecardimages">
+    <Type Name="ecardimage">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="urlpath" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="temismain.ecards" Member="ecards">
+    <Type Name="ecard">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sname" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="rname" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="mdate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="urlpath" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="emessage" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="temismain.email_signups" Member="email_signups">
     <Type Name="email_signup">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ename" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
@@ -251,17 +215,53 @@
       <Column Name="eemail" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbtemis.ecardimages" Member="ecardimages">
-    <Type Name="ecardimage">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="urlpath" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbtemis.news" Member="news">
+  <Table Name="temismain.news" Member="news">
     <Type Name="news">
       <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="title" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
       <Column Name="content" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="temismain.polls" Member="polls">
+    <Type Name="poll">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="question" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="option1" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="option2" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="choice1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="choice2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="published" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="temismain.alerts" Member="alerts">
+    <Type Name="alert">
+      <Column Name="alertId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="alertTitle" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="alertDescription" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="alertLevel" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="alertTimeline" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="alertStatus" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="temismain.appointments" Member="appointments">
+    <Type Name="appointment">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="doctor_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="booking_date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="email" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="phone" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="doctor_appointment" Member="doctor" ThisKey="doctor_id" OtherKey="Id" Type="doctor" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="temismain.doctor_schedules" Member="doctor_schedules">
+    <Type Name="doctor_schedule">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="doctor_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="day" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="start_time" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="end_time" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="patient_limit" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="doctor_doctor_schedule" Member="doctor" ThisKey="doctor_id" OtherKey="Id" Type="doctor" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
